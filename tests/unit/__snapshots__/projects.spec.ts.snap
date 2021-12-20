@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gallery component unit tests:  is a Vue instance 1`] = `
+<div class="gallery">
+  <div class="container">
+    <article class="nano-box">
+      <row spacing="100" breakpoint="lg">
+        <column size="100%-300"><img loading="lazy" width="1050" height="551" src="https://miguel-rivas.github.io/zapp/img/preview.png" alt="Presidente 2014/12/05"></column>
+        <column size="300">
+          <h1>Presidente</h1>
+          <h2>olis</h2>
+          <h3><time>2014/12/05</time></h3>
+          <ul class="skills">
+            <li>git</li>
+          </ul>
+          <hr>
+          <ul class="navigation"></ul>
+        </column>
+      </row>
+    </article>
+  </div>
+</div>
+`;

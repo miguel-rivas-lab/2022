@@ -1,0 +1,23 @@
+name: Deploy Code
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+
+      # - name: Setup Node.js environment
+      #   uses: actions/setup-node@v2.4.1
+
+      - name: Installing dependencies
+        run: echo "Deployment script on progress"
+        # run: yarn install
+
+      # - name: Running tests
+      #   run: npm run tests
+
+      # - name: Building app
+      #   run: ./deploy.sh
