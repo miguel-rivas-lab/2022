@@ -2,14 +2,7 @@
   <scroll-area color="royal-purple">
     <row class="row-block" tag="fieldset">
       <column size="100%">
-        <legend>Animation Controllers</legend>
-
-        <number-input
-          id="outter-circle-radius"
-          :value="selection.sceneRotation"
-          label="Rotation"
-          v-on:update-value="updateSpeed($event)"
-        />
+        <legend>Scene Controllers</legend>
 
         <row>
           <column size="100%">
@@ -19,42 +12,6 @@
             >
               Cover
               <input type="checkbox" v-model="selection.cover" />
-            </label>
-          </column>
-        </row>
-
-        <row>
-          <column size="100%">
-            <label
-              class="btn flat charcoal"
-              :class="{ active: selection.grid }"
-            >
-              Grid
-              <input type="checkbox" v-model="selection.grid" />
-            </label>
-          </column>
-        </row>
-
-        <row>
-          <column size="100%">
-            <label
-              class="btn flat charcoal"
-              :class="{ active: !selection.rotateX }"
-            >
-              Rotate X
-              <input type="checkbox" v-model="selection.rotateX" />
-            </label>
-          </column>
-        </row>
-
-        <row>
-          <column size="100%">
-            <label
-              class="btn flat charcoal"
-              :class="{ active: !selection.rotateZ }"
-            >
-              Rotate Z
-              <input type="checkbox" v-model="selection.rotateZ" />
             </label>
           </column>
         </row>
@@ -85,10 +42,5 @@ export default Vue.extend({
   created() {
     this.selection = this.$store.getters.getHomeSelection;
   },
-  methods: {
-     updateSpeed(newVal) {
-      this.selection.sceneRotation = parseInt(newVal);
-    },
-  }
 });
 </script>

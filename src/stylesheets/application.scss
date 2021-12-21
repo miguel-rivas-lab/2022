@@ -1,5 +1,17 @@
 @import "~mr-kernel/scss/vue";
 
+.three-scene {
+  $hue: 245deg;
+  $saturation: 40%; 
+  background: hsl($hue $saturation 35%);
+  background: linear-gradient(175deg, hsl($hue $saturation 35%) 50%, hsl($hue $saturation 25%) 100%);
+}
+
+main.vue-theme.section-home .workarea .cover {
+  background-color: hsl(245deg 40% 25% / 80%);
+  --title-shadow: 0 0 9px hsl(245deg 50% 50%);
+}
+
 .close-btn {
   width: 100%;
   height: 100%;

@@ -10,7 +10,6 @@ import {
   formatRawDBToFirebase,
   formatGroupsToProjects,
 } from "./modules/format-db";
-import * as VueThreejs from 'vue-threejs';
 import "highlight.js/styles/tomorrow-night-bright.css";
 import './modules/google-maps';
 import axios from "axios";
@@ -53,7 +52,6 @@ analytics(firebaseApp);
 Vue.prototype.$axios = axios;
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;
-Vue.use(VueThreejs);
 
 new Vue({
   router,
