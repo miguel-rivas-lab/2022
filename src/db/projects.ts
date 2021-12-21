@@ -12,12 +12,86 @@ const linkWeb = (item) => `https://${users.media.github.production}.github.io/${
 const linkGithub = (item) => `https://github.com/${users.media.github.production}/${item}`;
 const linkCodepen = (item) => `https://codepen.io/${users.media.codepen.user}/pen/${item}`;
 const linkVimeo = (id) => `https://player.vimeo.com/video/${id}`;
-// const linkGithubDev = (item) => `https://github.com/${users.media.github.development}/${item}-dev`;
-
 
 type ProjectsType = Array<ProjectFirebase>;
 
 const projects: ProjectsType = [
+
+  {
+    date: "2008/12/05",
+    title: "Falling Code / Game",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.itesa,
+    ],
+    tools: [
+      toolEnum.vb,
+    ],
+    links: [
+      {
+        url: linkGithub("visualbasic"),
+        text: "Github",
+        self: false,
+      },
+    ],
+  },
+  {
+    date: "2008/11/11",
+    title: "Bouncing Shapes",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.itesa,
+    ],
+    tools: [
+      toolEnum.vb,
+    ],
+    links: [
+      {
+        url: linkGithub("visualbasic"),
+        text: "Github",
+        self: false,
+      },
+    ],
+    children: [
+      h.getNewID(client.itesa, "2006/01/01"),
+    ],
+  },
+  {
+    date: "2008/05/16",
+    title: "Analog Clock",
+    types: [
+      typeEnum.app,
+    ],
+    disabled: true,
+    roles: [
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.itesa,
+    ],
+    tools: [
+      toolEnum.vb,
+    ],
+    links: [
+      {
+        url: linkGithub("visualbasic"),
+        text: "Github",
+        self: false,
+      },
+    ],
+  },
   {
     date: "2004/01/01",
     title: "ATM",
@@ -85,7 +159,7 @@ const projects: ProjectsType = [
     ],
   },
   {
-    date: "2004/01/04",
+    date: "2005/10/04",
     title: "Fibonacci Sequence",
     types: [
       typeEnum.app,
@@ -133,8 +207,8 @@ const projects: ProjectsType = [
     ],
   },
   {
-    date: "2004/01/06",
-    title: "Guessing Random Number",
+    date: "2005/09/28",
+    title: "Random Number",
     types: [
       typeEnum.app,
     ],
@@ -157,7 +231,7 @@ const projects: ProjectsType = [
     ],
   },
   {
-    date: "2005/01/01",
+    date: "2007/09/04",
     title: "Pacman Pixel Draw",
     types: [
       typeEnum.app,
@@ -178,25 +252,7 @@ const projects: ProjectsType = [
     ],
   },
   {
-    date: "2006/01/01",
-    title: "Analog Clock",
-    types: [
-      typeEnum.app,
-    ],
-    disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
-    clients: [
-      clientEnum.itesa,
-    ],
-    tools: [
-      toolEnum.vb,
-    ],
-    links: [],
-  },
-  {
-    date: "2006/01/02",
+    date: "2008/05/16",
     title: "Tetravex",
     types: [
       typeEnum.app,
@@ -214,7 +270,7 @@ const projects: ProjectsType = [
     links: [],
   },
   {
-    date: "2006/01/03",
+    date: "2008/05/16",
     title: "Minesweeper",
     types: [
       typeEnum.app,
@@ -232,47 +288,8 @@ const projects: ProjectsType = [
     links: [],
   },
   {
-    date: "2006/01/04",
-    title: "Bouncing Shapes",
-    types: [
-      typeEnum.app,
-    ],
-    disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
-    clients: [
-      clientEnum.itesa,
-    ],
-    tools: [
-      toolEnum.vb,
-    ],
-    links: [],
-    children: [
-      h.getNewID(client.itesa, "2006/01/01"),
-    ],
-  },
-  {
     date: "2006/01/05",
     title: "Falling Code / Matrix Effect",
-    types: [
-      typeEnum.app,
-    ],
-    disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
-    clients: [
-      clientEnum.itesa,
-    ],
-    tools: [
-      toolEnum.vb,
-    ],
-    links: [],
-  },
-  {
-    date: "2006/01/06",
-    title: "Falling Letters / Game",
     types: [
       typeEnum.app,
     ],
