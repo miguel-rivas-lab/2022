@@ -4,6 +4,13 @@
       <column size="100%">
         <legend>Scene Controllers</legend>
 
+        <number-input
+          id="outter-circle-radius"
+          :value="selection.sceneRotation"
+          label="Rotation"
+          v-on:update-value="updateSpeed($event)"
+        />
+
         <row>
           <column size="100%">
             <label
@@ -42,5 +49,10 @@ export default Vue.extend({
   created() {
     this.selection = this.$store.getters.getHomeSelection;
   },
+  methods: {
+     updateSpeed(newVal) {
+      this.selection.sceneRotation = parseInt(newVal);
+    },
+  }
 });
 </script>
