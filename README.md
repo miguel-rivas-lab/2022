@@ -1,6 +1,6 @@
 ## Add upstream
 ```sh
-git remote add upstream git@github.com:miguel-rivas/2021-vue.git
+git remote add upstream git@github.com:miguel-rivas/2022-vue.git
 ```
 
 ## Project setup
