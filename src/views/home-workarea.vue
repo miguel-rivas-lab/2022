@@ -30,7 +30,6 @@ export default Vue.extend({
     scene: undefined,
     camera: undefined,
     renderer: undefined,
-    linesGroup: undefined,
     selection: {},
     sceneControls: function () {
       this.zoom = 100;
@@ -109,7 +108,13 @@ export default Vue.extend({
       this.camera.updateProjectionMatrix();
     },
     render() {
+      if (this.controls) {
+        this.controls.update();
+      }
       requestAnimationFrame(this.render);
+      if (!this.selection.rotateY) {
+        this.scene.rotation.y += this.selection.sceneRotation * 0.01;
+      }
       this.renderer.render(this.scene, this.camera);
     },
     buildGeometry() {
@@ -127,6 +132,9 @@ export default Vue.extend({
           }
         );
       })(this.scene);
+    },
+    updateSpeed(newVal) {
+      this.selection.sceneRotation = parseInt(newVal);
     },
   },
   mounted() {
