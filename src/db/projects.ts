@@ -16,7 +16,6 @@ const linkVimeo = (id) => `https://player.vimeo.com/video/${id}`;
 type ProjectsType = Array<ProjectFirebase>;
 
 const projects: ProjectsType = [
-
   {
     date: "2008/12/05",
     title: "Falling Code / Game",
@@ -65,7 +64,7 @@ const projects: ProjectsType = [
       },
     ],
     children: [
-      h.getNewID(client.itesa, "2006/01/01"),
+      h.getNewID(client.itesa, "2008/05/16"),
     ],
   },
   {
@@ -252,7 +251,7 @@ const projects: ProjectsType = [
     ],
   },
   {
-    date: "2008/05/16",
+    date: "2008/05/17",
     title: "Tetravex",
     types: [
       typeEnum.app,
@@ -270,7 +269,7 @@ const projects: ProjectsType = [
     links: [],
   },
   {
-    date: "2008/05/16",
+    date: "2008/05/18",
     title: "Minesweeper",
     types: [
       typeEnum.app,
@@ -1622,7 +1621,7 @@ const projects: ProjectsType = [
       { url: linkCodepen("yNJJpG"), text: "Codepen Prototype" },
     ],
     children: [
-      h.getNewID(client.itesa, "2006/01/01"),
+      h.getNewID(client.itesa, "2008/05/16"),
     ],
   },
   {
