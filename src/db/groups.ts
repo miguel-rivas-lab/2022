@@ -12,6 +12,7 @@ type GroupsType = Array<Group>;
 const groups: GroupsType = [
   {
     date: "2004/01/01",
+    slides: 0,
     disabled: false,
     clients: [
       clientEnum.itesa,
@@ -80,6 +81,7 @@ const groups: GroupsType = [
   },
   {
     date: "2015/05/13",
+    slides: 0,
     types: [
       typeEnum.group,
     ],
@@ -114,6 +116,7 @@ const groups: GroupsType = [
   },
   {
     date: "2009/09/01",
+    slides: 0,
     disabled: false,
     description: "Associates of Arts, Multimedia",
     list: [
@@ -184,6 +187,7 @@ const groups: GroupsType = [
   },
   {
     date: "2013/01/01",
+    slides: 0,
     disabled: true,
     description: "Graphic Designer",
     types: [
@@ -209,6 +213,7 @@ const groups: GroupsType = [
   },
   {
     date: "2013/05/01",
+    slides: 0,
     disabled: false,
     description: "Web Designer",
     list: [
@@ -246,6 +251,7 @@ const groups: GroupsType = [
   },
   {
     date: "2014/06/01",
+    slides: 0,
     disabled: false,
     types: [
       typeEnum.group,
@@ -278,6 +284,7 @@ const groups: GroupsType = [
   },
   {
     date: "2014/05/01",
+    slides: 0,
     disabled: false,
     description: "Frontend Developer",
     list: [
@@ -332,6 +339,7 @@ const groups: GroupsType = [
   },
   {
     date: "2016/01/01",
+    slides: 0,
     disabled: false,
     description: "Frontend Developer",
     list: [
@@ -378,6 +386,7 @@ const groups: GroupsType = [
   },
   {
     date: "2013/07/15",
+    slides: 0,
     disabled: false,
     description: "Web Designer",
     list: [
@@ -417,6 +426,7 @@ const groups: GroupsType = [
   },
   {
     date: "2017/07/01",
+    slides: 0,
     disabled: false,
     description: "Graphic Web Designer",
     list: [
@@ -457,6 +467,7 @@ const groups: GroupsType = [
   },
   {
     date: "2021/03/29",
+    slides: 0,
     disabled: false,
     description: "Frontend Developer",
     list: [
@@ -494,6 +505,7 @@ const groups: GroupsType = [
   },
   {
     date: "2018/04/01",
+    slides: 0,
     disabled: false,
     description: "Frontend Developer",
     list: [

@@ -5,12 +5,17 @@
         <article v-bind:key="projectIndex" class="nano-box">
           <row :spacing="100" breakpoint="lg">
             <column size="60%">
-              <img
-                width="1050"
-                height="551"
-                :src="project.image"
-                :alt="`${project.clients.join(' & ')} ${project.date}`"
-              />
+              <template v-if="project.slides < 1">
+                <img
+                  width="1050"
+                  height="551"
+                  :src="project.image"
+                  :alt="`${project.clients.join(' & ')} ${project.date}`"
+                />
+              </template>
+              <template v-else>
+                <slider :project="project" />
+              </template>
             </column>
             <column size="40%">
               <scroll-area color="royal-purple">
@@ -86,10 +91,11 @@
 <script lang="ts">
 import Vue from "vue";
 import summaryRow from "./summary.vue";
+import slider from "./slider.vue";
 import helpers from "mr-kernel/modules/helpers";
 
 export default Vue.extend({
-  components: { summaryRow },
+  components: { summaryRow, slider },
   props: {
     db: {
       type: Array,

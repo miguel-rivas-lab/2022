@@ -18,6 +18,7 @@ type ProjectsType = Array<ProjectFirebase>;
 const projects: ProjectsType = [
   {
     date: "2008/12/05",
+    slides: 0,
     title: "Falling Code / Game",
     types: [
       typeEnum.app,
@@ -42,6 +43,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2008/11/11",
+    slides: 0,
     title: "Bouncing Shapes",
     types: [
       typeEnum.app,
@@ -69,6 +71,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2008/05/16",
+    slides: 0,
     title: "Analog Clock",
     types: [
       typeEnum.app,
@@ -93,6 +96,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2004/01/01",
+    slides: 0,
     title: "ATM",
     types: [
       typeEnum.app,
@@ -117,6 +121,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2004/01/02",
+    slides: 0,
     title: "Bubble Sort",
     types: [
       typeEnum.app,
@@ -135,6 +140,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2004/01/03",
+    slides: 0,
     title: "Infinite Menu",
     types: [
       typeEnum.app,
@@ -159,6 +165,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2005/10/04",
+    slides: 0,
     title: "Fibonacci Sequence",
     types: [
       typeEnum.app,
@@ -183,6 +190,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2004/01/05",
+    slides: 0,
     title: "Summatory / Accumulator",
     types: [
       typeEnum.app,
@@ -207,6 +215,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2005/09/28",
+    slides: 0,
     title: "Random Number",
     types: [
       typeEnum.app,
@@ -231,6 +240,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2007/09/04",
+    slides: 0,
     title: "Pacman Pixel Draw",
     types: [
       typeEnum.app,
@@ -252,6 +262,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2008/05/17",
+    slides: 0,
     title: "Tetravex",
     types: [
       typeEnum.app,
@@ -270,6 +281,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2008/05/18",
+    slides: 0,
     title: "Minesweeper",
     types: [
       typeEnum.app,
@@ -288,6 +300,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2006/01/05",
+    slides: 0,
     title: "Falling Code / Matrix Effect",
     types: [
       typeEnum.app,
@@ -306,6 +319,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/12/06",
+    slides: 0,
     title: "Pasteleria Del Jardin",
     types: [
       typeEnum.socialMedia,
@@ -330,6 +344,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/06/18",
+    slides: 0,
     title: "Lanza tu Promo",
     types: [
       typeEnum.socialMedia,
@@ -354,6 +369,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/05/28",
+    slides: 0,
     title: "Audrey Hepburn",
     types: [
       typeEnum.document,
@@ -378,6 +394,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/03/21",
+    slides: 0,
     title: "Audio 2",
     types: [
       typeEnum.document,
@@ -402,6 +419,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/11/26",
+    slides: 0,
     title: "Beauty is a Beast",
     types: [
       typeEnum.document,
@@ -426,6 +444,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/10/24",
+    slides: 0,
     title: "Linux Grub",
     types: [
       typeEnum.document,
@@ -450,6 +469,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2019/07/10",
+    slides: 0,
     title: "Play Sound",
     types: [
       typeEnum.prototype,
@@ -473,6 +493,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2020/08/08",
+    slides: 0,
     title: "Switch",
     types: [
       typeEnum.prototype,
@@ -497,6 +518,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2020/06/17",
+    slides: 0,
     title: "Toggle Arrow",
     types: [
       typeEnum.prototype,
@@ -521,6 +543,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2020/08/18",
+    slides: 0,
     title: "Range Slider",
     types: [
       typeEnum.prototype,
@@ -545,6 +568,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/07/17",
+    slides: 0,
     title: "Madre Naturaleza",
     types: [
       typeEnum.document,
@@ -569,6 +593,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/04/24",
+    slides: 0,
     title: "El Montaje",
     types: [
       typeEnum.document,
@@ -594,6 +619,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/02/22",
+    slides: 0,
     title: "Transformer",
     types: [
       typeEnum.document,
@@ -618,6 +644,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2009/04/27",
+    slides: 0,
     title: "Flygon",
     types: [
       typeEnum.document,
@@ -642,6 +669,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/12/12",
+    slides: 0,
     title: "Baká",
     types: [
       typeEnum.document,
@@ -672,6 +700,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/06/14",
+    slides: 0,
     title: "Le Machine",
     types: [
       typeEnum.document,
@@ -696,6 +725,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/01/16",
+    slides: 0,
     title: "Stars",
     types: [
       typeEnum.document,
@@ -723,6 +753,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/06/25",
+    slides: 0,
     title: "Water Matters",
     types: [
       typeEnum.document,
@@ -747,6 +778,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/06/21",
+    slides: 0,
     title: "Wickhop",
     types: [
       typeEnum.document,
@@ -771,6 +803,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/04/29",
+    slides: 0,
     title: "Corel Draw",
     types: [
       typeEnum.document,
@@ -795,6 +828,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/08/03",
+    slides: 0,
     title: "MP4",
     types: [
       typeEnum.document,
@@ -820,6 +854,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/04/25",
+    slides: 0,
     title: "Dream",
     types: [
       typeEnum.document,
@@ -844,6 +879,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2010/12/27",
+    slides: 0,
     title: "Lapices de Colores",
     types: [
       typeEnum.document,
@@ -868,6 +904,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/07/14",
+    slides: 0,
     title: "Living Walls",
     types: [
       typeEnum.graphicDesign,
@@ -892,6 +929,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/08/23",
+    slides: 0,
     title: "Tambora",
     types: [
       typeEnum.document,
@@ -917,6 +955,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/09/20",
+    slides: 0,
     title: "T-Magazine",
     types: [
       typeEnum.document,
@@ -941,6 +980,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/11/30",
+    slides: 0,
     title: "AguacateKun Identidad",
     types: [
       typeEnum.document,
@@ -967,6 +1007,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/01/20",
+    slides: 0,
     title: "Libro de Cuentos",
     types: [
       typeEnum.graphicDesign,
@@ -996,6 +1037,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/12/03",
+    slides: 0,
     title: "Vacaciones Navideñas",
     types: [
       typeEnum.socialMedia,
@@ -1020,6 +1062,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/08/03",
+    slides: 0,
     title: "Social Network Facebook",
     types: [
       typeEnum.socialMedia,
@@ -1044,6 +1087,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/07/06",
+    slides: 0,
     title: "Facebook App",
     types: [
       typeEnum.graphicDesign,
@@ -1068,6 +1112,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/07/05",
+    slides: 0,
     title: "Home Gallery Facebook",
     types: [
       typeEnum.socialMedia,
@@ -1092,6 +1137,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/07/05",
+    slides: 0,
     title: "SDQ Training Center Facebook",
     types: [
       typeEnum.socialMedia,
@@ -1116,6 +1162,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/06/27",
+    slides: 0,
     title: "Harina Blaquita Facebook",
     types: [
       typeEnum.socialMedia,
@@ -1141,6 +1188,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/12/29",
+    slides: 0,
     title: "Jenny Aquino",
     types: [
       typeEnum.graphicDesign,
@@ -1165,6 +1213,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/10/12",
+    slides: 0,
     title: "Blindness Poster",
     types: [
       typeEnum.graphicDesign,
@@ -1189,6 +1238,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/09/13",
+    slides: 0,
     title: "Diseño de Productos",
     types: [
       typeEnum.document,
@@ -1213,6 +1263,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/04/16",
+    slides: 0,
     title: "Raspberry Pi C",
     types: [
       typeEnum.graphicDesign,
@@ -1237,6 +1288,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/02/28",
+    slides: 0,
     title: "Maggiver",
     types: [
       typeEnum.document,
@@ -1261,6 +1313,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2013/12/15",
+    slides: 0,
     title: "Badges",
     types: [
       typeEnum.graphicDesign,
@@ -1286,6 +1339,7 @@ const projects: ProjectsType = [
 
   {
     date: "2012/10/26",
+    slides: 0,
     title: "Print Portfolio",
     types: [
       typeEnum.document,
@@ -1370,6 +1424,7 @@ const projects: ProjectsType = [
 
   {
     date: "2015/01/03",
+    slides: 0,
     title: "Mainfront",
     types: [
       typeEnum.app,
@@ -1404,6 +1459,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/04/19",
+    slides: 0,
     title: "CSS Study",
     types: [
       typeEnum.app,
@@ -1438,6 +1494,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/03/24",
+    slides: 0,
     title: "Hello",
     types: [
       typeEnum.app,
@@ -1496,6 +1553,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/04/26",
+    slides: 0,
     title: "Evolution of the Web",
     types: [
       typeEnum.app,
@@ -1529,6 +1587,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/14",
+    slides: 0,
     title: "Robotic Screen",
     types: [
       typeEnum.prototype,
@@ -1555,6 +1614,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/23",
+    slides: 0,
     title: "Mini Van",
     types: [
       typeEnum.prototype,
@@ -1577,6 +1637,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/25",
+    slides: 0,
     title: "Windows Form",
     types: [
       typeEnum.prototype,
@@ -1600,6 +1661,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/28",
+    slides: 0,
     title: "Gear Builder",
     types: [
       typeEnum.prototype,
@@ -1626,6 +1688,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/12/07",
+    slides: 0,
     title: "SVG 101",
     types: [
       typeEnum.prototype,
@@ -1660,6 +1723,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/12/22",
+    slides: 0,
     title: "Tetravex",
     types: [
       typeEnum.app,
@@ -1697,6 +1761,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2017/02/20",
+    slides: 0,
     title: "Pills",
     types: [
       typeEnum.prototype,
@@ -1719,6 +1784,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2010/07/07",
+    slides: 0,
     title: "French Toast",
     disabled: true,
     types: [
@@ -1744,6 +1810,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/07/24",
+    slides: 0,
     title: "La Guerra de Vectores",
     types: [
       typeEnum.motionGraphics,
@@ -1768,6 +1835,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/11/21",
+    slides: 0,
     title: "Wurlex",
     types: [
       typeEnum.animation3D,
@@ -1795,6 +1863,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2014/02/09",
+    slides: 0,
     title: "Screens Portfolio",
     types: [
       typeEnum.app,
@@ -1833,6 +1902,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/08/11",
+    slides: 0,
     title: "Monster Portfolio",
     types: [
       typeEnum.app,
@@ -1866,6 +1936,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/08/12",
+    slides: 0,
     title: "Vue Portfolio",
     types: [
       typeEnum.app,
@@ -1915,6 +1986,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2018/01/01",
+    slides: 0,
     title: "Grid Portfolio",
     types: [
       typeEnum.app,
@@ -1979,6 +2051,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/01/11",
+    slides: 0,
     title: "HTML/LOVE",
     types: [
       typeEnum.landingPage,
@@ -2012,6 +2085,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/03/22",
+    slides: 0,
     title: "Nano Grid",
     types: [
       typeEnum.module,
@@ -2047,6 +2121,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/09/12",
+    slides: 0,
     title: "MR Kernel",
     types: [
       typeEnum.module,
@@ -2078,6 +2153,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/09/26",
+    slides: 0,
     title: "Tips of Design",
     types: [
       typeEnum.document,
@@ -2095,6 +2171,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2017/03/05",
+    slides: 0,
     title: "Art Direction",
     types: [
       typeEnum.document,
@@ -2114,6 +2191,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/10",
+    slides: 0,
     title: "Bootstrap Prototype",
     types: [
       typeEnum.landingPage,
@@ -2135,6 +2213,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/03/26",
+    slides: 0,
     title: "3D Viewer",
     types: [
       typeEnum.app,
@@ -2178,6 +2257,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2017/01/01",
+    slides: 0,
     title: "FlatCSS",
     types: [
       typeEnum.module,
@@ -2210,6 +2290,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2020/10/04",
+    slides: 0,
     title: "Fake Audience",
     types: [
       typeEnum.app,
@@ -2235,6 +2316,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/02/27",
+    slides: 0,
     title: "3D Graph Colors",
     types: [
       typeEnum.prototype,
@@ -2258,6 +2340,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2020/05/09",
+    slides: 0,
     title: "Animated SVG Header",
     types: [
       typeEnum.prototype,
@@ -2283,6 +2366,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2020/03/23",
+    slides: 0,
     title: "Xpinner",
     types: [
       typeEnum.prototype,
@@ -2307,6 +2391,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2018/06/27",
+    slides: 0,
     title: "Color Wheel Creator",
     types: [
       typeEnum.prototype,
@@ -2331,6 +2416,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2018/09/11",
+    slides: 0,
     title: "Movie projector",
     types: [
       typeEnum.prototype,
@@ -2355,6 +2441,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2018/05/31",
+    slides: 0,
     title: "Check Animation",
     types: [
       typeEnum.prototype,
@@ -2379,6 +2466,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2018/03/28",
+    slides: 0,
     title: "Bounce Animation",
     types: [
       typeEnum.prototype,
@@ -2402,6 +2490,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/29",
+    slides: 0,
     title: "Spinners",
     types: [
       typeEnum.prototype,
@@ -2426,6 +2515,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2012/11/06",
+    slides: 0,
     title: "Drakkar",
     types: [
       typeEnum.animation3D,
@@ -2450,6 +2540,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/12/05",
+    slides: 0,
     title: "Reloj",
     types: [
       typeEnum.animation3D,
@@ -2474,6 +2565,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/11/15",
+    slides: 0,
     title: "Pencil Sharpener",
     types: [
       typeEnum.animation3D,
@@ -2498,6 +2590,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/11/18",
+    slides: 0,
     title: "Batteries: depth of field",
     types: [
       typeEnum.animation3D,
@@ -2522,6 +2615,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/07/25",
+    slides: 0,
     title: "Audi",
     types: [
       typeEnum.animation3D,
@@ -2546,6 +2640,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/07/31",
+    slides: 0,
     title: "Mackbook Pro",
     types: [
       typeEnum.animation3D,
@@ -2570,6 +2665,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/06/22",
+    slides: 0,
     title: "Backpack",
     types: [
       typeEnum.animation3D,
@@ -2594,6 +2690,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2011/07/06",
+    slides: 0,
     title: "X-wing",
     types: [
       typeEnum.animation3D,
@@ -2618,6 +2715,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2014/06/16",
+    slides: 0,
     title: "Destapa el Coro",
     types: [
       typeEnum.app,
@@ -2651,6 +2749,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/03/30",
+    slides: 0,
     title: "Pacman",
     disabled: true,
     types: [
@@ -2675,6 +2774,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/03/24",
+    slides: 0,
     title: "BigPapi Selfie",
     types: [
       typeEnum.motionGraphics,
@@ -2699,6 +2799,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/04/18",
+    slides: 0,
     title: "Carnaval Presidente 2015",
     types: [
       typeEnum.landingPage,
@@ -2738,6 +2839,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/20",
+    slides: 0,
     title: "Recarga Con RedRock",
     types: [
       typeEnum.motionGraphics,
@@ -2762,6 +2864,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/10/23",
+    slides: 0,
     title: "Retrobrindis",
     types: [
       typeEnum.app,
@@ -2795,6 +2898,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/11/12",
+    slides: 0,
     title: "Mineriza a tu Familia",
     types: [
       typeEnum.app,
@@ -2829,6 +2933,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2017/04/04",
+    slides: 0,
     title: "Promo",
     types: [
       typeEnum.motionGraphics,
@@ -2854,6 +2959,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/12/16",
+    slides: 0,
     title: "Verano Presidente 2015",
     types: [
       typeEnum.prototype,
@@ -2891,6 +2997,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/02/22",
+    slides: 0,
     title: "Website",
     types: [
       typeEnum.app,
@@ -2948,6 +3055,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2017/03/06",
+    slides: 0,
     title: "Promo",
     types: [
       typeEnum.animation3D,
@@ -2972,6 +3080,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/03/08",
+    slides: 0,
     title: "Terms and Conditions",
     types: [
       typeEnum.document,
@@ -2989,6 +3098,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/06/16",
+    slides: 0,
     title: "Server Prompt",
     types: [
       typeEnum.prototype,
@@ -3028,6 +3138,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/06/30",
+    slides: 0,
     title: "Animated Header",
     types: [
       typeEnum.prototype,
@@ -3062,6 +3173,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/27",
+    slides: 0,
     title: "Orange Reel",
     types: [
       typeEnum.motionGraphics,
@@ -3092,6 +3204,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/03/22",
+    slides: 0,
     title: "Essentials",
     types: [
       typeEnum.motionGraphics,
@@ -3109,6 +3222,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/03/24",
+    slides: 0,
     title: "Selfie",
     types: [
       typeEnum.motionGraphics,
@@ -3126,6 +3240,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/04/24",
+    slides: 0,
     title: "Café",
     types: [
       typeEnum.motionGraphics,
@@ -3143,6 +3258,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/22",
+    slides: 0,
     title: "Día de las Madres",
     types: [
       typeEnum.motionGraphics,
@@ -3160,6 +3276,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/03/31",
+    slides: 0,
     title: "Snorkeling",
     types: [
       typeEnum.motionGraphics,
@@ -3177,6 +3294,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2014/01/14",
+    slides: 0,
     title: "Descubria Website",
     types: [
       typeEnum.app,
@@ -3209,6 +3327,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2014/08/06",
+    slides: 0,
     title: "Server Prompt",
     types: [
       typeEnum.prototype,
@@ -3242,6 +3361,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/10/28",
+    slides: 0,
     title: "Test",
     types: [
       typeEnum.landingPage,
@@ -3280,6 +3400,7 @@ const projects: ProjectsType = [
     ],
     title: "Destapa el Coro: User Flow",
     date: "2014/06/02",
+    slides: 0,
     tools: [
       toolEnum.illustrator,
     ],
@@ -3293,6 +3414,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2020/05/05",
+    slides: 0,
     title: "Popkern",
     types: [
       typeEnum.app,
@@ -3325,6 +3447,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2017/09/20",
+    slides: 0,
     title: "Lemon Deal",
     types: [
       typeEnum.landingPage,
@@ -3347,6 +3470,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2017/12/01",
+    slides: 0,
     title: "25 Days of Christmas",
     types: [
       typeEnum.landingPage,
@@ -3368,6 +3492,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/08/03",
+    slides: 0,
     title: "SIP",
     types: [
       typeEnum.app,
@@ -3387,6 +3512,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2014/10/18",
+    slides: 0,
     title: "Presidente Photo Assignmet",
     types: [
       typeEnum.app,
@@ -3408,6 +3534,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2014/11/05",
+    slides: 0,
     title: "Pronosticos: Wireframe",
     types: [
       typeEnum.wireFrame,
@@ -3425,6 +3552,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/01/29",
+    slides: 0,
     title: "Shop.pr",
     types: [
       typeEnum.document,
@@ -3442,6 +3570,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2017/08/04",
+    slides: 0,
     title: "Chakras",
     disabled: true,
     types: [
@@ -3460,6 +3589,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/02/18",
+    slides: 0,
     title: "BPR Bank",
     types: [
       typeEnum.app,
@@ -3482,6 +3612,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2016/06/24",
+    slides: 0,
     title: "Social Media Posts",
     types: [
       typeEnum.socialMedia,
@@ -3500,6 +3631,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2019/01/01",
+    slides: 0,
     title: "MSEC Financial Disclosures Portal",
     types: [
       typeEnum.app,
@@ -3530,6 +3662,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2018/05/01",
+    slides: 0,
     title: "MDA Vetboard Portal",
     types: [
       typeEnum.app,
@@ -3560,6 +3693,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2018/06/25",
+    slides: 0,
     title: "Maryland Onestop",
     types: [
       typeEnum.app,
@@ -3584,6 +3718,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2018/09/04",
+    slides: 0,
     title: "Formability",
     types: [
       typeEnum.app,
@@ -3635,6 +3770,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/06/21",
+    slides: 0,
     title: "Connections Academy",
     types: [
       typeEnum.app,
@@ -3657,6 +3793,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/11/08",
+    slides: 0,
     title: "Bitmap Creator",
     types: [
       typeEnum.app,
@@ -3687,6 +3824,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2021/11/14",
+    slides: 0,
     title: "Monster 3D",
     types: [
       typeEnum.animation3D,
@@ -3710,6 +3848,94 @@ const projects: ProjectsType = [
       {
         url: "https://sketchfab.com/3d-models/404-section-4752fcc0d7714e7fbec4747a2fe10ba9",
         text: "404 section",
+        self: false,
+      },
+    ],
+  },
+  {
+    date: "2021/12/21",
+    slides: 0,
+    title: "Kaspar Island",
+    types: [
+      typeEnum.animation3D,
+    ],
+    roles: [
+      roleEnum.design,
+    ],
+    disabled: true,
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    tools: [
+      toolEnum.blender,
+    ],
+    links: [],
+  },
+  {
+    date: "2021/12/30",
+    slides: 0,
+    title: "Iqra Island",
+    types: [
+      typeEnum.animation3D,
+    ],
+    roles: [
+      roleEnum.design,
+    ],
+    disabled: true,
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    tools: [
+      toolEnum.blender,
+    ],
+    links: [],
+  },
+  {
+    date: "2021/12/10",
+    slides: 0,
+    title: "Goose",
+    types: [
+      typeEnum.animation3D,
+    ],
+    roles: [
+      roleEnum.design,
+    ],
+    disabled: true,
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    tools: [
+      toolEnum.blender,
+    ],
+    links: [],
+  },
+  {
+    date: "2022/01/05",
+    slides: 5,
+    title: "MR Universe",
+    types: [
+      typeEnum.animation3D,
+    ],
+    roles: [
+      roleEnum.design,
+    ],
+    disabled: false,
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    tools: [
+      toolEnum.unity,
+    ],
+    children: [
+      h.getNewID(client.miguelRivas, "2021/11/14"),
+      h.getNewID(client.miguelRivas, "2021/12/10"),
+      h.getNewID(client.miguelRivas, "2021/12/21"),
+      h.getNewID(client.miguelRivas, "2021/12/30"),
+    ],
+    links: [
+      {
+        url: "https://play.google.com/store/apps/details?id=com.miguelrivas.github.io.MRUniverse",
+        text: "Google Play",
         self: false,
       },
     ],

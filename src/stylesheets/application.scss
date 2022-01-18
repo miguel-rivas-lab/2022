@@ -108,3 +108,22 @@ main.section-locations {
     background-image: url("../img/clouds.svg");
   }
 }
+
+/*------------------------*/
+
+.slider {
+  .controllers {
+    position: relative;
+    text-align: center;
+    top: -20px;
+  }
+  img {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  .btn {
+    display: inline-block;
+  }
+}
