@@ -1,0 +1,11 @@
+main.universe {
+  .nano-app {
+    .panel,
+    .workarea {
+      &,
+      * {
+        animation: chaos 15s linear infinite;
+      }
+    }
+  }
+}

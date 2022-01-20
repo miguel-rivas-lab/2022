@@ -1,12 +1,12 @@
-import { toolEnum } from "mr-kernel/enums/tools";
-import { roleEnum } from "mr-kernel/enums/roles";
-import { typeEnum } from "mr-kernel/enums/types";
-import { client, clientEnum } from "mr-kernel/enums/clients";
-import { ProjectFirebase } from "mr-kernel/interfaces/project-firebase";
+import { toolEnum } from "../enums/tools";
+import { roleEnum } from "../enums/roles";
+import { typeEnum } from "../enums/types";
+import { client, clientEnum } from "../enums/clients";
+import { ProjectFirebase } from "../interfaces/project-firebase";
 import { sortByDate } from "../modules/format-db";
 import { users } from "./users";
 
-import h from "mr-kernel/modules/helpers";
+import h from "../modules/helpers";
 
 const linkWeb = (item) => `https://${users.media.github.production}.github.io/${item}`;
 const linkGithub = (item) => `https://github.com/${users.media.github.production}/${item}`;

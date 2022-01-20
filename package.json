@@ -15,7 +15,7 @@
     "core-js": "^3.6.5",
     "firebase": "^7.24.0",
     "highlight.js": "^11.2.0",
-    "mr-kernel": "file:../../app_web_module_mrkernel",
+    "@fontsource/montserrat": "^4.2.2",
     "nano-grid": "file:../../app_web_module_nanogrid",
     "three": "^0.131.3",
     "vue": "^2.6.11",

@@ -17,8 +17,8 @@
 <script lang="ts">
 import Vue from "vue";
 import Gallery from "../components/gallery.vue";
-import { client } from "mr-kernel/enums/clients";
-import { Project } from "mr-kernel/interfaces/project";
+import { client } from "../enums/clients";
+import { Project } from "../interfaces/project";
 import { sortByDate } from "../modules/format-db";
 
 export default Vue.extend({

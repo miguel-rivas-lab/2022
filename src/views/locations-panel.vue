@@ -106,7 +106,7 @@
 <script lang="ts">
 import Vue from "vue";
 import toggleRow from "../components/toggle-row.vue";
-import { type } from "mr-kernel/enums/types";
+import { type } from "../enums/types";
 
 export default Vue.extend({
   components: { toggleRow },

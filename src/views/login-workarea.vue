@@ -75,8 +75,8 @@ import "firebase/auth";
 import "firebase/firestore";
 import { mapGetters } from "vuex";
 import { projectsDB } from "../db/projects";
-import h from "mr-kernel/modules/helpers";
-import { client, clientEnum } from "mr-kernel/enums/clients";
+import h from "../modules/helpers";
+import { client, clientEnum } from "../enums/clients";
 import { formatRawDBToFirebase } from "../modules/format-db";
 
 const db = firebaseApp.firestore();

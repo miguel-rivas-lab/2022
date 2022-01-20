@@ -1,9 +1,9 @@
 import '@/modules/commons';
 
-import { tool, toolEnum } from "mr-kernel/enums/tools";
-import { role, roleEnum } from "mr-kernel/enums/roles";
-import { client, clientEnum } from "mr-kernel/enums/clients";
-import { type, typeEnum } from "mr-kernel/enums/types";
+import { tool, toolEnum } from "@/enums/tools";
+import { role, roleEnum } from "@/enums/roles";
+import { client, clientEnum } from "@/enums/clients";
+import { type, typeEnum } from "@/enums/types";
 
 import { mount } from "@vue/test-utils";
 import Gallery from "@/components/gallery.vue";

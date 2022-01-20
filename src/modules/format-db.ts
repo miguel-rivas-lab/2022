@@ -1,13 +1,13 @@
-import helpers from "mr-kernel/modules/helpers";
+import helpers from "../modules/helpers";
 
 // ---------------- Enums
 
-import { tool, toolEnum } from "mr-kernel/enums/tools";
-import { role, roleEnum } from "mr-kernel/enums/roles";
-import { type, typeEnum } from "mr-kernel/enums/types";
-import { client, clientEnum } from "mr-kernel/enums/clients";
+import { tool, toolEnum } from "../enums/tools";
+import { role, roleEnum } from "../enums/roles";
+import { type, typeEnum } from "../enums/types";
+import { client, clientEnum } from "../enums/clients";
 
-import { ProjectFirebase } from "mr-kernel/interfaces/project-firebase";
+import { ProjectFirebase } from "../interfaces/project-firebase";
 
 interface ProjectLinkComb {
   url: string;

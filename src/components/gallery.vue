@@ -92,7 +92,7 @@
 import Vue from "vue";
 import summaryRow from "./summary.vue";
 import slider from "./slider.vue";
-import helpers from "mr-kernel/modules/helpers";
+import helpers from "../modules/helpers";
 
 export default Vue.extend({
   components: { summaryRow, slider },

@@ -1,4 +1,97 @@
-@import "~mr-kernel/scss/vue";
+// ------------------ Fonts
+@import "~@fontsource/montserrat/latin-300.css";
+@import "~@fontsource/montserrat/latin-400.css";
+@import "~@fontsource/montserrat/latin-600.css";
+
+// ------------------ Modules
+@import "nano-grid/scss/nano-grid";
+@import "nano-grid/scss/btn";
+@import "nano-grid/scss/scroll-area";
+@import "nano-grid/scss/tooltip";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Montserrat", Helvetica, Arial, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  overflow: hidden;
+}
+
+main {
+  &.nano-light {
+    --color-title: #9c330a;
+    --color-background: #ffffff;
+    --color-foreground: #1e1e1e;
+    --color-workarea-background: #f8f7fb;
+    --color-panel-details-background: #ffffff;
+    --color-panel-background: #272b42;
+    --color-panel-border-separator: #cccccc;
+    --color-border: #e2e2e2;
+    --color-palette: #f7f7f7;
+    --color-label: #104e86;
+    --color-legend: #9c330a;
+    --color-background-input: #dadada;
+    --color-table-background: hsl(240deg 20% 80% / 0.2);
+    --color-table-background-2: hsl(240deg 20% 85% / 0.2);
+    --color-table-background-hover: hsl(240deg 35% 90% / 0.2);
+  }
+  &.nano-dark {
+    --color-title: #e69b28;
+    --color-background: #222;
+    --color-foreground: #eee;
+    --color-workarea-background: #1e1e1e;
+    --color-panel-details-background: #1f1f23;
+    --color-panel-background: #232327;
+    --color-panel-border-separator: #19191d;
+    --color-border: #444444;
+    --color-palette: #272727;
+    --color-label: #4ca1ef;
+    --color-legend: #b9b90e;
+    --color-background-input: #272731;
+    --color-table-background: hsl(240deg 5% 25% / 0.2);
+    --color-table-background-2: hsl(240deg 5% 30% / 0.2);
+    --color-table-background-hover: hsl(240deg 20% 35% / 0.2);
+  }
+  --title-shadow: 0;
+  --color-shadow: rgb(0 0 0 / 65%);
+  --shadow-depth: 2px 2px 5px;
+  color: var(--color-foreground);
+}
+
+@import "core/font-styles";
+@import "core/icomoon";
+@import "core/animations";
+@import "core/layers";
+@import "core/shortcuts";
+@import "core/inputs";
+
+@import "views/home";
+@import "views/grid";
+@import "views/gear";
+@import "views/wheel";
+@import "views/universe";
+@import "views/locations";
+@import "views/projects";
+@import "views/registration";
+
+@import "components/app";
+@import "components/table";
+@import "components/container";
+@import "components/palette";
+@import "components/listings";
+@import "components/radio-select";
+@import "components/gallery";
+@import "components/modal";
+@import "components/alert";
+@import "components/area-box";
+@import "components/loading";
+
+@import "core/vue-theme";
 
 .three-scene {
   $hue: 245deg;
@@ -125,5 +218,47 @@ main.section-locations {
   }
   .btn {
     display: inline-block;
+  }
+}
+
+/*------------------------*/
+
+.img-gallery {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: inline-flex;
+  }
+}
+
+/*------------------------*/
+
+.carrousel {
+  display: grid;
+  
+  button {
+    background-color: var(--color-palette);
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
+    transition: transform 200ms ease-in-out;
+    
+    &.active {
+      background-color: #a5a5a5;
+    }
+    border: 0;
+    outline: 0;
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+
+    &:not(.active){
+      display: none;
+    }
   }
 }

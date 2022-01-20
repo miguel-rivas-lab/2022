@@ -1,11 +1,11 @@
-import { tool, toolEnum } from "mr-kernel/enums/tools";
-import { roleEnum } from "mr-kernel/enums/roles";
-import { typeEnum } from "mr-kernel/enums/types";
-import { client, clientEnum } from "mr-kernel/enums/clients";
-import { Group } from "mr-kernel/interfaces/project-firebase";
+import { tool, toolEnum } from "../enums/tools";
+import { roleEnum } from "../enums/roles";
+import { typeEnum } from "../enums/types";
+import { client, clientEnum } from "../enums/clients";
+import { Group } from "../interfaces/project-firebase";
 import { sortByDate } from "../modules/format-db";
 
-import h from "mr-kernel/modules/helpers";
+import h from "../modules/helpers";
 
 type GroupsType = Array<Group>;
 

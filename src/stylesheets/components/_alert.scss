@@ -1,0 +1,32 @@
+.alert {
+  align-items: stretch;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  background-color: hsl(130deg 67% 77%);
+  border-bottom: 1px solid;
+  color: hsl(130deg 86% 13%);
+  > .column {
+    padding: 1rem;
+  }
+  &.error {
+    background-color: hsl(0deg 67% 77%);
+    border: hsl(0deg 67% 59%);
+    color: hsl(0deg 86% 13%);
+  }
+  &.success {
+    background-color: hsl(130deg 67% 77%);
+    border: hsl(130deg 67% 59%);
+    color: hsl(130deg 86% 13%);
+  }
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 5px 5px;
+    border-top: 0;
+    opacity: 0.9;
+  }
+}

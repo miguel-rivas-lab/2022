@@ -20,6 +20,6 @@ module.exports = {
   ],
   testURL: "http://localhost/",
   transformIgnorePatterns: [
-    "node_modules/(?!nano-grid|mr-kernel)"
+    "node_modules/(?!nano-grid)"
   ],
 }
