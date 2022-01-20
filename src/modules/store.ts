@@ -39,12 +39,13 @@ export const store = new Vuex.Store({
         },
       },
       home: {
-        sceneRotation: 1,
         cover: true,
+      },
+      mesh: {
+        sceneRotation: 1,
         rotateX: false,
         rotateY: false,
-        rotateZ: true,
-        grid: true,
+        rotateZ: true
       },
       grid: {
         row: "Row",
@@ -104,6 +105,7 @@ export const store = new Vuex.Store({
     getAlert: state => state.alert,
     getModal: state => state.modal,
     getHomeSelection: state => state.selection.home,
+    getMeshSelection: state => state.selection.mesh,
     getGridSelection: state => state.selection.grid,
     getCubeSelection: state => state.selection.cube,
     getGearSelection: state => state.selection.gear,
@@ -111,6 +113,5 @@ export const store = new Vuex.Store({
     getLocationSelection: state => state.selection.locations,
     getLoginSelection: state => state.selection.login,
     getFilterData: state => state.selection.projects,
-    
   }
 });
