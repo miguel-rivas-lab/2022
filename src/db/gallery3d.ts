@@ -1,5 +1,4 @@
-export const gallery3d = [
-  // buildings
+const buildings = [
   { name: "itesa" },
   { name: "itla" },
   { name: "several" },
@@ -9,15 +8,17 @@ export const gallery3d = [
   { name: "planttherapy" },
   { name: "enovational" },
   { name: "cabin" },
+];
 
-  // vehicles
+const vehicles = [
   { name: "xwing" },
   { name: "spaceship" },
   { name: "plane" },
   { name: "audi" },
   { name: "drakkar" },
-  
-  // characters
+];
+
+const characters = [
   { name: "goose_01" },
   { name: "goose_02" },
   { name: "goose_03" },
@@ -26,8 +27,9 @@ export const gallery3d = [
   { name: "goose_06" },
   { name: "goose_07" },
   { name: "spirit" },
+];
 
-  // everyday tools
+const tools = [
   { name: "iqra" },
   { name: "laptop" },
   { name: "horse" },
@@ -37,23 +39,28 @@ export const gallery3d = [
   { name: "street-lamp" },
   { name: "flower-pot_01" },
   { name: "flower-pot_02" },
+];
 
-  // plants
+const plants = [
   { name: "tree_01" },
   { name: "tree_02" },
   { name: "tree_03" },
   { name: "tree_04" },
   { name: "tree_05" },
+];
 
-  // planets
+const planets = [
   { name: "planet_01" },
   { name: "planet_02" },
   { name: "planet_03" },
   { name: "planet_04" },
   { name: "planet_05" },
+];
 
-  //scenes
+const scenes = [
   { name: "kaspar" },
   { name: "sharpener" },
   { name: "404" },
 ];
+
+export const gallery3d = [].concat(buildings, vehicles, characters, tools, plants, planets, scenes);

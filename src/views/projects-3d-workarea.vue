@@ -4,7 +4,11 @@
       <ul class="img-gallery">
         <template v-for="(item, itemIndex) in database">
           <li v-bind:key="`gallery${itemIndex}`">
-            <carrousel :item="item" :start="randomFrame()" />
+            <carrousel
+              :item="item"
+              :start="randomFrame()"
+              :rotationDelay="selection.rotationDelay"
+            />
           </li>
         </template>
       </ul>
@@ -16,14 +20,22 @@
 import Vue from "vue";
 import { gallery3d } from "../db/gallery3d";
 import carrousel from "../components/carrousel.vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
   components: { carrousel },
   data: () => ({
-    panel: false,
+    selection: {},
     database: gallery3d,
   }),
-  computed: {},
+  computed: {
+    ...mapGetters({
+      panel: "getPanelVisibility",
+    }),
+    panelsSize() {
+      return this.panel ? 350 : 50;
+    },
+  },
   methods: {
     randomFrame() {
       let randomNumber = Math.floor(Math.random() * 3) - 1;
@@ -34,10 +46,7 @@ export default Vue.extend({
     },
   },
   created() {
-    this.$store.commit("setValue", {
-      name: "panel",
-      value: false,
-    });
+    this.selection = this.$store.getters.getProjects3DSelection;
   },
 });
 </script>

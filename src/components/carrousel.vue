@@ -24,9 +24,9 @@ export default Vue.extend({
       type: Number,
       default: 0,
     },
-    speed: {
+    rotationDelay: {
       type: Number,
-      default: 200,
+      default: 0,
     }
   },
   data: () => ({
@@ -44,7 +44,7 @@ export default Vue.extend({
         if (this.currentFrame > this.frames - 1) {
           this.currentFrame = 0;
         }
-      }, this.speed);
+      }, this.rotationDelay);
     },
     stopCarrousel() {
       clearInterval(this.interval);

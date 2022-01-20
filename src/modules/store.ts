@@ -41,6 +41,9 @@ export const store = new Vuex.Store({
       home: {
         cover: true,
       },
+      projects3d: {
+        rotationDelay: 200,
+      },
       mesh: {
         sceneRotation: 1,
         rotateX: false,
@@ -105,7 +108,6 @@ export const store = new Vuex.Store({
     getAlert: state => state.alert,
     getModal: state => state.modal,
     getHomeSelection: state => state.selection.home,
-    getMeshSelection: state => state.selection.mesh,
     getGridSelection: state => state.selection.grid,
     getCubeSelection: state => state.selection.cube,
     getGearSelection: state => state.selection.gear,
@@ -113,5 +115,7 @@ export const store = new Vuex.Store({
     getLocationSelection: state => state.selection.locations,
     getLoginSelection: state => state.selection.login,
     getFilterData: state => state.selection.projects,
+    getMeshSelection: state => state.selection.mesh,
+    getProjects3DSelection: state => state.selection.projects3d,
   }
 });

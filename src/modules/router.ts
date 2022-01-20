@@ -24,6 +24,7 @@ import LocationsWorkareaView from '../views/locations-workarea.vue';
 import MeshPanelView from '../views/mesh-panel.vue';
 import MeshWorkareaView from '../views/mesh-workarea.vue';
 import Projects3DWorkareaView from '../views/projects-3d-workarea.vue';
+import Projects3DPanelView from '../views/projects-3d-panel.vue';
 
 import CryptoWorkareaView from '../views/crypto-workarea.vue';
 
@@ -136,7 +137,7 @@ const routes: Array<RouteConfig> = [
     path: '/projects-3d',
     components: {
       workarea: Projects3DWorkareaView,
-      panel: DefaultPanelView, //Projects3DPanelView,
+      panel: Projects3DPanelView,
     },
   },
   {
