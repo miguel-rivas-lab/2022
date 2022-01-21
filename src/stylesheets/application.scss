@@ -82,7 +82,7 @@ main {
 @import "components/app";
 @import "components/table";
 @import "components/container";
-@import "components/palette";
+@import "components/img-gallery";
 @import "components/listings";
 @import "components/radio-select";
 @import "components/gallery";
@@ -218,16 +218,3 @@ main.section-locations {
 }
 
 /*------------------------*/
-
-.img-gallery {
-  text-align: center;
-  padding: 0;
-  margin: 0;
-
-  li {
-    display: inline-flex;
-  }
-}
-
-/*------------------------*/
-

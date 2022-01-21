@@ -16,9 +16,13 @@
 
     button.btn {
       box-shadow: none !important;
-      background-color: hsl(240deg 6% 14%) !important;
+      background-color: hsl(240deg 6% 14% / 68%) !important;
       max-width: 20px;
       min-width: 20px;
+
+      &:hover {
+        background-color: hsl(240deg 6% 14% / 80%) !important;
+      }
 
       .mdi {
         transform: rotate(-90deg);

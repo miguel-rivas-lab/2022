@@ -11,7 +11,6 @@ import {
   formatGroupsToProjects,
 } from "./modules/format-db";
 import "highlight.js/styles/tomorrow-night-bright.css";
-import './modules/google-maps';
 //-- db
 import { projectsDB } from "./db/projects";
 import { groupsDB } from "./db/groups";

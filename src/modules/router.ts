@@ -20,8 +20,8 @@ import LocationsPanelView from '../views/locations-panel.vue';
 import LocationsWorkareaView from '../views/locations-workarea.vue';
 import MeshPanelView from '../views/mesh-panel.vue';
 import MeshWorkareaView from '../views/mesh-workarea.vue';
-import Projects3DWorkareaView from '../views/projects-3d-workarea.vue';
-import Projects3DPanelView from '../views/projects-3d-panel.vue';
+import Projects3DWorkareaView from '../views/gallery-3d-workarea.vue';
+import Projects3DPanelView from '../views/gallery-3d-panel.vue';
 
 import DefaultPanelView from '../views/default-panel.vue';
 
@@ -109,8 +109,8 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    name: 'projects-3d',
-    path: '/projects-3d',
+    name: 'gallery-3d',
+    path: '/gallery-3d',
     components: {
       workarea: Projects3DWorkareaView,
       panel: Projects3DPanelView,

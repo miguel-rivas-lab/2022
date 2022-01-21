@@ -3911,7 +3911,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2022/01/05",
-    slides: 5,
+    slides: 0,
     title: "MR Universe",
     types: [
       typeEnum.animation3D,

@@ -16,6 +16,21 @@ main.section-home {
       background-position-y: 0;
       animation: stargate linear 10s infinite;
     }
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      text-align: center;
+      width: 100%;
+      p {
+        font-size: 12px;
+        letter-spacing: .5px;
+        font-weight: 400;
+        a {
+          color: #41b883;
+          text-decoration: none;
+        }
+      }
+    }
     .cover {
       top: 0;
       left: 0;
