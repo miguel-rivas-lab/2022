@@ -197,8 +197,5 @@ export default Vue.extend({
       );
     },
   },
-  mounted() {
-    this.panel = this.$store.getters.getPanelVisibility;
-  },
 });
 </script>

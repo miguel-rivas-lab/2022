@@ -1,19 +1,22 @@
 <template>
-  <div>
-    <div class="cover" v-if="selection.cover">
+  <div class="stargate" :style="`background-color: hsl(${selection.hue}deg 50% 28%)`">
+    <div class="cover">
       <template v-if="user.lastName">
         <h1 v-html="`${user.middleName} ${user.lastName}`" />
         <h2 v-html="user.title" />
       </template>
     </div>
+    <mountains />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
+import mountains from "../components/mountains.vue";
 
 export default Vue.extend({
+  components:{ mountains },
   data: () => ({
     selection: {},
   }),
@@ -23,9 +26,6 @@ export default Vue.extend({
     }),
     user() {
       return this.$root.user;
-    },
-    panelsSize() {
-      return this.panel ? 350 : 50;
     },
   },
   created() {

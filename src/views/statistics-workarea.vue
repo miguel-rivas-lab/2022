@@ -95,21 +95,7 @@ export default Vue.extend({
     LineChart,
     BarChart,
   },
-  data: () => ({
-    panel: false,
-  }),
-  created() {
-    this.$store.commit("setValue", {
-      name: "panel",
-      value: false,
-    });
-  },
-  beforeDestroy(){
-    this.$store.commit("setValue", {
-      name: "panel",
-      value: true,
-    });
-  },
+  data: () => ({}),
   computed: {
     projectsDB() {
       return Object.values(this.$root.projects)

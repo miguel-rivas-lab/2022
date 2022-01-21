@@ -1,56 +1,75 @@
 main.section-home {
   .nano-app {
-    .workarea{
-      position: relative;
-    }
-    .drakkar,
     .cover,
     .three-scene {
       position: absolute;
     }
-    .drakkar,
     .three-scene {
       z-index: 1;
+    }
+    .stargate {
+      height: 100%;
+      position: relative;
+      background-image: url("../img/stars.svg");
+      background-repeat: repeat;
+      background-position-x: center;
+      background-position-y: 0;
+      animation: stargate linear 10s infinite;
     }
     .cover {
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
+      height: 40vh;
       z-index: 2;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       flex-flow: column;
       text-align: center;
       pointer-events: none;
       overflow: hidden;
-  
+
       h1 {
         line-height: 1;
-        font-size: 100px;
+        font-size: 70px;
         color: #fff;
         text-transform: uppercase;
         font-weight: 300;
-        text-shadow: var(--title-shadow);
         transition: text-shadow ease-in-out 500ms;
-        @media only screen and (max-width: 1200px) {
-          font-size: 70px;
-        }
       }
-  
+
       h2 {
         font-size: 25px;
         text-transform: uppercase;
         font-weight: 400;
         color: #fff;
       }
-  
+
       h1,
       h2 {
         margin: 0;
       }
     }
+    svg {
+      min-width: 100%;
+      position: fixed;
+      bottom: 0;
+
+      g {
+        transform: translate(0, -675px);
+      }
+    }
   }
-  
+}
+
+@keyframes stargate {
+  from {
+    background-position-y: 500px;
+    background-position-x: 0;
+  }
+  to {
+    background-position-y: 0;
+    background-position-x: 500px;
+  }
 }

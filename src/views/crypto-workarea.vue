@@ -53,17 +53,5 @@ export default Vue.extend({
           .sort((a, b) => b.priceUsd - a.priceUsd);
       });
   },
-  created() {
-    this.$store.commit("setValue", {
-      name: "panel",
-      value: false,
-    });
-  },
-  beforeDestroy() {
-    this.$store.commit("setValue", {
-      name: "panel",
-      value: true,
-    });
-  },
 });
 </script>

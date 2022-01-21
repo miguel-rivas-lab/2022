@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    panel: true,
+    panel: false,
     panelSize: ['300', '100%-350'],
     theme: false,
     parallelUniverse: false,
@@ -39,7 +39,7 @@ export const store = new Vuex.Store({
         },
       },
       home: {
-        cover: true,
+        hue: 220, //160-390  = number(0..230) + 220
       },
       projects3d: {
         rotationDelay: 200,

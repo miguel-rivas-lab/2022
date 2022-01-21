@@ -3,6 +3,7 @@
     <alert />
     <row class="nano-app">
       <panel-navigation />
+
       <column
         class="panel"
         :size="panelSize[0]"
@@ -11,21 +12,29 @@
         <router-view name="panel" />
       </column>
 
-      <column
-        :size="panel ? panelSize[1] : '100%-50'"
-        class="workarea"
-      >
+      <column size="0" class="panel-bar">
+        <btn
+          class="panel-ctrl"
+          title="Toggle panel button"
+          glyph="chevron-down"
+          @click="toggleValue('panel'), playSound()"
+          :class="{'open-panel': panel}"
+        />
+      </column>
+
+      <column :size="panel ? panelSize[1] : '100%-50'" class="workarea">
         <router-view name="workarea" />
       </column>
+
     </row>
   </main>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { mapGetters } from "vuex";
 import PanelNavigation from "./components/panel-navigation.vue";
 import Alert from "./components/alert.vue";
+import { mapGetters, mapMutations } from "vuex";
 
 export default Vue.extend({
   components: {
@@ -48,6 +57,22 @@ export default Vue.extend({
         this.theme ? "nano-light" : "nano-dark",
         { universe: this.universe },
       ];
+    },
+  },
+  methods: {
+    ...mapMutations(["toggleValue"]),
+    playSound() {
+      let context = new AudioContext();
+      let newSound = context.createOscillator();
+      let newGain = context.createGain();
+      newSound.connect(newGain);
+      newSound.frequency.value = 300;
+      newGain.connect(context.destination);
+      newSound.start(0);
+      newGain.gain.exponentialRampToValueAtTime(
+        0.00000001,
+        context.currentTime + 0.5
+      );
     },
   },
 });

@@ -87,18 +87,6 @@ export default Vue.extend({
       selection: "getLoginSelection",
     }),
   },
-  created() {
-    this.$store.commit("setValue", {
-      name: "panel",
-      value: false,
-    });
-  },
-  beforeDestroy() {
-    this.$store.commit("setValue", {
-      name: "panel",
-      value: true,
-    });
-  },
   methods: {
     async pressed() {
       try {

@@ -10,6 +10,27 @@
     max-height: 100vh;
   }
 
+  .panel-bar {
+    max-width: 0 !important;
+    display: flex;
+
+    button.btn {
+      box-shadow: none !important;
+      background-color: hsl(240deg 6% 14%) !important;
+      max-width: 20px;
+      min-width: 20px;
+
+      .mdi {
+        transform: rotate(-90deg);
+      }
+      &.open-panel {
+        .mdi {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
   .main-panel {
     position: relative;
     background: var(--color-panel-background);

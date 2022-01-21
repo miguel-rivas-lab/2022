@@ -1,0 +1,36 @@
+.carrousel {
+  display: grid;
+  
+  button {
+    background-color: var(--color-palette);
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
+    transition: transform 200ms ease-in-out;
+    border: 0;
+    outline: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+    
+    &.active {
+      background-color: #a5a5a5;
+    }
+
+    &:focus {
+      box-shadow: 0 0 2px #666;
+      outline: 1px solid #666;
+    }
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+
+    &:not(.active){
+      display: none;
+    }
+  }
+}

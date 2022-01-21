@@ -90,6 +90,7 @@ main {
 @import "components/alert";
 @import "components/area-box";
 @import "components/loading";
+@import "components/carrousel";
 
 @import "core/vue-theme";
 
@@ -98,11 +99,6 @@ main {
   $saturation: 40%; 
   background: hsl($hue $saturation 35%);
   background: linear-gradient(175deg, hsl($hue $saturation 35%) 50%, hsl($hue $saturation 25%) 100%);
-}
-
-main.vue-theme.section-home .workarea .cover {
-  background-color: hsl(245deg 40% 25% / 80%);
-  --title-shadow: 0 0 9px hsl(245deg 50% 50%);
 }
 
 .close-btn {
@@ -235,30 +231,3 @@ main.section-locations {
 
 /*------------------------*/
 
-.carrousel {
-  display: grid;
-  
-  button {
-    background-color: var(--color-palette);
-    padding: 1rem;
-    margin: 1rem;
-    box-shadow: 2px 2px 5px rgb(0 0 0 / 25%);
-    transition: transform 200ms ease-in-out;
-    
-    &.active {
-      background-color: #a5a5a5;
-    }
-    border: 0;
-    outline: 0;
-  }
-
-  img {
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-
-    &:not(.active){
-      display: none;
-    }
-  }
-}

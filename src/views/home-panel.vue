@@ -4,18 +4,13 @@
       <column size="100%">
         <legend>Scene Controllers</legend>
 
-        <row>
-          <column size="100%">
-            <label
-              class="btn flat charcoal"
-              :class="{ active: selection.cover }"
-            >
-              Cover
-              <input type="checkbox" v-model="selection.cover" />
-            </label>
-          </column>
-        </row>
-
+        <number-input
+          id="outter-circle-radius"
+          :value="selection.hue"
+          label="Hue"
+          :increment="10"
+          v-on:update-value="updateSpeed($event)"
+        />
       </column>
     </row>
   </scroll-area>
@@ -31,5 +26,10 @@ export default Vue.extend({
   created() {
     this.selection = this.$store.getters.getHomeSelection;
   },
+  methods: {
+     updateSpeed(newVal) {
+      this.selection.hue = parseInt(newVal);
+    },
+  }
 });
 </script>

@@ -32,9 +32,6 @@ export default Vue.extend({
     ...mapGetters({
       panel: "getPanelVisibility",
     }),
-    panelsSize() {
-      return this.panel ? 350 : 50;
-    },
   },
   methods: {
     randomFrame() {

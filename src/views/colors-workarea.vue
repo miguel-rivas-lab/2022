@@ -26,7 +26,6 @@ import { gColorsDB } from "../modules/colors";
 
 export default Vue.extend({
   data: () => ({
-    panel: false,
     gColorsDB: gColorsDB,
   }),
 });

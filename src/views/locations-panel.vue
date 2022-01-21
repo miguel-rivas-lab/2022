@@ -111,7 +111,6 @@ import { type } from "../enums/types";
 export default Vue.extend({
   components: { toggleRow },
   data: () => ({
-    panel: false,
     selection: {},
   }),
   created() {
