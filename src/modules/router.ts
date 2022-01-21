@@ -7,8 +7,8 @@ import CubeWorkareaView from '../views/cube-workarea.vue';
 import CubePanelView from '../views/cube-panel.vue';
 import GridWorkareaView from '../views/grid-workarea.vue';
 import GridPanelView from '../views/grid-panel.vue';
-import HomeWorkareaView from '../views/home-workarea.vue';
-import HomePanelView from '../views/home-panel.vue';
+import StargazeWorkareaView from '../views/stargaze-workarea.vue';
+import StargazePanelView from '../views/stargaze-panel.vue';
 import ProjectsWorkareaView from '../views/projects-workarea.vue';
 import ProjectsPanelView from '../views/projects-panel.vue';
 import StatisticsWorkareaView from '../views/statistics-workarea.vue';
@@ -29,11 +29,11 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    name: 'home',
+    name: 'stargaze',
     path: '/',
     components: {
-      workarea: HomeWorkareaView,
-      panel: HomePanelView,
+      workarea: StargazeWorkareaView,
+      panel: StargazePanelView,
     },
   },
   {

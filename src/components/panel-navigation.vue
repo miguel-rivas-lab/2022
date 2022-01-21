@@ -112,7 +112,7 @@ export default Vue.extend({
   components: {},
   data: () => ({
     navigation: [
-      { icon: "monster", route: "home" },
+      { icon: "monster", route: "stargaze" },
       { icon: "duck", route: "projects" },
       { icon: "collections", route: "gallery-3d" },
       { icon: "chart-areaspline", route: "statistics" },

@@ -65,6 +65,8 @@ export default Vue.extend({
 
       this.setLight();
       this.$refs.threeScene.appendChild(this.renderer.domElement);
+
+      
     },
     setLight() {
       const horizontalLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -105,11 +107,19 @@ export default Vue.extend({
     buildGeometry() {
       const loader = new GLTFLoader();
 
+      const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+      const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+      const cube = new THREE.Mesh( geometry, material );
+      this.scene.add( cube );
+
+      // console.log(cube);
+
       (function (scene) {
         loader.load(
           "3d/monster.glb",
           function (gltf) {
             scene.add(gltf.scene);
+            console.log(gltf.scene);
           },
           undefined,
           function (error) {

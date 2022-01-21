@@ -1,4 +1,4 @@
-main.section-home {
+main.section-stargaze {
   .nano-app {
     .cover,
     .three-scene {
@@ -7,14 +7,14 @@ main.section-home {
     .three-scene {
       z-index: 1;
     }
-    .stargate {
+    .stargaze {
       height: 100%;
       position: relative;
       background-image: url("../img/stars.svg");
       background-repeat: repeat;
       background-position-x: center;
       background-position-y: 0;
-      animation: stargate linear 10s infinite;
+      animation: stargaze linear 10s infinite;
     }
     footer {
       position: absolute;
@@ -78,7 +78,7 @@ main.section-home {
   }
 }
 
-@keyframes stargate {
+@keyframes stargaze {
   from {
     background-position-y: 500px;
     background-position-x: 0;

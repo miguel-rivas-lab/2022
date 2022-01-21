@@ -1,6 +1,6 @@
 <template>
   <div
-    class="stargate"
+    class="stargaze"
     :style="`background-color: hsl(${selection.hue}deg 50% 28%)`"
   >
     <div class="cover">
