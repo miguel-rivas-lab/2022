@@ -27,27 +27,23 @@ main.section-home {
       justify-content: flex-end;
       flex-flow: column;
       text-align: center;
-      pointer-events: none;
       overflow: hidden;
 
       h1 {
-        line-height: 1;
         font-size: 70px;
-        color: #fff;
-        text-transform: uppercase;
         font-weight: 300;
-        transition: text-shadow ease-in-out 500ms;
       }
-
+      
       h2 {
         font-size: 25px;
-        text-transform: uppercase;
         font-weight: 400;
-        color: #fff;
       }
-
+      
       h1,
       h2 {
+        line-height: 1;
+        color: #fff;
+        text-transform: uppercase;
         margin: 0;
       }
     }
@@ -58,6 +54,10 @@ main.section-home {
 
       g {
         transform: translate(0, -675px);
+
+        path {
+          transition: 600ms ease transform;
+        }
       }
     }
   }

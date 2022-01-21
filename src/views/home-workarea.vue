@@ -1,12 +1,15 @@
 <template>
-  <div class="stargate" :style="`background-color: hsl(${selection.hue}deg 50% 28%)`">
+  <div
+    class="stargate"
+    :style="`background-color: hsl(${selection.hue}deg 50% 28%)`"
+  >
     <div class="cover">
       <template v-if="user.lastName">
         <h1 v-html="`${user.middleName} ${user.lastName}`" />
         <h2 v-html="user.title" />
       </template>
     </div>
-    <mountains />
+    <mountains :cx="cx" :cy="cy" :hue="selection.hue" />
   </div>
 </template>
 
@@ -16,9 +19,11 @@ import { mapGetters } from "vuex";
 import mountains from "../components/mountains.vue";
 
 export default Vue.extend({
-  components:{ mountains },
+  components: { mountains },
   data: () => ({
     selection: {},
+    cx: 0,
+    cy: 0,
   }),
   computed: {
     ...mapGetters({
@@ -30,6 +35,18 @@ export default Vue.extend({
   },
   created() {
     this.selection = this.$store.getters.getHomeSelection;
+  },
+  mounted() {
+    window.addEventListener("mousemove", this.mouseLocation);
+  },
+  beforeDestroy() {
+    window.removeEventListener("mousemove", this.mouseLocation);
+  },
+  methods: {
+    mouseLocation: function (event) {
+      this.cx = event.clientX;
+      this.cy = event.clientY;
+    },
   },
 });
 </script>
