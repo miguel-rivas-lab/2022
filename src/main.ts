@@ -12,16 +12,10 @@ import {
 } from "./modules/format-db";
 import "highlight.js/styles/tomorrow-night-bright.css";
 import './modules/google-maps';
-import axios from "axios";
 //-- db
 import { projectsDB } from "./db/projects";
 import { groupsDB } from "./db/groups";
 import { users } from "./db/users";
-//-- firebase
-import { firestorePlugin } from 'vuefire';
-import { analytics } from 'firebase/app';
-import 'firebase/analytics';
-import { firebaseApp } from "./modules/firebase";
 
 // ---------------- Selection
 
@@ -47,10 +41,6 @@ store.commit("addColumn",
   },
 );
 
-analytics(firebaseApp);
-
-Vue.prototype.$axios = axios;
-Vue.use(firestorePlugin);
 Vue.config.productionTip = false;
 
 new Vue({

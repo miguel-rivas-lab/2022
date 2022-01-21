@@ -3,7 +3,7 @@
     <scroll-area color="royal-purple" :horizontal="false">
       <container>
         <row vertical>
-          <column size=",100%-135">
+          <column size=",100%-80">
             <template v-for="nav in navigation">
               <template v-if="$route.name !== nav.route">
                 <btn
@@ -55,30 +55,6 @@
                 />
               </template>
             </template>
-            <template v-if="login.logged">
-              <hr />
-              <template v-if="$route.name !== 'crypto'">
-                <btn
-                  :to="{ name: 'crypto' }"
-                  color="gravel"
-                  size="md"
-                  title="Monitor button"
-                  v-nano-tooltip.right="'Monitor'"
-                  glyph="bitcoin"
-                />
-              </template>
-              <template v-else>
-                <btn
-                  color="gravel"
-                  size="md"
-                  title="Monitor button"
-                  v-nano-tooltip.right="'Monitor'"
-                  glyph="bitcoin"
-                  @click="toggleValue('panel'), playSound()"
-                  active
-                />
-              </template>
-            </template>
             <hr>
             <btn
               tag="a"
@@ -101,7 +77,7 @@
               target="_blank"
             />
           </column>
-          <suffix size=",135">
+          <suffix size=",80">
             <btn
               color="persian-red"
               size="md"
@@ -120,27 +96,6 @@
               @click="toggleValue('theme'), playSound()"
               :active="!theme"
             />
-            <template v-if="$route.name !== 'login'">
-              <btn
-                :to="{ name: 'login' }"
-                color="gold-tips"
-                size="md"
-                title="Firebase login button"
-                v-nano-tooltip.right="'Firebase Login'"
-                glyph="firebase"
-              />
-            </template>
-            <template v-else>
-              <btn
-                color="gravel"
-                size="md"
-                title="Firebase login button"
-                v-nano-tooltip.right="'Firebase Login'"
-                glyph="firebase"
-                @click="toggleValue('panel'), playSound()"
-                active
-              />
-            </template>
           </suffix>
         </row>
       </container>
