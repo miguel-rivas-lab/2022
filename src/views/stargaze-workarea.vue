@@ -12,7 +12,7 @@
     <mountains :cx="cx" :cy="cy" :hue="selection.hue" />
     <footer>
       <p>
-        Created with <strong><a href="https://vuejs.org/">Vue.js</a></strong>
+        Built with <strong><a href="https://vuejs.org/">Vue.js</a></strong>
       </p>
     </footer>
   </div>

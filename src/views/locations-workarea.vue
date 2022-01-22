@@ -1,6 +1,7 @@
 <template>
   <div class="map">
     <div class="clouds" />
+    <div class="waves" />
   </div>
 </template>
 

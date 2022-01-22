@@ -2,47 +2,38 @@ main.section-locations {
   .map {
     overflow: hidden;
     position: relative;
-  }
-  
-  .clouds {
-    position: absolute;
-    width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 12;
-    background-repeat: repeat;
-    animation: clouds 25s linear infinite forwards;
-    pointer-events: none;
+    background-color: #2a55be !important;
   }
 
-  .vue-map {
-    > div {
-      background-color: #2a55be !important;
-    }
+  .waves {
+    height: 100%;
+    position: relative;
+    background-image: url("../img/waves.svg");
+    background-repeat: repeat-x;
+    background-position-x: center;
+    background-position-y: bottom;
+    animation: waves linear 30s infinite;
   }
   
-  .vue-map-container {
-    height: 100vh;
-  
-    .gm-style {
-      & .gm-style-iw-d {
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        font-family: "Montserrat", Helvetica, Arial, Tahoma, sans-serif;
-        color: #0e0e0e;
-      }
-  
-      & .gm-style-iw-c {
-        border-radius: 3px;
-      }
-  
-      // &-iw-a {
-      //   [aria-label="Close"] {
-      //     display: none !important;
-      //     pointer-events: none;
-      //   }
-      // }
-    }
+  // .clouds {
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 12;
+  //   background-repeat: repeat;
+  //   animation: clouds 25s linear infinite forwards;
+  //   pointer-events: none;
+  // }
+}
+
+@keyframes waves {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 600px;
   }
 }
