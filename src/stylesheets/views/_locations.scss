@@ -3,37 +3,25 @@ main.section-locations {
     overflow: hidden;
     position: relative;
     height: 100%;
-    background-color: #2a55be !important;
+    background-color: #305caf !important;
   }
 
-  .waves {
-    height: 100%;
-    position: relative;
-    background-image: url("../img/waves.svg");
-    background-repeat: repeat-x;
-    background-position-x: center;
-    background-position-y: bottom;
-    animation: waves linear 30s infinite;
-  }
-  
-  // .clouds {
-  //   position: absolute;
-  //   width: 100%;
+  // .waves {
   //   height: 100%;
-  //   top: 0;
-  //   left: 0;
-  //   z-index: 12;
-  //   background-repeat: repeat;
-  //   animation: clouds 25s linear infinite forwards;
-  //   pointer-events: none;
+  //   position: relative;
+  //   background-image: url("../img/waves.svg");
+  //   background-repeat: repeat-x;
+  //   background-position-x: center;
+  //   background-position-y: bottom;
+  //   animation: waves linear 30s infinite;
   // }
 }
 
-@keyframes waves {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 600px;
-  }
-}
+// @keyframes waves {
+//   from {
+//     background-position-x: 0;
+//   }
+//   to {
+//     background-position-x: 600px;
+//   }
+// }
