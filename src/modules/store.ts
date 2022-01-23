@@ -17,19 +17,6 @@ export const store = new Vuex.Store({
       visible: false,
     },
     selection: {
-      login: {
-        email: "",
-        password: "",
-        logged: false,
-      },
-      locations: {
-        mapCenter: {
-          lat: 31,
-          lng: -94,
-        },
-        mapZoom: 4,
-        viewPath: false,
-      },
       projects: {
         filterData: 'all',
         currentLink: {
@@ -43,12 +30,6 @@ export const store = new Vuex.Store({
       },
       projects3d: {
         rotationDelay: 200,
-      },
-      mesh: {
-        sceneRotation: 1,
-        rotateX: false,
-        rotateY: false,
-        rotateZ: true
       },
       grid: {
         row: "Row",
@@ -84,10 +65,6 @@ export const store = new Vuex.Store({
     setProject(state, payload) {
       state.selection.projects.currentLink.src = payload.value;
     },
-    centerMap(state, payload) {
-      state.selection.locations.mapCenter = payload.position;
-      state.selection.locations.mapZoom = payload.zoom;
-    },
     toggleValue(state, payload) {
       state[payload] = !state[payload];
     },
@@ -112,10 +89,7 @@ export const store = new Vuex.Store({
     getCubeSelection: state => state.selection.cube,
     getGearSelection: state => state.selection.gear,
     getWheelSelection: state => state.selection.wheel,
-    getLocationSelection: state => state.selection.locations,
-    getLoginSelection: state => state.selection.login,
     getFilterData: state => state.selection.projects,
-    getMeshSelection: state => state.selection.mesh,
     getProjects3DSelection: state => state.selection.projects3d,
   }
 });

@@ -16,10 +16,6 @@ import GearWorkareaView from '../views/gear-workarea.vue';
 import GearPanelView from '../views/gear-panel.vue';
 import WheelWorkareaView from '../views/wheel-workarea.vue';
 import WheelPanelView from '../views/wheel-panel.vue';
-import LocationsPanelView from '../views/locations-panel.vue';
-import LocationsWorkareaView from '../views/locations-workarea.vue';
-import MeshPanelView from '../views/mesh-panel.vue';
-import MeshWorkareaView from '../views/mesh-workarea.vue';
 import Projects3DWorkareaView from '../views/gallery-3d-workarea.vue';
 import Projects3DPanelView from '../views/gallery-3d-panel.vue';
 
@@ -85,27 +81,11 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    name: 'locations',
-    path: '/locations',
-    components: {
-      workarea: LocationsWorkareaView,
-      panel: LocationsPanelView,
-    },
-  },
-  {
     name: 'wheel',
     path: '/wheel',
     components: {
       workarea: WheelWorkareaView,
       panel: WheelPanelView,
-    },
-  },
-  {
-    name: 'mesh',
-    path: '/mesh',
-    components: {
-      workarea: MeshWorkareaView,
-      panel: MeshPanelView,
     },
   },
   {

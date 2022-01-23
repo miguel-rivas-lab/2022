@@ -116,11 +116,9 @@ export default Vue.extend({
       { icon: "duck", route: "projects" },
       { icon: "collections", route: "gallery-3d" },
       { icon: "chart-areaspline", route: "statistics" },
-      // { icon: "airplane", route: "locations" },
       { icon: "format-color-fill", route: "colors" },
     ],
     navigationBuilder: [
-      // { icon: "open_with", route: "mesh" },
       { icon: "robot-industrial", route: "grid" },
       { icon: "cube-outline", route: "cube" },
       { icon: "cog-transfer-outline", route: "gear" },

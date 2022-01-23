@@ -15,7 +15,6 @@ import "highlight.js/styles/tomorrow-night-bright.css";
 import { projectsDB } from "./db/projects";
 import { groupsDB } from "./db/groups";
 import { users } from "./db/users";
-import VueKonva from 'vue-konva';
 
 // ---------------- Selection
 
@@ -41,7 +40,6 @@ store.commit("addColumn",
   },
 );
 
-Vue.use(VueKonva);
 Vue.config.productionTip = false;
 
 new Vue({
