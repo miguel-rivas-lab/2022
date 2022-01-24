@@ -17,11 +17,6 @@ export const store = new Vuex.Store({
       visible: false,
     },
     selection: {
-      login: {
-        email: "",
-        password: "",
-        logged: false,
-      },
       locations: {
         mapCenter: {
           lat: 31,

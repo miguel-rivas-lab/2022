@@ -22,6 +22,7 @@ export default Vue.extend({
     configKonva: {
       width: 0,
       height: 0,
+      draggable: true,
     },
   }),
   computed: {
@@ -41,7 +42,7 @@ export default Vue.extend({
     window.addEventListener("load", this.updateCanvas);
 
     const image = new window.Image();
-    image.src = require("@/img/map.png");
+    image.src = require("@/img/map.jpg");
     image.onload = () => {
       this.imgConfig = image;
     };
