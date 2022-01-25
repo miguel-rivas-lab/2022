@@ -1,6 +1,16 @@
 <template>
-  <div class="map">
-    <v-stage :config="configKonva" @dragmove="dragging" ref="stage">
+  <div class="map" ref="mapContainer">
+    <v-stage
+      :config="{
+        x: mapPos.x,
+        y: mapPos.y,
+        draggable: true,
+        width: configKonva.width,
+        height: configKonva.height,
+      }"
+      @dragmove="dragging"
+      ref="stage"
+    >
       <v-layer>
         <v-image
           :config="{
@@ -28,79 +38,70 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
-// import { type } from "../enums/types";
 
 export default Vue.extend({
   components: {},
   data: () => ({
-    selection: {},
     panelWidth: 0,
     map: {
       config: null,
     },
+    averageBuildingImageWidth: 150,
     img: [
       {
         name: "itesa",
-        ext: "png",
         config: null,
         position: { x: 2256, y: 665 },
         opacity: 0,
       },
       {
         name: "itla",
-        ext: "png",
         config: null,
         position: { x: 2483, y: 799 },
         opacity: 0,
       },
       {
         name: "several",
-        ext: "png",
         config: null,
         position: { x: 1905, y: 997 },
         opacity: 0,
       },
       {
         name: "avante",
-        ext: "png",
         config: null,
         position: { x: 1461, y: 1168 },
         opacity: 0,
       },
       {
         name: "capital",
-        ext: "png",
         config: null,
         position: { x: 1343, y: 856 },
         opacity: 0,
       },
       {
         name: "pixel",
-        ext: "png",
         config: null,
         position: { x: 694, y: 1060 },
         opacity: 0,
       },
       {
         name: "planttherapy",
-        ext: "png",
         config: null,
         position: { x: 1188, y: 501 },
         opacity: 0,
       },
       {
         name: "enovational",
-        ext: "png",
         config: null,
         position: { x: 2323, y: 294 },
         opacity: 0,
       },
     ],
+    selection: {},
     stage: undefined,
     configKonva: {
       width: 0,
       height: 0,
-      draggable: true,
     },
   }),
   computed: {
@@ -108,16 +109,32 @@ export default Vue.extend({
       panel: "getPanelVisibility",
       panelSize: "getPanelVisibility",
     }),
-    // locationsDB() {
-    //   return Object.values({
-    //     ...this.$root.groups,
-    //   }).filter((item) => item.types.includes(type.location));
-    // },
+    mapPos() {
+      if (this.map.config) {
+        return {
+          x: Math.max(
+            Math.min(
+              this.selection.mapCenter.x - this.averageBuildingImageWidth + this.configKonva.width / 2,
+              0
+            ),
+            -this.map.config.width
+          ),
+          y: Math.max(
+            Math.min(
+              this.selection.mapCenter.y - this.averageBuildingImageWidth + this.configKonva.height / 2,
+              0
+            ),
+            -this.map.config.height
+          ),
+        };
+      } else {
+        return { x: 0, y: 0 };
+      }
+    },
   },
   created() {
     this.selection = this.$store.getters.getLocationSelection;
     window.addEventListener("resize", this.updateCanvas);
-    window.addEventListener("load", this.updateCanvas);
 
     this.map.temp = new window.Image();
     this.map.temp.src = require(`@/img/map.jpg`);
@@ -127,7 +144,7 @@ export default Vue.extend({
 
     this.img.forEach((item) => {
       item.temp = new window.Image();
-      item.temp.src = require(`@/img/${item.name}.${item.ext}`);
+      item.temp.src = require(`@/img/${item.name}.jpg`);
       item.temp.onload = () => {
         item.config = item.temp;
       };
@@ -135,10 +152,11 @@ export default Vue.extend({
   },
   mounted() {
     this.stage = this.$refs.stage.getStage();
+    this.$refs.mapContainer.style.cursor = "grab";
+    this.updateCanvas();
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.updateCanvas);
-    window.removeEventListener("load", this.updateCanvas);
   },
   watch: {
     panel: function () {
@@ -152,33 +170,13 @@ export default Vue.extend({
       this.configKonva.height = window.innerHeight;
       this.dragging();
     },
-    // zoom(event) {
-    //   const scale = this.stage.scaleX();
-    //   const increase = Math.sign(event.evt.deltaY) * -0.05;
-    //   let newScale = Math.min(Math.max(scale + increase, 0.75), 1);
-    //   this.stage.scale({ x: newScale, y: newScale });
-
-    //   const mousePointTo = {
-    //     x: this.stage.getPointerPosition().x / scale - this.stage.x() / scale,
-    //     y: this.stage.getPointerPosition().y / scale - this.stage.y() / scale,
-    //   };
-
-    //   const newX = Math.min(
-    //     (mousePointTo.x - this.stage.getPointerPosition().x / newScale) * -newScale,
-    //     0
-    //   );
-    //   const newY = Math.min(
-    //     (mousePointTo.y - this.stage.getPointerPosition().y / newScale) * -newScale,
-    //     0
-    //   );
-
-    //   this.stage.position({ x: newX, y: newY });
-    // },
-    hoverImg(event){
+    hoverImg(event) {
       event.target.opacity(1);
+      this.$refs.mapContainer.style.cursor = "pointer";
     },
-    mouseOutImg(event){
+    mouseOutImg(event) {
       event.target.opacity(0);
+      this.$refs.mapContainer.style.cursor = "grab";
     },
     dragging() {
       let nx = Math.max(

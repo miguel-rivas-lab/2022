@@ -116,7 +116,7 @@ export default Vue.extend({
       { icon: "duck", route: "projects" },
       { icon: "collections", route: "gallery-3d" },
       { icon: "chart-areaspline", route: "statistics" },
-      // { icon: "airplane", route: "locations" },
+      { icon: "airplane", route: "locations" },
       { icon: "format-color-fill", route: "colors" },
     ],
     navigationBuilder: [

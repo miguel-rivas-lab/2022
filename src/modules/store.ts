@@ -19,11 +19,9 @@ export const store = new Vuex.Store({
     selection: {
       locations: {
         mapCenter: {
-          lat: 31,
-          lng: -94,
+          x: 0,
+          y: 0,
         },
-        mapZoom: 4,
-        viewPath: false,
       },
       projects: {
         filterData: 'all',
@@ -34,7 +32,7 @@ export const store = new Vuex.Store({
         },
       },
       home: {
-        hue: 220, //160-390  = number(0..230) + 220
+        hue: 220,
       },
       projects3d: {
         rotationDelay: 200,
@@ -81,7 +79,6 @@ export const store = new Vuex.Store({
     },
     centerMap(state, payload) {
       state.selection.locations.mapCenter = payload.position;
-      state.selection.locations.mapZoom = payload.zoom;
     },
     toggleValue(state, payload) {
       state[payload] = !state[payload];
@@ -93,8 +90,6 @@ export const store = new Vuex.Store({
       state.selection.grid.columns.splice(index, 1);
     },
   },
-  // actions: {},
-  // modules: {},
   getters: {
     getPanelVisibility: state => state.panel,
     getPanelSize: state => state.panelSize,
@@ -108,7 +103,6 @@ export const store = new Vuex.Store({
     getGearSelection: state => state.selection.gear,
     getWheelSelection: state => state.selection.wheel,
     getLocationSelection: state => state.selection.locations,
-    getLoginSelection: state => state.selection.login,
     getFilterData: state => state.selection.projects,
     getMeshSelection: state => state.selection.mesh,
     getProjects3DSelection: state => state.selection.projects3d,

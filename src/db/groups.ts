@@ -75,8 +75,8 @@ const groups: GroupsType = [
       tool.as2,
     ],
     position: {
-      lat: 18.493212559615365,
-      lng: -69.88831448456769,
+      x: -2269,
+      y: -671,
     },
   },
   {
@@ -133,8 +133,8 @@ const groups: GroupsType = [
       `Branding`,
     ],
     position: {
-      lat: 18.45316651707145,
-      lng: -69.66131456337963,
+      x: -2511,
+      y: -806,
     },
     types: [
       typeEnum.group,
@@ -206,8 +206,8 @@ const groups: GroupsType = [
       `Design yearbooks with ${tool.indesign} and ${tool.photoshop}`,
     ],
     position: {
-      lat: 18.4659438,
-      lng: -69.915391,
+      x: -1945,
+      y: -1000,
     },
     zoom: 21,
   },
@@ -221,8 +221,8 @@ const groups: GroupsType = [
       `Design social media assets using ${tool.illustrator}, ${tool.photoshop} and ${tool.indesign}.`,
     ],
     position: {
-      lat: 18.466018304331566,
-      lng: -69.91533470462102,
+      x: -1945,
+      y: -1000,
     },
     zoom: 21,
     types: [
@@ -296,8 +296,8 @@ const groups: GroupsType = [
       `Create motion graphics for social media using ${tool.flash}.`,
     ],
     position: {
-      lat: 18.4648539,
-      lng: -69.9582155,
+      x: -1380,
+      y: -856,
     },
     types: [
       typeEnum.group,
@@ -350,8 +350,8 @@ const groups: GroupsType = [
       "Work with Agile.",
     ],
     position: {
-      lat: 18.4460353,
-      lng: -69.959968,
+      x: -804,
+      y: -1097,
     },
     types: [
       typeEnum.group,
@@ -395,8 +395,8 @@ const groups: GroupsType = [
       `Design social media assets using ${tool.illustrator}, ${tool.photoshop} and ${tool.indesign}.`,
     ],
     position: {
-      lat: 18.4703103,
-      lng: -69.940124,
+      x: -1501,
+      y: -1170,
     },
     types: [
       typeEnum.group,
@@ -435,8 +435,8 @@ const groups: GroupsType = [
       `Create wireframes and users flow with ${tool.illustrator}.`,
     ],
     position: {
-      lat: 42.5395726,
-      lng: -114.4798225,
+      x: -1230,
+      y: -515,
     },
     types: [
       typeEnum.group,
@@ -465,44 +465,44 @@ const groups: GroupsType = [
 
     ],
   },
-  {
-    date: "2021/03/29",
-    slides: 0,
-    disabled: false,
-    description: "Frontend Developer",
-    list: [
-      `Build apps using ${tool.html}, ${tool.scss} and ${tool.jQuery} on a ${tool.php} environment with ${tool.grunt}.`,
-      "Optimize applications for maximum speed.",
-      `Work with ${tool.git} for control version on projects.`,
-    ],
-    position: {
-      lat: 38.9550186,
-      lng: -77.3670827,
-    },
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
-    clients: [
-      clientEnum.jellyfish,
-    ],
-    tools: [
-      toolEnum.php,
-      toolEnum.wordpress,
-      toolEnum.html,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.grunt,
-      toolEnum.javascript,
-      toolEnum.jQuery,
-    ],
-    children: [
-      h.getNewID(client.jellyfish, "2021/06/21"),
-    ],
-  },
+  // {
+  //   date: "2021/03/29",
+  //   slides: 0,
+  //   disabled: false,
+  //   description: "Frontend Developer",
+  //   list: [
+  //     `Build apps using ${tool.html}, ${tool.scss} and ${tool.jQuery} on a ${tool.php} environment with ${tool.grunt}.`,
+  //     "Optimize applications for maximum speed.",
+  //     `Work with ${tool.git} for control version on projects.`,
+  //   ],
+  //   position: {
+  //     x: 0,
+  //     y: 0,
+  //   },
+  //   types: [
+  //     typeEnum.group,
+  //     typeEnum.location,
+  //   ],
+  //   roles: [
+  //     roleEnum.frontend,
+  //   ],
+  //   clients: [
+  //     clientEnum.jellyfish,
+  //   ],
+  //   tools: [
+  //     toolEnum.php,
+  //     toolEnum.wordpress,
+  //     toolEnum.html,
+  //     toolEnum.scss,
+  //     toolEnum.git,
+  //     toolEnum.grunt,
+  //     toolEnum.javascript,
+  //     toolEnum.jQuery,
+  //   ],
+  //   children: [
+  //     h.getNewID(client.jellyfish, "2021/06/21"),
+  //   ],
+  // },
   {
     date: "2018/04/01",
     slides: 0,
@@ -517,8 +517,8 @@ const groups: GroupsType = [
       "Work with Agile.",
     ],
     position: {
-      lat: 38.902872,
-      lng: -77.0299321,
+      x: -2368,
+      y: -299,
     },
     types: [
       typeEnum.group,
