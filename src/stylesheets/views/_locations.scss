@@ -1,27 +1,7 @@
 main.section-locations {
   .map {
-    overflow: hidden;
     position: relative;
     height: 100%;
     background-color: #305caf !important;
   }
-
-  // .waves {
-  //   height: 100%;
-  //   position: relative;
-  //   background-image: url("../img/waves.svg");
-  //   background-repeat: repeat-x;
-  //   background-position-x: center;
-  //   background-position-y: bottom;
-  //   animation: waves linear 30s infinite;
-  // }
 }
-
-// @keyframes waves {
-//   from {
-//     background-position-x: 0;
-//   }
-//   to {
-//     background-position-x: 600px;
-//   }
-// }

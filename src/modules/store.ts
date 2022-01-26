@@ -14,7 +14,15 @@ export const store = new Vuex.Store({
       status: "",
     },
     modal: {
-      visible: false,
+      hidden: true,
+      data: {
+        title: "",
+        description: "",
+        date: "",
+        image: "",
+        list: [],
+        tools: [],
+      },
     },
     selection: {
       locations: {

@@ -8,11 +8,22 @@
             <ul class="summary">
               <template v-for="(location, locationIndex) in locationsDB">
                 <li v-bind:key="locationIndex">
-                  <btn
-                    @click="centerMap(location.position)"
-                    color="gold-tips"
-                    :text="location.title"
-                  />
+                  <row>
+                    <column size="100%-35">
+                    <btn
+                        @click="openModal(location.clients[0])"
+                        color="gold-tips"
+                        :text="location.title"
+                      />
+                    </column>
+                    <suffix size="35">
+                      <btn
+                        @click="centerMap(location.position)"
+                        color="burn-orange"
+                        glyph="gps_not_fixed"
+                      />
+                    </suffix>
+                  </row>
                 </li>
               </template>
             </ul>
@@ -27,13 +38,17 @@
 import Vue from "vue";
 
 import { type } from "../enums/types";
+// import { client } from "../enums/clients";
 
 export default Vue.extend({
   data: () => ({
     selection: {},
+    modal: {},
+    // client,
   }),
   created() {
     this.selection = this.$store.getters.getLocationSelection;
+    this.modal = this.$store.getters.getModal;
   },
   computed: {
     locationsDB() {
@@ -47,6 +62,11 @@ export default Vue.extend({
       this.$store.commit("centerMap", {
         position: position,
       });
+    },
+    openModal(filter){
+      document.querySelector('aside.modal .scroll-area').scrollTo(0, 0);
+      this.modal.data = this.locationsDB.find((item) => item.clients[0] === filter);
+      this.modal.hidden = false;
     },
   },
 });
