@@ -76,6 +76,16 @@
               glyph="github"
               target="_blank"
             />
+            <btn
+              tag="a"
+              href="https://github.com/miguel-rivas"
+              color="royal-purple"
+              size="md"
+              title="Github button"
+              v-nano-tooltip.right="'Github Organization'"
+              glyph="github"
+              target="_blank"
+            />
           </column>
           <suffix size=",80">
             <btn
