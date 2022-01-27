@@ -10,7 +10,7 @@
       </template>
 
       <template v-slot:body>
-        <img :src="modal.data.image" alt="Company preview" />
+        <!-- <img :src="modal.data.image" alt="Company preview" /> -->
         <ul class="list">
           <template v-for="(item, index) in modal.data.list">
             <li v-bind:key="`locationList${index}`" v-html="item" />

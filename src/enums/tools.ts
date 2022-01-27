@@ -37,6 +37,7 @@ export enum toolEnum {
   axios,
   as2,
   as3,
+  konva,
 
   rails = 250,
   php,
@@ -187,4 +188,5 @@ export const tool = {
   as2: "ActionScript 2",
   as3: "ActionScript 3",
   tkinter: "Tkinter",
+  konva: "Konva",
 };

@@ -64,6 +64,7 @@ export default Vue.extend({
       this.controls.enablePan = false;
 
       this.setLight();
+
       this.$refs.threeScene.appendChild(this.renderer.domElement);
     },
     setLight() {
@@ -129,13 +130,13 @@ export default Vue.extend({
   },
   created() {
     this.selection = this.$store.getters.getHomeSelection;
-    window.addEventListener("resize", this.resizeWindow);
+    // window.addEventListener("resize", this.resizeWindow);
   },
   beforeDestroy() {
     this.render = () => {
       // remove render loop
     };
-    window.removeEventListener("resize", this.resizeWindow);
+    // window.removeEventListener("resize", this.resizeWindow);
   },
   watch: {
     panel: function () {

@@ -14,5 +14,4 @@ export interface Project {
   links?: Array<ProjectLink>;
   disabled?: boolean;
   children?: Array<string>;
-  slides: number,
 }

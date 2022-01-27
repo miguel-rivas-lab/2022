@@ -130,7 +130,7 @@ export default Vue.extend({
       { icon: "format-color-fill", route: "colors" },
     ],
     navigationBuilder: [
-      // { icon: "open_with", route: "mesh" },
+      { icon: "open_with", route: "mesh" },
       { icon: "robot-industrial", route: "grid" },
       { icon: "cube-outline", route: "cube" },
       { icon: "cog-transfer-outline", route: "gear" },

@@ -26,7 +26,6 @@ export interface ProjectComb {
   links?: Array<ProjectLinkComb>;
   disabled?: boolean;
   children?: Array<string>;
-  slides: number,
 }
 
 export function formatRawDBToFirebase(item: ProjectFirebase): ProjectFirebase {
@@ -62,7 +61,6 @@ export function formatRawDBToFirebase(item: ProjectFirebase): ProjectFirebase {
     "roles": roles,
     "tools": tools,
     "children": children,
-    "slides": item.slides,
   }
 }
 
@@ -111,7 +109,6 @@ export function formatFirebaseDBToJSON(querySnapshot) {
       "tools": tools,
       "children": p.children,
       "image": "",
-      "slides": p.slides,
     };
 
     const id = helpers.getNewID(project.clients[0], project.date);
@@ -172,7 +169,6 @@ export function formatRawDBToJSON(item) {
       "tools": tools,
       "children": p.children,
       "image": "",
-      "slides": p.slides,
     };
 
     const id = helpers.getNewID(project.clients[0], project.date);
@@ -222,8 +218,6 @@ export function formatGroupsToProjects(groups) {
       "position": position,
       "description": group.description,
       "list": group.list,
-      "zoom": group.zoom,
-      "slides": group.slides,
     };
 
     const id = helpers.getNewID(project.clients[0], project.date);

@@ -15,7 +15,6 @@ export interface ProjectFirebase {
   links?: Array<ProjectLinkFirebase>,
   disabled?: boolean,
   children?: Array<string>,
-  slides: number,
 }
 
 export interface Group {
@@ -25,5 +24,4 @@ export interface Group {
   clients: Array<number>,
   tools?: Array<number>,
   children?: Array<string>,
-  slides: number,
 }
