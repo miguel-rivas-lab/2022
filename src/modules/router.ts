@@ -22,6 +22,7 @@ import MeshPanelView from '../views/mesh-panel.vue';
 import MeshWorkareaView from '../views/mesh-workarea.vue';
 import Projects3DWorkareaView from '../views/gallery-3d-workarea.vue';
 import Projects3DPanelView from '../views/gallery-3d-panel.vue';
+import ProjectsVideoWorkareaView from '../views/gallery-video-workarea.vue';
 
 import DefaultPanelView from '../views/default-panel.vue';
 
@@ -114,6 +115,14 @@ const routes: Array<RouteConfig> = [
     components: {
       workarea: Projects3DWorkareaView,
       panel: Projects3DPanelView,
+    },
+  },
+  {
+    name: 'gallery-video',
+    path: '/gallery-video',
+    components: {
+      workarea: ProjectsVideoWorkareaView,
+      panel: DefaultPanelView,
     },
   },
   {

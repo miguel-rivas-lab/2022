@@ -20,7 +20,7 @@
                       <btn
                         @click="centerMap(location.position)"
                         color="burn-orange"
-                        glyph="gps_not_fixed"
+                        glyph="gps-fixed"
                       />
                     </suffix>
                   </row>

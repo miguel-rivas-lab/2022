@@ -1,6 +1,6 @@
 <template>
   <div class="carrousel">
-    <button @blur="stopCarrousel()" @click="toggleCarrousel()" :class="{active: interval}">
+    <button @blur="stopCarrousel()" @click="toggleCarrousel()" :class="[{active: interval}, 'item']">
       <template v-for="frameIndex in frames">
         <img
           v-bind:key="frameIndex"

@@ -4,7 +4,7 @@
       <ul class="img-gallery">
         <template v-for="(color, colorIndex) in gColorsDB">
           <li v-bind:key="colorIndex">
-            <row vertical class="swatch">
+            <row vertical class="swatch item">
               <column
                 size="200, 200"
                 class="color"
