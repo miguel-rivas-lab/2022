@@ -15,6 +15,18 @@
           <column size="100%">
             <label
               class="btn flat charcoal"
+              :class="{ active: selection.grid }"
+            >
+              Grid
+              <input type="checkbox" v-model="selection.grid" />
+            </label>
+          </column>
+        </row>
+
+        <row>
+          <column size="100%">
+            <label
+              class="btn flat charcoal"
               :class="{ active: selection.rotateY }"
             >
               Pause

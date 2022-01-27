@@ -39,17 +39,16 @@ export const store = new Vuex.Store({
           allowfullscreen: true
         },
       },
-      home: {
+      stargaze: {
         hue: 220,
-      },
-      projects3d: {
-        rotationDelay: 200,
       },
       mesh: {
         sceneRotation: 1,
-        rotateX: false,
-        rotateY: false,
-        rotateZ: true
+        grid: true,
+        object: "monster",
+      },
+      projects3d: {
+        rotationDelay: 200,
       },
       grid: {
         row: "Row",
@@ -105,7 +104,7 @@ export const store = new Vuex.Store({
     getUniverse: state => state.parallelUniverse,
     getAlert: state => state.alert,
     getModal: state => state.modal,
-    getHomeSelection: state => state.selection.home,
+    getStargazeSelection: state => state.selection.stargaze,
     getGridSelection: state => state.selection.grid,
     getCubeSelection: state => state.selection.cube,
     getGearSelection: state => state.selection.gear,

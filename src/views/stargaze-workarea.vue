@@ -39,7 +39,7 @@ export default Vue.extend({
     },
   },
   created() {
-    this.selection = this.$store.getters.getHomeSelection;
+    this.selection = this.$store.getters.getStargazeSelection;
   },
   mounted() {
     window.addEventListener("mousemove", this.mouseLocation);

@@ -21,6 +21,7 @@ export default Vue.extend({
     scene: undefined,
     camera: undefined,
     renderer: undefined,
+    linesGroup: undefined,
     selection: {},
     sceneControls: function () {
       this.zoom = 100;
@@ -39,8 +40,7 @@ export default Vue.extend({
       this.winHeight = window.innerHeight;
       this.winWidth = window.innerWidth - this.panelsSize;
       this.scene = new THREE.Scene();
-      this.scene.position.set(0, 0, 0);
-      this.scene.rotation.y = 5;
+
       this.camera = new THREE.PerspectiveCamera(
         15,
         this.winWidth / this.winHeight,
@@ -78,6 +78,7 @@ export default Vue.extend({
       pointLight2.position.set(100, 100, 0);
       pointLight3.position.set(0, 0, -500);
       pointLight4.position.set(-100, -100, 0);
+
       this.scene.add(
         horizontalLight,
         pointLight,
@@ -87,28 +88,37 @@ export default Vue.extend({
       );
     },
     resizeWindow() {
-      this.winWidth = window.innerWidth - this.panelsSize;
       this.winHeight = window.innerHeight;
+      this.winWidth = window.innerWidth - this.panelsSize;
       this.renderer.setSize(this.winWidth, this.winHeight);
       this.camera.aspect = this.winWidth / this.winHeight;
       this.camera.updateProjectionMatrix();
     },
+
     render() {
       if (this.controls) {
         this.controls.update();
       }
+
       requestAnimationFrame(this.render);
       if (!this.selection.rotateY) {
         this.scene.rotation.y += this.selection.sceneRotation * 0.01;
       }
       this.renderer.render(this.scene, this.camera);
+      this.selection.grid
+        ? this.scene.add(this.gridHelper)
+        : this.scene.remove(this.gridHelper);
     },
-    buildGeometry() {
+    buildGeometry(object) {
+      const size = 60;
+      const divisions = 25;
+      this.gridHelper = new THREE.GridHelper(size, divisions);
+
       const loader = new GLTFLoader();
 
       (function (scene) {
         loader.load(
-          "3d/monster.glb",
+          `3d/${object}.glb`,
           function (gltf) {
             scene.add(gltf.scene);
           },
@@ -125,18 +135,18 @@ export default Vue.extend({
   },
   mounted() {
     this.buildScene();
-    this.buildGeometry();
+    this.buildGeometry(this.selection.object);
     this.render();
   },
   created() {
-    this.selection = this.$store.getters.getHomeSelection;
-    // window.addEventListener("resize", this.resizeWindow);
+    this.selection = this.$store.getters.getMeshSelection;
+    window.addEventListener("resize", this.resizeWindow);
   },
   beforeDestroy() {
     this.render = () => {
       // remove render loop
     };
-    // window.removeEventListener("resize", this.resizeWindow);
+    window.removeEventListener("resize", this.resizeWindow);
   },
   watch: {
     panel: function () {

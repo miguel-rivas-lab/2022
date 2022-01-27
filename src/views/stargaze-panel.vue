@@ -24,7 +24,7 @@ export default Vue.extend({
     selection: {},
   }),
   created() {
-    this.selection = this.$store.getters.getHomeSelection;
+    this.selection = this.$store.getters.getStargazeSelection;
   },
   methods: {
      updateSpeed(newVal) {
