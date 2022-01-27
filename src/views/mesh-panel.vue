@@ -36,6 +36,30 @@
         </row>
       </column>
     </row>
+
+    <!-- <row class="row-block" tag="fieldset">
+      <column size="100%">
+        <legend>Objects</legend>
+        <row>
+          <column size="100%">
+            <btn
+              color="gold-tips"
+              text="Spirit"
+              @click="changeMesh('spirit')"
+            />
+          </column>
+        </row>
+        <row>
+          <column size="100%">
+            <btn
+              color="gold-tips"
+              text="Drakkar"
+              @click="changeMesh('drakkar')"
+            />
+          </column>
+        </row>
+      </column>
+    </row> -->
   </scroll-area>
 </template>
 
@@ -50,9 +74,12 @@ export default Vue.extend({
     this.selection = this.$store.getters.getMeshSelection;
   },
   methods: {
-     updateSpeed(newVal) {
+    updateSpeed(newVal) {
       this.selection.sceneRotation = parseInt(newVal);
     },
-  }
+    changeMesh(obj) {
+      this.selection.object = obj;
+    },
+  },
 });
 </script>

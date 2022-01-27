@@ -45,7 +45,7 @@ export const store = new Vuex.Store({
       mesh: {
         sceneRotation: 1,
         grid: true,
-        object: "monster",
+        object: "spirit",
       },
       projects3d: {
         rotationDelay: 200,

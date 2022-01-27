@@ -23,6 +23,7 @@ export default Vue.extend({
     renderer: undefined,
     linesGroup: undefined,
     selection: {},
+    // loader: undefined,
     sceneControls: function () {
       this.zoom = 100;
     },
@@ -33,6 +34,9 @@ export default Vue.extend({
     }),
     panelsSize() {
       return this.panel ? 350 : 50;
+    },
+    mesh() {
+      return this.selection.object;
     },
   },
   methods: {
@@ -66,6 +70,10 @@ export default Vue.extend({
       this.setLight();
 
       this.$refs.threeScene.appendChild(this.renderer.domElement);
+
+      const size = 60;
+      const divisions = 25;
+      this.gridHelper = new THREE.GridHelper(size, divisions);
     },
     setLight() {
       const horizontalLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -110,10 +118,6 @@ export default Vue.extend({
         : this.scene.remove(this.gridHelper);
     },
     buildGeometry(object) {
-      const size = 60;
-      const divisions = 25;
-      this.gridHelper = new THREE.GridHelper(size, divisions);
-
       const loader = new GLTFLoader();
 
       (function (scene) {
@@ -135,7 +139,7 @@ export default Vue.extend({
   },
   mounted() {
     this.buildScene();
-    this.buildGeometry(this.selection.object);
+    this.buildGeometry(this.mesh);
     this.render();
   },
   created() {
@@ -151,6 +155,9 @@ export default Vue.extend({
   watch: {
     panel: function () {
       this.resizeWindow();
+    },
+    mesh: function () {
+      this.buildGeometry(this.mesh);
     },
   },
 });
