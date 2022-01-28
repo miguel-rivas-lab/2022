@@ -2,21 +2,20 @@
   <div class="map">
     <modal>
       <template v-slot:header>
-        <h1 v-html="modal.data.title" />
-        <h2 v-html="modal.data.description" />
-        <h3>
+        <h1 v-if="modal.data.title" v-html="modal.data.title" />
+        <h2 v-if="modal.data.description" v-html="modal.data.description" />
+        <h3 v-if="modal.data.date">
           <time v-html="modal.data.date" />
         </h3>
       </template>
 
       <template v-slot:body>
-        <!-- <img :src="modal.data.image" alt="Company preview" /> -->
-        <ul class="list">
+        <ul class="list" v-if="modal.data.list.length">
           <template v-for="(item, index) in modal.data.list">
             <li v-bind:key="`locationList${index}`" v-html="item" />
           </template>
         </ul>
-        <ul class="skills">
+        <ul class="skills" v-if="modal.data.tools.length">
           <template v-for="(item, index) in modal.data.tools">
             <li v-bind:key="`locationList${index}`" v-html="item" />
           </template>
@@ -55,6 +54,12 @@
               }"
             />
           </template>
+          <template v-for="(item, index) in pins">
+            <carrousel
+              v-bind:key="`mapCarrousel${index}`"
+              :item="item"
+            />
+          </template>
         </v-layer>
       </v-stage>
     </div>
@@ -67,69 +72,84 @@ import { mapGetters } from "vuex";
 import Modal from "../components/modal.vue";
 import { type } from "../enums/types";
 import { client } from "../enums/clients";
+import Carrousel from "../components/carrousel-konva.vue";
 
 export default Vue.extend({
-  components: { Modal },
+  components: { Modal, Carrousel },
   data: () => ({
     panelWidth: 0,
     map: {
       config: null,
     },
     averageBuildingImageWidth: 150,
+    pins: [
+      {
+        name: "santodomingo",
+        position: { x: 1660, y: 771 },
+      },
+      {
+        name: "twinfalls",
+        position: { x: 840, y: 281 },
+      },
+      {
+        name: "dc",
+        position: { x: 2379, y: 101 },
+      },
+    ],
     img: [
       {
         name: "itesa",
         config: null,
-        position: { x: 2256, y: 665 },
+        position: { x: 2262, y: 669 },
         opacity: 0,
         client: client.itesa,
       },
       {
         name: "itla",
         config: null,
-        position: { x: 2483, y: 799 },
+        position: { x: 2492, y: 811 },
         opacity: 0,
         client: client.itla,
       },
       {
         name: "several",
         config: null,
-        position: { x: 1905, y: 997 },
+        position: { x: 1918, y: 1007 },
         opacity: 0,
         client: client.socialNetwork,
       },
       {
         name: "avante",
         config: null,
-        position: { x: 1461, y: 1168 },
+        position: { x: 1450, y: 1169 },
         opacity: 0,
         client: client.avante,
       },
       {
         name: "capital",
         config: null,
-        position: { x: 1343, y: 856 },
+        position: { x: 1373, y: 862 },
         opacity: 0,
         client: client.capitalDBG,
       },
       {
         name: "pixel",
         config: null,
-        position: { x: 694, y: 1060 },
+        position: { x: 810, y: 1093 },
         opacity: 0,
         client: client.pixelPerfectTree,
       },
       {
         name: "planttherapy",
         config: null,
-        position: { x: 1188, y: 501 },
+        position: { x: 962, y: 376 },
         opacity: 0,
         client: client.plantTherapy,
       },
       {
         name: "enovational",
         config: null,
-        position: { x: 2323, y: 294 },
+        position: { x: 2492, y: 184 },
         opacity: 0,
         client: client.enovational,
       },
@@ -212,9 +232,11 @@ export default Vue.extend({
     },
   },
   methods: {
-    openModal(filter){
-      document.querySelector('aside.modal .scroll-area').scrollTo(0, 0);
-      this.modal.data = this.locationsDB.find((item) => item.clients[0] === filter);
+    openModal(filter) {
+      document.querySelector("aside.modal .scroll-area").scrollTo(0, 0);
+      this.modal.data = this.locationsDB.find(
+        (item) => item.clients[0] === filter
+      );
       this.modal.hidden = false;
     },
     updateCanvas: function () {
