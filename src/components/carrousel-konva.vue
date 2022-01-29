@@ -35,13 +35,13 @@ export default Vue.extend({
     },
     rotationDelay: {
       type: Number,
-      default: 200,
+      default: 50,
     },
   },
   data: () => ({
     currentFrame: 0,
     interval: undefined,
-    frames: 3,
+    frames: 8,
     increment: 1,
     items: [],
     playState: 1,

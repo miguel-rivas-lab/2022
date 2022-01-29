@@ -85,15 +85,15 @@ export default Vue.extend({
     pins: [
       {
         name: "santodomingo",
-        position: { x: 1660, y: 771 },
+        position: { x: 1660, y: 811 },
       },
       {
         name: "twinfalls",
-        position: { x: 840, y: 281 },
+        position: { x: 840, y: 308 },
       },
       {
         name: "dc",
-        position: { x: 2379, y: 101 },
+        position: { x: 2379, y: 129 },
       },
     ],
     img: [
