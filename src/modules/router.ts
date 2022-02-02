@@ -23,12 +23,21 @@ import MeshWorkareaView from '../views/mesh-workarea.vue';
 import Projects3DWorkareaView from '../views/gallery-3d-workarea.vue';
 import Projects3DPanelView from '../views/gallery-3d-panel.vue';
 import ProjectsVideoWorkareaView from '../views/gallery-video-workarea.vue';
+import CssWorkareaView from '../views/css-workarea.vue';
 
 import DefaultPanelView from '../views/default-panel.vue';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
+  {
+    name: 'css',
+    path: '/css',
+    components: {
+      workarea: CssWorkareaView,
+      panel: DefaultPanelView,
+    },
+  },
   {
     name: 'stargaze',
     path: '/',

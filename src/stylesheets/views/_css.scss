@@ -1,0 +1,246 @@
+@keyframes gallery {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+main.section-css {
+  $width: 400px;
+  $height: 400px;
+  $door-width: 240px;
+  $door-height: 280px;
+  $extra-roof: 70px;
+  $extra-base: 50px;
+  $roof-height: 20px;
+  $base-height: 30px;
+  $door-frame-width: 16px;
+  $frame-distance: 60px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .house {
+    position: relative;
+    perspective: 6000px;
+    width: $width;
+    height: $height;
+    animation: gallery 20s infinite linear;
+    transform-style: preserve-3d;
+
+    * {
+      transition: 200ms ease all;
+      &:hover {
+        background-color: rgb(231 106 141 / 50%) !important;
+        outline: 1px solid #d52465 !important;
+      }
+    }
+
+    > .base,
+    > .wall,
+    > .roof {
+      position: absolute;
+    }
+
+    > .wall {
+      width: $width;
+      height: $height;
+
+      &.main {
+        &.right,
+        &.left {
+          background: rgb(76 136 160 / 50%);
+        }
+      }
+
+      &.front,
+      &.back {
+        background: #ccc;
+      }
+
+      &.frame {
+        background: #333;
+      }
+
+      &.main {
+        &.right {
+          z-index: 0;
+          right: -50%;
+          transform: rotateY(90deg);
+        }
+        &.left {
+          z-index: 0;
+          left: -50%;
+          transform: rotateY(90deg);
+        }
+      }
+      &.front {
+        z-index: 1;
+        &.left {
+          width: #{($width / 2) - ($door-width / 2)};
+          height: $door-height;
+          transform: translateY(#{$height - $door-height}) translateZ(#{$width / 2});
+        }
+        &.right {
+          width: #{($width / 2) - ($door-width / 2)};
+          height: $door-height;
+          transform: translateX(#{($width / 2) + ($door-width / 2)}) translateY(#{$height - $door-height})
+            translateZ(#{$width / 2});
+        }
+        &.top {
+          width: $width;
+          height: #{$height - $door-height};
+          transform: translateZ(#{$width / 2});
+        }
+        &.door {
+          background: rgb(76 136 160 / 50%);
+          width: $door-width;
+          height: $door-height;
+          transform: translateX(#{($width / 2) - ($door-width / 2)}) translateY(#{$height - $door-height})
+            translateZ(#{$width / 2});
+        }
+      }
+      &.back {
+        z-index: -1;
+        transform: translateZ(#{-$width / 2});
+      }
+
+      &.frame {
+        z-index: 2;
+        &.center {
+          width: $door-frame-width;
+          height: $door-height;
+          transform: translateX(#{($width / 2) - ($door-frame-width / 2)}) translateY(#{$height - $door-height})
+            translateZ(#{$width / 2});
+        }
+        &.right {
+          width: $door-frame-width;
+          height: $door-height;
+          transform: translateX(#{($width / 2) + ($door-width / 2) - ($door-frame-width)})
+            translateY(#{$height - $door-height}) translateZ(#{$width / 2});
+        }
+        &.left {
+          width: $door-frame-width;
+          height: $door-height;
+          transform: translateX(#{($width / 2) - ($door-width / 2)}) translateY(#{$height - $door-height})
+            translateZ(#{$width / 2});
+        }
+        &.top {
+          width: $door-width;
+          height: $door-frame-width;
+          transform: translateX(#{($width / 2) - ($door-width / 2)}) translateY(#{$height - $door-height})
+            translateZ(#{$width / 2});
+        }
+        &.bottom {
+          width: $door-width;
+          height: $door-frame-width;
+          transform: translateX(#{($width / 2) - ($door-width / 2)}) translateY(#{$height - $door-frame-width})
+            translateZ(#{$width / 2});
+        }
+      }
+    }
+
+    > .base {
+      &.top,
+      &.bottom {
+        background: #9c9c9c;
+      }
+      &.right,
+      &.left {
+        background: #909090;
+      }
+      &.front,
+      &.back {
+        background: #969696;
+      }
+      &.top {
+        width: #{$width + $extra-base};
+        height: #{$height + $extra-base};
+        transform: rotateX(90deg) translateX(#{-$extra-base / 2}) translateZ(#{(-$height/2) + ($extra-base / 2)});
+      }
+      &.bottom {
+        width: #{$width + $extra-base};
+        height: #{$height + $extra-base};
+        transform: rotateX(90deg) translateX(#{-$extra-base / 2})
+          translateZ(#{(-$height/2) + ($extra-base / 2) - $base-height});
+      }
+      &.front {
+        width: #{$width + $extra-base};
+        height: #{$base-height};
+        transform: translateX(#{-$extra-base / 2}) translateY(#{$height})
+          translateZ(#{($height / 2) + ($extra-base / 2)});
+      }
+      &.back {
+        width: #{$width + $extra-base};
+        height: #{$base-height};
+        transform: translateX(#{-$extra-base / 2}) translateY(#{$height})
+          translateZ(#{(-$height / 2) - ($extra-base / 2)});
+      }
+      &.right {
+        width: #{$width + $extra-base};
+        height: $base-height;
+        transform: rotateY(90deg) translateY(#{$height}) translateZ(#{$height / 2});
+      }
+      &.left {
+        width: #{$width + $extra-base};
+        height: $base-height;
+        transform: rotateY(90deg) translateY(#{$height}) translateZ(-#{($height / 2) + $extra-base});
+      }
+    }
+
+    > .roof {
+      &.top,
+      &.bottom {
+        background: #4e4e4e;
+      }
+      &.front,
+      &.back {
+        background: #414141;
+      }
+      &.right,
+      &.left {
+        background: #474747;
+      }
+      &.bottom {
+        width: #{$width + $extra-roof};
+        height: #{$height + $extra-roof};
+        transform: rotateX(90deg) translateX(#{-$extra-roof / 2}) translateZ(#{($height / 2) + ($extra-roof / 2)});
+      }
+      &.top {
+        width: #{$width + $extra-roof};
+        height: #{$height + $extra-roof};
+        transform: rotateX(90deg) translateX(#{-$extra-roof / 2})
+          translateZ(#{($height / 2) + ($extra-roof / 2) + $roof-height});
+      }
+      &.front {
+        width: #{$width + $extra-roof};
+        height: $roof-height;
+        transform: translateX(#{-$extra-roof / 2}) translateY(#{-$roof-height})
+          translateZ(#{($height / 2) + ($extra-roof / 2)});
+      }
+      &.back {
+        width: #{$width + $extra-roof};
+        height: $roof-height;
+        transform: translateX(#{-$extra-roof / 2}) translateY(#{-$roof-height})
+          translateZ(-#{($height / 2) + ($extra-roof / 2)});
+      }
+      &.left {
+        width: #{$width + $extra-roof};
+        height: $roof-height;
+        transform: rotateY(90deg) translateY(#{-$roof-height}) translateZ(-#{($height / 2) + $extra-roof});
+      }
+      &.right {
+        width: #{$width + $extra-roof};
+        height: $roof-height;
+        transform: rotateY(90deg) translateY(#{-$roof-height}) translateZ(#{$height / 2});
+      }
+    }
+  }
+}

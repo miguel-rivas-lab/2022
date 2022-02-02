@@ -1,0 +1,28 @@
+<template lang="pug">
+.container
+  .house
+    .base.top
+    .base.bottom
+    .base.front
+    .base.back
+    .base.right
+    .base.left
+    .wall.front.left
+    .wall.front.right
+    .wall.front.top
+    .wall.front.door
+    .wall.frame.right
+    .wall.frame.left
+    .wall.frame.center
+    .wall.frame.top
+    .wall.frame.bottom
+    .wall.main.back
+    .wall.main.right
+    .wall.main.left
+    .roof.top
+    .roof.bottom
+    .roof.right
+    .roof.left
+    .roof.front
+    .roof.back
+</template>
