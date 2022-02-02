@@ -10,7 +10,7 @@
           v-bind:key="frameIndex"
           v-nano-tooltip.right="'olis'"
           :config="{
-            image: items[frameIndex - 1].config,
+            image: items[frameIndex - 1],
             x: item.position.x,
             y: item.position.y,
             opacity: currentFrame + 1 === frameIndex ? 1 : 0,
@@ -47,15 +47,8 @@ export default Vue.extend({
     playState: 1,
   }),
   created() {
-    for (let frame = 1; frame <= this.frames; frame++) {
-      this.items.push({ config: undefined, temp: undefined });
-      this.items[frame - 1].temp = new window.Image();
-      this.items[
-        frame - 1
-      ].temp.src = `3dlib/${this.item.name}/000${frame}.jpg`;
-      this.items[frame - 1].temp.onload = () => {
-        this.items[frame - 1].config = this.items[frame - 1].temp;
-      };
+    for (let frame = 0; frame < this.frames; frame++) {
+      this.items.push(this.$root.imgs[this.item.name].obj[frame]);
     }
   },
   mounted() {

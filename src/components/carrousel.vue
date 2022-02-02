@@ -4,6 +4,7 @@
       <template v-for="frameIndex in frames">
         <img
           v-bind:key="frameIndex"
+          width="400"
           :class="{ active: currentFrame + 1 === frameIndex }"
           :src="`3dlib/${item.name}/000${frameIndex}.jpg`"
         />

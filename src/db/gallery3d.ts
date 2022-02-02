@@ -63,4 +63,26 @@ const scenes = [
   { name: "404" },
 ];
 
+// 3D Map
+const pointers = [
+  { name: "santodomingo" },
+  { name: "twinfalls" },
+  { name: "dc" },
+];
+
+export const statics = [
+  { name: "map.jpg" },
+  { name: "itesa.jpg" },
+  { name: "itla.jpg" },
+  { name: "several.jpg" },
+  { name: "avante.jpg" },
+  { name: "capital.jpg" },
+  { name: "pixel.jpg" },
+  { name: "planttherapy.jpg" },
+  { name: "enovational.jpg" },
+  { name: "stars.svg" },
+  // { name: "waves.svg" },
+];
+
 export const gallery3d = [].concat(buildings, vehicles, characters, tools, plants, planets, scenes);
+export const secuences = [].concat(gallery3d, pointers);

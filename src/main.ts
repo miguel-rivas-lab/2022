@@ -17,6 +17,37 @@ import { groupsDB } from "./db/groups";
 import { users } from "./db/users";
 import VueKonva from 'vue-konva';
 
+import { secuences, statics } from "./db/gallery3d";
+
+// ---------------- imgLoading
+
+const projects = formatRawDBToJSON(projectsDB.map(formatRawDBToFirebase));
+const imgs = {};
+
+secuences.forEach(item => {
+  imgs[item.name] = { path: [], obj: [] };
+  for (let index = 1; index <= 8; index++) {
+    imgs[item.name].path.push(`3dlib/${item.name}/000${index}.jpg`);
+  }
+});
+
+statics.forEach(item => {
+  imgs[item.name] = { path: [], obj: [] };
+  imgs[item.name].path.push(`@/img/${item.name}`);
+});
+
+Object.values(imgs).forEach(item => {
+  item.path.forEach(currentPath => {
+    const temp = new window.Image();
+    temp.src = currentPath;
+    temp.onload = () => {
+      item.obj.push(temp);
+    };
+  });
+});
+
+// console.log(imgs);
+
 // ---------------- Selection
 
 store.commit("addColumn",
@@ -49,8 +80,9 @@ new Vue({
   store,
   data: () => ({
     user: users,
-    projects: formatRawDBToJSON(projectsDB.map(formatRawDBToFirebase)),
+    projects: projects,
     groups: formatGroupsToProjects(groupsDB),
+    imgs: imgs,
   }),
   render: h => h(app)
 }).$mount('#app');
