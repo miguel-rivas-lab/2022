@@ -1,3 +1,5 @@
+@use "sass:math";
+
 main.section-window {
   @mixin size($w, $mW, $h, $mH) {
     @if ($w != x) {
@@ -229,7 +231,7 @@ main.section-window {
       @include size($windowsWidth + $flowerpotExtraWidth, x, $flowerpotHeight, x);
       position: absolute;
       bottom: -$flowerpotHeight - 40;
-      left: -$flowerpotExtraWidth / 2;
+      left: math.div(-$flowerpotExtraWidth, 2);
       perspective: 1000px;
 
       .hook {

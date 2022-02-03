@@ -147,7 +147,7 @@ export default Vue.extend({
       }).filter((item) => item.types.includes(type.location));
     },
     mapPos() {
-      if (this.map.config) {
+      if (this.map.image) {
         return {
           x: Math.max(
             Math.min(
