@@ -44,6 +44,7 @@ main.section-minivan {
       top: 45px;
       background-color: #111;
       perspective: 1000px;
+      z-index: 1;
     }
 
     .door {
@@ -54,7 +55,6 @@ main.section-minivan {
       left: 0;
       background-color: #ffa432;
       transform: translateZ(0);
-      z-index: 1;
     }
 
     &:hover .door {
