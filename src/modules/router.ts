@@ -37,7 +37,7 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     name: 'css',
-    path: '/css/:id',
+    path: '/css',
     components: {
       workarea: CssWorkareaView,
       panel: CssPanelView,
