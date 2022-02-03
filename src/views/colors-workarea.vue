@@ -1,25 +1,14 @@
-<template>
-  <scroll-area color="royal-purple">
-    <container>
-      <ul class="img-gallery">
-        <template v-for="(color, colorIndex) in gColorsDB">
-          <li v-bind:key="colorIndex">
-            <row vertical class="swatch item">
-              <column
-                size="200, 200"
-                class="color"
-                :style="`background-color: ${color.hex}`"
-              />
-              <column>
-                <h1 v-html="color.label" />
-                <p v-html="color.hex" />
-              </column>
-            </row>
-          </li>
-        </template>
-      </ul>
-    </container>
-  </scroll-area>
+<template lang="pug">
+  scroll-area(color="royal-purple")
+    container
+      ul.img-gallery
+        template(v-for="(color, colorIndex) in gColorsDB")
+          li(v-bind:key="colorIndex")
+            row.swatch.item(vertical)
+              column.color(size="200, 200" :style="`background-color: ${color.hex}`")
+              column
+                h1 {{color.label}}
+                p {{color.hex}}
 </template>
 
 <script lang="ts">

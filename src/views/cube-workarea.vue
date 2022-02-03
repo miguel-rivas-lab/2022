@@ -1,5 +1,5 @@
-<template>
-  <div ref="cube" />
+<template lang="pug">
+  div(ref="cube")
 </template>
 
 <script lang="ts">

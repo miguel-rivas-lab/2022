@@ -1,28 +1,14 @@
-<template>
-  <scroll-area color="royal-purple">
-    <row class="row-block" tag="fieldset">
-      <column size="100%">
-        <legend>Buttons</legend>
-
-        <row>
-          <column size="100%">
-            <ul class="buttons">
-              <template v-for="(color, colorIndex) in gColorsDB">
-                <li v-bind:key="colorIndex">
-                  <btn
-                    tag="span"
-                    :color="color.spinalCase"
-                    :text="color.label"
-                  />
-                </li>
-              </template>
-            </ul>
-          </column>
-        </row>
-
-      </column>
-    </row>
-  </scroll-area>
+<template lang="pug">
+  scroll-area(color="royal-purple")
+    row.row-block(tag="fieldset")
+      column(size="100%")
+        legend Buttons
+        row
+          column(size="100%")
+            ul.buttons
+              template(v-for="(color, colorIndex) in gColorsDB")
+                li(v-bind:key="colorIndex")
+                  btn(tag="span" :color="color.spinalCase" :text="color.label")
 </template>
 
 <script lang="ts">
