@@ -3,7 +3,7 @@
     <scroll-area color="royal-purple" :horizontal="false">
       <container>
         <row vertical>
-          <column size=",100%-80">
+          <column>
             <template v-for="nav in navigation">
               <template v-if="$route.name !== nav.route">
                 <btn
@@ -55,7 +55,7 @@
                 />
               </template>
             </template>
-            <hr>
+            <hr />
             <btn
               tag="a"
               :href="linkLinkedin"
@@ -86,8 +86,7 @@
               glyph="github"
               target="_blank"
             />
-          </column>
-          <suffix size=",80">
+            <hr />
             <btn
               color="persian-red"
               size="md"
@@ -106,7 +105,7 @@
               @click="toggleValue('theme'), playSound()"
               :active="!theme"
             />
-          </suffix>
+          </column>
         </row>
       </container>
     </scroll-area>
@@ -135,7 +134,7 @@ export default Vue.extend({
       { icon: "open-with", route: "mesh" },
       { icon: "cube-outline", route: "cube" },
       { icon: "cog-transfer-outline", route: "gear" },
-      { icon: "sass", route: "house" },
+      { icon: "css3", route: "house" },
       { icon: "palette", route: "wheel" },
     ],
     linkGithub,
