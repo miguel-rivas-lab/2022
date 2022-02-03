@@ -10,11 +10,11 @@ scroll-area(color="royal-purple")
               li(v-bind:key="locationIndex")
                 row
                   column(size="100%-35")
-                  btn(
-                    @click="openModal(location.clients[0])",
-                    color="gold-tips",
-                    :text="location.title"
-                  )
+                    btn(
+                      @click="openModal(location.clients[0])",
+                      color="gold-tips",
+                      :text="location.title"
+                    )
 
                   suffix(size="35")
                     btn(

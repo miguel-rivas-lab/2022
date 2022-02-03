@@ -62,7 +62,29 @@ const projects: ProjectsType = [
       h.getNewID(client.miguelRivas, "2021/02/27"),
       h.getNewID(client.miguelRivas, "2021/11/14"),
       h.getNewID(client.miguelRivas, "2022/01/24"),
+      h.getNewID(client.miguelRivas, "2022/02/02"),
     ],
+  },
+
+  {
+    date: "2022/02/02",
+    title: "3D House",
+    types: [
+      typeEnum.prototype,
+    ],
+    roles: [
+      roleEnum.design,
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    tools: [
+      toolEnum.scss,
+      toolEnum.git,
+      toolEnum.pug,
+    ],
+    disabled: true,
   },
 
 

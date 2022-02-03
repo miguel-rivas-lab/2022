@@ -129,7 +129,7 @@ export default Vue.extend({
       { icon: "movie", route: "gallery-video" },
       { icon: "format-color-fill", route: "colors" },
       { icon: "chart-areaspline", route: "statistics" },
-      { icon: "", route: "css" },
+      { icon: "", route: "house" },
     ],
     navigationBuilder: [
       { icon: "robot-industrial", route: "grid" },

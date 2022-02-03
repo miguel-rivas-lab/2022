@@ -1,34 +1,3 @@
 <template lang="pug">
-.house
-  .base.top
-  .base.bottom
-  .base.front
-  .base.back
-  .base.right
-  .base.left
-  .wall.front.left
-  .wall.front.right
-  .wall.front.top
-  .wall.front.door
-    .slide.s1
-      .frame.right
-      .frame.left
-      .frame.center
-      .frame.top
-      .frame.bottom
-    .slide.s2
-      .frame.right
-      .frame.left
-      .frame.center
-      .frame.top
-      .frame.bottom
-  .wall.main.back
-  .wall.main.right
-  .wall.main.left
-  .roof.top
-  .roof.bottom
-  .roof.right
-  .roof.left
-  .roof.front
-  .roof.back
+router-view
 </template>

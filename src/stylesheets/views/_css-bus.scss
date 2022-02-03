@@ -1,0 +1,242 @@
+main.section-bus {
+  @mixin size($w, $mW, $h, $mH) {
+    @if ($w != x) {
+      @if ($mW == x) {
+        width: $w;
+      } @else {
+        #{$mW}-width: $w;
+      }
+    }
+    @if ($h != x) {
+      @if ($mH == x) {
+        height: $h;
+      } @else {
+        #{$mH}-height: $h;
+      }
+    }
+  }
+
+  $maxHeight: 270px;
+  $busColor: #ffc632;
+  $time: 200ms;
+  .workarea {
+    background: #224157;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    * {
+      box-sizing: content-box;
+    }
+  }
+
+  #minibus {
+    position: relative;
+    @include size(640px, x, $maxHeight, x);
+    border-radius: 70px 120px 40px 30px;
+    background-color: #369ecb;
+
+    .door_base {
+      @include size(200px, x, 80%, x);
+      position: relative;
+      margin: 0 250px;
+      top: 45px;
+      background-color: #111;
+      perspective: 1000px;
+    }
+
+    .door {
+      @include size(100%, x, 100%, x);
+      transition: 500ms;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #ffa432;
+      transform: translateZ(0);
+      z-index: 1;
+    }
+
+    &:hover .door {
+      left: -95%;
+      background-color: #ffc632;
+      transform: translateZ(40px);
+    }
+
+    .window {
+      height: 80px;
+      position: absolute;
+      background-color: #444;
+
+      &.w01 {
+        width: 160px;
+        border-radius: 10px 70px 10px 10px;
+        top: 55px;
+        right: 12px;
+      }
+
+      &.w02 {
+        width: 170px;
+        border-radius: 10px;
+        top: 10px;
+        right: 15px;
+      }
+
+      &.w03 {
+        width: 160px;
+        border-radius: 30px 10px 10px 10px;
+        top: 55px;
+        left: 70px;
+
+        .air_dust {
+          @include size(35px, x, 9%, x);
+          position: absolute;
+          border-radius: 10px;
+          background-color: #444;
+          left: -45px;
+
+          $plus: 12;
+
+          &.dust01 {
+            top: 2%;
+          }
+          &.dust02 {
+            top: 2% + $plus * 1;
+          }
+          &.dust03 {
+            top: 2% + $plus * 2;
+          }
+          &.dust04 {
+            top: 2% + $plus * 3;
+          }
+          &.dust05 {
+            top: 2% + $plus * 4;
+          }
+          &.dust06 {
+            top: 2% + $plus * 5;
+          }
+          &.dust07 {
+            top: 2% + $plus * 6;
+          }
+          &.dust08 {
+            top: 2% + $plus * 7;
+          }
+        }
+      }
+    }
+
+    .handle {
+      @include size(47px, x, 8px, x);
+      position: absolute;
+      background-color: #242424;
+      border-radius: 10px;
+
+      &.h01 {
+        top: 155px;
+        right: 124px;
+      }
+
+      &.h02 {
+        top: 110px;
+        right: 15px;
+      }
+    }
+
+    .roller {
+      @include size(50px, x, 50px, x);
+      position: absolute;
+      background-color: #bbb;
+      border: solid 30px #2d2d2d;
+      border-radius: 50%;
+      bottom: -50px;
+
+      &.r01 {
+        right: 50px;
+        animation: rolling_01 $time alternate infinite;
+      }
+      &.r02 {
+        left: 50px;
+        animation: rolling_02 $time alternate infinite;
+      }
+    }
+
+    .bumper {
+      @include size(50px, x, 30px, x);
+      bottom: 4px;
+      position: absolute;
+      border-radius: 20px;
+      background-color: #b62c0b;
+
+      &.front {
+        right: -10px;
+      }
+
+      &.back {
+        left: -13px;
+      }
+    }
+
+    .shadow {
+      @include size(100%, x, 10px, x);
+      bottom: -55px;
+      position: absolute;
+      border-radius: 20px;
+      background-color: rgba(34, 34, 34, 0.45);
+      animation: rolling_03 $time alternate infinite;
+      z-index: -1;
+    }
+  }
+
+  @keyframes rolling_01 {
+    0% {
+      right: 50px;
+      bottom: -50px;
+    }
+    25% {
+      right: 45px;
+      bottom: -45px;
+    }
+    50% {
+      right: 50px;
+      bottom: -45px;
+    }
+    75% {
+      right: 45px;
+      bottom: -50px;
+    }
+  }
+
+  @keyframes rolling_02 {
+    0% {
+      left: 50px;
+      bottom: -50px;
+    }
+    25% {
+      left: 45px;
+      bottom: -45px;
+    }
+    50% {
+      left: 50px;
+      bottom: -45px;
+    }
+    75% {
+      left: 45px;
+      bottom: -50px;
+    }
+  }
+
+  @keyframes rolling_03 {
+    0% {
+      bottom: -55px;
+    }
+    25% {
+      bottom: -60px;
+    }
+    50% {
+      bottom: -50px;
+    }
+    75% {
+      bottom: -55px;
+    }
+  }
+}

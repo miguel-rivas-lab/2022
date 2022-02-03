@@ -24,6 +24,11 @@ import Projects3DWorkareaView from '../views/gallery-3d-workarea.vue';
 import Projects3DPanelView from '../views/gallery-3d-panel.vue';
 import ProjectsVideoWorkareaView from '../views/gallery-video-workarea.vue';
 import CssWorkareaView from '../views/css-workarea.vue';
+import CssPanelView from '../views/css-panel.vue';
+import CssHouseWorkareaView from '../views/css-workarea-house.vue';
+import CssWindowWorkareaView from '../views/css-workarea-window.vue';
+import CssBusWorkareaView from '../views/css-workarea-bus.vue';
+import CssPillsWorkareaView from '../views/css-workarea-pills.vue';
 
 import DefaultPanelView from '../views/default-panel.vue';
 
@@ -32,11 +37,33 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     name: 'css',
-    path: '/css',
+    path: '/css/:id',
     components: {
       workarea: CssWorkareaView,
-      panel: DefaultPanelView,
+      panel: CssPanelView,
     },
+    children: [
+      {
+        name: 'house',
+        path: 'house',
+        component: CssHouseWorkareaView,
+      },
+      {
+        name: 'window',
+        path: 'window',
+        component: CssWindowWorkareaView,
+      },
+      {
+        name: 'pills',
+        path: 'pills',
+        component: CssPillsWorkareaView,
+      },
+      {
+        name: 'bus',
+        path: 'bus',
+        component: CssBusWorkareaView,
+      },
+    ]
   },
   {
     name: 'stargaze',

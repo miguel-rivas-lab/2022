@@ -1,0 +1,358 @@
+main.section-window {
+  @mixin size($w, $mW, $h, $mH) {
+    @if ($w != x) {
+      @if ($mW == x) {
+        width: $w;
+      } @else {
+        #{$mW}-width: $w;
+      }
+    }
+    @if ($h != x) {
+      @if ($mH == x) {
+        height: $h;
+      } @else {
+        #{$mH}-height: $h;
+      }
+    }
+  }
+
+  $zValue: 10px;
+
+  $doorColor: #04aaea;
+  $hingeColor: #8e760e;
+  $screwColor: darken($hingeColor, 15%);
+
+  $backgroundColor: #3da978;
+
+  $hingeMargin: 70px;
+  $backColor: rgba(20, 20, 20, 1);
+  $shadowColor: rgba(34, 34, 34, 0.1);
+  $windowsWidth: 250px;
+  $windowsHeight: 400px;
+
+  $flowerpotHeight: 100px;
+  $flowerpotExtraWidth: 40px;
+  $flowerpotDepth: 50px;
+  $flowerpotColor: #9d5f31;
+
+  .workarea {
+    background: #222;
+
+    * {
+      box-sizing: content-box;
+    }
+  }
+
+  #background {
+    position: fixed;
+    @include size(100%, x, 100%, x);
+    background: $backgroundColor;
+    top: 0;
+    left: 0;
+    text-align: center;
+
+    .stripe {
+      @include size(15%, x, 100%, x);
+      background: darken($backgroundColor, 5%);
+      display: inline-block;
+      margin: 0 6%;
+    }
+  }
+
+  #windows {
+    position: relative;
+    @include size($windowsWidth, x, $windowsHeight, x);
+    margin: 5% auto 0;
+    background-color: $backColor;
+    perspective: 1000px;
+
+    $frameOutWidth: 7px;
+    $frameInWidth: 10px;
+    $frameInWidthBorder: 2px;
+    .frame {
+      z-index: -1;
+      position: absolute;
+      &.out {
+        background: #fffdff;
+        @include size(($windowsWidth - $frameOutWidth * 2), x, ($windowsHeight - $frameOutWidth * 2), x);
+        padding: $frameOutWidth;
+      }
+      &.in {
+        background: #f2f2f2;
+        border: $frameInWidthBorder solid #ddd;
+        @include size(
+          ($windowsWidth - $frameOutWidth * 2 - $frameInWidth * 2 - $frameInWidthBorder * 2),
+          x,
+          ($windowsHeight - $frameOutWidth * 2 - $frameInWidth * 2 - $frameInWidthBorder * 2),
+          x
+        );
+        padding: $frameInWidth;
+      }
+    }
+
+    .interior {
+      background: $backColor;
+      @include size(
+        ($windowsWidth - $frameOutWidth * 2 - $frameInWidth * 2 - $frameInWidthBorder * 2),
+        x,
+        ($windowsHeight - $frameOutWidth * 2 - $frameInWidth * 2 - $frameInWidthBorder * 2),
+        x
+      );
+      padding: 0;
+      margin: 0;
+    }
+
+    .hinge {
+      position: absolute;
+      @include size(10px, x, 20px, x);
+
+      .screw {
+        border-radius: 50%;
+        @include size(3px, x, 3px, x);
+        background: $screwColor;
+        margin: 40% auto;
+      }
+
+      &.right {
+        right: 0;
+        transform: skewY(-5deg);
+      }
+      &.left {
+        left: 0;
+        transform: skewY(5deg);
+      }
+      &.top {
+        top: $hingeMargin;
+      }
+      &.bottom {
+        bottom: $hingeMargin;
+      }
+
+      &.outside {
+        background: darken($hingeColor, 10%);
+      }
+      &.inside {
+        background: $hingeColor;
+      }
+    }
+
+    .shadow {
+      top: 0;
+      position: absolute;
+      @include size(50%, x, 100%, x);
+      background: $shadowColor;
+      transition: 800ms;
+      filter: blur(2px);
+
+      &.right {
+        right: 0;
+        transform-origin: 100% 0;
+      }
+      &.left {
+        left: 0;
+        transform-origin: 0 0;
+      }
+    }
+
+    .door {
+      top: 0;
+      position: absolute;
+      @include size(49.8%, x, 100%, x);
+      transition: 1000ms;
+      transform-style: preserve-3d;
+
+      .base {
+        @include size(70%, x, 44%, x);
+        padding-top: 2px;
+        display: block;
+        margin: 15px auto 20px auto;
+
+        .hole {
+          @include size(100%, x, 3px, x);
+          background: lighten($doorColor, 20%);
+          display: block;
+          margin: 0 0 7px 0;
+          transform-origin: 50% 50%;
+          transition: 300ms;
+        }
+      }
+
+      &.right {
+        right: 0;
+        transform-origin: 100% 0;
+
+        .face.top {
+          transform: translate3D(0, 0, $zValue) rotateY(90deg);
+        }
+      }
+
+      &.left {
+        left: 0;
+        transform-origin: 0 0;
+
+        .face.top {
+          transform: translate3D(125px, 0, $zValue) rotateY(90deg);
+        }
+      }
+    }
+
+    .face {
+      position: absolute;
+      transform-origin: 0 0;
+
+      &.front,
+      &.back {
+        @include size(100%, x, 100%, x);
+      }
+      &.front {
+        background-color: $doorColor;
+        transform: translate3D(0, 0, $zValue);
+        .base {
+          background: darken($backColor, 10%);
+        }
+      }
+      &.back {
+        background-color: darken($doorColor, 5%);
+        transform: translate3D(0, 0, 0);
+        .base {
+          background: darken($backColor, 10%);
+        }
+      }
+
+      &.top {
+        @include size($zValue, x, 100%, x);
+        background-color: darken($doorColor, 10%);
+      }
+    }
+
+    .flowerpot {
+      @include size($windowsWidth + $flowerpotExtraWidth, x, $flowerpotHeight, x);
+      position: absolute;
+      bottom: -$flowerpotHeight - 40;
+      left: -$flowerpotExtraWidth / 2;
+      perspective: 1000px;
+
+      .hook {
+        @include size(7px, x, 80px, x);
+        position: absolute;
+        background: darken($flowerpotColor, 20%);
+        top: -65px;
+        border-radius: 6px;
+        &.right {
+          right: 40px;
+          transform: skewX(5deg);
+        }
+        &.left {
+          left: 40px;
+          transform: skewX(-5deg);
+        }
+      }
+
+      .flowers {
+        @include size(327px, x, 136px, x);
+        position: absolute;
+        z-index: 3;
+        top: -27px;
+        left: -12px;
+        background: url("../img/flowerpot.png");
+      }
+
+      .head {
+        @include size($windowsWidth + $flowerpotExtraWidth + 10, x, 20px, x);
+        top: 0;
+        left: -5px;
+        position: absolute;
+        background: darken($flowerpotColor, 5%);
+      }
+
+      .frontFace {
+        @include size(100%, x, 100%, x);
+        position: absolute;
+        z-index: 2;
+        background: $flowerpotColor;
+        transform-origin: 0 100%;
+        transform: translateZ($flowerpotDepth) rotateX(-30deg);
+      }
+
+      .leftFace,
+      .rightFace {
+        @include size($flowerpotDepth, x, 20px, x);
+        position: absolute;
+        z-index: 1;
+        background: $flowerpotColor;
+      }
+
+      .leftFace {
+        left: -5px;
+        transform-origin: 0 100%;
+        transform: rotateY(117deg) skewY(9deg);
+      }
+
+      .rightFace {
+        right: -5px;
+        transform-origin: 100% 100%;
+        transform: rotateY(-117deg) skewY(-9deg);
+      }
+
+      .backFace {
+        @include size($windowsWidth + $flowerpotExtraWidth + 10, x, 20px, x);
+        position: absolute;
+        background: darken($flowerpotColor, 14%);
+        transform-origin: 0 100%;
+        left: -5px;
+      }
+    }
+
+    &:hover > .door .hole {
+      background: lighten($doorColor, 5%);
+      transform: scaleY(3);
+    }
+
+    &:hover > .frame form fieldset {
+      opacity: 1;
+    }
+
+    &:hover > .door.right {
+      transform: rotateY(170deg);
+    }
+
+    &:hover > .door.left {
+      transform: rotateY(-170deg);
+    }
+
+    &:hover > .shadow.right {
+      transform: scaleX(-1) translateY(20px) skewY(-5deg);
+    }
+
+    &:hover > .shadow.left {
+      transform: scaleX(-1) translateY(20px) skewY(5deg);
+    }
+
+    &:target {
+      & .door .hole {
+        background: lighten($doorColor, 5%);
+        transform: scaleY(3);
+      }
+
+      & .frame form fieldset {
+        opacity: 1;
+      }
+
+      & .door.right {
+        transform: rotateY(170deg);
+      }
+
+      & .door.left {
+        transform: rotateY(-170deg);
+      }
+
+      & .shadow.right {
+        transform: scaleX(-1) translateY(20px) skewY(-5deg);
+      }
+
+      & .shadow.left {
+        transform: scaleX(-1) translateY(20px) skewY(5deg);
+      }
+    }
+  }
+}
