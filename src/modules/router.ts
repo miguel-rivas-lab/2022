@@ -59,8 +59,8 @@ const routes: Array<RouteConfig> = [
         component: CssPillsWorkareaView,
       },
       {
-        name: 'bus',
-        path: 'bus',
+        name: 'minivan',
+        path: 'minivan',
         component: CssBusWorkareaView,
       },
     ]

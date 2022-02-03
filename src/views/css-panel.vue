@@ -31,8 +31,8 @@ export default Vue.extend({
         name: "window",
       },
       {
-        text: "Bus",
-        name: "bus",
+        text: "Minivan",
+        name: "minivan",
       },
       {
         text: "Pills",

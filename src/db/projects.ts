@@ -55,8 +55,11 @@ const projects: ProjectsType = [
       },
     ],
     children: [
+      h.getNewID(client.miguelRivas, "2015/05/23"),
+      h.getNewID(client.miguelRivas, "2015/05/25"),
       h.getNewID(client.miguelRivas, "2015/05/28"),
       h.getNewID(client.miguelRivas, "2017/01/01"),
+      h.getNewID(client.miguelRivas, "2017/02/20"),
       h.getNewID(client.miguelRivas, "2018/06/27"),
       h.getNewID(client.miguelRivas, "2021/03/22"),
       h.getNewID(client.miguelRivas, "2021/02/27"),
@@ -1645,7 +1648,7 @@ const projects: ProjectsType = [
   },
   {
     date: "2015/05/23",
-    title: "Mini Van",
+    title: "Minivan",
     types: [
       typeEnum.prototype,
     ],
@@ -1660,9 +1663,6 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.pug,
       toolEnum.scss,
-    ],
-    links: [
-      { url: linkCodepen("VLKNBz"), text: "Codepen Prototype" },
     ],
   },
   {
@@ -1684,9 +1684,6 @@ const projects: ProjectsType = [
       toolEnum.jade,
       toolEnum.illustrator,
     ],
-    links: [
-      { url: linkCodepen("PqbqpL"), text: "Codepen Prototype" },
-    ],
   },
   {
     date: "2015/05/28",
@@ -1707,9 +1704,6 @@ const projects: ProjectsType = [
       toolEnum.scss,
     ],
     disabled: true,
-    links: [
-      { url: linkCodepen("yNJJpG"), text: "Codepen Prototype" },
-    ],
     children: [
       h.getNewID(client.itesa, "2008/05/16"),
     ],
@@ -1802,9 +1796,6 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.slim,
       toolEnum.scss,
-    ],
-    links: [
-      { url: linkCodepen("qRzzmz"), text: "Codepen Prototype" },
     ],
   },
   {
@@ -2338,12 +2329,6 @@ const projects: ProjectsType = [
     ],
     tools: [
       toolEnum.three,
-    ],
-    links: [
-      {
-        url: linkCodepen("dyOmXWO"),
-        text: "Codepen Prototype",
-      },
     ],
   },
   {
