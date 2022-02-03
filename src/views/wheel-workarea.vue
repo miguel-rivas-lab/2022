@@ -1,7 +1,6 @@
-<template>
-  <scroll-area color="royal-purple">
-    <pie-chart :chart-data="selection.colors" />
-  </scroll-area>
+<template lang="pug">
+scroll-area(color="royal-purple")
+  pie-chart(:chart-data="selection.colors")
 </template>
 
 <script lang="ts">

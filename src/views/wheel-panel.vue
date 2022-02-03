@@ -1,38 +1,29 @@
-<template>
-  <scroll-area color="royal-purple">
-    <row class="row-block" tag="fieldset">
-      <column size="100%">
-        <legend>Color Wheel</legend>
+<template lang="pug">
+scroll-area(color="royal-purple")
+  row.row-block(tag="fieldset")
+    column(size="100%")
+      legend Color Wheel
 
-        <template v-for="colorIndex in selection.colors">
-          <row v-bind:key="colorIndex">
-            <column size="100%-35">
-              <btn
-                color="silver"
-                size="md"
-                @click="toggleBlockVisibility()"
-                :text="`Color #${colorIndex}`"
-              />
-            </column>
-            <suffix size="35">
-              <btn
-                color="persian-red"
-                size="md"
-                glyph="close"
-                title="Remove button"
-                @click="removeBlock()"
-              />
-            </suffix>
-          </row>
-        </template>
-      </column>
-    </row>
-    <row class="row-block">
-      <column size="100%">
-        <btn color="gold-tips" @click="addColumn()" text="Add Color" />
-      </column>
-    </row>
-  </scroll-area>
+      template(v-for="colorIndex in selection.colors")
+        row(v-bind:key="colorIndex")
+          column(size="100%-35")
+            btn(
+              color="silver",
+              size="md",
+              @click="toggleBlockVisibility()",
+              :text="`Color #${colorIndex}`"
+            )
+          suffix(size="35")
+            btn(
+              color="persian-red",
+              size="md",
+              glyph="close",
+              title="Remove button",
+              @click="removeBlock()"
+            )
+  row.row-block
+    column(size="100%")
+      btn(color="gold-tips", @click="addColumn()", text="Add Color")
 </template>
 
 <script lang="ts">

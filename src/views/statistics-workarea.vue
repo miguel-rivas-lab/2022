@@ -1,85 +1,61 @@
-<template>
-  <scroll-area color="royal-purple">
-    <div class="gallery">
-      <container size="1450">
-        <article class="nano-box">
-          <h1>Projects Yearly Average</h1>
-          <br />
-          <line-chart :chart-data="dates" />
-        </article>
+<template lang="pug">
+scroll-area(color="royal-purple")
+  .gallery
+    container(size="1450")
+      article.nano-box
+        h1 Projects Yearly Average
+        br
+        line-chart(:chart-data="dates")
 
-        <article class="nano-box">
-          <h1>Skills Used</h1>
-          <br />
-          <bar-chart :chart-data="tools" />
-        </article>
+      article.nano-box
+        h1 Skills Used
+        br
+        bar-chart(:chart-data="tools")
 
-        <article class="nano-box">
-          <h1>Database</h1>
-          <hr />
+      article.nano-box
+        h1 Database
+        hr
 
-          <div class="table" role="table">
-            <div role="rowgroup" class="table-head">
-              <row breakpoint="lg" table-element>
-                <column size="40%" table-element>Name</column>
-                <column size="20%" table-element>Type</column>
-                <column size="20%" table-element>Date</column>
-                <column size="20-35%" table-element>Client</column>
-                <suffix size="35" />
-              </row>
-            </div>
-            <div role="rowgroup" class="table-body">
-              <template v-for="(project, projectIndex) in projectsDB">
-                <toggle-row breakpoint="lg" v-bind:key="projectIndex">
-                  <template v-slot:header>
-                    <t-column size="40%">{{ project.title }}</t-column>
-                    <t-column size="20%">{{ project.types }}</t-column>
-                    <t-column size="20%">{{ project.date }}</t-column>
-                    <t-column size="20%-35">{{
-                      project.clients.join(" & ")
-                    }}</t-column>
-                  </template>
-                  <template v-slot:more>
-                    <t-column size="200">
-                      <template v-if="project.links && project.links[0]">
-                        <btn
-                          tag="a"
-                          size="md"
-                          color="royal-purple"
-                          target="_blank"
-                          :href="project.links[0].url"
-                          text="See Preview"
-                        />
-                      </template>
-                      <template v-else>
-                        <btn
-                          tag="span"
-                          size="md"
-                          color="persian-red"
-                          text="No Link"
-                        />
-                      </template>
-                    </t-column>
-                    <t-column size="100%-200">
-                      <div class="pill-container">
-                        <template v-for="(tool, toolIndex) in project.tools">
-                          <span
-                            class="pill"
-                            v-bind:key="toolIndex"
-                            v-html="tool"
-                          />
-                        </template>
-                      </div>
-                    </t-column>
-                  </template>
-                </toggle-row>
-              </template>
-            </div>
-          </div>
-        </article>
-      </container>
-    </div>
-  </scroll-area>
+        .table(role="table")
+          .table-head(role="rowgroup")
+            row(breakpoint="lg", table-element)
+              column(size="40%", table-element) Name
+              column(size="20%", table-element) Type
+              column(size="20%", table-element) Date
+              column(size="20-35%", table-element) Client
+              suffix(size="35")
+
+          .table-body(role="rowgroup")
+            template(v-for="(project, projectIndex) in projectsDB")
+              toggle-row(breakpoint="lg", v-bind:key="projectIndex")
+                template(v-slot:header)
+                  t-column(size="40%") {{ project.title }}
+                  t-column(size="20%") {{ project.types }}
+                  t-column(size="20%") {{ project.date }}
+                  t-column(size="20%-35") {{ project.clients.join(' & ') }}
+
+                template(v-slot:more)
+                  t-column(size="200")
+                    template(v-if="project.links && project.links[0]")
+                      btn(
+                        tag="a",
+                        size="md",
+                        color="royal-purple",
+                        target="_blank",
+                        :href="project.links[0].url",
+                        text="See Preview"
+                      )
+                    template(v-else)
+                      btn(
+                        tag="span",
+                        size="md",
+                        color="persian-red",
+                        text="No Link"
+                      )
+                  t-column(size="100%-200")
+                    .pill-container
+                      template(v-for="(tool, toolIndex) in project.tools")
+                        span.pill(v-bind:key="toolIndex", v-html="tool")
 </template>
 
 <script lang="ts">
@@ -98,8 +74,7 @@ export default Vue.extend({
   data: () => ({}),
   computed: {
     projectsDB() {
-      return Object.values(this.$root.projects)
-        .sort(sortByDate);
+      return Object.values(this.$root.projects).sort(sortByDate);
     },
     tools() {
       let tools = {};

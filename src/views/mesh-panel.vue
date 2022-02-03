@@ -1,66 +1,26 @@
-<template>
-  <scroll-area color="royal-purple">
-    <row class="row-block" tag="fieldset">
-      <column size="100%">
-        <legend>Scene Controllers</legend>
+<template lang="pug">
+scroll-area(color="royal-purple")
+  row.row-block(tag="fieldset")
+    column(size="100%")
+      legend Scene Controllers
 
-        <number-input
-          id="outter-circle-radius"
-          :value="selection.sceneRotation"
-          label="Rotation"
-          v-on:update-value="updateSpeed($event)"
-        />
+      number-input#outter-circle-radius(
+        :value="selection.sceneRotation",
+        label="Rotation",
+        v-on:update-value="updateSpeed($event)"
+      )
 
-        <row>
-          <column size="100%">
-            <label
-              class="btn flat charcoal"
-              :class="{ active: selection.grid }"
-            >
-              Grid
-              <input type="checkbox" v-model="selection.grid" />
-            </label>
-          </column>
-        </row>
+      row
+        column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.grid }")
+            | Grid
+            input(type="checkbox", v-model="selection.grid")
 
-        <row>
-          <column size="100%">
-            <label
-              class="btn flat charcoal"
-              :class="{ active: selection.rotateY }"
-            >
-              Pause
-              <input type="checkbox" v-model="selection.rotateY" />
-            </label>
-          </column>
-        </row>
-      </column>
-    </row>
-
-    <!-- <row class="row-block" tag="fieldset">
-      <column size="100%">
-        <legend>Objects</legend>
-        <row>
-          <column size="100%">
-            <btn
-              color="gold-tips"
-              text="Spirit"
-              @click="changeMesh('spirit')"
-            />
-          </column>
-        </row>
-        <row>
-          <column size="100%">
-            <btn
-              color="gold-tips"
-              text="Drakkar"
-              @click="changeMesh('drakkar')"
-            />
-          </column>
-        </row>
-      </column>
-    </row> -->
-  </scroll-area>
+      row
+        column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.rotateY }")
+            | Pause
+            input(type="checkbox", v-model="selection.rotateY")
 </template>
 
 <script lang="ts">

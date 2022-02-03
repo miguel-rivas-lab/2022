@@ -1,19 +1,14 @@
-<template>
-  <scroll-area color="royal-purple">
-    <container>
-      <ul class="img-gallery">
-        <template v-for="(item, itemIndex) in database">
-          <li v-bind:key="`gallery${itemIndex}`">
-            <carrousel
-              :item="item"
-              :start="randomFrame()"
-              :rotationDelay="selection.rotationDelay"
-            />
-          </li>
-        </template>
-      </ul>
-    </container>
-  </scroll-area>
+<template lang="pug">
+scroll-area(color="royal-purple")
+  container
+    ul.img-gallery
+      template(v-for="(item, itemIndex) in database")
+        li(v-bind:key="`gallery${itemIndex}`")
+          carrousel(
+            :item="item",
+            :start="randomFrame()",
+            :rotationDelay="selection.rotationDelay"
+          )
 </template>
 
 <script lang="ts">

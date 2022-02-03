@@ -1,69 +1,35 @@
-<template>
-  <div class="map">
-    <modal>
-      <template v-slot:header>
-        <h1 v-if="modal.data.title" v-html="modal.data.title" />
-        <h2 v-if="modal.data.description" v-html="modal.data.description" />
-        <h3 v-if="modal.data.date">
-          <time v-html="modal.data.date" />
-        </h3>
-      </template>
+<template lang="pug">
+.map
+  modal
+    template(v-slot:header)
+      h1(v-if="modal.data.title") {{ modal.data.title }}
+      h2(v-if="modal.data.description") {{ modal.data.description }}
+      h3(v-if="modal.data.date")
+        time {{ modal.data.date }}
 
-      <template v-slot:body>
-        <ul class="list" v-if="modal.data.list.length">
-          <template v-for="(item, index) in modal.data.list">
-            <li v-bind:key="`locationList${index}`" v-html="item" />
-          </template>
-        </ul>
-        <ul class="skills" v-if="modal.data.tools.length">
-          <template v-for="(item, index) in modal.data.tools">
-            <li v-bind:key="`locationList${index}`" v-html="item" />
-          </template>
-        </ul>
-      </template>
-    </modal>
-    <div ref="mapContainer">
-      <v-stage
-        :config="{
-          x: mapPos.x,
-          y: mapPos.y,
-          draggable: true,
-          width: configKonva.width,
-          height: configKonva.height,
-        }"
-        @dragmove="dragging"
-        ref="stage"
-      >
-        <v-layer>
-          <v-image
-            :config="{
-              image: map.config,
-            }"
-          />
-          <template v-for="(image, index) in img">
-            <v-image
-              v-bind:key="`mapImg${index}`"
-              @mouseover="hoverImg"
-              @mouseout="mouseOutImg"
-              @click="openModal(image.client)"
-              :config="{
-                image: image.config,
-                x: image.position.x,
-                y: image.position.y,
-                opacity: image.opacity,
-              }"
-            />
-          </template>
-          <template v-for="(item, index) in pins">
-            <carrousel
-              v-bind:key="`mapCarrousel${index}`"
-              :item="item"
-            />
-          </template>
-        </v-layer>
-      </v-stage>
-    </div>
-  </div>
+    template(v-slot:body)
+      ul.list(v-if="modal.data.list.length")
+        template(v-for="(item, index) in modal.data.list")
+          li(v-bind:key="`locationList${index}`") {{ item }}
+      ul.skills(v-if="modal.data.tools.length")
+        template(v-for="(item, index) in modal.data.tools")
+          li(v-bind:key="`locationList${index}`") {{ item }}
+
+  div(ref="mapContainer")
+    v-stage(:config="mapPos", @dragmove="dragging", ref="stage")
+      v-layer
+        v-image(:config="map")
+        template(v-for="(image, index) in img")
+          v-image(
+            v-bind:key="`mapImg${index}`",
+            @mouseover="hoverImg",
+            @mouseout="mouseOutImg",
+            @click="openModal(image.client)",
+            :config="image"
+          )
+
+        template(v-for="(item, index) in pins")
+          carrousel(v-bind:key="`mapCarrousel${index}`", :item="item")
 </template>
 
 <script lang="ts">
@@ -79,7 +45,7 @@ export default Vue.extend({
   data: () => ({
     panelWidth: 0,
     map: {
-      config: null,
+      image: null,
     },
     averageBuildingImageWidth: 150,
     pins: [
@@ -99,57 +65,65 @@ export default Vue.extend({
     img: [
       {
         name: "itesa",
-        config: null,
-        position: { x: 2262, y: 669 },
+        image: null,
+        x: 2262,
+        y: 669,
         opacity: 0,
         client: client.itesa,
       },
       {
         name: "itla",
-        config: null,
-        position: { x: 2492, y: 811 },
+        image: null,
+        x: 2492,
+        y: 811,
         opacity: 0,
         client: client.itla,
       },
       {
         name: "several",
-        config: null,
-        position: { x: 1918, y: 1007 },
+        image: null,
+        x: 1918,
+        y: 1007,
         opacity: 0,
         client: client.socialNetwork,
       },
       {
         name: "avante",
-        config: null,
-        position: { x: 1450, y: 1169 },
+        image: null,
+        x: 1450,
+        y: 1169,
         opacity: 0,
         client: client.avante,
       },
       {
         name: "capital",
-        config: null,
-        position: { x: 1373, y: 862 },
+        image: null,
+        x: 1373,
+        y: 862,
         opacity: 0,
         client: client.capitalDBG,
       },
       {
         name: "pixel",
-        config: null,
-        position: { x: 810, y: 1093 },
+        image: null,
+        x: 810,
+        y: 1093,
         opacity: 0,
         client: client.pixelPerfectTree,
       },
       {
         name: "planttherapy",
-        config: null,
-        position: { x: 962, y: 376 },
+        image: null,
+        x: 962,
+        y: 376,
         opacity: 0,
         client: client.plantTherapy,
       },
       {
         name: "enovational",
-        config: null,
-        position: { x: 2492, y: 184 },
+        image: null,
+        x: 2492,
+        y: 184,
         opacity: 0,
         client: client.enovational,
       },
@@ -182,7 +156,7 @@ export default Vue.extend({
                 this.configKonva.width / 2,
               0
             ),
-            -this.map.config.width
+            -this.map.image.width
           ),
           y: Math.max(
             Math.min(
@@ -191,11 +165,20 @@ export default Vue.extend({
                 this.configKonva.height / 2,
               0
             ),
-            -this.map.config.height
+            -this.map.image.height
           ),
+          draggable: true,
+          width: this.configKonva.width,
+          height: this.configKonva.height,
         };
       } else {
-        return { x: 0, y: 0 };
+        return {
+          x: 0,
+          y: 0,
+          draggable: true,
+          width: this.configKonva.width,
+          height: this.configKonva.height,
+        };
       }
     },
   },
@@ -207,14 +190,14 @@ export default Vue.extend({
     this.map.temp = new window.Image();
     this.map.temp.src = require(`@/img/map.jpg`);
     this.map.temp.onload = () => {
-      this.map.config = this.map.temp;
+      this.map.image = this.map.temp;
     };
 
     this.img.forEach((item) => {
       item.temp = new window.Image();
       item.temp.src = require(`@/img/${item.name}.jpg`);
       item.temp.onload = () => {
-        item.config = item.temp;
+        item.image = item.temp;
       };
     });
   },
@@ -254,14 +237,14 @@ export default Vue.extend({
       this.$refs.mapContainer.style.cursor = "grab";
     },
     dragging() {
-      if (this.map.config) {
+      if (this.map.image) {
         let nx = Math.max(
           Math.min(this.stage.position().x, 0),
-          -(this.map.config.width - this.configKonva.width)
+          -(this.map.image.width - this.configKonva.width)
         );
         let ny = Math.max(
           Math.min(this.stage.position().y, 0),
-          -(this.map.config.height - this.configKonva.height)
+          -(this.map.image.height - this.configKonva.height)
         );
 
         this.stage.position({ x: nx, y: ny });

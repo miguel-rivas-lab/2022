@@ -1,48 +1,33 @@
-<template>
-  <scroll-area color="royal-purple">
-    <container size="900">
-      <h1 v-html="rowSize" />
+<template lang="pug">
+scroll-area(color="royal-purple")
+  container(size="900")
+    h1 {{ rowSize }}
 
-      <div class="builder-container">
-        <row
-          :group="selection.row == 'Group'"
-          :integrate="computedIntegrate"
-          :spacing="computedSpacing"
-          :breakpoint="computedBreakpoint"
-        >
-          <template v-for="(column, index) in selection.columns">
-            <component
-              v-bind:is="column.block"
-              v-bind:key="index"
-              :size="finalExpression(index)"
-            >
-              <btn :text="column.size" :color="column.color" />
-            </component>
-          </template>
-        </row>
-      </div>
+    .builder-container
+      row(
+        :group="selection.row == 'Group'",
+        :integrate="computedIntegrate",
+        :spacing="computedSpacing",
+        :breakpoint="computedBreakpoint"
+      )
+        template(v-for="(column, index) in selection.columns")
+          component(
+            v-bind:is="column.block",
+            v-bind:key="index",
+            :size="finalExpression(index)"
+          )
+            btn(:text="column.size", :color="column.color")
 
-      <hr />
+    hr
 
-      <row :spacing="50">
-        <column size="1/1">
-          <highlight-code lang="xml">
-            {{ textareaValueVue }}
-          </highlight-code>
-          <textarea ref="textarea" class="vue-code" v-html="textareaValueVue" />
-        </column>
-        <column size="80%" />
-        <column size="20%">
-          <btn
-            class="fsz"
-            text="Get Vue Code"
-            color="shamrock"
-            @click="copyCode()"
-          />
-        </column>
-      </row>
-    </container>
-  </scroll-area>
+    row(:spacing="50")
+      column(size="1/1")
+        highlight-code(lang="xml")
+          | {{ textareaValueVue }}
+        textarea.vue-code(ref="textarea", v-html="textareaValueVue")
+      column(size="80%")
+      column(size="20%")
+        btn.fsz(text="Get Vue Code", color="shamrock", @click="copyCode()")
 </template>
 
 <script lang="ts">

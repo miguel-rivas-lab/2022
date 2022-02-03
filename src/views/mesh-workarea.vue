@@ -1,5 +1,5 @@
-<template>
-  <div class="three-scene" ref="threeScene" />
+<template lang="pug">
+.three-scene(ref="threeScene")
 </template>
 
 <script lang="ts">

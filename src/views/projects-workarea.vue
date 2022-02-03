@@ -1,17 +1,16 @@
-<template>
-  <div v-if="selection.currentLink.src !== ''" class="projector">
-    <iframe
-      :src="selection.currentLink.src"
-      :frameborder="selection.currentLink.frameborder"
-      :allow="selection.currentLink.allow"
-      :allowfullscreen="selection.currentLink.allowfullscreen"
-      :mozallowfullscreen="selection.currentLink.allowfullscreen"
-      :webkitallowfullscreen="selection.currentLink.allowfullscreen"
-    />
-  </div>
-  <scroll-area color="royal-purple" v-else>
-    <gallery :db="projectsDB" />
-  </scroll-area>
+<template lang="pug">
+.projector(v-if="selection.currentLink.src !== ''")
+  iframe(
+    :src="selection.currentLink.src",
+    :frameborder="selection.currentLink.frameborder",
+    :allow="selection.currentLink.allow",
+    :allowfullscreen="selection.currentLink.allowfullscreen",
+    :mozallowfullscreen="selection.currentLink.allowfullscreen",
+    :webkitallowfullscreen="selection.currentLink.allowfullscreen"
+  )
+
+scroll-area(color="royal-purple", v-else)
+  gallery(:db="projectsDB")
 </template>
 
 <script lang="ts">
@@ -76,10 +75,9 @@ export default Vue.extend({
         case "homework":
           result = db.filter(
             (item: Project) =>
-              !item.disabled && (
-                item.clients.includes(client.itla) ||
-                item.clients.includes(client.itesa)
-              )
+              !item.disabled &&
+              (item.clients.includes(client.itla) ||
+                item.clients.includes(client.itesa))
           );
           break;
       }

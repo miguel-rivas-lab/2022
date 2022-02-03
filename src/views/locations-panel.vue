@@ -1,50 +1,38 @@
-<template>
-  <scroll-area color="royal-purple">
-    <row class="row-block" tag="fieldset">
-      <column size="100%">
-        <legend>Locations</legend>
-        <row>
-          <column size="100%">
-            <ul class="summary">
-              <template v-for="(location, locationIndex) in locationsDB">
-                <li v-bind:key="locationIndex">
-                  <row>
-                    <column size="100%-35">
-                    <btn
-                        @click="openModal(location.clients[0])"
-                        color="gold-tips"
-                        :text="location.title"
-                      />
-                    </column>
-                    <suffix size="35">
-                      <btn
-                        @click="centerMap(location.position)"
-                        color="burn-orange"
-                        glyph="gps-fixed"
-                      />
-                    </suffix>
-                  </row>
-                </li>
-              </template>
-            </ul>
-          </column>
-        </row>
-      </column>
-    </row>
-  </scroll-area>
+<template lang="pug">
+scroll-area(color="royal-purple")
+  row.row-block(tag="fieldset")
+    column(size="100%")
+      legend Locations
+      row
+        column(size="100%")
+          ul.summary
+            template(v-for="(location, locationIndex) in locationsDB")
+              li(v-bind:key="locationIndex")
+                row
+                  column(size="100%-35")
+                  btn(
+                    @click="openModal(location.clients[0])",
+                    color="gold-tips",
+                    :text="location.title"
+                  )
+
+                  suffix(size="35")
+                    btn(
+                      @click="centerMap(location.position)",
+                      color="burn-orange",
+                      glyph="gps-fixed"
+                    )
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 
 import { type } from "../enums/types";
-// import { client } from "../enums/clients";
 
 export default Vue.extend({
   data: () => ({
     selection: {},
     modal: {},
-    // client,
   }),
   created() {
     this.selection = this.$store.getters.getLocationSelection;
@@ -63,9 +51,11 @@ export default Vue.extend({
         position: position,
       });
     },
-    openModal(filter){
-      document.querySelector('aside.modal .scroll-area').scrollTo(0, 0);
-      this.modal.data = this.locationsDB.find((item) => item.clients[0] === filter);
+    openModal(filter) {
+      document.querySelector("aside.modal .scroll-area").scrollTo(0, 0);
+      this.modal.data = this.locationsDB.find(
+        (item) => item.clients[0] === filter
+      );
       this.modal.hidden = false;
     },
   },

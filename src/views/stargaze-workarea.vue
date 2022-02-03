@@ -1,21 +1,15 @@
-<template>
-  <div
-    class="stargaze"
-    :style="`background-color: hsl(${selection.hue}deg 50% 28%)`"
-  >
-    <div class="cover">
-      <template v-if="user.lastName">
-        <h1 v-html="`${user.middleName} ${user.lastName}`" />
-        <h2 v-html="user.title" />
-      </template>
-    </div>
-    <mountains :cx="cx" :cy="cy" :hue="selection.hue" />
-    <footer>
-      <p>
-        Built with <strong><a href="https://vuejs.org/">Vue.js</a></strong>
-      </p>
-    </footer>
-  </div>
+<template lang="pug">
+.stargaze(:style="`background-color: hsl(${selection.hue}deg 50% 28%)`")
+  .cover
+    template(v-if="user.lastName")
+      h1 {{ user.middleName }} {{ user.lastName }}
+      h2 {{ user.title }}
+
+  mountains(:cx="cx", :cy="cy", :hue="selection.hue")
+  footer
+    p
+      | Built with
+      strong: a(href="https://vuejs.org/") Vue.js
 </template>
 
 <script lang="ts">

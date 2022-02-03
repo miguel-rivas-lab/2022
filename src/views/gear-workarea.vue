@@ -1,9 +1,7 @@
-<template>
-  <scroll-area color="royal-purple">
-    <canvas class="animation-rotate" ref="gear" width="400" height="400">
-      no canvas
-    </canvas>
-  </scroll-area>
+<template lang="pug">
+scroll-area(color="royal-purple")
+  canvas.animation-rotate(ref="gear", width="400", height="400")
+    | no canvas
 </template>
 
 <script lang="ts">

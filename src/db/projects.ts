@@ -40,6 +40,7 @@ const projects: ProjectsType = [
       toolEnum.chartJS,
       toolEnum.highlight,
       toolEnum.konva,
+      toolEnum.pug,
     ],
     links: [
       {
