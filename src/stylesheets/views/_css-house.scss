@@ -23,6 +23,11 @@ main.section-house {
   $frame-distance: 60px;
   $chimney-height: 300px;
   $chimney-width: 20px;
+  $fence-height: 70px;
+  $fence-width: 20px;
+  $extra-fence: 60px;
+  $fence-spacing: 4px;
+  $pieces: 20;
 
   .workarea {
     display: flex;
@@ -56,7 +61,7 @@ main.section-house {
       > .right {
         transform: translateZ(#{-$chimney-width/2}) translateX(#{-$chimney-width/2}) rotateY(90deg);
       }
-      > .right {
+      > .left {
         transform: translateZ(#{-$chimney-width/2}) translateX(#{$chimney-width/2}) rotateY(90deg);
       }
       > .back {
@@ -96,14 +101,7 @@ main.section-house {
             }
           }
         }
-      }
 
-      &.front,
-      &.back {
-        background: #303030;
-      }
-
-      &.main {
         &.right {
           z-index: 0;
           right: -50%;
@@ -115,9 +113,16 @@ main.section-house {
           transform: rotateY(90deg);
         }
       }
+
+      &.front,
+      &.back {
+        background: #303030;
+      }
+
       &.front {
         z-index: 1;
-        &.left, &.right {
+        &.left,
+        &.right {
           width: #{math.div($width, 2) - math.div($door-width, 2)};
           height: $height;
         }
@@ -156,27 +161,25 @@ main.section-house {
             .frame {
               z-index: 3;
               background: #222121;
-              &.center {
-                width: $door-frame-width;
-                height: $door-height;
-                transform: translateX(#{math.div($door-width, 2) - math.div($door-frame-width, 2)});
-              }
-              &.right {
-                width: $door-frame-width;
-                height: $door-height;
-                transform: translateX(#{$door-width - ($door-frame-width)});
-              }
+              &.center,
+              &.right,
               &.left {
                 width: $door-frame-width;
                 height: $door-height;
               }
-              &.top {
+              &.center {
+                transform: translateX(#{math.div($door-width, 2) - math.div($door-frame-width, 2)});
+              }
+              &.right {
+                transform: translateX(#{$door-width - ($door-frame-width)});
+              }
+
+              &.top,
+              &.bottom {
                 width: $door-width;
                 height: $door-frame-width;
               }
               &.bottom {
-                width: $door-width;
-                height: $door-frame-width;
                 transform: translateY(#{$door-height - $door-frame-width});
               }
             }
@@ -196,12 +199,6 @@ main.section-house {
       transform: rotateX(90deg) translateX(#{math.div(-$extra-grass, 2)})
         translateZ(#{math.div(-$height, 2) + math.div($extra-grass, 2) - $base-height});
     }
-
-    $fence-height: 70px;
-    $fence-width: 20px;
-    $extra-fence: 60px;
-    $fence-spacing: 4px;
-    $pieces: 20;
 
     > .fence {
       transform-style: preserve-3d;
@@ -231,9 +228,19 @@ main.section-house {
     }
 
     > .base {
+      width: #{$width + $extra-base};
+
+      &.front,
+      &.back,
+      &.left,
+      &.right {
+        height: $base-height;
+      }
+
       &.top,
       &.bottom {
         background: #9c9c9c;
+        height: #{$height + $extra-base};
       }
       &.right,
       &.left {
@@ -244,45 +251,43 @@ main.section-house {
         background: #969696;
       }
       &.top {
-        width: #{$width + $extra-base};
-        height: #{$height + $extra-base};
         transform: rotateX(90deg) translateX(#{math.div(-$extra-base, 2)})
           translateZ(#{math.div(-$height, 2) + math.div($extra-base, 2)});
       }
       &.bottom {
-        width: #{$width + $extra-base};
-        height: #{$height + $extra-base};
         transform: rotateX(90deg) translateX(#{math.div(-$extra-base, 2)})
           translateZ(#{math.div(-$height, 2) + math.div($extra-base, 2) - $base-height});
       }
       &.front {
-        width: #{$width + $extra-base};
-        height: #{$base-height};
         transform: translateX(#{math.div(-$extra-base, 2)}) translateY(#{$height})
           translateZ(#{math.div($width, 2) + math.div($extra-base, 2)});
       }
       &.back {
-        width: #{$width + $extra-base};
-        height: #{$base-height};
         transform: translateX(#{math.div(-$extra-base, 2)}) translateY(#{$height})
           translateZ(#{(math.div(-$width, 2)) - math.div($extra-base, 2)});
       }
       &.right {
-        width: #{$width + $extra-base};
-        height: $base-height;
         transform: rotateY(90deg) translateY(#{$height}) translateZ(#{math.div($width, 2)});
       }
       &.left {
-        width: #{$width + $extra-base};
-        height: $base-height;
         transform: rotateY(90deg) translateY(#{$height}) translateZ(-#{math.div($width, 2) + $extra-base});
       }
     }
 
     > .roof {
+      width: #{$width + $extra-roof};
+
+      &.front,
+      &.back,
+      &.right,
+      &.left {
+        height: $roof-height;
+      }
+
       &.top,
       &.bottom {
         background: #4e4e4e;
+        height: #{$height + $extra-roof};
       }
       &.front,
       &.back {
@@ -293,37 +298,25 @@ main.section-house {
         background: #474747;
       }
       &.bottom {
-        width: #{$width + $extra-roof};
-        height: #{$height + $extra-roof};
         transform: rotateX(90deg) translateX(#{math.div(-$extra-roof, 2)})
           translateZ(#{math.div($height, 2) + math.div($extra-roof, 2)});
       }
       &.top {
-        width: #{$width + $extra-roof};
-        height: #{$height + $extra-roof};
         transform: rotateX(90deg) translateX(#{math.div(-$extra-roof, 2)})
           translateZ(#{math.div($height, 2) + math.div($extra-roof, 2) + $roof-height});
       }
       &.front {
-        width: #{$width + $extra-roof};
-        height: $roof-height;
         transform: translateX(#{math.div(-$extra-roof, 2)}) translateY(#{-$roof-height})
           translateZ(#{math.div($width, 2) + math.div($extra-roof, 2)});
       }
       &.back {
-        width: #{$width + $extra-roof};
-        height: $roof-height;
         transform: translateX(#{math.div(-$extra-roof, 2)}) translateY(#{-$roof-height})
           translateZ(-#{math.div($width, 2) + math.div($extra-roof, 2)});
       }
       &.left {
-        width: #{$width + $extra-roof};
-        height: $roof-height;
         transform: rotateY(90deg) translateY(#{-$roof-height}) translateZ(-#{math.div($width, 2) + $extra-roof});
       }
       &.right {
-        width: #{$width + $extra-roof};
-        height: $roof-height;
         transform: rotateY(90deg) translateY(#{-$roof-height}) translateZ(#{math.div($width, 2)});
       }
     }
