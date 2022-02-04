@@ -59,10 +59,10 @@ main.section-house {
         background-color: #462323;
       }
       > .right {
-        transform: translateZ(#{-$chimney-width/2}) translateX(#{-$chimney-width/2}) rotateY(90deg);
+        transform: translateZ(#{math.div(-$chimney-width, 2)}) translateX(#{math.div(-$chimney-width, 2)}) rotateY(90deg);
       }
       > .left {
-        transform: translateZ(#{-$chimney-width/2}) translateX(#{$chimney-width/2}) rotateY(90deg);
+        transform: translateZ(#{math.div(-$chimney-width, 2)}) translateX(#{math.div($chimney-width, 2)}) rotateY(90deg);
       }
       > .back {
         transform: translateZ(#{-$chimney-width});
