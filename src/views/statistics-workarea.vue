@@ -31,7 +31,7 @@ scroll-area(color="royal-purple")
                 template(v-slot:header)
                   t-column(size="40%") {{ project.title }}
                   t-column(size="20%") {{ project.types }}
-                  t-column(size="20%") {{ project.date }}
+                  t-column(size="20%") {{ project.turingDate }}
                   t-column(size="20%-35") {{ project.clients.join(' & ') }}
 
                 template(v-slot:more)
@@ -109,8 +109,8 @@ export default Vue.extend({
       let result = [];
 
       this.projectsDB.forEach((project) => {
-        if (typeof project.date !== "undefined") {
-          let key = project.date.split("/")[0];
+        if (typeof project.turingDate !== "undefined") {
+          let key = project.turingDate.split(" ")[0].substring(1);
 
           if (typeof dates[key] === "undefined") {
             dates[key] = 1;

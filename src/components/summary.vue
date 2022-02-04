@@ -18,7 +18,7 @@
               v-html="projects[project].types"
             />
             <h4>
-              <time v-html="projects[project].date" />
+              <time v-html="projects[project].turingDate" />
             </h4>
             <ul class="skills">
               <template>

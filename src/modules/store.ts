@@ -8,7 +8,6 @@ export const store = new Vuex.Store({
     panel: false,
     panelSize: ['300', '100%-350'],
     theme: false,
-    parallelUniverse: false,
     alert: {
       message: "",
       status: "",
@@ -101,7 +100,6 @@ export const store = new Vuex.Store({
     getPanelVisibility: state => state.panel,
     getPanelSize: state => state.panelSize,
     getTheme: state => state.theme,
-    getUniverse: state => state.parallelUniverse,
     getAlert: state => state.alert,
     getModal: state => state.modal,
     getStargazeSelection: state => state.selection.stargaze,

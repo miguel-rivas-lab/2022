@@ -8,14 +8,16 @@
   mountains(:cx="cx", :cy="cy", :hue="selection.hue")
   footer
     p
-      | Built with
-      strong: a(href="https://vuejs.org/") Vue.js
+      | Built with&nbsp;
+      strong: a(href="https://vuejs.org/") Vue.js&nbsp;
+      time [ {{ currentTuringDate }} ]
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
 import mountains from "../components/mountains.vue";
+import { DateTime } from "luxon";
 
 export default Vue.extend({
   components: { mountains },
@@ -30,6 +32,10 @@ export default Vue.extend({
     }),
     user() {
       return this.$root.user;
+    },
+    currentTuringDate() {
+      const newDate = DateTime.now().minus({years: 1912, months: 6, days: 23});
+      return `Y${newDate.year} M${newDate.month} D${newDate.day}`;
     },
   },
   created() {

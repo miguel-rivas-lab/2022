@@ -162,6 +162,7 @@ export function formatRawDBToJSON(item) {
       "title": p.title,
       "clients": clients,
       "date": p.date,
+      "turingDate": helpers.turingDate(p.date),
       "types": types,
       "disabled": p.disabled,
       "links": links,

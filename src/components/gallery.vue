@@ -10,7 +10,7 @@
                   width="1050"
                   height="551"
                   :src="project.image"
-                  :alt="`${project.clients.join(' & ')} ${project.date}`"
+                  :alt="`${project.clients.join(' & ')} ${project.turingDate}`"
                 />
               </template>
             </column>

@@ -88,15 +88,6 @@
             />
             <hr />
             <btn
-              color="persian-red"
-              size="md"
-              title="Toggle universe button"
-              v-nano-tooltip.right="'A Parallel Universe Where Cows Rule Earth'"
-              glyph="cow"
-              @click="toggleValue('parallelUniverse'), playSound()"
-              :active="universe"
-            />
-            <btn
               color="charcoal"
               size="md"
               title="Toggle theme button"
@@ -143,7 +134,6 @@ export default Vue.extend({
   computed: {
     ...mapGetters({
       theme: "getTheme",
-      universe: "getUniverse",
       login: "getLoginSelection",
     }),
   },

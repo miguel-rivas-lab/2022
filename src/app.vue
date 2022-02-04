@@ -44,7 +44,6 @@ export default Vue.extend({
   computed: {
     ...mapGetters({
       theme: "getTheme",
-      universe: "getUniverse",
       panel: "getPanelVisibility",
       panelSize: "getPanelSize",
     }),
@@ -55,7 +54,6 @@ export default Vue.extend({
       return [
         this.sectionName,
         this.theme ? "nano-light" : "nano-dark",
-        { universe: this.universe },
       ];
     },
   },
