@@ -36,6 +36,10 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
+    path: '/',
+    redirect: '/stargaze',
+  },
+  {
     name: 'css',
     path: '/css',
     components: {
@@ -67,7 +71,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     name: 'stargaze',
-    path: '/',
+    path: '/stargaze',
     components: {
       workarea: StargazeWorkareaView,
       panel: StargazePanelView,

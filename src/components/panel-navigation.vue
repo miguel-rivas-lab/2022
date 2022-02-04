@@ -5,24 +5,24 @@
         <row vertical>
           <column>
             <template v-for="nav in navigation">
-              <template v-if="$route.name !== nav.route">
+              <template v-if="!nav.route.includes($route.name)">
                 <btn
-                  :to="{ name: nav.route }"
-                  v-bind:key="nav.route"
+                  :to="{ name: nav.route[0] }"
+                  v-bind:key="nav.route[0]"
                   color="gravel"
                   size="md"
-                  :title="`${nav.route} button`"
-                  v-nano-tooltip.right="nav.route"
+                  :title="`${nav.route[0]} button`"
+                  v-nano-tooltip.right="nav.route[0]"
                   :glyph="nav.icon"
                 />
               </template>
               <template v-else>
                 <btn
-                  v-bind:key="nav.route"
+                  v-bind:key="nav.route[0]"
                   color="gravel"
                   size="md"
-                  :title="`${nav.route} button`"
-                  v-nano-tooltip.right="nav.route"
+                  :title="`${nav.route[0]} button`"
+                  v-nano-tooltip.right="nav.route[0]"
                   @click="toggleValue('panel'), playSound()"
                   :glyph="nav.icon"
                   active
@@ -31,24 +31,24 @@
             </template>
             <hr />
             <template v-for="nav in navigationBuilder">
-              <template v-if="$route.name !== nav.route">
+              <template v-if="!nav.route.includes($route.name)">
                 <btn
-                  :to="{ name: nav.route }"
-                  v-bind:key="nav.route"
+                  :to="{ name: nav.route[0] }"
+                  v-bind:key="nav.route[0]"
                   color="gravel"
                   :title="`${nav.route} button`"
-                  v-nano-tooltip.right="nav.route"
+                  v-nano-tooltip.right="nav.route[0]"
                   size="md"
                   :glyph="nav.icon"
                 />
               </template>
               <template v-else>
                 <btn
-                  v-bind:key="nav.route"
+                  v-bind:key="nav.route[0]"
                   color="gravel"
                   size="md"
-                  :title="`${nav.route} button`"
-                  v-nano-tooltip.right="nav.route"
+                  :title="`${nav.route[0]} button`"
+                  v-nano-tooltip.right="nav.route[0]"
                   @click="toggleValue('panel'), playSound()"
                   :glyph="nav.icon"
                   active
@@ -112,21 +112,21 @@ export default Vue.extend({
   components: {},
   data: () => ({
     navigation: [
-      { icon: "monster", route: "stargaze" },
-      { icon: "duck", route: "projects" },
-      { icon: "airplane", route: "locations" },
-      { icon: "collections", route: "gallery-3d" },
-      { icon: "movie", route: "gallery-video" },
-      { icon: "format-color-fill", route: "colors" },
-      { icon: "chart-areaspline", route: "statistics" },
+      { icon: "monster", route: ["stargaze"] },
+      { icon: "duck", route: ["projects"] },
+      { icon: "airplane", route: ["locations"] },
+      { icon: "collections", route: ["gallery-3d"] },
+      { icon: "movie", route: ["gallery-video"] },
+      { icon: "format-color-fill", route: ["colors"] },
+      { icon: "chart-areaspline", route: ["statistics"] },
     ],
     navigationBuilder: [
-      { icon: "robot-industrial", route: "grid" },
-      { icon: "open-with", route: "mesh" },
-      { icon: "cube-outline", route: "cube" },
-      { icon: "cog-transfer-outline", route: "gear" },
-      { icon: "css3", route: "house" },
-      { icon: "palette", route: "wheel" },
+      { icon: "robot-industrial", route: ["grid"] },
+      { icon: "open-with", route: ["mesh"] },
+      { icon: "cube-outline", route: ["cube"] },
+      { icon: "cog-transfer-outline", route: ["gear"] },
+      { icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
+      { icon: "palette", route: ["wheel"] },
     ],
     linkGithub,
     linkLinkedin,
