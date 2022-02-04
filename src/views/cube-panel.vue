@@ -1,8 +1,8 @@
 <template lang="pug">
-scroll-area(color="royal-purple")
+div
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Cube Controllers
+      legend Scene Controllers
 
       number-input#outter-circle-radius(
         :value="selection.cubeRotation",
@@ -12,15 +12,15 @@ scroll-area(color="royal-purple")
 
       row
         column(size="100%")
-          label.btn.flat.charcoal(:class="{ active: selection.pause }")
-            | Pause
-            input(type="checkbox", v-model="selection.pause")
-
-      row
-        column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.grid }")
             | Grid
             input(type="checkbox", v-model="selection.grid")
+
+      row
+        column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.pause }")
+            | Pause
+            input(type="checkbox", v-model="selection.pause")
 
       row
         column(size="100%")

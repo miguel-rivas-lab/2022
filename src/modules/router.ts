@@ -18,17 +18,21 @@ import WheelWorkareaView from '../views/wheel-workarea.vue';
 import WheelPanelView from '../views/wheel-panel.vue';
 import LocationsPanelView from '../views/locations-panel.vue';
 import LocationsWorkareaView from '../views/locations-workarea.vue';
-import MeshPanelView from '../views/mesh-panel.vue';
-import MeshWorkareaView from '../views/mesh-workarea.vue';
+import SpiritPanelView from '../views/spirit-panel.vue';
+import SpiritWorkareaView from '../views/spirit-workarea.vue';
 import Projects3DWorkareaView from '../views/gallery-3d-workarea.vue';
 import Projects3DPanelView from '../views/gallery-3d-panel.vue';
 import ProjectsVideoWorkareaView from '../views/gallery-video-workarea.vue';
+
 import CssWorkareaView from '../views/css-workarea.vue';
 import CssPanelView from '../views/css-panel.vue';
-import CssHouseWorkareaView from '../views/css-workarea-house.vue';
-import CssWindowWorkareaView from '../views/css-workarea-window.vue';
-import CssBusWorkareaView from '../views/css-workarea-bus.vue';
-import CssPillsWorkareaView from '../views/css-workarea-pills.vue';
+import HouseWorkareaView from '../views/house-workarea.vue';
+import WindowWorkareaView from '../views/window-workarea.vue';
+import BusWorkareaView from '../views/minivan-workarea.vue';
+import PillsWorkareaView from '../views/pills-workarea.vue';
+
+import ThreeWorkareaView from '../views/three-workarea.vue';
+import ThreePanelView from '../views/three-panel.vue';
 
 import DefaultPanelView from '../views/default-panel.vue';
 
@@ -50,22 +54,22 @@ const routes: Array<RouteConfig> = [
       {
         name: 'house',
         path: 'house',
-        component: CssHouseWorkareaView,
+        component: HouseWorkareaView,
       },
       {
         name: 'window',
         path: 'window',
-        component: CssWindowWorkareaView,
+        component: WindowWorkareaView,
       },
       {
         name: 'pills',
         path: 'pills',
-        component: CssPillsWorkareaView,
+        component: PillsWorkareaView,
       },
       {
         name: 'minivan',
         path: 'minivan',
-        component: CssBusWorkareaView,
+        component: BusWorkareaView,
       },
     ]
   },
@@ -94,13 +98,32 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    name: 'cube',
-    path: '/cube',
+    name: 'three',
+    path: '/three',
     components: {
-      workarea: CubeWorkareaView,
-      panel: CubePanelView,
+      workarea: ThreeWorkareaView,
+      panel: ThreePanelView,
     },
+    children: [
+      {
+        name: 'cube',
+        path: 'cube',
+        components: {
+          workarea2: CubeWorkareaView,
+          panel2: CubePanelView,
+        },
+      },
+      {
+        name: 'spirit',
+        path: 'spirit',
+        components: {
+          workarea2: SpiritWorkareaView,
+          panel2: SpiritPanelView,
+        },
+      },
+    ],
   },
+  
   {
     name: 'statistics',
     path: '/statistics',
@@ -139,14 +162,6 @@ const routes: Array<RouteConfig> = [
     components: {
       workarea: WheelWorkareaView,
       panel: WheelPanelView,
-    },
-  },
-  {
-    name: 'mesh',
-    path: '/mesh',
-    components: {
-      workarea: MeshWorkareaView,
-      panel: MeshPanelView,
     },
   },
   {

@@ -2,7 +2,7 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend CSS Models
+      legend 3D Models
       row
         column(size="100%")
           ul.summary
@@ -23,6 +23,7 @@ scroll-area(color="royal-purple")
                       :text="route.text",
                       :to="route"
                     )
+  router-view(name="panel2")
 </template>
 
 <script lang="ts">
@@ -32,24 +33,14 @@ export default Vue.extend({
   data: () => ({
     db: [
       {
-        text: "House",
-        name: "house",
-        icon: "home",
+        text: "Color Cube",
+        name: "cube",
+        icon: "cube-outline",
       },
       {
-        text: "Window",
-        name: "window",
-        icon: "sensor_window",
-      },
-      {
-        text: "Minivan",
-        name: "minivan",
-        icon: "directions_bus",
-      },
-      {
-        text: "Pills",
-        name: "pills",
-        icon: "medical_services",
+        text: "Spirit",
+        name: "spirit",
+        icon: "monster",
       },
     ],
   }),

@@ -122,8 +122,8 @@ export default Vue.extend({
     ],
     navigationBuilder: [
       { icon: "robot-industrial", route: ["grid"] },
-      { icon: "open-with", route: ["mesh"] },
-      { icon: "cube-outline", route: ["cube"] },
+      { icon: "open-with", route: ["three", "cube", "spirit"] },
+      // { icon: "cube-outline", route: ["cube"] },
       { icon: "cog-transfer-outline", route: ["gear"] },
       { icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
       { icon: "palette", route: ["wheel"] },
@@ -134,7 +134,6 @@ export default Vue.extend({
   computed: {
     ...mapGetters({
       theme: "getTheme",
-      login: "getLoginSelection",
     }),
   },
   methods: {

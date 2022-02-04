@@ -1,5 +1,5 @@
 <template lang="pug">
-div(ref="cube")
+.three-scene(ref="cube")
 </template>
 
 <script lang="ts">
