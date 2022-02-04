@@ -4,8 +4,8 @@
     template(v-slot:header)
       h1(v-if="modal.data.title") {{ modal.data.title }}
       h2(v-if="modal.data.description") {{ modal.data.description }}
-      h3(v-if="modal.data.date")
-        time {{ modal.data.date }}
+      h3(v-if="modal.data.turingDate")
+        time {{ modal.data.turingDate }}
 
     template(v-slot:body)
       ul.list(v-if="modal.data.list.length")

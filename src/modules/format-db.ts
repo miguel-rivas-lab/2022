@@ -210,6 +210,7 @@ export function formatGroupsToProjects(groups) {
       "title": clients[0],
       "clients": clients,
       "date": group.date,
+      "turingDate": helpers.turingDate(group.date),
       "types": types,
       "links": [],
       "disabled": group.disabled,
