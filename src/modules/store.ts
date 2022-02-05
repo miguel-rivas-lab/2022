@@ -42,8 +42,10 @@ export const store = new Vuex.Store({
         hue: 220,
       },
       mesh: {
-        sceneRotation: 1,
         grid: true,
+        sceneRotation: 3,
+        pause: false,
+        lines: false,
       },
       projects3d: {
         rotationDelay: 200,
@@ -56,10 +58,7 @@ export const store = new Vuex.Store({
         columns: [],
       },
       cube: {
-        cubeRotation: 3,
-        pause: false,
-        grid: true,
-        lines: false,
+        
       },
       gear: {
         cornerAmount: 40,
@@ -103,7 +102,6 @@ export const store = new Vuex.Store({
     getModal: state => state.modal,
     getStargazeSelection: state => state.selection.stargaze,
     getGridSelection: state => state.selection.grid,
-    getCubeSelection: state => state.selection.cube,
     getGearSelection: state => state.selection.gear,
     getWheelSelection: state => state.selection.wheel,
     getLocationSelection: state => state.selection.locations,

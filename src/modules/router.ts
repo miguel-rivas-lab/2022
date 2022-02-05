@@ -1,28 +1,27 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 
+// import DefaultPanelView from '../views/default-panel.vue';
+
+import NestedWorkareaView from '../views/nested-workarea.vue';
+import NestedPanelView from '../views/nested-panel.vue';
+import ThreePanelView from '../views/three-panel.vue';
+import ThreeWorkareaView from '../views/three-workarea.vue';
+
 import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
+
 import CubeWorkareaView from '../views/cube-workarea.vue';
 import CubePanelView from '../views/cube-panel.vue';
+
 import GridWorkareaView from '../views/grid-workarea.vue';
 import GridPanelView from '../views/grid-panel.vue';
 import StargazeWorkareaView from '../views/stargaze-workarea.vue';
 import StargazePanelView from '../views/stargaze-panel.vue';
-import ProjectsWorkareaView from '../views/projects-workarea.vue';
-import ProjectsPanelView from '../views/projects-panel.vue';
+
+import ProjectsListWorkareaView from '../views/projects-list-workarea.vue';
+import ProjectsListPanelView from '../views/projects-list-panel.vue';
 import StatisticsWorkareaView from '../views/statistics-workarea.vue';
-import GearWorkareaView from '../views/gear-workarea.vue';
-import GearPanelView from '../views/gear-panel.vue';
-import WheelWorkareaView from '../views/wheel-workarea.vue';
-import WheelPanelView from '../views/wheel-panel.vue';
-import LocationsPanelView from '../views/locations-panel.vue';
-import LocationsWorkareaView from '../views/locations-workarea.vue';
-import SpiritPanelView from '../views/spirit-panel.vue';
-import SpiritWorkareaView from '../views/spirit-workarea.vue';
-import Projects3DWorkareaView from '../views/gallery-3d-workarea.vue';
-import Projects3DPanelView from '../views/gallery-3d-panel.vue';
-import ProjectsVideoWorkareaView from '../views/gallery-video-workarea.vue';
 
 import CssWorkareaView from '../views/css-workarea.vue';
 import CssPanelView from '../views/css-panel.vue';
@@ -31,10 +30,16 @@ import WindowWorkareaView from '../views/window-workarea.vue';
 import BusWorkareaView from '../views/minivan-workarea.vue';
 import PillsWorkareaView from '../views/pills-workarea.vue';
 
-import ThreeWorkareaView from '../views/three-workarea.vue';
-import ThreePanelView from '../views/three-panel.vue';
+import Projects3DWorkareaView from '../views/3d-workarea.vue';
+import Projects3DPanelView from '../views/3d-panel.vue';
+import ProjectsVideoWorkareaView from '../views/video-workarea.vue';
 
-import DefaultPanelView from '../views/default-panel.vue';
+import GearWorkareaView from '../views/gear-workarea.vue';
+import GearPanelView from '../views/gear-panel.vue';
+import WheelWorkareaView from '../views/wheel-workarea.vue';
+import WheelPanelView from '../views/wheel-panel.vue';
+import LocationsPanelView from '../views/locations-panel.vue';
+import LocationsWorkareaView from '../views/locations-workarea.vue';
 
 Vue.use(VueRouter);
 
@@ -53,22 +58,22 @@ const routes: Array<RouteConfig> = [
     children: [
       {
         name: 'house',
-        path: 'house',
+        path: '/house',
         component: HouseWorkareaView,
       },
       {
         name: 'window',
-        path: 'window',
+        path: '/window',
         component: WindowWorkareaView,
       },
       {
         name: 'pills',
-        path: 'pills',
+        path: '/pills',
         component: PillsWorkareaView,
       },
       {
         name: 'minivan',
-        path: 'minivan',
+        path: '/minivan',
         component: BusWorkareaView,
       },
     ]
@@ -82,54 +87,11 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    name: 'projects',
-    path: '/projects',
-    components: {
-      workarea: ProjectsWorkareaView,
-      panel: ProjectsPanelView,
-    },
-  },
-  {
     name: 'colors',
     path: '/colors',
     components: {
       workarea: ColorsWorkareaView,
       panel: ColorsPanelView,
-    },
-  },
-  {
-    name: 'three',
-    path: '/three',
-    components: {
-      workarea: ThreeWorkareaView,
-      panel: ThreePanelView,
-    },
-    children: [
-      {
-        name: 'cube',
-        path: 'cube',
-        components: {
-          workarea2: CubeWorkareaView,
-          panel2: CubePanelView,
-        },
-      },
-      {
-        name: 'spirit',
-        path: 'spirit',
-        components: {
-          workarea2: SpiritWorkareaView,
-          panel2: SpiritPanelView,
-        },
-      },
-    ],
-  },
-  
-  {
-    name: 'statistics',
-    path: '/statistics',
-    components: {
-      workarea: StatisticsWorkareaView,
-      panel: DefaultPanelView,
     },
   },
   {
@@ -165,24 +127,266 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    name: 'gallery-3d',
-    path: '/gallery-3d',
-    components: {
-      workarea: Projects3DWorkareaView,
-      panel: Projects3DPanelView,
-    },
-  },
-  {
-    name: 'gallery-video',
-    path: '/gallery-video',
-    components: {
-      workarea: ProjectsVideoWorkareaView,
-      panel: DefaultPanelView,
-    },
-  },
-  {
     path: '*',
     redirect: '/'
+  },
+
+  /* ---------------------- nested ---------------------- */
+
+  {
+    name: 'projects',
+    path: '/projects',
+    components: {
+      workarea: Vue.extend({
+        props: {
+          defaultRoute: {
+            default: "list"
+          },
+        },
+        extends: NestedWorkareaView,
+      }),
+      panel: Vue.extend({
+        props: {
+          panelTitle: {
+            default: "Projects"
+          },
+          links: {
+            default: () => ([
+              {
+                text: "List",
+                name: "list",
+                icon: "format_list_bulleted",
+              },
+              {
+                text: "Statistics",
+                name: "statistics",
+                icon: "chart-areaspline",
+              },
+            ])
+          }
+        },
+        extends: NestedPanelView,
+      }),
+    },
+    children: [
+      {
+        name: 'list',
+        path: '/list',
+        components: {
+          workarea2: ProjectsListWorkareaView,
+          panel2: ProjectsListPanelView,
+        },
+      },
+      {
+        name: 'statistics',
+        path: '/statistics',
+        components: {
+          workarea2: StatisticsWorkareaView,
+        },
+      },
+    ],
+  },
+  {
+    name: 'threejs',
+    path: '/threejs',
+    components: {
+      workarea: Vue.extend({
+        props: {
+          defaultRoute: {
+            default: "cube"
+          },
+        },
+        extends: NestedWorkareaView,
+      }),
+      panel: Vue.extend({
+        props: {
+          panelTitle: {
+            default: "3D Models"
+          },
+          links: {
+            default: () => ([
+              {
+                text: "Color Cube",
+                name: "cube",
+                icon: "cube-outline",
+              },
+              {
+                text: "Spirit",
+                name: "spirit",
+                icon: "monster",
+              },
+              {
+                text: "Drakkar",
+                name: "drakkar",
+                icon: "sail-boat",
+              },
+              {
+                text: "Car",
+                name: "car",
+                icon: "directions_car",
+              },
+              {
+                text: "X-wing",
+                name: "xwing",
+                icon: "rocket-launch",
+              },
+            ])
+          }
+        },
+        extends: NestedPanelView,
+      }),
+    },
+    children: [
+      {
+        name: 'cube',
+        path: '/cube',
+        components: {
+          workarea2: CubeWorkareaView,
+          panel2: CubePanelView,
+        },
+      },
+      {
+        name: 'spirit',
+        path: '/spirit',
+        components: {
+          workarea2: Vue.extend({
+            props: {
+              mesh: {
+                default: "spirit"
+              },
+              minDistance: {
+                default: 7.5,
+              },
+              maxDistance: {
+                type: Number,
+                default: 25,
+              },
+            },
+            extends: ThreeWorkareaView,
+          }),
+          panel2: ThreePanelView,
+        },
+      },
+      {
+        name: 'drakkar',
+        path: '/drakkar',
+        components: {
+          workarea2: Vue.extend({
+            props: {
+              mesh: {
+                default: "drakkar"
+              },
+              minDistance: {
+                default: 65,
+              },
+              maxDistance: {
+                type: Number,
+                default: 75,
+              },
+            },
+            extends: ThreeWorkareaView,
+          }),
+          panel2: ThreePanelView,
+        },
+      },
+      {
+        name: 'car',
+        path: '/car',
+        components: {
+          workarea2: Vue.extend({
+            props: {
+              mesh: {
+                default: "car"
+              },
+              minDistance: {
+                default: 55,
+              },
+              maxDistance: {
+                type: Number,
+                default: 75,
+              },
+            },
+            extends: ThreeWorkareaView,
+          }),
+          panel2: ThreePanelView,
+        },
+      },
+      {
+        name: 'xwing',
+        path: '/xwing',
+        components: {
+          workarea2: Vue.extend({
+            props: {
+              mesh: {
+                default: "xwing"
+              },
+              minDistance: {
+                default: 35,
+              },
+              maxDistance: {
+                type: Number,
+                default: 55,
+              },
+            },
+            extends: ThreeWorkareaView,
+          }),
+          panel2: ThreePanelView,
+        },
+      },
+    ],
+  },
+  {
+    name: 'gallery',
+    path: '/gallery',
+    components: {
+      workarea: Vue.extend({
+        props: {
+          defaultRoute: {
+            default: "images"
+          },
+        },
+        extends: NestedWorkareaView,
+      }),
+      panel: Vue.extend({
+        props: {
+          panelTitle: {
+            default: "Galleries"
+          },
+          links: {
+            default: () => ([
+              {
+                text: "Images",
+                name: "images",
+                icon: "collections",
+              },
+              {
+                text: "Videos",
+                name: "videos",
+                icon: "movie",
+              },
+            ])
+          }
+        },
+        extends: NestedPanelView,
+      }),
+    },
+    children: [
+      {
+        name: 'images',
+        path: '/images',
+        components: {
+          workarea2: Projects3DWorkareaView,
+          panel2: Projects3DPanelView,
+        },
+      },
+      {
+        name: 'videos',
+        path: '/videos',
+        components: {
+          workarea2: ProjectsVideoWorkareaView,
+        },
+      },
+    ],
   },
 ];
 

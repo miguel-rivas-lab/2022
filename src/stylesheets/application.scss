@@ -92,13 +92,6 @@ main {
 
 @import "core/vue-theme";
 
-.three-scene {
-  $hue: 245deg;
-  $saturation: 40%; 
-  background: hsl($hue $saturation 35%);
-  background: linear-gradient(175deg, hsl($hue $saturation 35%) 50%, hsl($hue $saturation 25%) 100%);
-}
-
 .close-btn {
   width: 100%;
   height: 100%;

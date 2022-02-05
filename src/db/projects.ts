@@ -44,12 +44,12 @@ const projects: ProjectsType = [
     ],
     links: [
       {
-        url: linkWeb("2021-vue"),
+        url: linkWeb("2022-vue"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
-        url: linkGithub("2021-vue"),
+        url: linkGithub("2022-vue"),
         text: "Github",
         self: false,
       },
@@ -1486,7 +1486,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("main-front"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("main-front"),
@@ -1520,7 +1520,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("css-study"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("css-study"),
@@ -1611,7 +1611,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("evolution-web"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("evolution-web"),
@@ -1733,7 +1733,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("svg-101"),
         text: "Prototype",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("svg-101"),
@@ -1770,7 +1770,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("tetravex"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("tetravex"),
@@ -1898,7 +1898,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("2014"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("2014"),
@@ -1976,7 +1976,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("2021-vue"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("2021-vue"),
@@ -2082,7 +2082,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("html-love"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("html-love"),
@@ -2241,7 +2241,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("2021-react"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("2021-react"),
@@ -2280,7 +2280,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("flat-css"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("flat-css"),
@@ -2715,7 +2715,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("presidente-destapa-coro"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("presidente-destapa-coro"),
@@ -2797,12 +2797,12 @@ const projects: ProjectsType = [
       {
         url: linkWeb("presidente-carnaval-2015/filter.html"),
         text: "Filter",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("presidente-carnaval-2015/home.html"),
         text: "Home",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("presidente-carnaval-2015"),
@@ -2859,7 +2859,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("presidente-retro-brindis"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("presidente-retro-brindis"),
@@ -2890,7 +2890,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("apap-mineriza-familia"),
         text: "App",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("apap-mineriza-familia"),
@@ -2950,12 +2950,12 @@ const projects: ProjectsType = [
       {
         url: linkWeb("presidente-verano-2015"),
         text: "Filter",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("presidente-loader"),
         text: "Loader",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("presidente-verano-2015"),
@@ -2988,27 +2988,27 @@ const projects: ProjectsType = [
       {
         url: linkWeb("drlogic/home.html"),
         text: "Home",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("drlogic/about-us.html"),
         text: "About Us",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("drlogic/contact-us.html"),
         text: "Contact Us",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("drlogic/portfolio.html"),
         text: "Portfolio",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("drlogic/404.html"),
         text: "404",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("drlogic"),
@@ -3087,12 +3087,12 @@ const projects: ProjectsType = [
       {
         url: linkWeb("pixel-server-prompt/404"),
         text: "404",
-        self: true,
+        self: false,
       },
       {
         url: linkWeb("pixel-server-prompt/500"),
         text: "500",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("pixel-server-prompt"),
@@ -3126,7 +3126,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("voxel-animation"),
         text: "Animated Header",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("voxel-animation"),
@@ -3273,7 +3273,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("descubria"),
         text: "Home",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("descubria"),
@@ -3306,7 +3306,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("capital-dbg-server-prompt"),
         text: "Prototype",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("capital-dbg-server-prompt"),
@@ -3340,7 +3340,7 @@ const projects: ProjectsType = [
       {
         url: linkWeb("test-pixel-perfect-tree"),
         text: "Test",
-        self: true,
+        self: false,
       },
       {
         url: linkGithub("test-pixel-perfect-tree"),
@@ -3689,22 +3689,22 @@ const projects: ProjectsType = [
       // {
       //   url: linkWeb("formability/demo"),
       //   text: "Demo",
-      //   self: true,
+      //   self: false,
       // },
       // {
       //   url: linkWeb("formability/401"),
       //   text: "401",
-      //   self: true,
+      //   self: false,
       // },
       // {
       //   url: linkWeb("formability/404"),
       //   text: "404",
-      //   self: true,
+      //   self: false,
       // },
       // {
       //   url: linkWeb("formability/500"),
       //   text: "500",
-      //   self: true,
+      //   self: false,
       // },
     ],
   },

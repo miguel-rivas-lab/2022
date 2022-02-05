@@ -1,29 +1,25 @@
 <template lang="pug">
-scroll-area(color="royal-purple")
-  row.row-block(tag="fieldset")
-    column(size="100%")
-      legend 3D Models
-      row
-        column(size="100%")
-          ul.summary
-            template(v-for="(route, routeIndex) in db")
-              li(v-bind:key="routeIndex")
-                row
-                  prefix(size="35")
-                    btn(
-                      tag="span",
-                      color="burn-orange",
-                      :glyph="route.icon",
-                      :to="route"
-                    )
-                  column(size="100%-35")
-                    btn(
-                      tag="span",
-                      color="gold-tips",
-                      :text="route.text",
-                      :to="route"
-                    )
-  router-view(name="panel2")
+row.row-block(tag="fieldset")
+  column(size="100%")
+    legend Scene Controllers
+
+    number-input#outter-circle-radius(
+      :value="selection.sceneRotation",
+      label="Rotation",
+      v-on:update-value="updateSpeed($event)"
+    )
+
+    row
+      column(size="100%")
+        label.btn.flat.charcoal(:class="{ active: selection.grid }")
+          | Grid
+          input(type="checkbox", v-model="selection.grid")
+
+    row
+      column(size="100%")
+        label.btn.flat.charcoal(:class="{ active: selection.rotateY }")
+          | Pause
+          input(type="checkbox", v-model="selection.rotateY")
 </template>
 
 <script lang="ts">
@@ -31,18 +27,15 @@ import Vue from "vue";
 
 export default Vue.extend({
   data: () => ({
-    db: [
-      {
-        text: "Color Cube",
-        name: "cube",
-        icon: "cube-outline",
-      },
-      {
-        text: "Spirit",
-        name: "spirit",
-        icon: "monster",
-      },
-    ],
+    selection: {},
   }),
+  created() {
+    this.selection = this.$store.getters.getMeshSelection;
+  },
+  methods: {
+    updateSpeed(newVal) {
+      this.selection.sceneRotation = parseInt(newVal);
+    },
+  },
 });
 </script>

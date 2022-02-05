@@ -44,7 +44,7 @@ export default Vue.extend({
       }
       requestAnimationFrame(this.render);
       if (!this.selection.pause) {
-        this.scene.rotation.y += this.selection.cubeRotation * 0.01;
+        this.scene.rotation.y += this.selection.sceneRotation * 0.01;
       }
       this.renderer.render(this.scene, this.camera);
       this.selection.lines
@@ -234,7 +234,7 @@ export default Vue.extend({
     this.render();
   },
   created() {
-    this.selection = this.$store.getters.getCubeSelection;
+    this.selection = this.$store.getters.getMeshSelection;
     window.addEventListener("resize", this.resizeWindow);
   },
   watch: {

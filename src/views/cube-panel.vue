@@ -5,7 +5,7 @@ div
       legend Scene Controllers
 
       number-input#outter-circle-radius(
-        :value="selection.cubeRotation",
+        :value="selection.sceneRotation",
         label="Rotation",
         v-on:update-value="updateSpeed($event)"
       )
@@ -49,11 +49,11 @@ export default Vue.extend({
     selection: {},
   }),
   created() {
-    this.selection = this.$store.getters.getCubeSelection;
+    this.selection = this.$store.getters.getMeshSelection;
   },
   methods: {
     updateSpeed(newVal) {
-      this.selection.cubeRotation = parseInt(newVal);
+      this.selection.sceneRotation = parseInt(newVal);
     },
   },
 });

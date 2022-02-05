@@ -1,5 +1,5 @@
 <template lang="pug">
-scroll-area(color="royal-purple")
+div
   row.row-block.row-block(
     v-if="selection.currentLink.src === ''",
     tag="fieldset"
