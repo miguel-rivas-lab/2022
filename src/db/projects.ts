@@ -55,6 +55,9 @@ const projects: ProjectsType = [
       },
     ],
     children: [
+      h.getNewID(client.itla, "2011/07/06"),
+      h.getNewID(client.itla, "2011/07/25"),
+      h.getNewID(client.miguelRivas, "2012/11/06"),
       h.getNewID(client.miguelRivas, "2015/05/23"),
       h.getNewID(client.miguelRivas, "2015/05/25"),
       h.getNewID(client.miguelRivas, "2015/05/28"),

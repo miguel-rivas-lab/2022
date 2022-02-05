@@ -12,14 +12,15 @@ scroll-area(color="royal-purple")
                   prefix(size="35")
                     btn(
                       tag="span",
-                      color="burn-orange",
+                      :color="$route.name === route.name ? 'green-pea' : 'charcoal'",
                       :glyph="route.icon",
                       :to="route"
                     )
                   column(size="100%-35")
                     btn(
                       tag="span",
-                      color="gold-tips",
+                      color="gravel"
+                      :active="$route.name === route.name",
                       :text="route.text",
                       :to="route"
                     )
@@ -39,6 +40,9 @@ export default Vue.extend({
       type: Array,
       default: () => ([]),
     }
+  },
+  mounted(){
+    console.log(this.$route.name);
   },
 });
 </script>

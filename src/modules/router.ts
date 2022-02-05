@@ -5,33 +5,23 @@ import VueRouter, { RouteConfig } from 'vue-router';
 
 import NestedWorkareaView from '../views/nested-workarea.vue';
 import NestedPanelView from '../views/nested-panel.vue';
+
 import ThreePanelView from '../views/three-panel.vue';
 import ThreeWorkareaView from '../views/three-workarea.vue';
-
-import ColorsPanelView from '../views/colors-panel.vue';
-import ColorsWorkareaView from '../views/colors-workarea.vue';
-
 import CubeWorkareaView from '../views/cube-workarea.vue';
 import CubePanelView from '../views/cube-panel.vue';
-
-import GridWorkareaView from '../views/grid-workarea.vue';
-import GridPanelView from '../views/grid-panel.vue';
-import StargazeWorkareaView from '../views/stargaze-workarea.vue';
-import StargazePanelView from '../views/stargaze-panel.vue';
 
 import ProjectsListWorkareaView from '../views/projects-list-workarea.vue';
 import ProjectsListPanelView from '../views/projects-list-panel.vue';
 import StatisticsWorkareaView from '../views/statistics-workarea.vue';
 
-import CssWorkareaView from '../views/css-workarea.vue';
-import CssPanelView from '../views/css-panel.vue';
 import HouseWorkareaView from '../views/house-workarea.vue';
 import WindowWorkareaView from '../views/window-workarea.vue';
 import BusWorkareaView from '../views/minivan-workarea.vue';
 import PillsWorkareaView from '../views/pills-workarea.vue';
 
-import Projects3DWorkareaView from '../views/3d-workarea.vue';
-import Projects3DPanelView from '../views/3d-panel.vue';
+import Projects3DWorkareaView from '../views/images-workarea.vue';
+import Projects3DPanelView from '../views/images-panel.vue';
 import ProjectsVideoWorkareaView from '../views/video-workarea.vue';
 
 import GearWorkareaView from '../views/gear-workarea.vue';
@@ -41,42 +31,19 @@ import WheelPanelView from '../views/wheel-panel.vue';
 import LocationsPanelView from '../views/locations-panel.vue';
 import LocationsWorkareaView from '../views/locations-workarea.vue';
 
+import GridWorkareaView from '../views/grid-workarea.vue';
+import GridPanelView from '../views/grid-panel.vue';
+import StargazeWorkareaView from '../views/stargaze-workarea.vue';
+import StargazePanelView from '../views/stargaze-panel.vue';
+import ColorsPanelView from '../views/colors-panel.vue';
+import ColorsWorkareaView from '../views/colors-workarea.vue';
+
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
     redirect: '/stargaze',
-  },
-  {
-    name: 'css',
-    path: '/css',
-    components: {
-      workarea: CssWorkareaView,
-      panel: CssPanelView,
-    },
-    children: [
-      {
-        name: 'house',
-        path: '/house',
-        component: HouseWorkareaView,
-      },
-      {
-        name: 'window',
-        path: '/window',
-        component: WindowWorkareaView,
-      },
-      {
-        name: 'pills',
-        path: '/pills',
-        component: PillsWorkareaView,
-      },
-      {
-        name: 'minivan',
-        path: '/minivan',
-        component: BusWorkareaView,
-      },
-    ]
   },
   {
     name: 'stargaze',
@@ -133,6 +100,82 @@ const routes: Array<RouteConfig> = [
 
   /* ---------------------- nested ---------------------- */
 
+  {
+    name: 'css',
+    path: '/css',
+    components: {
+      workarea: Vue.extend({
+        props: {
+          defaultRoute: {
+            default: "house"
+          },
+        },
+        extends: NestedWorkareaView,
+      }),
+      panel: Vue.extend({
+        props: {
+          panelTitle: {
+            default: "CSS Models"
+          },
+          links: {
+            default: () => ([
+              {
+                text: "House",
+                name: "house",
+                icon: "home",
+              },
+              {
+                text: "Window",
+                name: "window",
+                icon: "sensor_window",
+              },
+              {
+                text: "Minivan",
+                name: "minivan",
+                icon: "directions_bus",
+              },
+              {
+                text: "Pills",
+                name: "pills",
+                icon: "medical_services",
+              },
+            ])
+          }
+        },
+        extends: NestedPanelView,
+      }),
+    },
+    children: [
+      {
+        name: 'house',
+        path: '/house',
+        components: {
+          workarea2: HouseWorkareaView,
+        },
+      },
+      {
+        name: 'window',
+        path: '/window',
+        components: {
+          workarea2: WindowWorkareaView,
+        }
+      },
+      {
+        name: 'pills',
+        path: '/pills',
+        components: {
+          workarea2: PillsWorkareaView,
+        }
+      },
+      {
+        name: 'minivan',
+        path: '/minivan',
+        components: {
+          workarea2: BusWorkareaView,
+        }
+      },
+    ],
+  },
   {
     name: 'projects',
     path: '/projects',
