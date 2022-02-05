@@ -12,13 +12,13 @@ scroll-area(color="royal-purple")
                   column(size="100%-35")
                     btn(
                       @click="openModal(location.clients[0])",
-                      color="gravel",
+                      color="gold-tips",
                       :text="location.title"
                     )
                   suffix(size="35")
                     btn(
                       @click="centerMap(location.position)",
-                      color="charcoal",
+                      color="burn-orange",
                       glyph="gps-fixed"
                     )
 
