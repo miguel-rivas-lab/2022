@@ -1,6 +1,6 @@
 rm -r -f -v public/**.html
 
-routes=("buttons" "car" "colors" "css" "cube" "drakkar" "gallery" "gear" "grid" "house" "images" "index" "list" "locations" "minivan" "pills" "projects" "spirit" "stargaze" "statistics" "threejs" "videos" "wheel" "window" "xwing")
+routes=("buttons" "car" "colors" "css" "cube" "drakkar" "gallery" "gear" "grid" "house" "images" "list" "locations" "minivan" "pills" "projects" "spirit" "stargaze" "statistics" "threejs" "videos" "wheel" "window" "xwing")
 
 for f in ${routes[@]}; do
   echo "
