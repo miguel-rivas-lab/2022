@@ -188,7 +188,7 @@ const projects: ProjectsType = [
     ],
   },
   {
-    date: "2004/01/01",
+    date: "2005/10/01",
     title: "ATM",
     types: [
       typeEnum.app,
@@ -212,7 +212,7 @@ const projects: ProjectsType = [
     ],
   },
   {
-    date: "2004/01/02",
+    date: "2005/10/02",
     title: "Bubble Sort",
     types: [
       typeEnum.app,
@@ -230,7 +230,7 @@ const projects: ProjectsType = [
     links: [],
   },
   {
-    date: "2004/01/03",
+    date: "2005/10/03",
     title: "Infinite Menu",
     types: [
       typeEnum.app,
@@ -278,7 +278,7 @@ const projects: ProjectsType = [
     ],
   },
   {
-    date: "2004/01/05",
+    date: "2005/10/05",
     title: "Summatory / Accumulator",
     types: [
       typeEnum.app,

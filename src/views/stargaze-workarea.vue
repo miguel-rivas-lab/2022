@@ -34,7 +34,7 @@ export default Vue.extend({
       return this.$root.user;
     },
     currentTuringDate() {
-      const newDate = DateTime.now().minus({years: 1912, months: 6, days: 23});
+      const newDate = DateTime.now().minus({years: 1990, months: 5, days: 5});
       return `Y${newDate.year} M${newDate.month} D${newDate.day}`;
     },
   },

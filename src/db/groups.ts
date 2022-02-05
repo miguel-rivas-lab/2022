@@ -11,7 +11,7 @@ type GroupsType = Array<Group>;
 
 const groups: GroupsType = [
   {
-    date: "2004/01/01",
+    date: "2004/09/20",
     disabled: false,
     clients: [
       clientEnum.itesa,
@@ -40,12 +40,12 @@ const groups: GroupsType = [
       toolEnum.as2,
     ],
     children: [
-      h.getNewID(client.itesa, "2004/01/01"),
-      h.getNewID(client.itesa, "2004/01/02"),
-      h.getNewID(client.itesa, "2004/01/03"),
-      h.getNewID(client.itesa, "2004/01/05"),
       h.getNewID(client.itesa, "2005/09/28"),
+      h.getNewID(client.itesa, "2005/10/01"),
+      h.getNewID(client.itesa, "2005/10/02"),
+      h.getNewID(client.itesa, "2005/10/03"),
       h.getNewID(client.itesa, "2005/10/04"),
+      h.getNewID(client.itesa, "2005/10/05"),
       h.getNewID(client.itesa, "2006/01/05"),
       h.getNewID(client.itesa, "2007/09/04"),
       h.getNewID(client.itesa, "2008/05/16"),

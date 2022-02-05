@@ -5,7 +5,7 @@ const helpers = {
     return parseInt(date.split("/").join(""));
   },
   turingDate(date) {
-    const newDate = DateTime.fromISO(date.replace(/[/]/g, "-")).minus({years: 1912, months: 6, days: 23});
+    const newDate = DateTime.fromISO(date.replace(/[/]/g, "-")).minus({years: 1990, months: 5, days: 5});
     return `Y${newDate.year} M${newDate.month} D${newDate.day}`;
   },
   getID(client: string, date: string): string {
