@@ -83,7 +83,7 @@ const groups: GroupsType = [
     types: [
       typeEnum.group,
     ],
-    disabled: false,
+    disabled: true,
     clients: [
       clientEnum.codepen,
     ],

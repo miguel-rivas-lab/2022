@@ -2239,7 +2239,7 @@ const projects: ProjectsType = [
       toolEnum.typescript,
       toolEnum.git,
     ],
-    disabled: false,
+    disabled: true,
     links: [
       {
         url: linkWeb("2021-react"),
