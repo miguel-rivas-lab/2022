@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 
-// import DefaultPanelView from '../views/default-panel.vue';
+import DefaultPanelView from '../views/default-panel.vue';
 
 import NestedWorkareaView from '../views/nested-workarea.vue';
 import NestedPanelView from '../views/nested-panel.vue';
@@ -37,6 +37,7 @@ import StargazeWorkareaView from '../views/stargaze-workarea.vue';
 import StargazePanelView from '../views/stargaze-panel.vue';
 import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
+import CSSStudyWorkareaView from '../views/css-study-workarea.vue';
 
 Vue.use(VueRouter);
 
@@ -51,6 +52,14 @@ const routes: Array<RouteConfig> = [
     components: {
       workarea: StargazeWorkareaView,
       panel: StargazePanelView,
+    },
+  },
+  {
+    name: 'css-study',
+    path: '/css-study',
+    components: {
+      workarea: CSSStudyWorkareaView,
+      panel: DefaultPanelView,
     },
   },
   {

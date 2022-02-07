@@ -124,6 +124,7 @@ export default Vue.extend({
       { icon: "format-color-fill", route: ["colors"] },
       { icon: "cog-transfer-outline", route: ["gear"] },
       { icon: "palette", route: ["wheel"] },
+      { icon: "chair-school", route: ["css-study"] },
     ],
     linkGithub,
     linkLinkedin,
