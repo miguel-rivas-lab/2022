@@ -125,6 +125,7 @@ export default Vue.extend({
       { icon: "cog-transfer-outline", route: ["gear"] },
       { icon: "palette", route: ["wheel"] },
       { icon: "chair-school", route: ["css-study"] },
+      { icon: "", route: ["avatar"] },
     ],
     linkGithub,
     linkLinkedin,

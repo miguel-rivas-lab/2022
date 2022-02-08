@@ -38,6 +38,7 @@ import StargazePanelView from '../views/stargaze-panel.vue';
 import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
 import CSSStudyWorkareaView from '../views/css-study-workarea.vue';
+import AvatarWorkareaView from '../views/avatar-workarea.vue';
 
 Vue.use(VueRouter);
 
@@ -52,6 +53,14 @@ const routes: Array<RouteConfig> = [
     components: {
       workarea: StargazeWorkareaView,
       panel: StargazePanelView,
+    },
+  },
+  {
+    name: 'avatar',
+    path: '/avatar',
+    components: {
+      workarea: AvatarWorkareaView,
+      panel: DefaultPanelView,
     },
   },
   {

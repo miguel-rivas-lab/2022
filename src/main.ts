@@ -16,6 +16,8 @@ import { projectsDB } from "./db/projects";
 import { groupsDB } from "./db/groups";
 import { users } from "./db/users";
 import VueKonva from 'vue-konva';
+import VueHighlightJS from "vue-highlight.js";
+import xml from "highlight.js/lib/languages/xml";
 
 // ---------------- Selection
 
@@ -42,6 +44,11 @@ store.commit("addColumn",
 );
 
 Vue.use(VueKonva);
+Vue.use(VueHighlightJS, {
+  languages: {
+    xml,
+  },
+});
 Vue.config.productionTip = false;
 
 new Vue({

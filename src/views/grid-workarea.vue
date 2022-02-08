@@ -33,14 +33,6 @@ scroll-area(color="royal-purple")
 <script lang="ts">
 import Vue from "vue";
 import { validateSize } from "nano-grid/modules/columns-manager";
-import VueHighlightJS from "vue-highlight.js";
-import xml from "highlight.js/lib/languages/xml";
-
-Vue.use(VueHighlightJS, {
-  languages: {
-    xml,
-  },
-});
 
 export default Vue.extend({
   data: () => ({
