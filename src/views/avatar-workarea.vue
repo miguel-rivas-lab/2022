@@ -46,7 +46,6 @@ export default Vue.extend({
     selection: {},
     konvaConfig: { width: 0, height: 0 },
     stage: undefined,
-    test: undefined,
   }),
   computed: {
     ...mapGetters({
@@ -335,7 +334,7 @@ export default Vue.extend({
             faceHeight,
           width: faceWidth,
           height: hairLength,
-          fill: this.selection.beardColor,
+          fill: this.selection.hairColor,
           cornerRadius: [strokeWidth * 2, strokeWidth * 2, 0, 0],
         },
         hairSide: {
@@ -351,7 +350,7 @@ export default Vue.extend({
             hairSideLength * 0.5,
           width: hairSideWidth,
           height: hairSideLength,
-          fill: this.selection.beardColor,
+          fill: this.selection.hairSideColor,
           cornerRadius: strokeWidth * 2,
         },
       };
@@ -481,7 +480,6 @@ export default Vue.extend({
   },
   created() {
     this.selection = this.$store.getters.getAvatarSelection;
-    this.test = this.selection.shirtLenghtPercent;
     window.addEventListener("resize", this.updateCanvas);
   },
   beforeDestroy() {
@@ -490,9 +488,6 @@ export default Vue.extend({
   watch: {
     panel: function () {
       this.updateCanvas();
-    },
-    test: function () {
-      console.log(this.test);
     },
   },
   mounted() {

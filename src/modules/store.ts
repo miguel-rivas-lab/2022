@@ -41,6 +41,7 @@ export const store = new Vuex.Store({
         shoeColor: "#222",
         beardColor: "#6d5542",
         hairColor: "#6d5542",
+        hairSideColor: "#6d5542",
         armSleeveLengthPercent: 95 / 100,
         shirtLengthPercent: 100 / 100,
         pantsLegLengthPercent: 100 / 100,

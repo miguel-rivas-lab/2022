@@ -28,6 +28,12 @@ scroll-area(color="royal-purple")
 
       row
         column(size="100%")
+          label Hair Side Color
+        column(size="100%")
+          btn(color="gold-tips", :text="selection.hairSideColor")
+
+      row
+        column(size="100%")
           label Beard Color
         column(size="100%")
           btn(color="gold-tips", :text="selection.beardColor")
