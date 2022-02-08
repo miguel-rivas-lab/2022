@@ -38,6 +38,18 @@ scroll-area(color="royal-purple")
         column(size="100%")
           btn(color="gold-tips", :text="selection.lipsColor")
 
+      row
+        column(size="100%")
+          label(for="happiness") Happiness
+        column(size="100%")
+          input#happiness.cobalt-blue(
+            type="range",
+            min="-20",
+            max="20",
+            step="0.1",
+            v-model="selection.happiness"
+          )
+
   row.row-block(tag="fieldset")
     column(size="100%")
       legend Shirt
@@ -51,7 +63,7 @@ scroll-area(color="royal-purple")
             min="0",
             max="2.25",
             step="0.01",
-            v-model="selection.shirtLenghtPercent"
+            v-model="selection.shirtLengthPercent"
           )
 
       row
@@ -63,7 +75,7 @@ scroll-area(color="royal-purple")
             min="0",
             max="0.95",
             step="0.01",
-            v-model="selection.armSleeveLenghtPercent"
+            v-model="selection.armSleeveLengthPercent"
           )
 
       row
@@ -91,7 +103,7 @@ scroll-area(color="royal-purple")
             min="0",
             max="1",
             step="0.01",
-            v-model="selection.pantsLegLenghtPercent"
+            v-model="selection.pantsLegLengthPercent"
           )
 
       row

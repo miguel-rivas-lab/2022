@@ -46,6 +46,7 @@ export default Vue.extend({
     selection: {},
     konvaConfig: { width: 0, height: 0 },
     stage: undefined,
+    test: undefined,
   }),
   computed: {
     ...mapGetters({
@@ -60,6 +61,8 @@ export default Vue.extend({
       const earRadius = strokeWidth * 0.5;
       const eyeRadius = strokeWidth * 0.25;
       const noseSize = strokeWidth;
+
+      const smileHeight = parseFloat(this.selection.happiness) || -20; // -20, 0, 20
 
       const neckWidth = strokeWidth;
       const neckHeight = strokeWidth;
@@ -79,9 +82,12 @@ export default Vue.extend({
       const hairSideLength = faceHeight * 0.3;
       const hairSideWidth = strokeWidth * 0.75;
 
-      const shirtLength = chestHeight * this.selection.shirtLengthPercent;
-      const armSleeveLength = armAngle * -this.selection.armSleeveLengthPercent;
-      const pantsLegLength = legHeight * -this.selection.pantsLegLengthPercent;
+      const shirtLength =
+        chestHeight * parseFloat(this.selection.shirtLengthPercent);
+      const armSleeveLength =
+        armAngle * -parseFloat(this.selection.armSleeveLengthPercent);
+      const pantsLegLength =
+        legHeight * -parseFloat(this.selection.pantsLegLengthPercent);
 
       const translateX = this.konvaConfig.width * 0.5 - faceWidth * 0.5;
       const translateY =
@@ -101,16 +107,15 @@ export default Vue.extend({
               neckHeight -
               faceHeight * 0.25;
             context.beginPath();
-            context.arc(
+            context.moveTo(mouthX - 10, mouthY);
+            context.quadraticCurveTo(
               mouthX,
-              mouthY,
-              strokeWidth * 0.5,
-              0 * Math.PI,
-              1 * Math.PI
+              mouthY + smileHeight,
+              mouthX + 10,
+              mouthY + 0
             );
             context.fillStrokeShape(shape);
           },
-          // fill: '#000',
           stroke: this.selection.lipsColor,
           strokeWidth: 4,
         },
@@ -421,7 +426,7 @@ export default Vue.extend({
             translateY - footHeight - legHeight - pantsLegLength,
           ],
           stroke: this.selection.pantsLegColor,
-          strokeWidth: legWidth + parseInt(this.selection.pantsFit),
+          strokeWidth: legWidth + parseFloat(this.selection.pantsFit),
         },
         pantsLegLeft: {
           points: [
@@ -439,7 +444,7 @@ export default Vue.extend({
             translateY - footHeight - legHeight - pantsLegLength,
           ],
           stroke: this.selection.pantsLegColor,
-          strokeWidth: legWidth + parseInt(this.selection.pantsFit),
+          strokeWidth: legWidth + parseFloat(this.selection.pantsFit),
         },
         shoeRight: {
           x: translateX + faceWidth * 0.5 - legWidth * 0.5 + feetDistance,
@@ -476,6 +481,7 @@ export default Vue.extend({
   },
   created() {
     this.selection = this.$store.getters.getAvatarSelection;
+    this.test = this.selection.shirtLenghtPercent;
     window.addEventListener("resize", this.updateCanvas);
   },
   beforeDestroy() {
@@ -484,6 +490,9 @@ export default Vue.extend({
   watch: {
     panel: function () {
       this.updateCanvas();
+    },
+    test: function () {
+      console.log(this.test);
     },
   },
   mounted() {
