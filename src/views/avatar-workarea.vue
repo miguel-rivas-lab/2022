@@ -101,7 +101,13 @@ export default Vue.extend({
               neckHeight -
               faceHeight * 0.25;
             context.beginPath();
-            context.arc(mouthX, mouthY, strokeWidth * 0.5, 0 * Math.PI, 1 * Math.PI);
+            context.arc(
+              mouthX,
+              mouthY,
+              strokeWidth * 0.5,
+              0 * Math.PI,
+              1 * Math.PI
+            );
             context.fillStrokeShape(shape);
           },
           // fill: '#000',

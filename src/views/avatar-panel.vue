@@ -16,6 +16,10 @@ scroll-area(color="royal-purple")
         column(size="100%")
           btn(color="gold-tips", :text="selection.skinColor2")
 
+  row.row-block(tag="fieldset")
+    column(size="100%")
+      legend Face
+
       row
         column(size="100%")
           label Hair Color
@@ -27,12 +31,6 @@ scroll-area(color="royal-purple")
           label Beard Color
         column(size="100%")
           btn(color="gold-tips", :text="selection.beardColor")
-
-      row
-        column(size="100%")
-          label Shoes Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.shoeColor")
 
       row
         column(size="100%")
@@ -119,6 +117,16 @@ scroll-area(color="royal-purple")
           label Leg Color
         column(size="100%")
           btn(color="gold-tips", :text="selection.pantsLegColor")
+
+  row.row-block(tag="fieldset")
+    column(size="100%")
+      legend Shoes
+
+      row
+        column(size="100%")
+          label Color
+        column(size="100%")
+          btn(color="gold-tips", :text="selection.shoeColor")
 
   row.row-block(tag="fieldset")
     column(size="100%")
