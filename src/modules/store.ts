@@ -30,6 +30,17 @@ export const store = new Vuex.Store({
           y: 0,
         },
       },
+      avatar: {
+        skinColor: "#daad7f",
+        armSleeveColor: "#939393",
+        pantsLegColor: "#939393",
+        pantsColor: "#939393",
+        shirtColor: "#333",
+        armSleeveLenghtPercent: 95 / 100,
+        shirtLenghtPercent: 100 / 100,
+        pantsLegLenghtPercent: 100 / 100,
+        pantsFit: 0,
+      },
       projects: {
         filterData: 'all',
         currentLink: {
@@ -56,9 +67,6 @@ export const store = new Vuex.Store({
         breakpoint: "-",
         spacing: 0,
         columns: [],
-      },
-      cube: {
-        
       },
       gear: {
         cornerAmount: 40,
@@ -108,5 +116,6 @@ export const store = new Vuex.Store({
     getFilterData: state => state.selection.projects,
     getMeshSelection: state => state.selection.mesh,
     getProjects3DSelection: state => state.selection.projects3d,
+    getAvatarSelection: state => state.selection.avatar,
   }
 });

@@ -39,6 +39,7 @@ import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
 import CSSStudyWorkareaView from '../views/css-study-workarea.vue';
 import AvatarWorkareaView from '../views/avatar-workarea.vue';
+import AvatarPanelView from '../views/avatar-panel.vue';
 
 Vue.use(VueRouter);
 
@@ -60,7 +61,7 @@ const routes: Array<RouteConfig> = [
     path: '/avatar',
     components: {
       workarea: AvatarWorkareaView,
-      panel: DefaultPanelView,
+      panel: AvatarPanelView,
     },
   },
   {
