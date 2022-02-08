@@ -1,7 +1,7 @@
 <template>
   <div ref="konvaContainer">
     <v-stage ref="stage" :config="konvaConfig" @wheel="zoom">
-      <v-layer :config="{ draggable: true }">
+      <v-layer>
         <v-ellipse :config="avatar.shadow" />
 
         <v-rect :config="avatar.face" />
@@ -12,7 +12,6 @@
         <v-rect :config="avatar.chest" />
         <v-arc :config="avatar.armRight" />
         <v-arc :config="avatar.armLeft" />
-        <v-rect :config="avatar.hip" />
         <v-rect :config="avatar.footRight" />
         <v-rect :config="avatar.footLeft" />
         <v-line :config="avatar.legRight" />
@@ -28,15 +27,19 @@
           <v-line :config="avatar.pantsLegRight" />
           <v-line :config="avatar.pantsLegLeft" />
         </template>
+
         <template v-if="selection.shoes">
           <v-rect :config="avatar.shoeRight" />
           <v-rect :config="avatar.shoeLeft" />
         </template>
+
         <template v-if="selection.shirt">
           <v-arc :config="avatar.armSleeveRight" />
           <v-arc :config="avatar.armSleeveLeft" />
           <v-rect :config="avatar.shirt" />
         </template>
+
+        <v-rect v-if="selection.belt" :config="avatar.belt" />
       </v-layer>
     </v-stage>
   </div>
@@ -50,7 +53,7 @@ export default Vue.extend({
   components: {},
   data: () => ({
     selection: {},
-    konvaConfig: { width: 0, height: 0 },
+    konvaConfig: { width: 0, height: 0, draggable: true },
     stage: undefined,
   }),
   computed: {
@@ -222,7 +225,7 @@ export default Vue.extend({
           x: translateX + faceWidth * 0.5 - chestWidth * 0.5,
           y: translateY - footHeight - legHeight - hipHeight - chestHeight,
           width: chestWidth,
-          height: chestHeight,
+          height: chestHeight + hipHeight,
           fill: this.selection.skinColor,
         },
         armRight: {
@@ -254,13 +257,6 @@ export default Vue.extend({
           angle: -armAngle,
           clockwise: true,
           rotation: -90,
-          fill: this.selection.skinColor,
-        },
-        hip: {
-          x: translateX + faceWidth * 0.5 - hipWidth * 0.5,
-          y: translateY - footHeight - legHeight - hipHeight,
-          width: hipWidth,
-          height: hipHeight,
           fill: this.selection.skinColor,
         },
         legRight: {
@@ -406,6 +402,15 @@ export default Vue.extend({
           stroke: this.selection.armSleeveColor,
           strokeWidth: armSleeveLength < 0 ? 1 : 0,
         },
+         belt: {
+          x: translateX + faceWidth * 0.5 - hipWidth * 0.5,
+          y: translateY - footHeight - legHeight - hipHeight,
+          width: hipWidth,
+          height: strokeWidth * 0.5,
+          fill: this.selection.beltColor,
+          stroke: this.selection.beltColor,
+          strokeWidth: 1,
+        },
         pants: {
           x: translateX + faceWidth * 0.5 - hipWidth * 0.5,
           y: translateY - footHeight - legHeight - hipHeight,
@@ -508,8 +513,8 @@ export default Vue.extend({
     },
     zoom(event) {
       const scale = 0.75;
-      const maxZoom = 400 / 100;
-      const minZoom = 75 / 100;
+      const maxZoom = 600 / 100;
+      const minZoom = 50 / 100;
 
       event.evt.preventDefault();
       let oldScale = this.stage.scaleX();

@@ -157,6 +157,17 @@ scroll-area(color="royal-purple")
 
       row
         column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.belt }")
+            | Toggle Belt
+            input(
+              type="checkbox",
+              value="Group",
+              name="row-style",
+              v-model="selection.belt"
+            )
+
+      row
+        column(size="100%")
           label(for="pants-length") Length
         column(size="100%")
           input#pants-length.cobalt-blue(
