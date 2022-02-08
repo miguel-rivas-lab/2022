@@ -1,11 +1,14 @@
 <template>
   <div ref="konvaContainer">
-    <v-stage ref="stage" :config="konvaConfig">
-      <v-layer>
+    <v-stage ref="stage" :config="konvaConfig" @wheel="zoom">
+      <v-layer :config="{ draggable: true }">
         <v-ellipse :config="avatar.shadow" />
 
         <v-rect :config="avatar.face" />
         <v-rect :config="avatar.neck" />
+        <v-rect :config="avatar.beard" />
+        <v-rect :config="avatar.hair" />
+        <v-rect :config="avatar.hairSide" />
         <v-rect :config="avatar.chest" />
         <v-arc :config="avatar.armRight" />
         <v-arc :config="avatar.armLeft" />
@@ -14,12 +17,19 @@
         <v-rect :config="avatar.footLeft" />
         <v-line :config="avatar.legRight" />
         <v-line :config="avatar.legLeft" />
+        <v-circle :config="avatar.ear" />
+        <v-shape :config="avatar.nose" />
+        <v-shape :config="avatar.mouth" />
+        <v-circle :config="avatar.eyeRight" />
+        <v-circle :config="avatar.eyeLeft" />
 
         <v-arc :config="avatar.armSleeveRight" />
         <v-arc :config="avatar.armSleeveLeft" />
         <v-rect :config="avatar.pants" />
         <v-line :config="avatar.pantsLegRight" />
         <v-line :config="avatar.pantsLegLeft" />
+        <v-rect :config="avatar.shoeRight" />
+        <v-rect :config="avatar.shoeLeft" />
         <v-rect :config="avatar.shirt" />
       </v-layer>
     </v-stage>
@@ -35,6 +45,7 @@ export default Vue.extend({
   data: () => ({
     selection: {},
     konvaConfig: { width: 0, height: 0 },
+    stage: undefined,
   }),
   computed: {
     ...mapGetters({
@@ -46,9 +57,9 @@ export default Vue.extend({
 
       const faceWidth = strokeWidth * 5;
       const faceHeight = strokeWidth * 7;
-
-      const translateX = this.konvaConfig.width / 2 - faceWidth / 2;
-      const translateY = -50;
+      const earRadius = strokeWidth * 0.5;
+      const eyeRadius = strokeWidth * 0.25;
+      const noseSize = strokeWidth;
 
       const neckWidth = strokeWidth;
       const neckHeight = strokeWidth;
@@ -61,20 +72,110 @@ export default Vue.extend({
       const footWidth = legWidth * 2;
       const footHeight = strokeWidth;
       const feetDistance = strokeWidth * 1.5;
-      const armRadius = chestHeight / 2;
+      const armRadius = chestHeight * 0.4;
       const armAngle = 180;
+      const beardHeight = faceHeight * 0.4;
+      const hairLength = faceHeight * 0.25;
+      const hairSideLength = faceHeight * 0.3;
+      const hairSideWidth = strokeWidth * 0.75;
 
-      const shirtLenght = chestHeight * this.selection.shirtLenghtPercent;
+      const shirtLength = chestHeight * this.selection.shirtLengthPercent;
+      const armSleeveLength = armAngle * -this.selection.armSleeveLengthPercent;
+      const pantsLegLength = legHeight * -this.selection.pantsLegLengthPercent;
 
-      const armSleeveLenght = armAngle * -this.selection.armSleeveLenghtPercent;
-      const pantsLegLenght = legHeight * -this.selection.pantsLegLenghtPercent;
+      const translateX = this.konvaConfig.width * 0.5 - faceWidth * 0.5;
+      const translateY =
+        this.konvaConfig.height -
+        (faceHeight + chestHeight + hipHeight + legHeight + footHeight) * 0.5;
 
       const body = {
-        face: {
-          x: translateX + 0,
+        mouth: {
+          sceneFunc: function (context, shape) {
+            const mouthX = translateX + faceWidth * 0.5 + strokeWidth * 0.25;
+            const mouthY =
+              translateY -
+              footHeight -
+              legHeight -
+              hipHeight -
+              chestHeight -
+              neckHeight -
+              faceHeight * 0.25;
+            context.beginPath();
+            context.arc(mouthX, mouthY, strokeWidth * 0.5, 0 * Math.PI, 1 * Math.PI);
+            context.fillStrokeShape(shape);
+          },
+          // fill: '#000',
+          stroke: this.selection.lipsColor,
+          strokeWidth: 4,
+        },
+        nose: {
+          sceneFunc: function (context, shape) {
+            const noseX = translateX + faceWidth * 0.5;
+            const noseY =
+              translateY -
+              footHeight -
+              legHeight -
+              hipHeight -
+              chestHeight -
+              neckHeight -
+              faceHeight * 0.5 -
+              noseSize * 0.5;
+            context.beginPath();
+            context.moveTo(noseX, noseY + 0);
+            context.lineTo(noseX + noseSize - 4, noseY + noseSize - 4);
+            context.lineTo(noseX, noseY + noseSize);
+            context.closePath();
+            context.fillStrokeShape(shape);
+          },
+          fill: this.selection.skinColor2,
+        },
+        eyeRight: {
+          x: translateX + faceWidth * 0.5 + strokeWidth * 1.25,
           y:
-            translateY +
-            this.konvaConfig.height -
+            translateY -
+            footHeight -
+            legHeight -
+            hipHeight -
+            chestHeight -
+            neckHeight -
+            faceHeight * 0.5 -
+            strokeWidth * 0.5,
+          radius: eyeRadius,
+          fill: "#000",
+        },
+        eyeLeft: {
+          x: translateX + faceWidth * 0.5 - strokeWidth,
+          y:
+            translateY -
+            footHeight -
+            legHeight -
+            hipHeight -
+            chestHeight -
+            neckHeight -
+            faceHeight * 0.5 -
+            strokeWidth * 0.5,
+          radius: eyeRadius,
+          fill: "#000",
+        },
+        ear: {
+          x: translateX - 2,
+          y:
+            translateY -
+            footHeight -
+            legHeight -
+            hipHeight -
+            chestHeight -
+            neckHeight -
+            faceHeight * 0.5,
+          radius: earRadius,
+          fill: this.selection.skinColor2,
+          stroke: this.selection.skinColor,
+          strokeWidth: 4,
+        },
+        face: {
+          x: translateX,
+          y:
+            translateY -
             footHeight -
             legHeight -
             hipHeight -
@@ -87,10 +188,9 @@ export default Vue.extend({
           cornerRadius: strokeWidth * 2,
         },
         neck: {
-          x: translateX + faceWidth / 2 - neckWidth / 2,
+          x: translateX + faceWidth * 0.5 - neckWidth * 0.5,
           y:
-            translateY +
-            this.konvaConfig.height -
+            translateY -
             footHeight -
             legHeight -
             hipHeight -
@@ -99,25 +199,20 @@ export default Vue.extend({
           width: neckWidth,
           height: neckHeight,
           fill: this.selection.skinColor,
+          stroke: this.selection.skinColor,
+          strokeWidth: 1,
         },
         chest: {
-          x: translateX + faceWidth / 2 - chestWidth / 2,
-          y:
-            translateY +
-            this.konvaConfig.height -
-            footHeight -
-            legHeight -
-            hipHeight -
-            chestHeight,
+          x: translateX + faceWidth * 0.5 - chestWidth * 0.5,
+          y: translateY - footHeight - legHeight - hipHeight - chestHeight,
           width: chestWidth,
           height: chestHeight,
           fill: this.selection.skinColor,
         },
         armRight: {
-          x: translateX + faceWidth / 2 + chestWidth / 2,
+          x: translateX + faceWidth * 0.5 + chestWidth * 0.5,
           y:
-            translateY +
-            this.konvaConfig.height -
+            translateY -
             footHeight -
             legHeight -
             hipHeight -
@@ -130,10 +225,9 @@ export default Vue.extend({
           fill: this.selection.skinColor,
         },
         armLeft: {
-          x: translateX + faceWidth / 2 - chestWidth / 2,
+          x: translateX + faceWidth * 0.5 - chestWidth * 0.5,
           y:
-            translateY +
-            this.konvaConfig.height -
+            translateY -
             footHeight -
             legHeight -
             hipHeight -
@@ -147,13 +241,8 @@ export default Vue.extend({
           fill: this.selection.skinColor,
         },
         hip: {
-          x: translateX + faceWidth / 2 - hipWidth / 2,
-          y:
-            translateY +
-            this.konvaConfig.height -
-            footHeight -
-            legHeight -
-            hipHeight,
+          x: translateX + faceWidth * 0.5 - hipWidth * 0.5,
+          y: translateY - footHeight - legHeight - hipHeight,
           width: hipWidth,
           height: hipHeight,
           fill: this.selection.skinColor,
@@ -161,17 +250,17 @@ export default Vue.extend({
         legRight: {
           points: [
             translateX +
-              faceWidth / 2 -
-              legWidth / 2 +
+              faceWidth * 0.5 -
+              legWidth * 0.5 +
               feetDistance +
-              legWidth / 2,
-            translateY + this.konvaConfig.height - footHeight - legHeight,
+              legWidth * 0.5,
+            translateY - footHeight - legHeight,
             translateX +
-              faceWidth / 2 -
-              legWidth / 2 +
+              faceWidth * 0.5 -
+              legWidth * 0.5 +
               feetDistance +
-              legWidth / 2,
-            translateY + this.konvaConfig.height - footHeight,
+              legWidth * 0.5,
+            translateY - footHeight,
           ],
           stroke: this.selection.skinColor,
           strokeWidth: legWidth,
@@ -179,58 +268,97 @@ export default Vue.extend({
         legLeft: {
           points: [
             translateX +
-              faceWidth / 2 +
-              legWidth / 2 -
+              faceWidth * 0.5 +
+              legWidth * 0.5 -
               feetDistance -
-              legWidth / 2,
-            translateY + this.konvaConfig.height - footHeight - legHeight,
+              legWidth * 0.5,
+            translateY - footHeight - legHeight,
             translateX +
-              faceWidth / 2 +
-              legWidth / 2 -
+              faceWidth * 0.5 +
+              legWidth * 0.5 -
               feetDistance -
-              legWidth / 2,
-            translateY + this.konvaConfig.height - footHeight,
+              legWidth * 0.5,
+            translateY - footHeight,
           ],
           stroke: this.selection.skinColor,
           strokeWidth: legWidth,
         },
         footRight: {
-          x: translateX + faceWidth / 2 - legWidth / 2 + feetDistance,
-          y: translateY + this.konvaConfig.height - footHeight,
+          x: translateX + faceWidth * 0.5 - legWidth * 0.5 + feetDistance,
+          y: translateY - footHeight,
           width: footWidth,
           height: footHeight,
           fill: this.selection.skinColor,
         },
         footLeft: {
-          x: translateX + faceWidth / 2 - legWidth / 2 - feetDistance,
-          y: translateY + this.konvaConfig.height - footHeight,
+          x: translateX + faceWidth * 0.5 - legWidth * 0.5 - feetDistance,
+          y: translateY - footHeight,
           width: footWidth,
           height: footHeight,
           fill: this.selection.skinColor,
+        },
+        beard: {
+          x: translateX,
+          y:
+            translateY -
+            footHeight -
+            legHeight -
+            hipHeight -
+            chestHeight -
+            neckHeight -
+            beardHeight,
+          width: faceWidth,
+          height: beardHeight,
+          fill: this.selection.beardColor,
+          cornerRadius: [0, 0, strokeWidth * 2, strokeWidth * 2],
+        },
+        hair: {
+          x: translateX,
+          y:
+            translateY -
+            footHeight -
+            legHeight -
+            hipHeight -
+            chestHeight -
+            neckHeight -
+            faceHeight,
+          width: faceWidth,
+          height: hairLength,
+          fill: this.selection.beardColor,
+          cornerRadius: [strokeWidth * 2, strokeWidth * 2, 0, 0],
+        },
+        hairSide: {
+          x: translateX - hairSideWidth * 0.25,
+          y:
+            translateY -
+            footHeight -
+            legHeight -
+            hipHeight -
+            chestHeight -
+            neckHeight -
+            faceHeight +
+            hairSideLength * 0.5,
+          width: hairSideWidth,
+          height: hairSideLength,
+          fill: this.selection.beardColor,
+          cornerRadius: strokeWidth * 2,
         },
       };
 
       const clothes = {
         shirt: {
-          x: translateX + faceWidth / 2 - chestWidth / 2,
-          y:
-            translateY +
-            this.konvaConfig.height -
-            footHeight -
-            legHeight -
-            hipHeight -
-            chestHeight,
+          x: translateX + faceWidth * 0.5 - chestWidth * 0.5,
+          y: translateY - footHeight - legHeight - hipHeight - chestHeight,
           width: chestWidth,
-          height: shirtLenght,
+          height: shirtLength,
           fill: this.selection.shirtColor,
           stroke: this.selection.shirtColor,
-          strokeWidth: 2,
+          strokeWidth: shirtLength > 0 ? 2 : 0,
         },
         armSleeveRight: {
-          x: translateX + faceWidth / 2 + chestWidth / 2,
+          x: translateX + faceWidth * 0.5 + chestWidth * 0.5,
           y:
-            translateY +
-            this.konvaConfig.height -
+            translateY -
             footHeight -
             legHeight -
             hipHeight -
@@ -238,17 +366,16 @@ export default Vue.extend({
             armRadius,
           innerRadius: armRadius - strokeWidth,
           outerRadius: armRadius,
-          angle: -armSleeveLenght,
+          angle: -armSleeveLength,
           rotation: -90,
           fill: this.selection.armSleeveColor,
           stroke: this.selection.armSleeveColor,
-          strokeWidth: 1,
+          strokeWidth: armSleeveLength > 0 ? 1 : 0,
         },
         armSleeveLeft: {
-          x: translateX + faceWidth / 2 - chestWidth / 2,
+          x: translateX + faceWidth * 0.5 - chestWidth * 0.5,
           y:
-            translateY +
-            this.konvaConfig.height -
+            translateY -
             footHeight -
             legHeight -
             hipHeight -
@@ -256,21 +383,16 @@ export default Vue.extend({
             armRadius,
           innerRadius: armRadius - strokeWidth,
           outerRadius: armRadius,
-          angle: armSleeveLenght,
+          angle: armSleeveLength,
           clockwise: true,
           rotation: -90,
           fill: this.selection.armSleeveColor,
           stroke: this.selection.armSleeveColor,
-          strokeWidth: 1,
+          strokeWidth: armSleeveLength < 0 ? 1 : 0,
         },
         pants: {
-          x: translateX + faceWidth / 2 - hipWidth / 2,
-          y:
-            translateY +
-            this.konvaConfig.height -
-            footHeight -
-            legHeight -
-            hipHeight,
+          x: translateX + faceWidth * 0.5 - hipWidth * 0.5,
+          y: translateY - footHeight - legHeight - hipHeight,
           width: hipWidth,
           height: hipHeight,
           fill: this.selection.pantsColor,
@@ -280,21 +402,17 @@ export default Vue.extend({
         pantsLegRight: {
           points: [
             translateX +
-              faceWidth / 2 -
-              legWidth / 2 +
+              faceWidth * 0.5 -
+              legWidth * 0.5 +
               feetDistance +
-              legWidth / 2,
-            translateY + this.konvaConfig.height - footHeight - legHeight,
+              legWidth * 0.5,
+            translateY - footHeight - legHeight,
             translateX +
-              faceWidth / 2 -
-              legWidth / 2 +
+              faceWidth * 0.5 -
+              legWidth * 0.5 +
               feetDistance +
-              legWidth / 2,
-            translateY +
-              this.konvaConfig.height -
-              footHeight -
-              legHeight -
-              pantsLegLenght,
+              legWidth * 0.5,
+            translateY - footHeight - legHeight - pantsLegLength,
           ],
           stroke: this.selection.pantsLegColor,
           strokeWidth: legWidth + parseInt(this.selection.pantsFit),
@@ -302,24 +420,38 @@ export default Vue.extend({
         pantsLegLeft: {
           points: [
             translateX +
-              faceWidth / 2 +
-              legWidth / 2 -
+              faceWidth * 0.5 +
+              legWidth * 0.5 -
               feetDistance -
-              legWidth / 2,
-            translateY + this.konvaConfig.height - footHeight - legHeight,
+              legWidth * 0.5,
+            translateY - footHeight - legHeight,
             translateX +
-              faceWidth / 2 +
-              legWidth / 2 -
+              faceWidth * 0.5 +
+              legWidth * 0.5 -
               feetDistance -
-              legWidth / 2,
-            translateY +
-              this.konvaConfig.height -
-              footHeight -
-              legHeight -
-              pantsLegLenght,
+              legWidth * 0.5,
+            translateY - footHeight - legHeight - pantsLegLength,
           ],
           stroke: this.selection.pantsLegColor,
           strokeWidth: legWidth + parseInt(this.selection.pantsFit),
+        },
+        shoeRight: {
+          x: translateX + faceWidth * 0.5 - legWidth * 0.5 + feetDistance,
+          y: translateY - footHeight,
+          width: footWidth,
+          height: footHeight,
+          fill: this.selection.shoeColor,
+          stroke: this.selection.shoeColor,
+          strokeWidth: 1,
+        },
+        shoeLeft: {
+          x: translateX + faceWidth * 0.5 - legWidth * 0.5 - feetDistance,
+          y: translateY - footHeight,
+          width: footWidth,
+          height: footHeight,
+          fill: this.selection.shoeColor,
+          stroke: this.selection.shoeColor,
+          strokeWidth: 1,
         },
       };
 
@@ -327,9 +459,9 @@ export default Vue.extend({
         ...body,
         ...clothes,
         shadow: {
-          x: translateX + faceWidth / 2,
-          y: translateY + this.konvaConfig.height - footHeight / 2,
-          radiusX: chestWidth + armRadius,
+          x: translateX + faceWidth * 0.5,
+          y: translateY - footHeight * 0.5,
+          radiusX: chestWidth + armRadius - strokeWidth * 3,
           radiusY: footHeight * 1.5,
           fill: "rgba(0,0,0,0.05)",
         },
@@ -357,6 +489,41 @@ export default Vue.extend({
       let margin = this.panel ? this.panelSize : 0;
       this.konvaConfig.width = window.innerWidth - (margin - 50) - 100;
       this.konvaConfig.height = window.innerHeight;
+    },
+    zoom(event) {
+      const scale = 0.75;
+      const maxZoom = 400 / 100;
+      const minZoom = 75 / 100;
+
+      event.evt.preventDefault();
+      let oldScale = this.stage.scaleX();
+
+      let mousePointTo = {
+        x:
+          this.stage.getPointerPosition().x / oldScale -
+          this.stage.x() / oldScale,
+        y:
+          this.stage.getPointerPosition().y / oldScale -
+          this.stage.y() / oldScale,
+      };
+
+      let newScale = event.evt.deltaY > 0 ? oldScale * scale : oldScale / scale;
+
+      newScale = newScale > maxZoom ? maxZoom : newScale;
+      newScale = newScale < minZoom ? minZoom : newScale;
+
+      this.stage.scale({ x: newScale, y: newScale });
+
+      let newPos = {
+        x:
+          -(mousePointTo.x - this.stage.getPointerPosition().x / newScale) *
+          newScale,
+        y:
+          -(mousePointTo.y - this.stage.getPointerPosition().y / newScale) *
+          newScale,
+      };
+      this.stage.position(newPos);
+      this.stage.batchDraw();
     },
   },
 });
