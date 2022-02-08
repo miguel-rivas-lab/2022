@@ -31,6 +31,12 @@ export const store = new Vuex.Store({
         },
       },
       avatar: {
+        shirt: true,
+        pants: true,
+        shoes: true,
+        beard: true,
+        topHair: true,
+        sideHair: true,
         skinColor: "#daad7f",
         skinColor2: "#d28d5f",
         lipsColor: "#d28d5f",

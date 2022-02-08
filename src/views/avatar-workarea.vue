@@ -6,9 +6,9 @@
 
         <v-rect :config="avatar.face" />
         <v-rect :config="avatar.neck" />
-        <v-rect :config="avatar.beard" />
-        <v-rect :config="avatar.hair" />
-        <v-rect :config="avatar.hairSide" />
+        <v-rect v-if="selection.beard" :config="avatar.beard" />
+        <v-rect v-if="selection.topHair" :config="avatar.hair" />
+        <v-rect v-if="selection.sideHair" :config="avatar.hairSide" />
         <v-rect :config="avatar.chest" />
         <v-arc :config="avatar.armRight" />
         <v-arc :config="avatar.armLeft" />
@@ -23,14 +23,20 @@
         <v-circle :config="avatar.eyeRight" />
         <v-circle :config="avatar.eyeLeft" />
 
-        <v-arc :config="avatar.armSleeveRight" />
-        <v-arc :config="avatar.armSleeveLeft" />
-        <v-rect :config="avatar.pants" />
-        <v-line :config="avatar.pantsLegRight" />
-        <v-line :config="avatar.pantsLegLeft" />
-        <v-rect :config="avatar.shoeRight" />
-        <v-rect :config="avatar.shoeLeft" />
-        <v-rect :config="avatar.shirt" />
+        <template v-if="selection.pants">
+          <v-rect :config="avatar.pants" />
+          <v-line :config="avatar.pantsLegRight" />
+          <v-line :config="avatar.pantsLegLeft" />
+        </template>
+        <template v-if="selection.shoes">
+          <v-rect :config="avatar.shoeRight" />
+          <v-rect :config="avatar.shoeLeft" />
+        </template>
+        <template v-if="selection.shirt">
+          <v-arc :config="avatar.armSleeveRight" />
+          <v-arc :config="avatar.armSleeveLeft" />
+          <v-rect :config="avatar.shirt" />
+        </template>
       </v-layer>
     </v-stage>
   </div>

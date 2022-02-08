@@ -22,6 +22,39 @@ scroll-area(color="royal-purple")
 
       row
         column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.topHair }")
+            | Toggle Top Hair
+            input(
+              type="checkbox",
+              value="Group",
+              name="row-style",
+              v-model="selection.topHair"
+            )
+
+      row
+        column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.sideHair }")
+            | Toggle Side Hair
+            input(
+              type="checkbox",
+              value="Group",
+              name="row-style",
+              v-model="selection.sideHair"
+            )
+
+      row
+        column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.beard }")
+            | Toggle Beard
+            input(
+              type="checkbox",
+              value="Group",
+              name="row-style",
+              v-model="selection.beard"
+            )
+
+      row
+        column(size="100%")
           label Hair Color
         column(size="100%")
           btn(color="gold-tips", :text="selection.hairColor")
@@ -59,6 +92,17 @@ scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
       legend Shirt
+
+      row
+        column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.shirt }")
+            | Toggle Shirt
+            input(
+              type="checkbox",
+              value="Group",
+              name="row-style",
+              v-model="selection.shirt"
+            )
 
       row
         column(size="100%")
@@ -102,6 +146,17 @@ scroll-area(color="royal-purple")
 
       row
         column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.pants }")
+            | Toggle Pants
+            input(
+              type="checkbox",
+              value="Group",
+              name="row-style",
+              v-model="selection.pants"
+            )
+
+      row
+        column(size="100%")
           label(for="pants-length") Length
         column(size="100%")
           input#pants-length.cobalt-blue(
@@ -139,6 +194,17 @@ scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
       legend Shoes
+
+      row
+        column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.shoes }")
+            | Toggle Shoes
+            input(
+              type="checkbox",
+              value="Group",
+              name="row-style",
+              v-model="selection.shoes"
+            )
 
       row
         column(size="100%")
