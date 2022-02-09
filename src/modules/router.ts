@@ -57,14 +57,6 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    name: 'avatar',
-    path: '/avatar',
-    components: {
-      workarea: AvatarWorkareaView,
-      panel: AvatarPanelView,
-    },
-  },
-  {
     name: 'css-study',
     path: '/css-study',
     components: {
@@ -89,36 +81,92 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    name: 'gear',
-    path: '/gear',
-    components: {
-      workarea: GearWorkareaView,
-      panel: GearPanelView,
-    },
-  },
-  {
-    name: 'locations',
-    path: '/locations',
-    components: {
-      workarea: LocationsWorkareaView,
-      panel: LocationsPanelView,
-    },
-  },
-  {
-    name: 'wheel',
-    path: '/wheel',
-    components: {
-      workarea: WheelWorkareaView,
-      panel: WheelPanelView,
-    },
-  },
-  {
     path: '*',
     redirect: '/'
   },
 
   /* ---------------------- nested ---------------------- */
 
+  {
+    name: 'canvas',
+    path: '/canvas',
+    components: {
+      workarea: Vue.extend({
+        props: {
+          defaultRoute: {
+            default: "locations"
+          },
+        },
+        extends: NestedWorkareaView,
+      }),
+      panel: Vue.extend({
+        props: {
+          panelTitle: {
+            default: "Canvas Prototypes"
+          },
+          links: {
+            default: () => ([
+              {
+                text: "Map",
+                name: "locations",
+                icon: "airplane",
+              },
+              {
+                text: "Avatar",
+                name: "avatar",
+                icon: "person",
+              },
+              {
+                text: "Gear Builder",
+                name: "gear",
+                icon: "cog-transfer-outline",
+              },
+              {
+                text: "Color Wheel",
+                name: "wheel",
+                icon: "palette",
+              },
+            ])
+          }
+        },
+        extends: NestedPanelView,
+      }),
+    },
+    children: [
+      {
+        name: 'locations',
+        path: '/locations',
+        components: {
+          workarea2: LocationsWorkareaView,
+          panel2: LocationsPanelView,
+        },
+      },
+      {
+        name: 'avatar',
+        path: '/avatar',
+        components: {
+          workarea2: AvatarWorkareaView,
+          panel2: AvatarPanelView,
+        },
+      },
+      {
+        name: 'gear',
+        path: '/gear',
+        components: {
+          workarea2: GearWorkareaView,
+          panel2: GearPanelView,
+        },
+      },
+      {
+        name: 'wheel',
+        path: '/wheel',
+        components: {
+          workarea2: WheelWorkareaView,
+          panel2: WheelPanelView,
+        },
+      },
+    ],
+  },
   {
     name: 'css',
     path: '/css',

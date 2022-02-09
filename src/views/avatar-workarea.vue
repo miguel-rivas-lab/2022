@@ -1,6 +1,6 @@
 <template>
   <div ref="konvaContainer">
-    <v-stage ref="stage" :config="konvaConfig" @wheel="zoom">
+    <v-stage ref="stage" :config="konvaConfig" @wheel="zoom" @click="saveImg()">
       <v-layer>
         <v-ellipse :config="avatar.shadow" />
 
@@ -402,7 +402,7 @@ export default Vue.extend({
           stroke: this.selection.armSleeveColor,
           strokeWidth: armSleeveLength < 0 ? 1 : 0,
         },
-         belt: {
+        belt: {
           x: translateX + faceWidth * 0.5 - hipWidth * 0.5,
           y: translateY - footHeight - legHeight - hipHeight,
           width: hipWidth,
@@ -506,6 +506,11 @@ export default Vue.extend({
     this.updateCanvas();
   },
   methods: {
+    saveImg() {
+      this.stage.toDataURL({
+        pixelRatio: 2, // or other value you need
+      });
+    },
     updateCanvas: function () {
       let margin = this.panel ? this.panelSize : 0;
       this.konvaConfig.width = window.innerWidth - (margin - 50) - 100;
