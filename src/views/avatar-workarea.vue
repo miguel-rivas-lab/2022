@@ -21,6 +21,8 @@
         <v-shape :config="avatar.mouth" />
         <v-circle :config="avatar.eyeRight" />
         <v-circle :config="avatar.eyeLeft" />
+        <v-circle :config="avatar.nippleRight" />
+        <v-circle :config="avatar.nippleLeft" />
 
         <template v-if="selection.pants">
           <v-rect :config="avatar.pants" />
@@ -40,7 +42,7 @@
         </template>
 
         <v-rect
-          v-if="selection.belt && selection.pants"
+          v-if="selection.belt"
           :config="avatar.belt"
         />
       </v-layer>
@@ -149,6 +151,30 @@ export default Vue.extend({
             context.closePath();
             context.fillStrokeShape(shape);
           },
+          fill: this.selection.skinColor2.hex8,
+        },
+        nippleRight: {
+          x: translateX + faceWidth * 0.5 + strokeWidth * 1.75,
+          y:
+            translateY -
+            footHeight -
+            legHeight -
+            hipHeight -
+            chestHeight * 0.65 -
+            strokeWidth * 0.5,
+          radius: eyeRadius,
+          fill: this.selection.skinColor2.hex8,
+        },
+        nippleLeft: {
+          x: translateX + faceWidth * 0.5 - strokeWidth * 1.5,
+          y:
+           translateY -
+            footHeight -
+            legHeight -
+            hipHeight -
+            chestHeight * 0.65 -
+            strokeWidth * 0.5,
+          radius: eyeRadius,
           fill: this.selection.skinColor2.hex8,
         },
         eyeRight: {
@@ -332,6 +358,7 @@ export default Vue.extend({
           y:
             translateY -
             footHeight -
+            1 -
             legHeight -
             hipHeight -
             chestHeight -
@@ -409,7 +436,7 @@ export default Vue.extend({
           x: translateX + faceWidth * 0.5 - hipWidth * 0.5,
           y: translateY - footHeight - legHeight - hipHeight,
           width: hipWidth,
-          height: strokeWidth * 0.5,
+          height: strokeWidth * 0.25,
           fill: this.selection.beltColor.hex8,
           stroke: this.selection.beltColor.hex8,
           strokeWidth: 1,
@@ -507,6 +534,34 @@ export default Vue.extend({
   mounted() {
     this.stage = this.$refs.stage.getStage();
     this.updateCanvas();
+
+    // this.selection.height = 0.9;
+    // this.selection.shirt = true;
+    // this.selection.pants = false;
+    // this.selection.shoes = true;
+    // this.selection.beard = true;
+    // this.selection.topHair = true;
+    // this.selection.sideHair = true;
+    // this.selection.belt = true;
+    // this.selection.skinColor = { hex8: "#daad7fff" };
+    // this.selection.skinColor2 = { hex8: "#d28d5fff" };
+    // this.selection.lipsColor = { hex8: "#d28d5fff" };
+    // this.selection.shirtColor = { hex8: "#402f23ff" };
+    // this.selection.armSleeveColor = { hex8: "#402f23ff" };
+    // this.selection.pantsColor = { hex8: "#edcb4bff" };
+    // this.selection.pantsLegColor = { hex8: "#edcb4bff" };
+    // this.selection.shoeColor = { hex8: "#393939ff" };
+
+    // this.selection.beardColor = { hex8: "#a34026ff" };
+    // this.selection.hairColor = { hex8: "#a34026ff" };
+    // this.selection.hairSideColor = { hex8: "#a34026ff" };
+
+    // this.selection.beltColor = { hex8: "#000000ff" };
+    // this.selection.armSleeveLengthPercent = 95 / 100;
+    // this.selection.shirtLengthPercent = 225 / 100;
+    // this.selection.pantsLegLengthPercent = 100 / 100;
+    // this.selection.pantsFit = 25;
+    // this.selection.happiness = 5;
   },
   methods: {
     saveImg() {

@@ -2,6 +2,42 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
+      legend Presets
+
+      row
+        column(size="100%")
+          btn(color="gold-tips", text="Miguel", @click="miguel()")
+
+      row
+        column(size="100%")
+          btn(color="gold-tips", text="90's", @click="baggy()")
+
+      row
+        column(size="100%")
+          btn(color="gold-tips", text="Work", @click="monday()")
+
+      row
+        column(size="100%")
+          btn(color="gold-tips", text="Sunday", @click="sunday()")
+
+      row
+        column(size="100%")
+          btn(color="gold-tips", text="Winnie the Pooh", @click="pooh()")
+
+      row
+        column(size="100%")
+          btn(color="gold-tips", text="DC Boi", @click="dcBoi()")
+
+      row
+        column(size="100%")
+          btn(color="gold-tips", text="Pool Boi", @click="summer()")
+
+      row
+        column(size="100%")
+          btn(color="gold-tips", text="Franciscano", @click="franciscano()")
+
+  row.row-block(tag="fieldset")
+    column(size="100%")
       legend General
 
       row
@@ -15,6 +51,30 @@ scroll-area(color="royal-purple")
             step="0.01",
             v-model="selection.height"
           )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Porcelain",
+        @click="tan('#e9ceb2ff', '#e9957bff', '#e9957bff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Honey",
+        @click="tan('#daad7fff', '#d28d5fff', '#d28d5fff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Caramel",
+        @click="tan('#b68450ff', '#916d56ff', '#916d56ff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Umber",
+        @click="tan('#8b653dff', '#705340ff', '#705340ff')"
+      )
 
       row: column(size="100%")
         toggle-row.toggle-input(breakpoint="lg")
@@ -43,6 +103,36 @@ scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
       legend Face
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Raven",
+        @click="dyeHair('#444444ff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Brunette",
+        @click="dyeHair('#6d5542ff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Blonde",
+        @click="dyeHair('#a8723aff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Ginger",
+        @click="dyeHair('#a34026ff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Silver",
+        @click="dyeHair('#abababff')"
+      )
 
       row
         column(size="100%")
@@ -312,30 +402,6 @@ scroll-area(color="royal-purple")
                 :preset-colors="fabricColors",
                 disable-fields
               )
-
-  row.row-block(tag="fieldset")
-    column(size="100%")
-      legend Defaults
-
-      row
-        column(size="100%")
-          btn(color="gold-tips", text="Monday", @click="monday()")
-
-      row
-        column(size="100%")
-          btn(color="gold-tips", text="Sunday", @click="sunday()")
-
-      row
-        column(size="100%")
-          btn(color="gold-tips", text="Winnie the Pooh", @click="pooh()")
-
-      row
-        column(size="100%")
-          btn(color="gold-tips", text="DC Boi", @click="dcBoi()")
-
-      row
-        column(size="100%")
-          btn(color="gold-tips", text="Summer", @click="summer()")
 </template>
 
 <script lang="ts">
@@ -384,140 +450,121 @@ export default Vue.extend({
     this.selection = this.$store.getters.getAvatarSelection;
   },
   methods: {
-    dcBoi() {
-      // this.selection.height = 0.9;
+    miguel() {
       this.selection.shirt = true;
       this.selection.pants = true;
       this.selection.shoes = true;
-      // this.selection.beard = true;
-      // this.selection.topHair = true;
-      // this.selection.sideHair = true;
+      this.selection.belt = false;
+      this.selection.shirtColor = { hex8: "#515151ff" };
+      this.selection.armSleeveColor = { hex8: "#515151ff" };
+      this.selection.pantsColor = { hex8: "#556f36ff" };
+      this.selection.pantsLegColor = { hex8: "#556f36ff" };
+      this.selection.shoeColor = { hex8: "#393939ff" };
+      this.selection.armSleeveLengthPercent = 30 / 100;
+      this.selection.shirtLengthPercent = 100 / 100;
+      this.selection.pantsLegLengthPercent = 20 / 100;
+      this.selection.pantsFit = 15;
+    },
+    dcBoi() {
+      this.selection.shirt = true;
+      this.selection.pants = true;
+      this.selection.shoes = true;
       this.selection.belt = true;
-      // this.selection.skinColor = { hex8: "#daad7fff" };
-      // this.selection.skinColor2 = { hex8: "#d28d5fff" };
-      // this.selection.lipsColor = { hex8: "#d28d5fff" };
       this.selection.shirtColor = { hex8: "#646dabff" };
       this.selection.armSleeveColor = { hex8: "#646dabff" };
       this.selection.pantsColor = { hex8: "#939393ff" };
       this.selection.pantsLegColor = { hex8: "#939393ff" };
       this.selection.shoeColor = { hex8: "#393939ff" };
-      // this.selection.beardColor = { hex8: "#6d5542ff" };
-      // this.selection.hairColor = { hex8: "#6d5542ff" };
-      // this.selection.hairSideColor = { hex8: "#6d5542ff" };
-      this.selection.beltColor = { hex8: "#111111ff" };
+      this.selection.beltColor = { hex8: "#515151ff" };
       this.selection.armSleeveLengthPercent = 30 / 100;
       this.selection.shirtLengthPercent = 100 / 100;
       this.selection.pantsLegLengthPercent = 20 / 100;
       this.selection.pantsFit = 15;
-      // this.selection.happiness = 5;
     },
     sunday() {
-      // this.selection.height = 0.9;
       this.selection.shirt = false;
       this.selection.pants = true;
       this.selection.shoes = true;
       this.selection.beard = true;
-      // this.selection.topHair = true;
-      // this.selection.sideHair = true;
       this.selection.belt = true;
-      // this.selection.skinColor = { hex8: "#daad7fff" };
-      // this.selection.skinColor2 = { hex8: "#d28d5fff" };
-      // this.selection.lipsColor = { hex8: "#d28d5fff" };
-      // this.selection.shirtColor = { hex8: "#646dabff" };
-      // this.selection.armSleeveColor = { hex8: "#646dabff" };
       this.selection.pantsColor = { hex8: "#dcdcdcff" };
-      // this.selection.pantsLegColor = { hex8: "#939393ff" };
       this.selection.shoeColor = { hex8: "#dcdcdcff" };
-      // this.selection.beardColor = { hex8: "#6d5542ff" };
-      // this.selection.hairColor = { hex8: "#6d5542ff" };
-      // this.selection.hairSideColor = { hex8: "#6d5542ff" };
       this.selection.beltColor = { hex8: "#515151ff" };
-      // this.selection.armSleeveLengthPercent = 30 / 100;
-      // this.selection.shirtLengthPercent = 100 / 100;
       this.selection.pantsLegLengthPercent = 0 / 100;
-      // this.selection.pantsFit = 15;
-      // this.selection.happiness = 5;
     },
     pooh() {
-      // this.selection.height = 0.9;
       this.selection.shirt = true;
       this.selection.pants = false;
       this.selection.shoes = false;
-      this.selection.beard = false;
-      // this.selection.topHair = true;
-      // this.selection.sideHair = true;
-      this.selection.belt = true;
-      // this.selection.skinColor = { hex8: "#daad7fff" };
-      // this.selection.skinColor2 = { hex8: "#d28d5fff" };
-      // this.selection.lipsColor = { hex8: "#d28d5fff" };
+      this.selection.belt = false;
       this.selection.shirtColor = { hex8: "#8d2d2eff" };
       this.selection.armSleeveColor = { hex8: "#8d2d2eff" };
-      // this.selection.pantsColor = { hex8: "#dcdcdcff" };
-      // this.selection.pantsLegColor = { hex8: "#939393ff" };
-      // this.selection.shoeColor = { hex8: "#dcdcdcff" };
-      // this.selection.beardColor = { hex8: "#6d5542ff" };
-      // this.selection.hairColor = { hex8: "#6d5542ff" };
-      // this.selection.hairSideColor = { hex8: "#6d5542ff" };
-      // this.selection.beltColor = { hex8: "#515151ff" };
       this.selection.armSleeveLengthPercent = 20 / 100;
       this.selection.shirtLengthPercent = 60 / 100;
       this.selection.pantsLegLengthPercent = 0 / 100;
-      // this.selection.pantsFit = 15;
-      // this.selection.happiness = 5;
     },
     summer() {
-      // this.selection.height = 0.9;
       this.selection.shirt = false;
       this.selection.pants = true;
       this.selection.shoes = false;
-      // this.selection.beard = true;
-      // this.selection.topHair = true;
-      // this.selection.sideHair = true;
       this.selection.belt = true;
-      // this.selection.skinColor = { hex8: "#daad7fff" };
-      // this.selection.skinColor2 = { hex8: "#d28d5fff" };
-      // this.selection.lipsColor = { hex8: "#d28d5fff" };
-      // this.selection.shirtColor = { hex8: "#8d2d2eff" };
-      // this.selection.armSleeveColor = { hex8: "#8d2d2eff" };
       this.selection.pantsColor = { hex8: "#8d2d2eff" };
-      // this.selection.pantsLegColor = { hex8: "#939393ff" };
-      // this.selection.shoeColor = { hex8: "#dcdcdcff" };
-      // this.selection.beardColor = { hex8: "#6d5542ff" };
-      // this.selection.hairColor = { hex8: "#6d5542ff" };
-      // this.selection.hairSideColor = { hex8: "#6d5542ff" };
       this.selection.beltColor = { hex8: "#515151ff" };
       this.selection.armSleeveLengthPercent = 20 / 100;
       this.selection.shirtLengthPercent = 60 / 100;
       this.selection.pantsLegLengthPercent = 0 / 100;
-      // this.selection.pantsFit = 15;
-      // this.selection.happiness = 5;
     },
     monday() {
-      // this.selection.height = 0.9;
       this.selection.shirt = true;
       this.selection.pants = true;
       this.selection.shoes = true;
-      // this.selection.beard = true;
-      // this.selection.topHair = true;
-      // this.selection.sideHair = true;
       this.selection.belt = true;
-      // this.selection.skinColor = { hex8: "#daad7fff" };
-      // this.selection.skinColor2 = { hex8: "#d28d5fff" };
-      // this.selection.lipsColor = { hex8: "#d28d5fff" };
       this.selection.shirtColor = { hex8: "#dcdcdcff" };
       this.selection.armSleeveColor = { hex8: "#dcdcdcff" };
       this.selection.pantsColor = { hex8: "#cebea4ff" };
       this.selection.pantsLegColor = { hex8: "#cebea4ff" };
       this.selection.shoeColor = { hex8: "#515151ff" };
-      // this.selection.beardColor = { hex8: "#6d5542ff" };
-      // this.selection.hairColor = { hex8: "#6d5542ff" };
-      // this.selection.hairSideColor = { hex8: "#6d5542ff" };
       this.selection.beltColor = { hex8: "#515151ff" };
       this.selection.armSleeveLengthPercent = 95 / 100;
       this.selection.shirtLengthPercent = 100 / 100;
       this.selection.pantsLegLengthPercent = 100 / 100;
       this.selection.pantsFit = 0;
-      // this.selection.happiness = 5;
+    },
+    baggy() {
+      this.selection.shirt = true;
+      this.selection.pants = true;
+      this.selection.shoes = true;
+      this.selection.belt = false;
+      this.selection.shirtColor = { hex8: "#515151ff" };
+      this.selection.armSleeveColor = { hex8: "#515151ff" };
+      this.selection.pantsColor = { hex8: "#edcb4bff" };
+      this.selection.pantsLegColor = { hex8: "#edcb4bff" };
+      this.selection.armSleeveLengthPercent = 95 / 100;
+      this.selection.shirtLengthPercent = 100 / 100;
+      this.selection.pantsLegLengthPercent = 100 / 100;
+      this.selection.pantsFit = 15;
+    },
+    franciscano() {
+      this.selection.shirt = true;
+      this.selection.pants = false;
+      this.selection.belt = true;
+      this.selection.shoes = true;
+      this.selection.shirtColor = { hex8: "#402f23ff" };
+      this.selection.armSleeveColor = { hex8: "#402f23ff" };
+      this.selection.shoeColor = { hex8: "#393939ff" };
+      this.selection.beltColor = { hex8: "#515151ff" };
+      this.selection.armSleeveLengthPercent = 95 / 100;
+      this.selection.shirtLengthPercent = 225 / 100;
+    },
+    dyeHair(color) {
+      this.selection.beardColor = { hex8: color };
+      this.selection.hairColor = { hex8: color };
+      this.selection.hairSideColor = { hex8: color };
+    },
+    tan(color, secondary, lips) {
+      this.selection.skinColor = { hex8: color };
+      this.selection.skinColor2 = { hex8: secondary };
+      this.selection.lipsColor = { hex8: lips };
     },
   },
 });

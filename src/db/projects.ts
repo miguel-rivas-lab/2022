@@ -69,6 +69,34 @@ const projects: ProjectsType = [
       h.getNewID(client.miguelRivas, "2021/11/14"),
       h.getNewID(client.miguelRivas, "2022/01/24"),
       h.getNewID(client.miguelRivas, "2022/02/02"),
+      h.getNewID(client.miguelRivas, "2022/02/07"),
+    ],
+  },
+
+
+  {
+    date: "2022/02/07",
+    title: "Avatar Builder",
+    types: [
+      typeEnum.prototype,
+    ],
+    roles: [
+      roleEnum.design,
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    disabled: true,
+    tools: [
+      toolEnum.vue,
+      toolEnum.vuex,
+      toolEnum.vueRouter,
+      toolEnum.typescript,
+      toolEnum.scss,
+      toolEnum.git,
+      toolEnum.konva,
+      toolEnum.pug,
     ],
   },
 
@@ -1485,6 +1513,7 @@ const projects: ProjectsType = [
       toolEnum.illustrator,
       toolEnum.git,
     ],
+    disabled: true,
     links: [
       {
         url: linkWeb("main-front"),
