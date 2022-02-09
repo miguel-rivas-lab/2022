@@ -73,7 +73,7 @@ export default Vue.extend({
       const eyeRadius = strokeWidth * 0.25;
       const noseSize = strokeWidth;
 
-      const smileHeight = parseFloat(this.selection.happiness) || -20; // -20, 0, 20
+      const smileHeight = parseFloat(this.selection.happiness); // -20, 0, 20
 
       const neckWidth = strokeWidth;
       const neckHeight = strokeWidth;
@@ -507,8 +507,6 @@ export default Vue.extend({
   mounted() {
     this.stage = this.$refs.stage.getStage();
     this.updateCanvas();
-
-    /*---------------- */
   },
   methods: {
     saveImg() {

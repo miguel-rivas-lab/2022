@@ -55,7 +55,7 @@ export const store = new Vuex.Store({
         shirtLengthPercent: 100 / 100,
         pantsLegLengthPercent: 100 / 100,
         pantsFit: 0,
-        happiness: 20,
+        happiness: 5,
       },
       projects: {
         filterData: 'all',
