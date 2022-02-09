@@ -39,7 +39,10 @@
           <v-rect :config="avatar.shirt" />
         </template>
 
-        <v-rect v-if="selection.belt && selection.pants" :config="avatar.belt" />
+        <v-rect
+          v-if="selection.belt && selection.pants"
+          :config="avatar.belt"
+        />
       </v-layer>
     </v-stage>
   </div>
@@ -124,7 +127,7 @@ export default Vue.extend({
             );
             context.fillStrokeShape(shape);
           },
-          stroke: this.selection.lipsColor,
+          stroke: this.selection.lipsColor.hex8,
           strokeWidth: 4,
         },
         nose: {
@@ -146,7 +149,7 @@ export default Vue.extend({
             context.closePath();
             context.fillStrokeShape(shape);
           },
-          fill: this.selection.skinColor2,
+          fill: this.selection.skinColor2.hex8,
         },
         eyeRight: {
           x: translateX + faceWidth * 0.5 + strokeWidth * 1.25,
@@ -187,8 +190,8 @@ export default Vue.extend({
             neckHeight -
             faceHeight * 0.5,
           radius: earRadius,
-          fill: this.selection.skinColor2,
-          stroke: this.selection.skinColor,
+          fill: this.selection.skinColor2.hex8,
+          stroke: this.selection.skinColor.hex8,
           strokeWidth: 4,
         },
         face: {
@@ -203,7 +206,7 @@ export default Vue.extend({
             faceHeight,
           width: faceWidth,
           height: faceHeight,
-          fill: this.selection.skinColor,
+          fill: this.selection.skinColor.hex8,
           cornerRadius: strokeWidth * 2,
         },
         neck: {
@@ -217,8 +220,8 @@ export default Vue.extend({
             neckHeight,
           width: neckWidth,
           height: neckHeight,
-          fill: this.selection.skinColor,
-          stroke: this.selection.skinColor,
+          fill: this.selection.skinColor.hex8,
+          stroke: this.selection.skinColor.hex8,
           strokeWidth: 1,
         },
         chest: {
@@ -226,7 +229,7 @@ export default Vue.extend({
           y: translateY - footHeight - legHeight - hipHeight - chestHeight,
           width: chestWidth,
           height: chestHeight + hipHeight,
-          fill: this.selection.skinColor,
+          fill: this.selection.skinColor.hex8,
         },
         armRight: {
           x: translateX + faceWidth * 0.5 + chestWidth * 0.5,
@@ -241,7 +244,7 @@ export default Vue.extend({
           outerRadius: armRadius,
           angle: armAngle,
           rotation: -90,
-          fill: this.selection.skinColor,
+          fill: this.selection.skinColor.hex8,
         },
         armLeft: {
           x: translateX + faceWidth * 0.5 - chestWidth * 0.5,
@@ -257,7 +260,7 @@ export default Vue.extend({
           angle: -armAngle,
           clockwise: true,
           rotation: -90,
-          fill: this.selection.skinColor,
+          fill: this.selection.skinColor.hex8,
         },
         legRight: {
           points: [
@@ -274,7 +277,7 @@ export default Vue.extend({
               legWidth * 0.5,
             translateY - footHeight,
           ],
-          stroke: this.selection.skinColor,
+          stroke: this.selection.skinColor.hex8,
           strokeWidth: legWidth,
         },
         legLeft: {
@@ -292,7 +295,7 @@ export default Vue.extend({
               legWidth * 0.5,
             translateY - footHeight,
           ],
-          stroke: this.selection.skinColor,
+          stroke: this.selection.skinColor.hex8,
           strokeWidth: legWidth,
         },
         footRight: {
@@ -300,14 +303,14 @@ export default Vue.extend({
           y: translateY - footHeight,
           width: footWidth,
           height: footHeight,
-          fill: this.selection.skinColor,
+          fill: this.selection.skinColor.hex8,
         },
         footLeft: {
           x: translateX + faceWidth * 0.5 - legWidth * 0.5 - feetDistance,
           y: translateY - footHeight,
           width: footWidth,
           height: footHeight,
-          fill: this.selection.skinColor,
+          fill: this.selection.skinColor.hex8,
         },
         beard: {
           x: translateX,
@@ -321,7 +324,7 @@ export default Vue.extend({
             beardHeight,
           width: faceWidth,
           height: beardHeight,
-          fill: this.selection.beardColor,
+          fill: this.selection.beardColor.hex8,
           cornerRadius: [0, 0, strokeWidth * 2, strokeWidth * 2],
         },
         hair: {
@@ -336,7 +339,7 @@ export default Vue.extend({
             faceHeight,
           width: faceWidth,
           height: hairLength,
-          fill: this.selection.hairColor,
+          fill: this.selection.hairColor.hex8,
           cornerRadius: [strokeWidth * 2, strokeWidth * 2, 0, 0],
         },
         hairSide: {
@@ -352,7 +355,7 @@ export default Vue.extend({
             hairSideLength * 0.5,
           width: hairSideWidth,
           height: hairSideLength,
-          fill: this.selection.hairSideColor,
+          fill: this.selection.hairSideColor.hex8,
           cornerRadius: strokeWidth * 2,
         },
       };
@@ -363,8 +366,8 @@ export default Vue.extend({
           y: translateY - footHeight - legHeight - hipHeight - chestHeight,
           width: chestWidth,
           height: shirtLength,
-          fill: this.selection.shirtColor,
-          stroke: this.selection.shirtColor,
+          fill: this.selection.shirtColor.hex8,
+          stroke: this.selection.shirtColor.hex8,
           strokeWidth: shirtLength > 0 ? 2 : 0,
         },
         armSleeveRight: {
@@ -380,8 +383,8 @@ export default Vue.extend({
           outerRadius: armRadius,
           angle: -armSleeveLength,
           rotation: -90,
-          fill: this.selection.armSleeveColor,
-          stroke: this.selection.armSleeveColor,
+          fill: this.selection.armSleeveColor.hex8,
+          stroke: this.selection.armSleeveColor.hex8,
           strokeWidth: armSleeveLength > 0 ? 1 : 0,
         },
         armSleeveLeft: {
@@ -398,8 +401,8 @@ export default Vue.extend({
           angle: armSleeveLength,
           clockwise: true,
           rotation: -90,
-          fill: this.selection.armSleeveColor,
-          stroke: this.selection.armSleeveColor,
+          fill: this.selection.armSleeveColor.hex8,
+          stroke: this.selection.armSleeveColor.hex8,
           strokeWidth: armSleeveLength < 0 ? 1 : 0,
         },
         belt: {
@@ -407,8 +410,8 @@ export default Vue.extend({
           y: translateY - footHeight - legHeight - hipHeight,
           width: hipWidth,
           height: strokeWidth * 0.5,
-          fill: this.selection.beltColor,
-          stroke: this.selection.beltColor,
+          fill: this.selection.beltColor.hex8,
+          stroke: this.selection.beltColor.hex8,
           strokeWidth: 1,
         },
         pants: {
@@ -416,8 +419,8 @@ export default Vue.extend({
           y: translateY - footHeight - legHeight - hipHeight,
           width: hipWidth,
           height: hipHeight,
-          fill: this.selection.pantsColor,
-          stroke: this.selection.pantsColor,
+          fill: this.selection.pantsColor.hex8,
+          stroke: this.selection.pantsColor.hex8,
           strokeWidth: 1,
         },
         pantsLegRight: {
@@ -435,7 +438,7 @@ export default Vue.extend({
               legWidth * 0.5,
             translateY - footHeight - legHeight - pantsLegLength,
           ],
-          stroke: this.selection.pantsLegColor,
+          stroke: this.selection.pantsLegColor.hex8,
           strokeWidth: legWidth + parseFloat(this.selection.pantsFit),
         },
         pantsLegLeft: {
@@ -453,7 +456,7 @@ export default Vue.extend({
               legWidth * 0.5,
             translateY - footHeight - legHeight - pantsLegLength,
           ],
-          stroke: this.selection.pantsLegColor,
+          stroke: this.selection.pantsLegColor.hex8,
           strokeWidth: legWidth + parseFloat(this.selection.pantsFit),
         },
         shoeRight: {
@@ -461,8 +464,8 @@ export default Vue.extend({
           y: translateY - footHeight,
           width: footWidth,
           height: footHeight,
-          fill: this.selection.shoeColor,
-          stroke: this.selection.shoeColor,
+          fill: this.selection.shoeColor.hex8,
+          stroke: this.selection.shoeColor.hex8,
           strokeWidth: 1,
         },
         shoeLeft: {
@@ -470,8 +473,8 @@ export default Vue.extend({
           y: translateY - footHeight,
           width: footWidth,
           height: footHeight,
-          fill: this.selection.shoeColor,
-          stroke: this.selection.shoeColor,
+          fill: this.selection.shoeColor.hex8,
+          stroke: this.selection.shoeColor.hex8,
           strokeWidth: 1,
         },
       };
@@ -504,6 +507,8 @@ export default Vue.extend({
   mounted() {
     this.stage = this.$refs.stage.getStage();
     this.updateCanvas();
+
+    /*---------------- */
   },
   methods: {
     saveImg() {

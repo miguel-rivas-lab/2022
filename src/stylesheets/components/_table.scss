@@ -63,3 +63,25 @@
     }
   }
 }
+
+.toggle-input {
+  background-color: var(--color-table-background);
+  align-items: center;
+  transition: background-color ease-in-out 200ms;
+  &:hover {
+    background-color: var(--color-table-background-hover);
+  }
+  > .column:not(:last-child) {
+    padding: 0.5rem 1rem;
+    font-size: 9pt;
+    letter-spacing: 1pt;
+    text-transform: uppercase;
+  }
+  > .suffix {
+    padding-bottom: 2px;
+  }
+  > .column:last-child {
+    padding: 0.5rem 0;
+  }
+
+}

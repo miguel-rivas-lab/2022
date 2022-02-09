@@ -16,17 +16,29 @@ scroll-area(color="royal-purple")
             v-model="selection.height"
           )
 
-      row
-        column(size="100%")
-          label Skin Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.skinColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Skin Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.skinColor",
+                :preset-colors="skinColors",
+                disable-fields
+              )
 
-      row
-        column(size="100%")
-          label Secondary Skin Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.skinColor2")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Secondary Skin Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.skinColor2",
+                :preset-colors="skinColors2",
+                disable-fields
+              )
 
   row.row-block(tag="fieldset")
     column(size="100%")
@@ -65,29 +77,53 @@ scroll-area(color="royal-purple")
               v-model="selection.beard"
             )
 
-      row
-        column(size="100%")
-          label Hair Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.hairColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Hair Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.hairColor",
+                :preset-colors="hairColors",
+                disable-fields
+              )
 
-      row
-        column(size="100%")
-          label Hair Side Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.hairSideColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Hair Side Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.hairSideColor",
+                :preset-colors="hairColors",
+                disable-fields
+              )
 
-      row
-        column(size="100%")
-          label Beard Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.beardColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Beard Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.beardColor",
+                :preset-colors="hairColors",
+                disable-fields
+              )
 
-      row
-        column(size="100%")
-          label Lips Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.lipsColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Lips Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.lipsColor",
+                :preset-colors="lipsColors",
+                disable-fields
+              )
 
       row
         column(size="100%")
@@ -140,17 +176,29 @@ scroll-area(color="royal-purple")
             v-model="selection.armSleeveLengthPercent"
           )
 
-      row
-        column(size="100%")
-          label Shirt Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.shirtColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Shirt Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.shirtColor",
+                :preset-colors="fabricColors",
+                disable-fields
+              )
 
-      row
-        column(size="100%")
-          label Sleeve Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.armSleeveColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Sleeve Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.armSleeveColor",
+                :preset-colors="fabricColors",
+                disable-fields
+              )
 
   row.row-block(tag="fieldset")
     column(size="100%")
@@ -202,23 +250,41 @@ scroll-area(color="royal-purple")
             v-model="selection.pantsFit"
           )
 
-      row
-        column(size="100%")
-          label Pants Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.pantsColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Pants Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.pantsColor",
+                :preset-colors="fabricColors",
+                disable-fields
+              )
 
-      row
-        column(size="100%")
-          label Leg Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.pantsLegColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Legs Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.pantsLegColor",
+                :preset-colors="fabricColors",
+                disable-fields
+              )
 
-      row
-        column(size="100%")
-          label Belt Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.beltColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Belt Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.beltColor",
+                :preset-colors="fabricColors",
+                disable-fields
+              )
 
   row.row-block(tag="fieldset")
     column(size="100%")
@@ -235,11 +301,17 @@ scroll-area(color="royal-purple")
               v-model="selection.shoes"
             )
 
-      row
-        column(size="100%")
-          label Color
-        column(size="100%")
-          btn(color="gold-tips", :text="selection.shoeColor")
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Shoes Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.shoeColor",
+                :preset-colors="fabricColors",
+                disable-fields
+              )
 
   row.row-block(tag="fieldset")
     column(size="100%")
@@ -268,13 +340,59 @@ scroll-area(color="royal-purple")
 
 <script lang="ts">
 import Vue from "vue";
+import ColorPicker from "mr-vue-color/src/components/Simple.vue";
+import ToggleRow from "../components/toggle-row.vue";
 
 export default Vue.extend({
+  components: { ColorPicker, ToggleRow },
   data: () => ({
     selection: {},
+    colors: { h: 10, s: 0.5, l: 0.2, a: 1 },
+    skinColors: [
+      "#e9ceb2",
+      "#daad7f",
+      "#b68450",
+      "#8b653d",
+    ],
+     skinColors2: [
+      "#e9957b",
+      "#d28d5f",
+      "#916d56",
+      "#705340",
+    ],
+    fabricColors: [
+      "#939393",
+      "#515151",
+      "#edcb4b",
+      "#556f36",
+      "#dcdcdc",
+      "#ab6483",
+      "#646dab",
+      "#8d2d2e",
+      "#cebea4",
+    ],
+    hairColors: [
+      "#444444",
+      "#6d5542",
+      "#a34026",
+      "#ababab",
+      "#135440",
+      "#664992",
+    ],
+    lipsColors: [
+      "#e9957b",
+      "#d28d5f",
+      "#916d56",
+      "#705340",
+      "#8d2d2e",
+      "#2c184c",
+      "#181d4c",
+      "#111111",
+    ],
   }),
   created() {
     this.selection = this.$store.getters.getAvatarSelection;
   },
+  methods: {},
 });
 </script>
