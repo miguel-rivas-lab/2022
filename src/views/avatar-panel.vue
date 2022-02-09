@@ -138,34 +138,19 @@ scroll-area(color="royal-purple")
         column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.topHair }")
             | Toggle Top Hair
-            input(
-              type="checkbox",
-              value="Group",
-              name="row-style",
-              v-model="selection.topHair"
-            )
+            input(type="checkbox", v-model="selection.topHair")
 
       row
         column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.sideHair }")
             | Toggle Side Hair
-            input(
-              type="checkbox",
-              value="Group",
-              name="row-style",
-              v-model="selection.sideHair"
-            )
+            input(type="checkbox", v-model="selection.sideHair")
 
       row
         column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.beard }")
             | Toggle Beard
-            input(
-              type="checkbox",
-              value="Group",
-              name="row-style",
-              v-model="selection.beard"
-            )
+            input(type="checkbox", v-model="selection.beard")
 
       row: column(size="100%")
         toggle-row.toggle-input(breakpoint="lg")
@@ -235,12 +220,23 @@ scroll-area(color="royal-purple")
         column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.shirt }")
             | Toggle Shirt
-            input(
-              type="checkbox",
-              value="Group",
-              name="row-style",
-              v-model="selection.shirt"
-            )
+            input(type="checkbox", v-model="selection.shirt")
+
+      row
+        column(size="50%")
+          label.btn.flat.charcoal(:class="{ active: selection.leftPocket }")
+            | L Pocket
+            input(type="checkbox", v-model="selection.leftPocket")
+        column(size="50%")
+          label.btn.flat.charcoal(:class="{ active: selection.rightPocket }")
+            | R Pocket
+            input(type="checkbox", v-model="selection.rightPocket")
+
+      row
+        column(size="100%")
+          label.btn.flat.charcoal(:class="{ active: selection.buttons }")
+            | Toggle Buttons
+            input(type="checkbox", v-model="selection.buttons")
 
       row
         column(size="100%")
@@ -290,6 +286,18 @@ scroll-area(color="royal-purple")
                 disable-fields
               )
 
+      row: column(size="100%")
+        toggle-row.toggle-input(breakpoint="lg")
+          template(v-slot:header)
+            column(size="100%-35") Pockets Color
+          template(v-slot:more)
+            t-column(size="100%")
+              color-picker(
+                v-model="selection.pocketColor",
+                :preset-colors="fabricColors",
+                disable-fields
+              )
+
   row.row-block(tag="fieldset")
     column(size="100%")
       legend Pants
@@ -298,23 +306,13 @@ scroll-area(color="royal-purple")
         column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.pants }")
             | Toggle Pants
-            input(
-              type="checkbox",
-              value="Group",
-              name="row-style",
-              v-model="selection.pants"
-            )
+            input(type="checkbox", v-model="selection.pants")
 
       row
         column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.belt }")
             | Toggle Belt
-            input(
-              type="checkbox",
-              value="Group",
-              name="row-style",
-              v-model="selection.belt"
-            )
+            input(type="checkbox", v-model="selection.belt")
 
       row
         column(size="100%")
@@ -384,12 +382,7 @@ scroll-area(color="royal-purple")
         column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.shoes }")
             | Toggle Shoes
-            input(
-              type="checkbox",
-              value="Group",
-              name="row-style",
-              v-model="selection.shoes"
-            )
+            input(type="checkbox", v-model="selection.shoes")
 
       row: column(size="100%")
         toggle-row.toggle-input(breakpoint="lg")
@@ -448,6 +441,7 @@ export default Vue.extend({
   }),
   created() {
     this.selection = this.$store.getters.getAvatarSelection;
+    this.sunday();
   },
   methods: {
     miguel() {
@@ -464,6 +458,9 @@ export default Vue.extend({
       this.selection.shirtLengthPercent = 100 / 100;
       this.selection.pantsLegLengthPercent = 20 / 100;
       this.selection.pantsFit = 15;
+      this.selection.rightPocket = false;
+      this.selection.leftPocket = false;
+      this.selection.buttons = false;
     },
     dcBoi() {
       this.selection.shirt = true;
@@ -480,6 +477,9 @@ export default Vue.extend({
       this.selection.shirtLengthPercent = 100 / 100;
       this.selection.pantsLegLengthPercent = 20 / 100;
       this.selection.pantsFit = 15;
+      this.selection.rightPocket = false;
+      this.selection.leftPocket = false;
+      this.selection.buttons = false;
     },
     sunday() {
       this.selection.shirt = false;
@@ -502,6 +502,9 @@ export default Vue.extend({
       this.selection.armSleeveLengthPercent = 20 / 100;
       this.selection.shirtLengthPercent = 60 / 100;
       this.selection.pantsLegLengthPercent = 0 / 100;
+      this.selection.rightPocket = false;
+      this.selection.leftPocket = false;
+      this.selection.buttons = false;
     },
     summer() {
       this.selection.shirt = false;
@@ -525,10 +528,14 @@ export default Vue.extend({
       this.selection.pantsLegColor = { hex8: "#cebea4ff" };
       this.selection.shoeColor = { hex8: "#515151ff" };
       this.selection.beltColor = { hex8: "#515151ff" };
+      this.selection.pocketColor = { hex8: "#44444440" };
       this.selection.armSleeveLengthPercent = 95 / 100;
       this.selection.shirtLengthPercent = 100 / 100;
       this.selection.pantsLegLengthPercent = 100 / 100;
       this.selection.pantsFit = 0;
+      this.selection.rightPocket = true;
+      this.selection.leftPocket = true;
+      this.selection.buttons = true;
     },
     baggy() {
       this.selection.shirt = true;
@@ -543,6 +550,9 @@ export default Vue.extend({
       this.selection.shirtLengthPercent = 100 / 100;
       this.selection.pantsLegLengthPercent = 100 / 100;
       this.selection.pantsFit = 15;
+      this.selection.rightPocket = false;
+      this.selection.leftPocket = false;
+      this.selection.buttons = false;
     },
     franciscano() {
       this.selection.shirt = true;
@@ -555,6 +565,9 @@ export default Vue.extend({
       this.selection.beltColor = { hex8: "#515151ff" };
       this.selection.armSleeveLengthPercent = 95 / 100;
       this.selection.shirtLengthPercent = 225 / 100;
+      this.selection.rightPocket = false;
+      this.selection.leftPocket = false;
+      this.selection.buttons = false;
     },
     dyeHair(color) {
       this.selection.beardColor = { hex8: color };
