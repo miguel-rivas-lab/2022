@@ -31,6 +31,7 @@ export const store = new Vuex.Store({
         },
       },
       avatar: {
+        height: 0.9,
         shirt: true,
         pants: true,
         shoes: true,

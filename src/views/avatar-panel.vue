@@ -6,6 +6,18 @@ scroll-area(color="royal-purple")
 
       row
         column(size="100%")
+          label(for="height") Height
+        column(size="100%")
+          input#height.cobalt-blue(
+            type="range",
+            min="0.80",
+            max="1",
+            step="0.01",
+            v-model="selection.height"
+          )
+
+      row
+        column(size="100%")
           label Skin Color
         column(size="100%")
           btn(color="gold-tips", :text="selection.skinColor")
@@ -201,6 +213,12 @@ scroll-area(color="royal-purple")
           label Leg Color
         column(size="100%")
           btn(color="gold-tips", :text="selection.pantsLegColor")
+
+      row
+        column(size="100%")
+          label Belt Color
+        column(size="100%")
+          btn(color="gold-tips", :text="selection.beltColor")
 
   row.row-block(tag="fieldset")
     column(size="100%")

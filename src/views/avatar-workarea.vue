@@ -39,7 +39,7 @@
           <v-rect :config="avatar.shirt" />
         </template>
 
-        <v-rect v-if="selection.belt" :config="avatar.belt" />
+        <v-rect v-if="selection.belt && selection.pants" :config="avatar.belt" />
       </v-layer>
     </v-stage>
   </div>
@@ -65,7 +65,7 @@ export default Vue.extend({
       const strokeWidth = 20;
 
       const faceWidth = strokeWidth * 5;
-      const faceHeight = strokeWidth * 7;
+      const faceHeight = strokeWidth * 7 * parseFloat(this.selection.height);
       const earRadius = strokeWidth * 0.5;
       const eyeRadius = strokeWidth * 0.25;
       const noseSize = strokeWidth;
@@ -507,9 +507,9 @@ export default Vue.extend({
   },
   methods: {
     saveImg() {
-      this.stage.toDataURL({
-        pixelRatio: 2, // or other value you need
-      });
+      // this.stage.toDataURL({
+      //   pixelRatio: 2,
+      // });
     },
     updateCanvas: function () {
       let margin = this.panel ? this.panelSize : 0;

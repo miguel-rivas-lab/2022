@@ -9,6 +9,10 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { mapGetters } from "vuex";
 import gColorsDB from "../db/wiki-colors";
 
+function degToRad(deg) {
+  return deg * (Math.PI / 180);
+}
+
 export default Vue.extend({
   components: {},
   data: () => ({
@@ -23,6 +27,10 @@ export default Vue.extend({
     renderer: undefined,
     sceneCtrl: undefined,
     linesGroup: undefined,
+    minPolarAngle: degToRad(75),
+    maxPolarAngle: degToRad(120),
+    minDistance: 7.5,
+    maxDistance: 500,
     selection: {},
     sceneControls: function () {
       this.zoom = 10;
@@ -74,13 +82,6 @@ export default Vue.extend({
       let line = new THREE.Line(lineGeometry, lineMaterial);
       return line;
     },
-    switchThemes() {
-      if (this.theme) {
-        this.renderer.setClearColor("#e0e0e0");
-      } else {
-        this.renderer.setClearColor("#1e1e1e");
-      }
-    },
     buildScene() {
       this.winHeight = window.innerHeight;
       this.winWidth = window.innerWidth - this.panelsSize;
@@ -101,7 +102,13 @@ export default Vue.extend({
       this.scene.position.y = (-this.maxValue - 1) * 0.5;
       this.renderer.setSize(this.winWidth, this.winHeight);
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-      this.switchThemes();
+
+      this.controls.minPolarAngle = this.minPolarAngle;
+      this.controls.maxPolarAngle = this.maxPolarAngle;
+
+      this.controls.minDistance = this.minDistance;
+      this.controls.maxDistance = this.maxDistance;
+
       this.$refs.cube.appendChild(this.renderer.domElement);
     },
     buildGeometry() {
