@@ -10,6 +10,8 @@ import ThreePanelView from '../views/three-panel.vue';
 import ThreeWorkareaView from '../views/three-workarea.vue';
 import CubeWorkareaView from '../views/cube-workarea.vue';
 import CubePanelView from '../views/cube-panel.vue';
+import FlipbookWorkareaView from '../views/flipbook-workarea.vue';
+import FlipbookPanelView from '../views/flipbook-panel.vue';
 
 import ProjectsListWorkareaView from '../views/projects-list-workarea.vue';
 import ProjectsListPanelView from '../views/projects-list-panel.vue';
@@ -303,7 +305,7 @@ const routes: Array<RouteConfig> = [
       workarea: Vue.extend({
         props: {
           defaultRoute: {
-            default: "cube"
+            default: "flipbook"
           },
         },
         extends: NestedWorkareaView,
@@ -315,6 +317,11 @@ const routes: Array<RouteConfig> = [
           },
           links: {
             default: () => ([
+              {
+                text: "Flipbook",
+                name: "flipbook",
+                icon: "",
+              },
               {
                 text: "Color Cube",
                 name: "cube",
@@ -347,6 +354,14 @@ const routes: Array<RouteConfig> = [
       }),
     },
     children: [
+      {
+        name: 'flipbook',
+        path: '/flipbook',
+        components: {
+          workarea2: FlipbookWorkareaView,
+          panel2: FlipbookPanelView,
+        },
+      },
       {
         name: 'cube',
         path: '/cube',

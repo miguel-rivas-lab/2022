@@ -7,7 +7,6 @@ import Vue from "vue";
 import { mapGetters } from "vuex";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 function degToRad(deg) {
   return deg * (Math.PI / 180);
@@ -15,10 +14,6 @@ function degToRad(deg) {
 
 export default Vue.extend({
   props: {
-    mesh: {
-      type: String,
-      default: "",
-    },
     minPolarAngle: {
       type: Number,
       default: degToRad(75),
@@ -87,10 +82,6 @@ export default Vue.extend({
       this.setLight();
 
       this.$refs.threeScene.appendChild(this.renderer.domElement);
-
-      const size = 60;
-      const divisions = 25;
-      this.gridHelper = new THREE.GridHelper(size, divisions);
     },
     setLight() {
       const horizontalLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -119,7 +110,6 @@ export default Vue.extend({
       this.camera.aspect = this.winWidth / this.winHeight;
       this.camera.updateProjectionMatrix();
     },
-
     render() {
       if (this.controls) {
         this.controls.update();
@@ -130,30 +120,37 @@ export default Vue.extend({
         this.scene.rotation.y += this.selection.sceneRotation * 0.01;
       }
       this.renderer.render(this.scene, this.camera);
-      this.selection.grid
-        ? this.scene.add(this.gridHelper)
-        : this.scene.remove(this.gridHelper);
     },
-    buildGeometry(mesh) {
-      const loader = new GLTFLoader();
+    buildGeometry() {
+      const loader = new THREE.TextureLoader();
+      const pages = 14;
 
-      (function (scene) {
-        loader.load(
-          `3d/${mesh}.glb`,
-          function (gltf) {
-            scene.add(gltf.scene);
-          },
-          undefined,
-          function (error) {
-            console.error(error);
-          }
-        );
-      })(this.scene);
+      const materials = [...Array(pages).keys()].map((index) => {
+        return new THREE.MeshLambertMaterial({
+          map: loader.load(`art/portfolio${index + 1}.jpg`),
+        });
+      });
+
+      const geometry = new THREE.PlaneGeometry(3, 3);
+      const distance = 1.5;
+      for(let c=0; c<pages; c+=2){
+        const frontPlane = new THREE.Mesh(geometry, materials[c]);
+        const backPlane = new THREE.Mesh(geometry, materials[c + 1]);
+        backPlane.rotation.y = Math.PI;
+        backPlane.position.x = distance;
+        frontPlane.position.x = distance;
+  
+        const layer = new THREE.Group();
+        layer.add(frontPlane);
+        layer.add(backPlane);
+        layer.rotation.y = c * (Math.PI / pages * 2);
+        this.scene.add(layer);
+      }
     },
   },
   mounted() {
     this.buildScene();
-    this.buildGeometry(this.mesh);
+    this.buildGeometry();
     this.render();
   },
   created() {
