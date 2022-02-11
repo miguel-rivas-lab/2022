@@ -13,24 +13,6 @@ function degToRad(deg) {
 }
 
 export default Vue.extend({
-  props: {
-    minPolarAngle: {
-      type: Number,
-      default: degToRad(75),
-    },
-    maxPolarAngle: {
-      type: Number,
-      default: degToRad(120),
-    },
-    minDistance: {
-      type: Number,
-      default: 7.5,
-    },
-    maxDistance: {
-      type: Number,
-      default: 25,
-    },
-  },
   data: () => ({
     winHeight: undefined,
     winWidth: undefined,
@@ -39,6 +21,12 @@ export default Vue.extend({
     camera: undefined,
     renderer: undefined,
     selection: {},
+    pages: 14,
+    minPolarAngle: degToRad(75),
+    maxPolarAngle: degToRad(120),
+    minDistance: 7.5,
+    maxDistance: 50,
+    layers: [],
     sceneControls: function () {
       this.zoom = 100;
     },
@@ -63,7 +51,7 @@ export default Vue.extend({
         1,
         1000
       );
-      this.camera.position.set(15, 2.5, 0);
+      this.camera.position.set(15, 25, 0);
       this.renderer = new THREE.WebGLRenderer({
         antialias: true,
         alpha: true,
@@ -115,6 +103,8 @@ export default Vue.extend({
         this.controls.update();
       }
 
+      this.exposure();
+
       requestAnimationFrame(this.render);
       if (!this.selection.rotateY) {
         this.scene.rotation.y += this.selection.sceneRotation * 0.01;
@@ -123,9 +113,8 @@ export default Vue.extend({
     },
     buildGeometry() {
       const loader = new THREE.TextureLoader();
-      const pages = 14;
 
-      const materials = [...Array(pages).keys()].map((index) => {
+      const materials = [...Array(this.pages).keys()].map((index) => {
         return new THREE.MeshLambertMaterial({
           map: loader.load(`art/portfolio${index + 1}.jpg`),
         });
@@ -133,18 +122,25 @@ export default Vue.extend({
 
       const geometry = new THREE.PlaneGeometry(3, 3);
       const distance = 1.5;
-      for(let c=0; c<pages; c+=2){
+      for (let c = 0; c < this.pages; c += 2) {
         const frontPlane = new THREE.Mesh(geometry, materials[c]);
         const backPlane = new THREE.Mesh(geometry, materials[c + 1]);
         backPlane.rotation.y = Math.PI;
         backPlane.position.x = distance;
         frontPlane.position.x = distance;
-  
-        const layer = new THREE.Group();
-        layer.add(frontPlane);
-        layer.add(backPlane);
-        layer.rotation.y = c * (Math.PI / pages * 2);
-        this.scene.add(layer);
+
+        this.layers[c] = new THREE.Group();
+        this.layers[c].add(frontPlane);
+        this.layers[c].add(backPlane);
+        this.scene.add(this.layers[c]);
+        // this.scene.add(frontPlane);
+        // this.scene.add(backPlane);
+      }
+    },
+    exposure() {
+      for (let c = 0; c < this.pages; c += 2) {
+        this.layers[c].rotation.y = c * ((Math.PI / this.pages) * 2 * this.selection.bookletOpening );
+        this.scene.add(this.layers[c]);
       }
     },
   },

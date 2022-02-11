@@ -77,6 +77,7 @@ export const store = new Vuex.Store({
         sceneRotation: 3,
         pause: false,
         lines: false,
+        bookletOpening: 1,
       },
       projects3d: {
         rotationDelay: 200,

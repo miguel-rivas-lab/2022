@@ -123,7 +123,7 @@ export default Vue.extend({
       },
       {
         icon: "open-with",
-        route: ["threejs", "cube", "spirit", "car", "xwing", "drakkar"],
+        route: ["threejs", "cube", "spirit", "car", "xwing", "drakkar", "flipbook"],
       },
       { icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
       { icon: "robot-industrial", route: ["grid"] },

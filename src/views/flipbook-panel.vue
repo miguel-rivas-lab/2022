@@ -3,6 +3,18 @@ row.row-block(tag="fieldset")
   column(size="100%")
     legend Scene Controllers
 
+    row
+      column(size="100%")
+        label(for="height") Open Book
+      column(size="100%")
+        input#height.cobalt-blue(
+          type="range",
+          min="0.01",
+          max="1",
+          step="0.01",
+          v-model="selection.bookletOpening"
+        )
+
     number-input#outter-circle-radius(
       :value="selection.sceneRotation",
       label="Rotation",
@@ -11,15 +23,10 @@ row.row-block(tag="fieldset")
 
     row
       column(size="100%")
-        label.btn.flat.charcoal(:class="{ active: selection.grid }")
-          | Grid
-          input(type="checkbox", v-model="selection.grid")
-
-    row
-      column(size="100%")
         label.btn.flat.charcoal(:class="{ active: selection.rotateY }")
           | Pause
           input(type="checkbox", v-model="selection.rotateY")
+
 </template>
 
 <script lang="ts">

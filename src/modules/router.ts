@@ -305,7 +305,7 @@ const routes: Array<RouteConfig> = [
       workarea: Vue.extend({
         props: {
           defaultRoute: {
-            default: "flipbook"
+            default: "cube"
           },
         },
         extends: NestedWorkareaView,
@@ -318,14 +318,14 @@ const routes: Array<RouteConfig> = [
           links: {
             default: () => ([
               {
-                text: "Flipbook",
-                name: "flipbook",
-                icon: "",
-              },
-              {
                 text: "Color Cube",
                 name: "cube",
                 icon: "cube-outline",
+              },
+              {
+                text: "Flipbook",
+                name: "flipbook",
+                icon: "book",
               },
               {
                 text: "Spirit",
