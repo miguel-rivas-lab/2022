@@ -323,11 +323,6 @@ const routes: Array<RouteConfig> = [
                 icon: "cube-outline",
               },
               {
-                text: "Flipbook",
-                name: "flipbook",
-                icon: "book",
-              },
-              {
                 text: "Spirit",
                 name: "spirit",
                 icon: "monster",
@@ -347,6 +342,16 @@ const routes: Array<RouteConfig> = [
                 name: "xwing",
                 icon: "rocket-launch",
               },
+              {
+                text: "Portfolio 2017",
+                name: "portfolio2017",
+                icon: "book",
+              },
+              {
+                text: "Audio2",
+                name: "audio2",
+                icon: "book",
+              },
             ])
           }
         },
@@ -355,10 +360,38 @@ const routes: Array<RouteConfig> = [
     },
     children: [
       {
-        name: 'flipbook',
-        path: '/flipbook',
+        name: 'audio2',
+        path: '/audio2',
         components: {
-          workarea2: FlipbookWorkareaView,
+          workarea2: Vue.extend({
+            props: {
+              book: {
+                default: "audio"
+              },
+              pages: {
+                default: 12
+              }
+            },
+            extends: FlipbookWorkareaView,
+          }),
+          panel2: FlipbookPanelView,
+        },
+      },
+      {
+        name: 'portfolio2017',
+        path: '/portfolio2017',
+        components: {
+          workarea2: Vue.extend({
+            props: {
+              book: {
+                default: "art"
+              },
+              pages: {
+                default: 14
+              }
+            },
+            extends: FlipbookWorkareaView,
+          }),
           panel2: FlipbookPanelView,
         },
       },

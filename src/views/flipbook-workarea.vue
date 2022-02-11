@@ -13,6 +13,10 @@ function degToRad(deg) {
 }
 
 export default Vue.extend({
+  props: {
+    pages: { type: Number, default: 0 },
+    book: { type: String, default: "" },
+  },
   data: () => ({
     winHeight: undefined,
     winWidth: undefined,
@@ -21,7 +25,6 @@ export default Vue.extend({
     camera: undefined,
     renderer: undefined,
     selection: {},
-    pages: 14,
     minPolarAngle: degToRad(75),
     maxPolarAngle: degToRad(120),
     minDistance: 7.5,
@@ -116,7 +119,7 @@ export default Vue.extend({
 
       const materials = [...Array(this.pages).keys()].map((index) => {
         return new THREE.MeshLambertMaterial({
-          map: loader.load(`art/portfolio${index + 1}.jpg`),
+          map: loader.load(`${this.book}/page${index + 1}.jpg`),
         });
       });
 
@@ -133,13 +136,12 @@ export default Vue.extend({
         this.layers[c].add(frontPlane);
         this.layers[c].add(backPlane);
         this.scene.add(this.layers[c]);
-        // this.scene.add(frontPlane);
-        // this.scene.add(backPlane);
       }
     },
     exposure() {
       for (let c = 0; c < this.pages; c += 2) {
-        this.layers[c].rotation.y = c * ((Math.PI / this.pages) * 2 * this.selection.bookletOpening );
+        this.layers[c].rotation.y =
+          c * ((Math.PI / this.pages) * 2 * this.selection.bookletOpening);
         this.scene.add(this.layers[c]);
       }
     },
