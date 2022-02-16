@@ -12,6 +12,7 @@ import CubeWorkareaView from '../views/cube-workarea.vue';
 import CubePanelView from '../views/cube-panel.vue';
 import FlipbookWorkareaView from '../views/flipbook-workarea.vue';
 import FlipbookPanelView from '../views/flipbook-panel.vue';
+import PlanetWorkareaView from '../views/planet-workarea.vue';
 
 import ProjectsListWorkareaView from '../views/projects-list-workarea.vue';
 import ProjectsListPanelView from '../views/projects-list-panel.vue';
@@ -32,6 +33,8 @@ import WheelWorkareaView from '../views/wheel-workarea.vue';
 import WheelPanelView from '../views/wheel-panel.vue';
 import LocationsPanelView from '../views/locations-panel.vue';
 import LocationsWorkareaView from '../views/locations-workarea.vue';
+import AvatarWorkareaView from '../views/avatar-workarea.vue';
+import AvatarPanelView from '../views/avatar-panel.vue';
 
 import GridWorkareaView from '../views/grid-workarea.vue';
 import GridPanelView from '../views/grid-panel.vue';
@@ -40,8 +43,6 @@ import StargazePanelView from '../views/stargaze-panel.vue';
 import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
 import CSSStudyWorkareaView from '../views/css-study-workarea.vue';
-import AvatarWorkareaView from '../views/avatar-workarea.vue';
-import AvatarPanelView from '../views/avatar-panel.vue';
 
 Vue.use(VueRouter);
 
@@ -352,6 +353,11 @@ const routes: Array<RouteConfig> = [
                 name: "audio2",
                 icon: "book",
               },
+              {
+                text: "Planet",
+                name: "planet",
+                icon: "",
+              },
             ])
           }
         },
@@ -393,6 +399,14 @@ const routes: Array<RouteConfig> = [
             extends: FlipbookWorkareaView,
           }),
           panel2: FlipbookPanelView,
+        },
+      },
+      {
+        name: 'planet',
+        path: '/planet',
+        components: {
+          workarea2: PlanetWorkareaView,
+          panel2: ThreePanelView,
         },
       },
       {
