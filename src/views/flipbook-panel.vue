@@ -23,6 +23,12 @@ row.row-block(tag="fieldset")
 
     row
       column(size="100%")
+        label.btn.flat.charcoal(:class="{ active: selection.grid }")
+          | Grid
+          input(type="checkbox", v-model="selection.grid")
+
+    row
+      column(size="100%")
         label.btn.flat.charcoal(:class="{ active: selection.rotateY }")
           | Pause
           input(type="checkbox", v-model="selection.rotateY")

@@ -1,72 +1,35 @@
 <template lang="pug">
-.three-scene(ref="cube")
+.three-scene(ref="threeScene")
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { mapGetters } from "vuex";
 import gColorsDB from "../db/wiki-colors";
+import ThreeScene from "../mixins/three-scene";
 
 function degToRad(deg) {
   return deg * (Math.PI / 180);
 }
 
 export default Vue.extend({
-  components: {},
+  mixins: [ThreeScene],
   data: () => ({
     gColorsDB: gColorsDB,
-    winHeight: undefined,
-    winWidth: undefined,
-    controls: undefined,
-    scene: undefined,
-    camera: undefined,
-    distanceBetweenCubes: 1,
-    maxValue: 255,
-    renderer: undefined,
-    sceneCtrl: undefined,
     linesGroup: undefined,
     minPolarAngle: degToRad(75),
     maxPolarAngle: degToRad(120),
     minDistance: 7.5,
     maxDistance: 500,
-    selection: {},
-    sceneControls: function () {
-      this.zoom = 10;
-    },
+    distanceBetweenCubes: 1,
+    maxValue: 255,
   }),
-  computed: {
-    ...mapGetters({
-      panel: "getPanelVisibility",
-    }),
-    panelsSize() {
-      return this.panel ? 350 : 50;
-    },
-  },
   methods: {
     render() {
-      if (this.controls) {
-        this.controls.update();
-      }
-      requestAnimationFrame(this.render);
-      if (!this.selection.pause) {
-        this.scene.rotation.y += this.selection.sceneRotation * 0.01;
-      }
-      this.renderer.render(this.scene, this.camera);
+      this.renderCommon();
       this.selection.lines
         ? this.scene.add(this.linesGroup)
         : this.scene.remove(this.linesGroup);
-      this.selection.grid
-        ? this.scene.add(this.gridHelper)
-        : this.scene.remove(this.gridHelper);
-    },
-    resizeWindow() {
-      this.winHeight = window.innerHeight;
-      this.winWidth = window.innerWidth - this.panelsSize;
-      this.renderer.setSize(this.winWidth, this.winHeight);
-      this.camera.aspect = this.winWidth / this.winHeight;
-      this.camera.updateProjectionMatrix();
     },
     createLine(color, origin, destination) {
       let lineMaterial = new THREE.LineBasicMaterial({
@@ -80,35 +43,6 @@ export default Vue.extend({
       let lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
       let line = new THREE.Line(lineGeometry, lineMaterial);
       return line;
-    },
-    buildScene() {
-      this.winHeight = window.innerHeight;
-      this.winWidth = window.innerWidth - this.panelsSize;
-      this.sceneCtrl = new this.sceneControls();
-      this.scene = new THREE.Scene();
-      this.camera = new THREE.PerspectiveCamera(
-        75,
-        this.winWidth / this.winHeight,
-        0.1,
-        1000
-      );
-      this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
-      this.camera.position.x =
-        (-this.maxValue - 1) * this.distanceBetweenCubes * 0.5;
-      this.camera.position.y = 40;
-      this.camera.position.z = 10;
-      this.scene.position.y = (-this.maxValue - 1) * 0.5;
-      this.renderer.setSize(this.winWidth, this.winHeight);
-      this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-
-      this.controls.minPolarAngle = this.minPolarAngle;
-      this.controls.maxPolarAngle = this.maxPolarAngle;
-
-      this.controls.minDistance = this.minDistance;
-      this.controls.maxDistance = this.maxDistance;
-
-      this.$refs.cube.appendChild(this.renderer.domElement);
     },
     buildGeometry() {
       const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -131,10 +65,6 @@ export default Vue.extend({
         mesh.name = value.spinalCase;
         this.scene.add(mesh);
       }
-
-      const size = this.maxValue * this.distanceBetweenCubes;
-      const divisions = 25;
-      this.gridHelper = new THREE.GridHelper(size, divisions);
 
       const red = this.createLine(
         "255,0,0",
@@ -235,24 +165,15 @@ export default Vue.extend({
     },
   },
   mounted() {
-    this.buildScene();
+    this.buildScene(
+      false,
+      { x: 0, y: 40, z: 0 },
+      { fov: 75, near: 0.1 },
+      { size: this.maxValue * this.distanceBetweenCubes, divisions: 25 }
+    );
+    this.scene.position.y = (-this.maxValue - 1) * 0.5;
     this.buildGeometry();
     this.render();
-  },
-  created() {
-    this.selection = this.$store.getters.getMeshSelection;
-    window.addEventListener("resize", this.resizeWindow);
-  },
-  watch: {
-    panel: function () {
-      this.resizeWindow();
-    },
-  },
-  beforeDestroy() {
-    this.render = () => {
-      // remove render loop
-    };
-    window.removeEventListener("resize", this.resizeWindow);
   },
 });
 </script>
