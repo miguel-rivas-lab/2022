@@ -38,7 +38,6 @@ export default Vue.extend({
   }),
   computed: {
     ...mapGetters({
-      theme: "getTheme",
       panel: "getPanelVisibility",
     }),
     panelsSize() {
@@ -93,7 +92,7 @@ export default Vue.extend({
         0.1,
         1000
       );
-      this.renderer = new THREE.WebGLRenderer({ antialias: true });
+      this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
       this.camera.position.x =
         (-this.maxValue - 1) * this.distanceBetweenCubes * 0.5;
@@ -245,9 +244,6 @@ export default Vue.extend({
     window.addEventListener("resize", this.resizeWindow);
   },
   watch: {
-    theme: function () {
-      this.switchThemes();
-    },
     panel: function () {
       this.resizeWindow();
     },
