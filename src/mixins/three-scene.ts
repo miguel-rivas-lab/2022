@@ -12,9 +12,6 @@ export default {
     renderer: undefined,
     gridHelper: undefined,
     selection: {},
-    sceneControls: function () {
-      this.zoom = 100;
-    },
   }),
   computed: {
     ...mapGetters({
@@ -54,6 +51,10 @@ export default {
         antialias: true,
         alpha: true,
       });
+      this.renderer.setSize(this.winWidth, this.winHeight);
+      this.camera.aspect = this.winWidth / this.winHeight;
+      this.camera.updateProjectionMatrix();
+
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
       this.controls.minPolarAngle = this.minPolarAngle;
@@ -67,8 +68,6 @@ export default {
       this.$refs.threeScene.appendChild(this.renderer.domElement);
 
       this.gridHelper = new THREE.GridHelper(grid.size, grid.divisions);
-
-      this.resizeWindow();
     },
     resizeWindow() {
       this.winHeight = window.innerHeight;

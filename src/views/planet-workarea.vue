@@ -23,15 +23,6 @@ export default Vue.extend({
   methods: {
     render() {
       this.renderCommon();
-      // if (this.controls) {
-      //   this.controls.update();
-      // }
-
-      // requestAnimationFrame(this.render);
-      // if (!this.selection.rotateY) {
-      //   this.scene.rotation.y += this.selection.sceneRotation * 0.01;
-      // }
-      // this.renderer.render(this.scene, this.camera);
     },
     buildGeometry() {
       const _VS = `
