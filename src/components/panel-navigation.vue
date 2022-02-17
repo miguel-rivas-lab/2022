@@ -106,7 +106,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters, mapMutations } from "vuex";
-import { linkGithub, linkLinkedin } from "../db/users";
+import { linkGithub, linkLinkedin } from "../db/user";
 
 export default Vue.extend({
   components: {},

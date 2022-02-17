@@ -8,7 +8,7 @@ import { type, typeEnum } from "@/enums/types";
 import { mount } from "@vue/test-utils";
 import Gallery from "@/components/gallery.vue";
 
-const users = {
+const user = {
   "name": "Jesus",
   "middleName": "Miguel",
   "lastName": "Rivas",
@@ -36,7 +36,7 @@ const users = {
   }
 };
 
-const linkWeb = (item) => `https://${users.media.github.production}.github.io/${item}`;
+const linkWeb = (item) => `https://${user.media.github.production}.github.io/${item}`;
 
 describe('Gallery component unit tests: ', () => {
   test('is a Vue instance', () => {

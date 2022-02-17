@@ -4,13 +4,13 @@ import { typeEnum } from "../enums/types";
 import { client, clientEnum } from "../enums/clients";
 import { ProjectFirebase } from "../interfaces/project-firebase";
 import { sortByDate } from "../modules/format-db";
-import { users } from "./users";
+import { user } from "./user";
 
 import h from "../modules/helpers";
 
-const linkWeb = (item) => `https://${users.media.github.production}.github.io/${item}`;
-const linkGithub = (item) => `https://github.com/${users.media.github.production}/${item}`;
-const linkCodepen = (item) => `https://codepen.io/${users.media.codepen.user}/pen/${item}`;
+const linkWeb = (item) => `https://${user.media.github.production}.github.io/${item}`;
+const linkGithub = (item) => `https://github.com/${user.media.github.production}/${item}`;
+const linkCodepen = (item) => `https://codepen.io/${user.media.codepen.user}/pen/${item}`;
 const linkVimeo = (id) => `https://player.vimeo.com/video/${id}`;
 
 type ProjectsType = Array<ProjectFirebase>;

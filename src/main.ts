@@ -19,7 +19,7 @@ import xml from "highlight.js/lib/languages/xml";
 //-- db
 import { projectsDB } from "./db/projects";
 import { groupsDB } from "./db/groups";
-import { users } from "./db/users";
+import { user } from "./db/user";
 
 // ---------------- Selection
 
@@ -57,7 +57,7 @@ new Vue({
   router,
   store,
   data: () => ({
-    user: users,
+    user: user,
     projects: formatRawDBToJSON(projectsDB.map(formatRawDBToFirebase)),
     groups: formatGroupsToProjects(groupsDB),
   }),

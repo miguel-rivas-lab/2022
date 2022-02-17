@@ -1,4 +1,4 @@
-const users = {
+const user = {
   "name": "Jesus",
   "middleName": "Miguel",
   "lastName": "Rivas",
@@ -27,7 +27,7 @@ const users = {
   }
 };
 
-const linkGithub = `https://github.com/${users.media.github.user}`;
-const linkLinkedin = `https://www.linkedin.com/in/${users.media.linkedin.user}`
+const linkGithub = `https://github.com/${user.media.github.user}`;
+const linkLinkedin = `https://www.linkedin.com/in/${user.media.linkedin.user}`
 
-export { users, linkGithub, linkLinkedin };
+export { user, linkGithub, linkLinkedin };

@@ -17,9 +17,9 @@ row.row-block(tag="fieldset")
 
     row
       column(size="100%")
-        label.btn.flat.charcoal(:class="{ active: selection.rotateY }")
+        label.btn.flat.charcoal(:class="{ active: selection.pause }")
           | Pause
-          input(type="checkbox", v-model="selection.rotateY")
+          input(type="checkbox", v-model="selection.pause")
 </template>
 
 <script lang="ts">
