@@ -20,6 +20,7 @@
     "mr-vue-color": "file:../../app_web_module_vue-color-fork",
     "nano-grid": "file:../../app_web_module_nanogrid",
     "three": "^0.131.3",
+    "unity-webgl": "^2.0.0",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.1",
     "vue-class-component": "^7.2.3",

@@ -16,6 +16,7 @@ import CssRouter from '../router/css';
 import ProjectsRouter from '../router/projects';
 import ThreeRouter from '../router/three';
 import GalleryRouter from '../router/gallery';
+import UnityRouter from '../router/unity';
 
 Vue.use(VueRouter);
 
@@ -32,14 +33,14 @@ const routes: Array<RouteConfig> = [
       panel: StargazePanelView,
     },
   },
-  {
-    name: 'css-study',
-    path: '/css-study',
-    components: {
-      workarea: CSSStudyWorkareaView,
-      panel: DefaultPanelView,
-    },
-  },
+  // {
+  //   name: 'css-study',
+  //   path: '/css-study',
+  //   components: {
+  //     workarea: CSSStudyWorkareaView,
+  //     panel: DefaultPanelView,
+  //   },
+  // },
   {
     name: 'colors',
     path: '/colors',
@@ -67,7 +68,8 @@ const routes: Array<RouteConfig> = [
   CssRouter,
   ProjectsRouter,  
   ThreeRouter,
-  GalleryRouter
+  GalleryRouter,
+  UnityRouter,
 ];
 
 const router = new VueRouter({

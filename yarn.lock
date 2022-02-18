@@ -10484,6 +10484,11 @@ unique-slug@^2.0.0:
   dependencies:
     imurmurhash "^0.1.4"
 
+unity-webgl@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/unity-webgl/-/unity-webgl-2.0.0.tgz#fc1a602b26b16d5fa64c9eea075a093b6f3fd3b5"
+  integrity sha512-YrNhJgmJndJUhRktmR34Q8WWYc4koPfMgf0rv4hIOzg79/AYMYRVrK/sPGfE9ww5fipHL68k+1BPBxk1GOCDqA==
+
 universalify@^0.1.0:
   version "0.1.2"
   resolved "https://registry.npmjs.org/universalify/-/universalify-0.1.2.tgz"
