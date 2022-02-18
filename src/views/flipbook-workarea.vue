@@ -7,10 +7,7 @@ import Vue from "vue";
 import * as THREE from "three";
 import ThreeScene from "../mixins/three-scene";
 import StudioLight from "../mixins/three-studio-light";
-
-function degToRad(deg) {
-  return deg * (Math.PI / 180);
-}
+import h from "../modules/helpers";
 
 export default Vue.extend({
   mixins: [ThreeScene, StudioLight],
@@ -19,8 +16,8 @@ export default Vue.extend({
     book: { type: String, default: "" },
   },
   data: () => ({
-    minPolarAngle: degToRad(75),
-    maxPolarAngle: degToRad(120),
+    minPolarAngle: 75 * h.rad,
+    maxPolarAngle: 120 * h.rad,
     minDistance: 7.5,
     maxDistance: 50,
     layers: [],

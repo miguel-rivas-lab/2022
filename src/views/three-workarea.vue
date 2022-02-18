@@ -7,10 +7,7 @@ import Vue from "vue";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import ThreeScene from "../mixins/three-scene";
 import StudioLight from "../mixins/three-studio-light";
-
-function degToRad(deg) {
-  return deg * (Math.PI / 180);
-}
+import h from "../modules/helpers";
 
 export default Vue.extend({
   mixins: [ThreeScene, StudioLight],
@@ -21,11 +18,11 @@ export default Vue.extend({
     },
     minPolarAngle: {
       type: Number,
-      default: degToRad(75),
+      default: 75 * h.rad,
     },
     maxPolarAngle: {
       type: Number,
-      default: degToRad(120),
+      default: 120 * h.rad,
     },
     minDistance: {
       type: Number,

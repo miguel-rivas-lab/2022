@@ -24,6 +24,8 @@ const helpers = {
     date = date.replace(/\//g, "");
     return `${date}_${client}`;
   },
+  rad: Math.PI / 180,
+  deg: 180 / Math.PI,
 }
 
 export default helpers;

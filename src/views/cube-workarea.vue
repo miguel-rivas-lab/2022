@@ -7,18 +7,15 @@ import Vue from "vue";
 import * as THREE from "three";
 import gColorsDB from "../db/wiki-colors";
 import ThreeScene from "../mixins/three-scene";
-
-function degToRad(deg) {
-  return deg * (Math.PI / 180);
-}
+import h from "../modules/helpers";
 
 export default Vue.extend({
   mixins: [ThreeScene],
   data: () => ({
     gColorsDB: gColorsDB,
     linesGroup: undefined,
-    minPolarAngle: degToRad(75),
-    maxPolarAngle: degToRad(120),
+    minPolarAngle: 75 * h.rad,
+    maxPolarAngle: 120 * h.rad,
     minDistance: 7.5,
     maxDistance: 500,
     distanceBetweenCubes: 1,

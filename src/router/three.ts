@@ -65,11 +65,11 @@ export default {
               name: "audio2",
               icon: "book",
             },
-            {
-              text: "Planet",
-              name: "planet",
-              icon: "",
-            },
+            // {
+            //   text: "Planet",
+            //   name: "planet",
+            //   icon: "",
+            // },
           ])
         }
       },
