@@ -578,7 +578,6 @@ export default Vue.extend({
           newScale,
       };
       this.stage.position(newPos);
-      this.stage.batchDraw();
     },
   },
 });
