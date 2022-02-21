@@ -9,7 +9,6 @@ import StargazeWorkareaView from '../views/stargaze-workarea.vue';
 import StargazePanelView from '../views/stargaze-panel.vue';
 import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
-import PixelWorkareaView from '../views/pixel-workarea.vue';
 
 import CanvasRouter from '../router/canvas';
 import CssRouter from '../router/css';
@@ -33,14 +32,7 @@ const routes: Array<RouteConfig> = [
       panel: StargazePanelView,
     },
   },
-  {
-    name: 'pixel',
-    path: '/pixel',
-    components: {
-      workarea: PixelWorkareaView,
-      panel: DefaultPanelView,
-    },
-  },
+  
   {
     name: 'colors',
     path: '/colors',

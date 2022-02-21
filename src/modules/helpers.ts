@@ -24,6 +24,21 @@ const helpers = {
     date = date.replace(/\//g, "");
     return `${date}_${client}`;
   },
+  spinalCase(label: string) {
+    return label
+      .replace(/[!,.*+?^${(|[\\})\]:]/g, '')
+      .replace(/&/g, 'and')
+      .trim()
+      .replace(/[ ]{1,}/g, "-")
+      .toLowerCase();
+  },
+  pascalCase(label: string) {
+    return label
+      .replace(/[!,.*+?^${(|[\\})\]:]/g, '')
+      .replace(/&/g, 'and')
+      .trim()
+      .replace(/[ ]{1,}/g, "");
+  },
   rad: Math.PI / 180,
   deg: 180 / Math.PI,
 }

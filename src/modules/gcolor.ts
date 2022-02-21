@@ -1,26 +1,34 @@
+import h from "./helpers";
+
 export class gColor {
   label: string;
   hex: string;
-  item?: string;
 
-  constructor(label: string, hex: string, item?: string) {
+  constructor(label: string, hex: string) {
     this.label = label;
     this.hex = hex;
-    this.item = item;
   }
 
-  get RGB() {
-    return {
-      red: parseInt(this.hex.substr(1, 2), 16),
-      green: parseInt(this.hex.substr(3, 2), 16),
-      blue: parseInt(this.hex.substr(5, 2), 16),
-    }
+  get opacity() {
+    return parseInt(this.hex.substr(7, 2), 16) * (100 / 255) || 100;
   }
 
-  get HSL() {
-    const r = this.RGB.red / 255,
-      g = this.RGB.green / 255,
-      b = this.RGB.blue / 255,
+  get red() {
+    return parseInt(this.hex.substr(1, 2), 16);
+  }
+
+  get green() {
+    return parseInt(this.hex.substr(3, 2), 16);
+  }
+
+  get blue() {
+    return parseInt(this.hex.substr(5, 2), 16);
+  }
+
+  HSL() {
+    const r = this.red / 255,
+      g = this.green / 255,
+      b = this.blue / 255,
       cmin = Math.min(r, g, b),
       cmax = Math.max(r, g, b),
       delta = cmax - cmin;
@@ -54,20 +62,30 @@ export class gColor {
     return { hue: h, saturation: s, lightness: l };
   }
 
+  get hue() {
+    return this.HSL().hue;
+  }
+
+  get saturation() {
+    return this.HSL().saturation;
+  }
+
+  get lightness() {
+    return this.HSL().lightness;
+  }
+
   get hsl() {
-    return `hsl(${this.HSL.hue}, ${this.HSL.saturation}%, ${this.HSL.lightness}%)`;
+    return `hsl(${this.hue}deg ${this.saturation}% ${this.lightness}% / ${this.opacity}%)`;
   }
 
   get rgb() {
-    return `rgb(${this.RGB.red}, ${this.RGB.green}, ${this.RGB.blue})`;
+    return `rgb(${this.red} ${this.green} ${this.blue} / ${this.opacity}%)`;
   }
 
   get spinalCase() {
-    return this.label
-      .replace(/[!,.*+?^${(|[\\})\]:]/g, '')
-      .replace(/&/g, 'and')
-      .trim()
-      .replace(/[ ]{1,}/g, "-")
-      .toLowerCase();
+    return h.spinalCase(this.label)
+  }
+  get pascalCase() {
+    return h.pascalCase(this.label)
   }
 }

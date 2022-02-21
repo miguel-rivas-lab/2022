@@ -11,6 +11,8 @@ import LocationsPanelView from '../views/locations-panel.vue';
 import LocationsWorkareaView from '../views/locations-workarea.vue';
 import AvatarWorkareaView from '../views/avatar-workarea.vue';
 import AvatarPanelView from '../views/avatar-panel.vue';
+import PixelWorkareaView from '../views/pixel-workarea.vue';
+import PixelPanelView from '../views/pixel-panel.vue';
 
 export default {
   name: 'canvas',
@@ -19,7 +21,7 @@ export default {
     workarea: Vue.extend({
       props: {
         defaultRoute: {
-          default: "locations"
+          default: "pixel"
         },
       },
       extends: NestedWorkareaView,
@@ -42,6 +44,11 @@ export default {
               icon: "person",
             },
             {
+              text: "Pixel Editor",
+              name: "pixel",
+              icon: "",
+            },
+            {
               text: "Gear Builder",
               name: "gear",
               icon: "cog-transfer-outline",
@@ -58,6 +65,14 @@ export default {
     }),
   },
   children: [
+    {
+      name: 'pixel',
+      path: '/pixel',
+      components: {
+        workarea2: PixelWorkareaView,
+        panel2: PixelPanelView,
+      },
+    },
     {
       name: 'locations',
       path: '/locations',

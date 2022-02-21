@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import { pixelColor } from "../modules/colors";
+
 import { modalState } from '../store/modal';
 import { avatarState } from '../store/avatar';
 import { threeState } from '../store/three';
@@ -24,6 +26,14 @@ export const store = new Vuex.Store({
       gridState,
       gearState,
       avatarState,
+      pixel: {
+        currentColor: {
+          label: pixelColor.Pumpkin.label,
+          pacalCase: pixelColor.Pumpkin.pascalCase,
+          rgb: pixelColor.Pumpkin.rgb,
+          active: true,
+        },
+      },
       locations: {
         mapCenter: {
           x: 0,
@@ -84,5 +94,6 @@ export const store = new Vuex.Store({
     getMeshSelection: state => state.selection.threeState,
     getProjects3DSelection: state => state.selection.projects3d,
     getAvatarSelection: state => state.selection.avatarState,
+    getPixelSelection: state => state.selection.pixel,
   }
 });

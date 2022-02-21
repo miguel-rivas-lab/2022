@@ -138,7 +138,6 @@ export default Vue.extend({
       { icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
       { icon: "robot-industrial", route: ["grid"] },
       { icon: "format-color-fill", route: ["colors"] },
-      { icon: "", route: ["pixel"] },
     ],
     linkGithub,
     linkLinkedin,
