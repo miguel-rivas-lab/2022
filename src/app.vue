@@ -17,7 +17,7 @@
           class="panel-ctrl"
           title="Toggle panel button"
           glyph="chevron"
-          :direction="panel ? 'right' : 'left'"
+          :direction="panel ? 'left' : 'right'"
           @click="toggleValue('panel'), playSound()"
           
         />

@@ -2,158 +2,119 @@
   <div ref="konvaContainer">
     <v-stage ref="stage" :config="konvaConfig" @wheel="zoom">
       <v-layer>
-        <v-rect
+        <ctrl
           @click="rotateLeftMatrix()"
-          @mouseover="mouseOverPixel($event)"
-          @mouseout="mouseOutPixel($event)"
-          :config="{
-            x: -1,
-            y: -1,
-            ...cornerCtrConfig,
-          }"
+          glyph="rotate-left"
+          :x="-1"
+          :y="-1"
+          :width="2"
+          :height="2"
         />
-        <v-text
-          ref="text1"
-          :config="{
-            x: -1,
-            y: -1,
-            width: 2,
-            height: 2,
-            fill: '#000',
-            align: 'center',
-            fontSize: 1.5,
-            fontFamily: 'icomoon',
-            lineHeight: 0,
-            verticalAlign: 'middle',
-            text: h.getIcon('rotate-left'),
-          }"
-        />
-        <v-rect
-          @click="reverseHorizontalMatrix()"
-          @mouseover="mouseOverPixel($event)"
-          @mouseout="mouseOutPixel($event)"
-          :config="{
-            x: gridSize + 1,
-            y: -1,
-            ...cornerCtrConfig,
-          }"
-        />
-        <v-rect
-          @click="reverseVerticalMatrix()"
-          @mouseover="mouseOverPixel($event)"
-          @mouseout="mouseOutPixel($event)"
-          :config="{
-            x: -1,
-            y: gridSize + 1,
-            ...cornerCtrConfig,
-          }"
-        />
-        <v-rect
+        <ctrl
           @click="rotateRightMatrix()"
-          @mouseover="mouseOverPixel($event)"
-          @mouseout="mouseOutPixel($event)"
-          :config="{
-            x: gridSize + 1,
-            y: gridSize + 1,
-            ...cornerCtrConfig,
-          }"
+          glyph="rotate-right"
+          :x="gridSize + 1"
+          :y="gridSize + 1"
+          :width="2"
+          :height="2"
+        />
+        <ctrl
+          @click="reverseHorizontalMatrix()"
+          glyph="swap"
+          :x="gridSize + 1"
+          :y="-1"
+          :width="2"
+          :height="2"
+        />
+        <ctrl
+          @click="reverseVerticalMatrix()"
+          glyph="swap"
+          :x="-1"
+          :y="gridSize + 1"
+          :width="2"
+          :height="2"
+          :rotation="90"
         />
       </v-layer>
       <v-layer>
-        <v-rect
+        <ctrl
           @click="moveMatrix(0, -1)"
-          @mouseover="mouseOverPixel($event)"
-          @mouseout="mouseOutPixel($event)"
-          :config="{
-            x: 1,
-            y: -1,
-            width: gridSize,
-            height: 1,
-            ...mainCtrConfig,
-          }"
+          glyph="chevron"
+          :x="1"
+          :y="-1"
+          :width="gridSize"
+          :height="1"
+          :rotation="180"
         />
-        <v-rect
+        <ctrl
           @click="moveMatrix(0, 1)"
-          @mouseover="mouseOverPixel($event)"
-          @mouseout="mouseOutPixel($event)"
-          :config="{
-            x: 1,
-            y: gridSize + 2,
-            width: gridSize,
-            height: 1,
-            ...mainCtrConfig,
-          }"
+          glyph="chevron"
+          :x="1"
+          :y="gridSize + 2"
+          :width="gridSize"
+          :height="1"
+          :rotation="0"
         />
-        <v-rect
+        <ctrl
           @click="moveMatrix(-1, 0)"
-          @mouseover="mouseOverPixel($event)"
-          @mouseout="mouseOutPixel($event)"
-          :config="{
-            x: -1,
-            y: 1,
-            width: 1,
-            height: gridSize,
-            ...mainCtrConfig,
-          }"
+          glyph="chevron"
+          :x="-1"
+          :y="1"
+          :width="1"
+          :height="gridSize"
+          :rotation="0"
         />
-        <v-rect
+        <ctrl
           @click="moveMatrix(1, 0)"
-          @mouseover="mouseOverPixel($event)"
-          @mouseout="mouseOutPixel($event)"
-          :config="{
-            x: gridSize + 2,
-            y: 1,
-            width: 1,
-            height: gridSize,
-            ...mainCtrConfig,
-          }"
+          glyph="chevron"
+          :x="gridSize + 2"
+          :y="1"
+          :width="1"
+          :height="gridSize"
+          :rotation="0"
         />
       </v-layer>
       <v-layer>
         <template v-for="pixel in gridSize">
-          <v-rect
-            v-bind:key="`buttonTop${pixel}`"
+          <ctrl
             @click="moveLine('top', pixel)"
-            @mouseover="mouseOverPixel($event)"
-            @mouseout="mouseOutPixel($event)"
-            :config="{
-              x: pixel,
-              y: 0,
-              ...ctrConfig,
-            }"
+            v-bind:key="`buttonTop${pixel}`"
+            glyph="chevron"
+            :x="pixel"
+            :y="0"
+            :width="1"
+            :height="1"
+            :rotation="0"
           />
-          <v-rect
-            v-bind:key="`buttonBottom${pixel}`"
+          <ctrl
             @click="moveLine('bottom', pixel)"
-            @mouseover="mouseOverPixel($event)"
-            @mouseout="mouseOutPixel($event)"
-            :config="{
-              x: pixel,
-              y: gridSize + 1,
-              ...ctrConfig,
-            }"
+            v-bind:key="`buttonBottom${pixel}`"
+            glyph="chevron"
+            :x="pixel"
+            :y="gridSize + 1"
+            :width="1"
+            :height="1"
+            :rotation="0"
           />
-          <v-rect
-            v-bind:key="`buttonLeft${pixel}`"
+          <ctrl
             @click="moveLine('left', pixel)"
-            @mouseover="mouseOverPixel($event)"
-            @mouseout="mouseOutPixel($event)"
-            :config="{
-              x: 0,
-              y: pixel,
-              ...ctrConfig,
-            }"
+            v-bind:key="`buttonLeft${pixel}`"
+            glyph="chevron"
+            :x="0"
+            :y="pixel"
+            :width="1"
+            :height="1"
+            :rotation="0"
           />
-          <v-rect
+          <ctrl
             v-bind:key="`buttonRight${pixel}`"
             @click="moveLine('right', pixel)"
-            @mouseover="mouseOverPixel($event)"
-            @mouseout="mouseOutPixel($event)"
-            :config="{
-              x: gridSize + 1,
-              y: pixel,
-              ...ctrConfig,
-            }"
+            glyph="chevron"
+            :x="gridSize + 1"
+            :y="pixel"
+            :width="1"
+            :height="1"
+            :rotation="0"
           />
         </template>
       </v-layer>
@@ -189,12 +150,11 @@
 import Vue from "vue";
 import { mapGetters } from "vuex";
 import { pixelColor } from "../modules/colors";
-import h from "../modules/helpers";
+import ctrl from "../components/pixel-controller.vue";
 
 export default Vue.extend({
-  components: {},
+  components: { ctrl },
   data: () => ({
-    h,
     pixelColor,
     selection: {},
     konvaConfig: { width: 0, height: 0, draggable: true },

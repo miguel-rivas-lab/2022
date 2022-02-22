@@ -28,12 +28,9 @@ scroll-area(color="royal-purple")
 
       row
         column(size="100%")
-          row
-            column(size="100%")
-              btn(text="Open Image", color="gold-tips", @click="openImage()")
-            column(size="100%")
-              input(type="file", ref="file", style="display: none")
-              button(@click="$refs.file.click()") open file dialog
+          label.btn.flat.gold-tips
+            | Open Image
+            input(type="file", ref="file", style="display: none")
 
       row
         column(size="100%")
@@ -82,27 +79,6 @@ export default Vue.extend({
       this.selection.currentColor = color;
     },
     openImage() {
-      const arr = this.selection.pixelGrid.map((y) =>
-        y.map((x) => x.pascalCase)
-      );
-      const jsData = JSON.stringify(arr);
-      const filename = "image.js";
-
-      let blob = new Blob([jsData], { type: "text/plain;charset=utf-8;" });
-      if (navigator.msSaveBlob) {
-        navigator.msSaveBlob(blob, filename);
-      } else {
-        let link = document.createElement("a");
-        if (link.download !== undefined) {
-          let url = URL.createObjectURL(blob);
-          link.setAttribute("href", url);
-          link.setAttribute("download", filename);
-          link.style.visibility = "hidden";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        }
-      }
     },
     saveImage() {
       const arr = this.selection.pixelGrid.map((y) =>
