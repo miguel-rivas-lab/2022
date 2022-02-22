@@ -45,11 +45,11 @@ export default Vue.extend({
       const geometry = new THREE.BoxGeometry(1, 1, 1);
 
       for (const value of gColorsDB) {
-        let x = value.RGB.red;
-        let y = value.RGB.green;
-        let z = value.RGB.blue;
+        let x = value.red;
+        let y = value.green;
+        let z = value.blue;
         let material = new THREE.MeshBasicMaterial({
-          color: value.rgb,
+          color: value.hex,
         });
         let mesh = new THREE.Mesh(geometry, material);
         mesh.position.x =
