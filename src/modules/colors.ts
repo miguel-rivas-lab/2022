@@ -35,7 +35,7 @@ export const gColorsDB = [
 ];
 
 export const pixelColor = {
-  Empty: new gColor('Empty', '#5a5a5a0a'),
+  Empty: new gColor('Empty', '#5a5a5a19'),
   RaisinBlack: new gColor('Raisin Black', '#27232a'),
   BrightGrey: new gColor('Bright Grey', "#efefef"),
   Periwinkle: new gColor('Periwinkle', '#c4d3ec'),

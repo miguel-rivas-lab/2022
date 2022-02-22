@@ -7,13 +7,18 @@ row.row-block(tag="fieldset")
       column(size="100%")
         label(for="height") Open Book
       column(size="100%")
-        input#height.cobalt-blue(
-          type="range",
-          min="0.01",
-          max="1",
-          step="0.01",
-          v-model="selection.bookletOpening"
-        )
+
+        row(group, integrate)
+          column(size="100%-60")
+            input#height.cobalt-blue(
+              type="range",
+              min="0.01",
+              max="1",
+              step="0.01",
+              v-model="selection.bookletOpening"
+            )
+          column(size="60")
+            p.input-label {{ selection.bookletOpening }}
 
     number-input#outter-circle-radius(
       :value="selection.sceneRotation",

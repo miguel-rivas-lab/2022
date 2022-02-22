@@ -27,9 +27,10 @@ export const store = new Vuex.Store({
       gearState,
       avatarState,
       pixel: {
+        gridSize: 32,
         currentColor: {
           label: pixelColor.Pumpkin.label,
-          pacalCase: pixelColor.Pumpkin.pascalCase,
+          pascalCase: pixelColor.Pumpkin.pascalCase,
           rgb: pixelColor.Pumpkin.rgb,
           active: true,
         },
@@ -80,6 +81,7 @@ export const store = new Vuex.Store({
     },
   },
   getters: {
+    getGridSize: state => parseFloat(state.selection.pixel.gridSize),
     getPanelVisibility: state => state.panel,
     getPanelSize: state => state.panelSize,
     getTheme: state => state.theme,
