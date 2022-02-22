@@ -33,7 +33,7 @@ export default {
             {
               text: "Color Cube",
               name: "cube",
-              icon: "cube-outline",
+              icon: "cube",
             },
             {
               text: "Spirit",
@@ -43,17 +43,17 @@ export default {
             {
               text: "Drakkar",
               name: "drakkar",
-              icon: "sail-boat",
+              icon: "boat",
             },
             {
               text: "Car",
               name: "car",
-              icon: "directions_car",
+              icon: "car",
             },
             {
               text: "X-wing",
               name: "xwing",
-              icon: "rocket-launch",
+              icon: "rocket",
             },
             {
               text: "Portfolio 2017",

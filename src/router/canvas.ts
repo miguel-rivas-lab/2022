@@ -46,12 +46,12 @@ export default {
             {
               text: "Pixel Editor",
               name: "pixel",
-              icon: "",
+              icon: "category",
             },
             {
               text: "Gear Builder",
               name: "gear",
-              icon: "cog-transfer-outline",
+              icon: "cog",
             },
             {
               text: "Color Wheel",

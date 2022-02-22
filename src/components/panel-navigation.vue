@@ -92,7 +92,7 @@
               size="md"
               title="Toggle theme button"
               v-nano-tooltip.right="'Toggle Theme'"
-              glyph="brightness-4"
+              glyph="brightness"
               @click="toggleValue('theme'), playSound()"
               :active="!theme"
             />
@@ -118,11 +118,11 @@ export default Vue.extend({
     ],
     navigationBuilder: [
       {
-        icon: "sensor_window",
+        icon: "window",
         route: ["canvas", "locations", "avatar", "gear", "wheel"],
       },
       {
-        icon: "open-with",
+        icon: "move",
         route: [
           "threejs",
           "cube",
@@ -136,8 +136,8 @@ export default Vue.extend({
       },
       { icon: "unity", route: ["unity", "kaspar", "iqra"] },
       { icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
-      { icon: "robot-industrial", route: ["grid"] },
-      { icon: "format-color-fill", route: ["colors"] },
+      { icon: "robot", route: ["grid"] },
+      { icon: "color", route: ["colors"] },
     ],
     linkGithub,
     linkLinkedin,

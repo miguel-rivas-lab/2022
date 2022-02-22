@@ -1,43 +1,45 @@
 $icons: (
-  "css3": "\e908",
-  "movie": "\e907",
-  "gps-fixed": "\e905",
-  "format_list_bulleted": "\e90c",
-  "collections": "\e901",
-  "chevron-left": "\e903",
-  "chevron-right": "\e904",
-  "directions_bus": "\e909",
-  "directions_car": "\e90d",
-  "open-with": "\e902",
-  "search": "\e906",
-  "medical_services": "\e90a",
-  "sensor_window": "\e90b",
-  "monster": "\e900",
-  "airplane": "\f001d",
-  "brightness-4": "\f00dd",
-  "chart-areaspline": "\f0127",
-  "chevron-down": "\f0140",
-  "chevron-up": "\f0143",
-  "close": "\f0156",
-  "cube-outline": "\f01a7",
-  "duck": "\f01e5",
-  "format-color-fill": "\f0266",
-  "github": "\f02a4",
-  "home": "\f02dc",
-  "linkedin": "\f033b",
-  "minus": "\f0374",
-  "palette": "\f03d8",
-  "plus": "\f0415",
-  "robot-industrial": "\f0b46",
-  "sail-boat": "\f0ec8",
-  "cog-transfer-outline": "\f105c",
-  "rocket-launch": "\f14de",
-  "chair-school": "\f0125",
-  "person": "\e90e",
-  "book": "\e90f",
-  "snowflake": "\e912",
-  "unity": "\e910",
-  "leaf": "\e911",
+  "snowflake": "\a001",
+  "unity": "\a002",
+  "monster": "\a000",
+  "airplane": "\a003",
+  "brightness": "\a004",
+  "chair-school": "\a005",
+  "chart": "\a006",
+  "chevron": "\a007",
+  "close": "\a008",
+  "cube": "\a009",
+  "duck": "\a010",
+  "color": "\a011",
+  "github": "\a012",
+  "home": "\a013",
+  "linkedin": "\a014",
+  "minus": "\a015",
+  "palette": "\a016",
+  "plus": "\a017",
+  "robot": "\a018",
+  "boat": "\a019",
+  "cog": "\a020",
+  "rocket": "\a021",
+  "leaf": "\a022",
+  "book": "\a023",
+  "css3": "\a024",
+  "movie": "\a025",
+  "gps-fixed": "\a026",
+  "list": "\a027",
+  "collections": "\a028",
+  "rotate-left": "\a029",
+  "rotate-right": "\a030",
+  "bus": "\a031",
+  "car": "\a032",
+  "category": "\a033",
+  "person": "\a034",
+  "move": "\a035",
+  "search": "\a036",
+  "swap": "\a037",
+  "rotate": "\a038",
+  "medical": "\a039",
+  "window": "\a040",
 );
 
 @font-face {
@@ -51,7 +53,7 @@ $icons: (
   font-display: block;
 }
 
-.mdi {
+.icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "icomoon" !important;
   speak: never;
@@ -65,9 +67,29 @@ $icons: (
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  &:before {
+    display: inline-block;
+  }
+
+  &.left:before {
+    transform: rotate(90deg);
+  }
+
+  &.up:before {
+    transform: rotate(180deg);
+  }
+
+  &.right:before {
+    transform: rotate(270deg);
+  }
+
   @each $name, $value in $icons {
-    &-#{$name}:before {
+    &.#{$name}:before {
       content: $value;
     }
   }
+}
+
+@function g-icon($key){
+  @return map-get($icons, $key);
 }

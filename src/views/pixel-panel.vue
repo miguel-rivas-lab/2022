@@ -18,7 +18,28 @@ scroll-area(color="royal-purple")
                 v-model="selection.gridSize"
               )
             column(size="60")
-              p.input-label {{selection.gridSize}}
+              p.input-label {{ selection.gridSize }}
+
+      row
+        column(size="100%")
+          row
+            column(size="100%")
+              btn(text="New Image", color="gold-tips")
+
+      row
+        column(size="100%")
+          row
+            column(size="100%")
+              btn(text="Open Image", color="gold-tips", @click="openImage()")
+            column(size="100%")
+              input(type="file", ref="file", style="display: none")
+              button(@click="$refs.file.click()") open file dialog
+
+      row
+        column(size="100%")
+          row
+            column(size="100%")
+              btn(text="Save Image", color="gold-tips", @click="saveImage()")
 
       row.palette
         column(size="100%")
@@ -59,6 +80,52 @@ export default Vue.extend({
       this.selection.currentColor.active = false;
       this.palette[color.pascalCase].active = true;
       this.selection.currentColor = color;
+    },
+    openImage() {
+      const arr = this.selection.pixelGrid.map((y) =>
+        y.map((x) => x.pascalCase)
+      );
+      const jsData = JSON.stringify(arr);
+      const filename = "image.js";
+
+      let blob = new Blob([jsData], { type: "text/plain;charset=utf-8;" });
+      if (navigator.msSaveBlob) {
+        navigator.msSaveBlob(blob, filename);
+      } else {
+        let link = document.createElement("a");
+        if (link.download !== undefined) {
+          let url = URL.createObjectURL(blob);
+          link.setAttribute("href", url);
+          link.setAttribute("download", filename);
+          link.style.visibility = "hidden";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      }
+    },
+    saveImage() {
+      const arr = this.selection.pixelGrid.map((y) =>
+        y.map((x) => x.pascalCase)
+      );
+      const jsData = JSON.stringify(arr);
+      const filename = "image.js";
+
+      let blob = new Blob([jsData], { type: "text/plain;charset=utf-8;" });
+      if (navigator.msSaveBlob) {
+        navigator.msSaveBlob(blob, filename);
+      } else {
+        let link = document.createElement("a");
+        if (link.download !== undefined) {
+          let url = URL.createObjectURL(blob);
+          link.setAttribute("href", url);
+          link.setAttribute("download", filename);
+          link.style.visibility = "hidden";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      }
     },
   },
 });

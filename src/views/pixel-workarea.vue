@@ -12,6 +12,22 @@
             ...cornerCtrConfig,
           }"
         />
+        <v-text
+          ref="text1"
+          :config="{
+            x: -1,
+            y: -1,
+            width: 2,
+            height: 2,
+            fill: '#000',
+            align: 'center',
+            fontSize: 1.5,
+            fontFamily: 'icomoon',
+            lineHeight: 0,
+            verticalAlign: 'middle',
+            text: `${String.fromCharCode(hexToDec('e900'))}`,
+          }"
+        />
         <v-rect
           @click="reverseHorizontalMatrix()"
           @mouseover="mouseOverPixel($event)"
@@ -178,7 +194,6 @@ export default Vue.extend({
   components: {},
   data: () => ({
     pixelColor,
-    pixelGrid: [],
     selection: {},
     konvaConfig: { width: 0, height: 0, draggable: true },
     ctrConfig: {
@@ -244,8 +259,14 @@ export default Vue.extend({
     currentColor() {
       return this.selection.currentColor;
     },
+    pixelGrid() {
+      return this.selection.pixelGrid;
+    },
   },
   methods: {
+    hexToDec(icon) {
+      return parseInt(icon, 16);
+    },
     mouseOverPixel(event) {
       event.target.opacity(0.2);
     },
@@ -253,64 +274,72 @@ export default Vue.extend({
       event.target.opacity(1);
     },
     rotateLeftMatrix() {
-      const currentMatrix = this.pixelGrid.map((y) => y.map((x) => x));
+      const currentMatrix = this.selection.pixelGrid.map((y) =>
+        y.map((x) => x)
+      );
       const maxValue = this.gridSize - 1;
       const minValue = 0;
 
       for (let y = minValue; y <= maxValue; y++) {
         for (let x = minValue; x <= maxValue; x++) {
-          currentMatrix[y][x] = this.pixelGrid[x][maxValue - y];
+          currentMatrix[y][x] = this.selection.pixelGrid[x][maxValue - y];
           this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
             currentMatrix[y][x].rgb;
         }
       }
 
-      this.pixelGrid = currentMatrix;
+      this.selection.pixelGrid = currentMatrix;
     },
     rotateRightMatrix() {
-      const currentMatrix = this.pixelGrid.map((y) => y.map((x) => x));
+      const currentMatrix = this.selection.pixelGrid.map((y) =>
+        y.map((x) => x)
+      );
       const maxValue = this.gridSize - 1;
       const minValue = 0;
 
       for (let y = minValue; y <= maxValue; y++) {
         for (let x = minValue; x <= maxValue; x++) {
-          currentMatrix[y][x] = this.pixelGrid[maxValue - x][y];
+          currentMatrix[y][x] = this.selection.pixelGrid[maxValue - x][y];
           this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
             currentMatrix[y][x].rgb;
         }
       }
 
-      this.pixelGrid = currentMatrix;
+      this.selection.pixelGrid = currentMatrix;
     },
     reverseHorizontalMatrix() {
-      const currentMatrix = this.pixelGrid.map((y) => y.map((x) => x));
+      const currentMatrix = this.selection.pixelGrid.map((y) =>
+        y.map((x) => x)
+      );
       const maxValue = this.gridSize - 1;
       const minValue = 0;
 
       for (let y = minValue; y <= maxValue; y++) {
         for (let x = minValue; x <= maxValue; x++) {
-          currentMatrix[y][x] = this.pixelGrid[y][maxValue - x];
+          currentMatrix[y][x] = this.selection.pixelGrid[y][maxValue - x];
           this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
             currentMatrix[y][x].rgb;
         }
       }
 
-      this.pixelGrid = currentMatrix;
+      this.selection.pixelGrid = currentMatrix;
     },
     reverseVerticalMatrix() {
-      const currentMatrix = this.pixelGrid.map((y) => y.map((x) => x));
+      const currentMatrix = this.selection.pixelGrid.map((y) =>
+        y.map((x) => x)
+      );
       const maxValue = this.gridSize - 1;
       const minValue = 0;
 
       for (let y = minValue; y <= maxValue; y++) {
         for (let x = minValue; x <= maxValue; x++) {
-          currentMatrix[y][x] = this.pixelGrid[maxValue - y][x];
+          currentMatrix[y][x] = this.selection.pixelGrid[maxValue - y][x];
           this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
             currentMatrix[y][x].rgb;
         }
       }
 
-      this.pixelGrid = currentMatrix;
+      this.selection.pixelGrid = currentMatrix;
     },
     moveMatrix(x, y) {
       // const firstRowColor = [];
@@ -327,86 +356,97 @@ export default Vue.extend({
       //     firstRowColor.push(
       //       this.stage.find(`#px${cx}y${loopBegin}`)[0].attrs.fill
       //     );
-      //     firstValue.push(this.pixelGrid[loopBegin][cx]);
+      //     firstValue.push(this.selection.pixelGrid[loopBegin][cx]);
       //   }
       //   for (let cy = minValue + 1; cy <= maxValue; cy++) {
       //     const cty = (loopBegin - cy) * y;
-      //     if (this.pixelGrid[cty] && this.pixelGrid[cty + inc]) {
+      //     if (this.selection.pixelGrid[cty] && this.selection.pixelGrid[cty + inc]) {
       //       for (let cx = 0; cx < maxValue; cx++) {
       //         this.stage.find(`#px${cx}y${cty + inc}`)[0].attrs.fill =
-      //           this.pixelGrid[cty][cx].rgb;
-      //         this.pixelGrid[cty + inc][cx] = this.pixelGrid[cty][cx];
+      //           this.selection.pixelGrid[cty][cx].rgb;
+      //         this.selection.pixelGrid[cty + inc][cx] = this.selection.pixelGrid[cty][cx];
       //       }
       //     }
       //   }
       //   // for (let cx = 0; cx < this.gridSize - 1; cx++) {
       //   //   this.stage.find(`#px${cx}y${this.gridSize - 1}`)[0].attrs.fill =
       //   //     firstRowColor[cx];
-      //   //   this.pixelGrid[this.gridSize - 1][cx] = firstValue[cx];
+      //   //   this.selection.pixelGrid[this.gridSize - 1][cx] = firstValue[cx];
       //   // }
       // }
     },
     moveLine(direction, position = 0) {
       if (direction === "top") {
-        const firstValue = this.pixelGrid[0][position - 1];
+        const firstValue = this.selection.pixelGrid[0][position - 1];
+        const firstRowColor = this.stage.find(`#px${position - 1}y${0}`)[0]
+          .attrs.fill;
         for (let y = 1; y < this.gridSize; y++) {
           this.stage.find(`#px${position - 1}y${y - 1}`)[0].attrs.fill =
-            this.pixelGrid[y][position - 1].rgb;
-          this.pixelGrid[y - 1][position - 1] = this.pixelGrid[y][position - 1];
+            this.stage.find(`#px${position - 1}y${y}`)[0].attrs.fill;
+          this.selection.pixelGrid[y - 1][position - 1] =
+            this.selection.pixelGrid[y][position - 1];
         }
         this.stage.find(
           `#px${position - 1}y${this.gridSize - 1}`
-        )[0].attrs.fill = firstValue.rgb;
-        this.pixelGrid[this.gridSize - 1][position - 1] = firstValue;
+        )[0].attrs.fill = firstRowColor;
+        this.selection.pixelGrid[this.gridSize - 1][position - 1] = firstValue;
       }
 
       if (direction === "bottom") {
-        const firstValue = this.pixelGrid[this.gridSize - 1][position - 1];
+        const firstValue =
+          this.selection.pixelGrid[this.gridSize - 1][position - 1];
+        const firstRowColor = this.stage.find(
+          `#px${position - 1}y${this.gridSize - 1}`
+        )[0].attrs.fill;
         for (let y = this.gridSize - 1; y > 0; y--) {
           this.stage.find(`#px${position - 1}y${y}`)[0].attrs.fill =
-            this.pixelGrid[y - 1][position - 1].rgb;
-          this.pixelGrid[y][position - 1] = this.pixelGrid[y - 1][position - 1];
+            this.stage.find(`#px${position - 1}y${y - 1}`)[0].attrs.fill;
+          this.selection.pixelGrid[y][position - 1] =
+            this.selection.pixelGrid[y - 1][position - 1];
         }
         this.stage.find(`#px${position - 1}y${0}`)[0].attrs.fill =
-          firstValue.rgb;
-        this.pixelGrid[0][position - 1] = firstValue;
+          firstRowColor;
+        this.selection.pixelGrid[0][position - 1] = firstValue;
       }
 
       if (direction === "left") {
-        const firstValue = this.pixelGrid[position - 1][0];
+        const firstValue = this.selection.pixelGrid[position - 1][0];
         const firstRowColor = this.stage.find(`#px${0}y${position - 1}`)[0]
           .attrs.fill;
         for (let x = 1; x < this.gridSize; x++) {
           this.stage.find(`#px${x - 1}y${position - 1}`)[0].attrs.fill =
             this.stage.find(`#px${x}y${position - 1}`)[0].attrs.fill;
-          this.pixelGrid[position - 1][x - 1] = this.pixelGrid[position - 1][x];
+          this.selection.pixelGrid[position - 1][x - 1] =
+            this.selection.pixelGrid[position - 1][x];
         }
         this.stage.find(
           `#px${this.gridSize - 1}y${position - 1}`
         )[0].attrs.fill = firstRowColor;
-        this.pixelGrid[position - 1][this.gridSize - 1] = firstValue;
+        this.selection.pixelGrid[position - 1][this.gridSize - 1] = firstValue;
       }
 
       if (direction === "right") {
+        const firstValue =
+          this.selection.pixelGrid[position - 1][this.gridSize - 1];
         const firstRowColor = this.stage.find(
           `#px${this.gridSize - 1}y${position - 1}`
         )[0].attrs.fill;
-        const firstValue = this.pixelGrid[position - 1][0];
         for (let x = this.gridSize - 1; x > 0; x--) {
           this.stage.find(`#px${x}y${position - 1}`)[0].attrs.fill =
             this.stage.find(`#px${x - 1}y${position - 1}`)[0].attrs.fill;
-          this.pixelGrid[x][position - 1] = this.pixelGrid[position - 1][x - 1];
+          this.selection.pixelGrid[x][position - 1] =
+            this.selection.pixelGrid[position - 1][x - 1];
         }
         this.stage.find(`#px${0}y${position - 1}`)[0].attrs.fill =
           firstRowColor;
-        this.pixelGrid[position - 1][0] = firstValue;
+        this.selection.pixelGrid[position - 1][0] = firstValue;
       }
     },
     updateMatrix() {
       for (let y = 0; y < this.gridSize; y++) {
-        this.pixelGrid[y] = new Array(this.gridSize);
+        this.selection.pixelGrid[y] = new Array(this.gridSize);
         for (let x = 0; x < this.gridSize; x++) {
-          this.pixelGrid[y][x] = pixelColor.Empty;
+          this.selection.pixelGrid[y][x] = pixelColor.Empty;
         }
       }
     },
@@ -424,7 +464,7 @@ export default Vue.extend({
     // },
     paintColor(x, y, event) {
       const el = event.target;
-      this.pixelGrid[y][x] = this.currentColor;
+      this.selection.pixelGrid[y][x] = this.currentColor;
       el.attrs.fill = this.currentColor.rgb;
     },
     updateCanvas: function () {

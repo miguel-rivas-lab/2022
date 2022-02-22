@@ -28,6 +28,7 @@ export const store = new Vuex.Store({
       avatarState,
       pixel: {
         gridSize: 32,
+        pixelGrid: [],
         currentColor: {
           label: pixelColor.Pumpkin.label,
           pascalCase: pixelColor.Pumpkin.pascalCase,
@@ -97,5 +98,6 @@ export const store = new Vuex.Store({
     getProjects3DSelection: state => state.selection.projects3d,
     getAvatarSelection: state => state.selection.avatarState,
     getPixelSelection: state => state.selection.pixel,
+    getPixelGridSelection: state => state.selection.pixel.pixelGrid,
   }
 });

@@ -35,17 +35,17 @@ export default {
             {
               text: "Window",
               name: "window",
-              icon: "sensor_window",
+              icon: "window",
             },
             {
               text: "Minivan",
               name: "minivan",
-              icon: "directions_bus",
+              icon: "bus",
             },
             {
               text: "Pills",
               name: "pills",
-              icon: "medical_services",
+              icon: "medical",
             },
           ])
         }

@@ -29,12 +29,12 @@ export default {
             {
               text: "List",
               name: "list",
-              icon: "format_list_bulleted",
+              icon: "list",
             },
             {
               text: "Statistics",
               name: "statistics",
-              icon: "chart-areaspline",
+              icon: "chart",
             },
           ])
         }

@@ -3,7 +3,8 @@
     <slot name="header"/>
     <t-suffix size="35">
       <btn
-        :glyph="showData ? 'chevron-up' : 'chevron-down'"
+        glyph="chevron"
+        :direction="showData ? 'up' : 'down'"
         :active="showData"
         @click="toggleDataView()"
         color="elf-green"
