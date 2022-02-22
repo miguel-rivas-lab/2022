@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+import { icons } from "../db/icons";
 
 const initialDate = { years: 1990, months: 5, days: 5, hours: 13, };
 
@@ -38,6 +39,12 @@ const helpers = {
       .replace(/&/g, 'and')
       .trim()
       .replace(/[ ]{1,}/g, "");
+  },
+  getIcon(icon) {
+    return String.fromCharCode(this.hexToDec(icons[icon]));
+  },
+  hexToDec(icon) {
+    return parseInt(icon, 16);
   },
   rad: Math.PI / 180,
   deg: 180 / Math.PI,

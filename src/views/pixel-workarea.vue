@@ -25,7 +25,7 @@
             fontFamily: 'icomoon',
             lineHeight: 0,
             verticalAlign: 'middle',
-            text: `${String.fromCharCode(hexToDec('e900'))}`,
+            text: h.getIcon('rotate-left'),
           }"
         />
         <v-rect
@@ -189,10 +189,12 @@
 import Vue from "vue";
 import { mapGetters } from "vuex";
 import { pixelColor } from "../modules/colors";
+import h from "../modules/helpers";
 
 export default Vue.extend({
   components: {},
   data: () => ({
+    h,
     pixelColor,
     selection: {},
     konvaConfig: { width: 0, height: 0, draggable: true },
@@ -264,9 +266,6 @@ export default Vue.extend({
     },
   },
   methods: {
-    hexToDec(icon) {
-      return parseInt(icon, 16);
-    },
     mouseOverPixel(event) {
       event.target.opacity(0.2);
     },
