@@ -3,8 +3,8 @@ row
   column(size="100%", v-if="label")
     label(:for="$attrs.id", v-html="label")
   column(size="100%")
-    row(group, integrate)
-      column(size="100%-60")
+    row.nano-slider(group, integrate)
+      column(size="100%-40")
         input(
           :class="color",
           v-bind="$attrs",
@@ -12,8 +12,14 @@ row
           v-model="val",
           @change="updateValue()"
         )
-      column(size="60")
-        p.input-label {{ val }}
+      suffix(size="40")
+        input(
+          type="number",
+          :min="$attrs.min",
+          :max="$attrs.max",
+          v-model="val",
+          @change="updateValue()"
+        )
 </template>
 
 <script lang="ts">
@@ -32,7 +38,7 @@ export default Vue.extend({
     label: {
       type: String,
       default: undefined,
-    }
+    },
   },
   data: () => ({
     val: 0,

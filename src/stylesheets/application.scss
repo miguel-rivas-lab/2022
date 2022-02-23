@@ -234,3 +234,24 @@ main {
     }
   }
 }
+
+/*------------------------*/
+
+.nano-row {
+  &.nano-slider.nano-group.integrate {
+    border: transparent;
+    > .column {
+      > input[type="range"] {
+        padding: 0 0.5rem;
+        width: 100%;
+        background: var(--color-background-input);
+      }
+    }
+    > .suffix {
+      > input {
+        padding-right: 0.25rem;
+        text-align: center;
+      }
+    }
+  }
+}

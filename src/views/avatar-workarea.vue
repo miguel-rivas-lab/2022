@@ -548,7 +548,7 @@ export default Vue.extend({
     zoom(event) {
       const scale = 0.75;
       const maxZoom = 600 / 100;
-      const minZoom = 50 / 100;
+      const minZoom = 1 / 100;
 
       event.evt.preventDefault();
       let oldScale = this.stage.scaleX();
