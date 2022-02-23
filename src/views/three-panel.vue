@@ -3,10 +3,13 @@ row.row-block(tag="fieldset")
   column(size="100%")
     legend Scene Controllers
 
-    number-input#outter-circle-radius(
-      :value="selection.sceneRotation",
+    slider#rotation(
       label="Rotation",
-      v-on:update-value="updateSpeed($event)"
+      min="-20",
+      max="20",
+      step="0.01",
+      v-on:update-value="updateVal('sceneRotation', $event)",
+      :value="selection.sceneRotation"
     )
 
     row
@@ -24,18 +27,15 @@ row.row-block(tag="fieldset")
 
 <script lang="ts">
 import Vue from "vue";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   data: () => ({
     selection: {},
   }),
   created() {
     this.selection = this.$store.getters.getMeshSelection;
-  },
-  methods: {
-    updateSpeed(newVal) {
-      this.selection.sceneRotation = parseInt(newVal);
-    },
   },
 });
 </script>

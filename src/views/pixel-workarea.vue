@@ -27,8 +27,6 @@
             :rotation="90"
           />
         </v-group>
-      </v-layer>
-      <v-layer>
         <v-group @click="moveMatrix(0, -1)">
           <ctrl
             glyph="chevron"
@@ -73,8 +71,6 @@
             :offsetY="(gridSize - 1) * 0.5"
           />
         </v-group>
-      </v-layer>
-      <v-layer>
         <template v-for="pixel in gridSize">
           <v-group
             v-bind:key="`buttonTop${pixel}`"
@@ -129,9 +125,6 @@
             />
           </v-group>
         </template>
-      </v-layer>
-
-      <v-layer>
         <template v-for="(row, y) in pixelGrid">
           <template v-for="(color, x) in row">
             <v-rect
@@ -313,38 +306,38 @@ export default Vue.extend({
       this.selection.pixelGrid = currentMatrix;
     },
     moveMatrix(x, y) {
-      // const firstRowColor = [];
-      // const firstValue = [];
-      // const maxValue = this.gridSize - 1;
-      // const minValue = 0;
-      // if (true) {
-      //   const loopBegin = y > 0 ? maxValue : minValue;
-      //   const loopEnd = y > 0 ? minValue : maxValue;
-      //   const inc = -y;
-      //   console.clear();
-      //   console.log({ x, y, loopBegin, loopEnd, inc });
-      //   for (let cx = minValue; cx <= maxValue; cx++) {
-      //     firstRowColor.push(
-      //       this.stage.find(`#px${cx}y${loopBegin}`)[0].attrs.fill
-      //     );
-      //     firstValue.push(this.selection.pixelGrid[loopBegin][cx]);
-      //   }
-      //   for (let cy = minValue + 1; cy <= maxValue; cy++) {
-      //     const cty = (loopBegin - cy) * y;
-      //     if (this.selection.pixelGrid[cty] && this.selection.pixelGrid[cty + inc]) {
-      //       for (let cx = 0; cx < maxValue; cx++) {
-      //         this.stage.find(`#px${cx}y${cty + inc}`)[0].attrs.fill =
-      //           this.selection.pixelGrid[cty][cx].rgb;
-      //         this.selection.pixelGrid[cty + inc][cx] = this.selection.pixelGrid[cty][cx];
-      //       }
-      //     }
-      //   }
-      //   // for (let cx = 0; cx < this.gridSize - 1; cx++) {
-      //   //   this.stage.find(`#px${cx}y${this.gridSize - 1}`)[0].attrs.fill =
-      //   //     firstRowColor[cx];
-      //   //   this.selection.pixelGrid[this.gridSize - 1][cx] = firstValue[cx];
-      //   // }
-      // }
+      const firstRowColor = [];
+      const firstValue = [];
+      const maxValue = this.gridSize - 1;
+      const minValue = 0;
+      if (true) {
+        const loopBegin = y > 0 ? maxValue : minValue;
+        const loopEnd = y > 0 ? minValue : maxValue;
+        const inc = -y;
+        console.clear();
+        console.log({ x, y, loopBegin, loopEnd, inc });
+        for (let cx = minValue; cx <= maxValue; cx++) {
+          firstRowColor.push(
+            this.stage.find(`#px${cx}y${loopBegin}`)[0].attrs.fill
+          );
+          firstValue.push(this.selection.pixelGrid[loopBegin][cx]);
+        }
+        for (let cy = minValue + 1; cy <= maxValue; cy++) {
+          const cty = (loopBegin - cy) * y;
+          if (this.selection.pixelGrid[cty] && this.selection.pixelGrid[cty + inc]) {
+            for (let cx = 0; cx < maxValue; cx++) {
+              this.stage.find(`#px${cx}y${cty + inc}`)[0].attrs.fill =
+                this.selection.pixelGrid[cty][cx].rgb;
+              this.selection.pixelGrid[cty + inc][cx] = this.selection.pixelGrid[cty][cx];
+            }
+          }
+        }
+        // for (let cx = 0; cx < this.gridSize - 1; cx++) {
+        //   this.stage.find(`#px${cx}y${this.gridSize - 1}`)[0].attrs.fill =
+        //     firstRowColor[cx];
+        //   this.selection.pixelGrid[this.gridSize - 1][cx] = firstValue[cx];
+        // }
+      }
     },
     moveLine(direction, position = 0) {
       if (direction === "top") {

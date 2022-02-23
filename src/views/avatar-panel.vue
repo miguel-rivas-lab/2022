@@ -40,21 +40,14 @@ scroll-area(color="royal-purple")
     column(size="100%")
       legend General
 
-      row
-        column(size="100%")
-          label(for="height") Height
-        column(size="100%")
-          row(group, integrate)
-            column(size="100%-60")
-              input#height.cobalt-blue(
-                type="range",
-                min="0.80",
-                max="1",
-                step="0.01",
-                v-model="selection.height"
-              )
-            column(size="60")
-              p.input-label {{ selection.height }}
+      slider#height(
+        label="Height"
+        min="0.80",
+        max="1",
+        step="0.01",
+        v-on:update-value="updateVal('height', $event)",
+        :value="selection.height"
+      )
 
       row: column(size="100%"): btn(
         color="gold-tips",
@@ -204,21 +197,14 @@ scroll-area(color="royal-purple")
                 disable-fields
               )
 
-      row
-        column(size="100%")
-          label(for="happiness") Happiness
-        column(size="100%")
-          row(group, integrate)
-            column(size="100%-60")
-              input#happiness.cobalt-blue(
-                type="range",
-                min="-20",
-                max="20",
-                step="0.1",
-                v-model="selection.happiness"
-              )
-            column(size="60")
-              p.input-label {{ selection.happiness }}
+      slider#happiness(
+        label="Happiness"
+        min="-20",
+        max="20",
+        step="0.1",
+        v-on:update-value="updateVal('happiness', $event)",
+        :value="selection.happiness"
+      )
 
   row.row-block(tag="fieldset")
     column(size="100%")
@@ -246,37 +232,23 @@ scroll-area(color="royal-purple")
             | Toggle Buttons
             input(type="checkbox", v-model="selection.buttons")
 
-      row
-        column(size="100%")
-          label(for="shirt-length") Length
-        column(size="100%")
-          row(group, integrate)
-            column(size="100%-60")
-              input#shirt-length.cobalt-blue(
-                type="range",
-                min="0",
-                max="2.25",
-                step="0.01",
-                v-model="selection.shirtLengthPercent"
-              )
-            column(size="60")
-              p.input-label {{ selection.shirtLengthPercent }}
+      slider#shirt-length(
+        label="Length"
+        min="0",
+        max="2.25",
+        step="0.01",
+        v-on:update-value="updateVal('shirtLengthPercent', $event)",
+        :value="selection.shirtLengthPercent"
+      )
 
-      row
-        column(size="100%")
-          label(for="sleeve-length") Sleeve Length
-        column(size="100%")
-          row(group, integrate)
-            column(size="100%-60")
-              input#sleeve-length.cobalt-blue(
-                type="range",
-                min="0",
-                max="0.95",
-                step="0.01",
-                v-model="selection.armSleeveLengthPercent"
-              )
-            column(size="60")
-              p.input-label {{ selection.armSleeveLengthPercent }}
+      slider#sleeve-length(
+        label="Sleeve Length"
+        min="0",
+        max="0.95",
+        step="0.01",
+        v-on:update-value="updateVal('armSleeveLengthPercent', $event)",
+        :value="selection.armSleeveLengthPercent"
+      )
 
       row: column(size="100%")
         toggle-row.toggle-input(breakpoint="lg")
@@ -330,37 +302,23 @@ scroll-area(color="royal-purple")
             | Toggle Belt
             input(type="checkbox", v-model="selection.belt")
 
-      row
-        column(size="100%")
-          label(for="pants-length") Length
-        column(size="100%")
-          row(group, integrate)
-            column(size="100%-60")
-              input#pants-length.cobalt-blue(
-                type="range",
-                min="0",
-                max="1",
-                step="0.01",
-                v-model="selection.pantsLegLengthPercent"
-              )
-            column(size="60")
-              p.input-label {{ selection.pantsLegLengthPercent }}
+      slider#pants-length(
+        label="Length"
+        min="0",
+        max="1",
+        step="0.01",
+        v-on:update-value="updateVal('pantsLegLengthPercent', $event)",
+        :value="selection.pantsLegLengthPercent"
+      )
 
-      row
-        column(size="100%")
-          label(for="pants-fit") Fit
-        column(size="100%")
-          row(group, integrate)
-            column(size="100%-60")
-              input#pants-fit.cobalt-blue(
-                type="range",
-                min="0",
-                max="31",
-                step="1",
-                v-model="selection.pantsFit"
-              )
-            column(size="60")
-              p.input-label {{ selection.pantsFit }}
+      slider#pants-fit(
+        label="Fit"
+        min="0",
+        max="31",
+        step="1",
+        v-on:update-value="updateVal('pantsFit', $event)",
+        :value="selection.pantsFit"
+      )
 
       row: column(size="100%")
         toggle-row.toggle-input(breakpoint="lg")
@@ -425,8 +383,10 @@ scroll-area(color="royal-purple")
 import Vue from "vue";
 import ColorPicker from "mr-vue-color/src/components/Simple.vue";
 import ToggleRow from "../components/toggle-row.vue";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   components: { ColorPicker, ToggleRow },
   data: () => ({
     selection: {},

@@ -4,21 +4,14 @@ scroll-area(color="royal-purple")
     column(size="100%")
       legend General
 
-      row
-        column(size="100%")
-          label(for="grid-size") Grid Size
-        column(size="100%")
-          row(group, integrate)
-            column(size="100%-60")
-              input#grid-size.cobalt-blue(
-                type="range",
-                min="2",
-                max="64",
-                step="2",
-                v-model="selection.gridSize"
-              )
-            column(size="60")
-              p.input-label {{ selection.gridSize }}
+      slider#grid-size(
+        label="Grid Size",
+        min="2",
+        max="64",
+        step="2",
+        v-on:update-value="updateVal('gridSize', $event)",
+        :value="selection.gridSize"
+      )
 
       row
         column(size="100%")
@@ -54,8 +47,10 @@ scroll-area(color="royal-purple")
 <script lang="ts">
 import Vue from "vue";
 import { pixelColor } from "../modules/colors";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   data: () => ({
     selection: {},
     pixelColor,
@@ -78,8 +73,7 @@ export default Vue.extend({
       this.palette[color.pascalCase].active = true;
       this.selection.currentColor = color;
     },
-    openImage() {
-    },
+    openImage() {},
     saveImage() {
       const arr = this.selection.pixelGrid.map((y) =>
         y.map((x) => x.pascalCase)

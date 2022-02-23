@@ -3,57 +3,82 @@ scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
       legend Gear Properties
-      number-input#corner-amount(
-        :value="selection.cornerAmount",
+
+      slider#corner-amount(
         label="Teeth Amount",
-        v-on:update-value="updateVal($event, 'cornerAmount')"
+        min="3",
+        max="50",
+        step="1",
+        v-on:update-value="updateVal('cornerAmount', $event)",
+        :value="selection.cornerAmount"
       )
-      number-input#outter-circle-radius(
-        :value="selection.outterCircleRadius",
+
+      slider#outter-circle-radius(
         label="Pitch Radius",
-        v-on:update-value="updateVal($event, 'outterCircleRadius')"
+        min="3",
+        max="50",
+        step="1",
+        v-on:update-value="updateVal('outterCircleRadius', $event)",
+        :value="selection.outterCircleRadius"
       )
-      number-input#inner-circle-radius(
-        :value="selection.innerCircleRadius",
+
+      slider#inner-circle-radius(
         label="Base Circle Radius",
-        v-on:update-value="updateVal($event, 'innerCircleRadius')"
+        min="3",
+        max="50",
+        step="1",
+        v-on:update-value="updateVal('innerCircleRadius', $event)",
+        :value="selection.innerCircleRadius"
       )
-      number-input#main-perforation-radius(
-        :value="selection.mainPerforationRadius",
+
+      slider#main-perforation-radius(
         label="Axis Radius",
-        v-on:update-value="updateVal($event, 'mainPerforationRadius')"
+        min="3",
+        max="50",
+        step="1",
+        v-on:update-value="updateVal('mainPerforationRadius', $event)",
+        :value="selection.mainPerforationRadius"
       )
-      number-input#side-perforation-amount(
-        :value="selection.sidePerforationAmount",
+
+      slider#side-perforation-amount(
         label="Side Perforation Amount",
-        v-on:update-value="updateVal($event, 'sidePerforationAmount')"
+        min="3",
+        max="50",
+        step="1",
+        v-on:update-value="updateVal('sidePerforationAmount', $event)",
+        :value="selection.sidePerforationAmount"
       )
-      number-input#side-perforation-radius(
-        :value="selection.sidePerforationRadius",
+
+      slider#side-perforation-radius(
         label="Side Perforation Radius",
-        v-on:update-value="updateVal($event, 'sidePerforationRadius')"
+        min="3",
+        max="50",
+        step="1",
+        v-on:update-value="updateVal('sidePerforationRadius', $event)",
+        :value="selection.sidePerforationRadius"
       )
-      number-input#side-perforation-distance(
-        :value="selection.sidePerforationDistance",
+
+      slider#side-perforation-distance(
         label="Side Perforation Distance",
-        v-on:update-value="updateVal($event, 'sidePerforationDistance')"
+        min="3",
+        max="50",
+        step="1",
+        v-on:update-value="updateVal('sidePerforationDistance', $event)",
+        :value="selection.sidePerforationDistance"
       )
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   data: () => ({
     selection: {},
   }),
   created() {
     this.selection = this.$store.getters.getGearSelection;
-  },
-  methods: {
-    updateVal(newVal, property) {
-      this.selection[property] = parseInt(newVal);
-    },
   },
 });
 </script>

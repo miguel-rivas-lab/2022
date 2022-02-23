@@ -4,28 +4,27 @@ scroll-area(color="royal-purple")
     column(size="100%")
       legend Animation Controllers
 
-      number-input#outter-circle-radius(
-        :value="selection.rotationDelay",
+      slider#outter-circle-radius(
         label="Rotation Delay",
-        :increment="10",
-        v-on:update-value="updateSpeed($event)"
+        min="50",
+        max="600",
+        step="50",
+        v-on:update-value="updateVal('rotationDelay', $event)",
+        :value="selection.rotationDelay"
       )
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   data: () => ({
     selection: {},
   }),
   created() {
     this.selection = this.$store.getters.getProjects3DSelection;
-  },
-  methods: {
-    updateSpeed(newVal) {
-      this.selection.rotationDelay = parseInt(newVal);
-    },
   },
 });
 </script>

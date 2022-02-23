@@ -3,27 +3,22 @@ row.row-block(tag="fieldset")
   column(size="100%")
     legend Scene Controllers
 
-    row
-      column(size="100%")
-        label(for="height") Open Book
-      column(size="100%")
+    slider#open-book(
+      label="Open Book",
+      min="0.01",
+      max="1",
+      step="0.01",
+      v-on:update-value="updateVal('bookletOpening', $event)",
+      :value="selection.bookletOpening"
+    )
 
-        row(group, integrate)
-          column(size="100%-60")
-            input#height.cobalt-blue(
-              type="range",
-              min="0.01",
-              max="1",
-              step="0.01",
-              v-model="selection.bookletOpening"
-            )
-          column(size="60")
-            p.input-label {{ selection.bookletOpening }}
-
-    number-input#outter-circle-radius(
-      :value="selection.sceneRotation",
+    slider#rotation(
       label="Rotation",
-      v-on:update-value="updateSpeed($event)"
+      min="-20",
+      max="20",
+      step="0.01",
+      v-on:update-value="updateVal('sceneRotation', $event)",
+      :value="selection.sceneRotation"
     )
 
     row
@@ -42,18 +37,15 @@ row.row-block(tag="fieldset")
 
 <script lang="ts">
 import Vue from "vue";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   data: () => ({
     selection: {},
   }),
   created() {
     this.selection = this.$store.getters.getMeshSelection;
-  },
-  methods: {
-    updateSpeed(newVal) {
-      this.selection.sceneRotation = parseInt(newVal);
-    },
   },
 });
 </script>

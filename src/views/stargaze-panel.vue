@@ -4,28 +4,27 @@ scroll-area(color="royal-purple")
     column(size="100%")
       legend Scene Controllers
 
-      number-input#outter-circle-radius(
-        :value="selection.hue",
+      slider#hue(
         label="Hue",
-        :increment="10",
-        v-on:update-value="updateSpeed($event)"
+        min="0",
+        max="360",
+        step="10",
+        v-on:update-value="updateVal('hue', $event)",
+        :value="selection.hue"
       )
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   data: () => ({
     selection: {},
   }),
   created() {
     this.selection = this.$store.getters.getStargazeSelection;
-  },
-  methods: {
-    updateSpeed(newVal) {
-      this.selection.hue = parseInt(newVal);
-    },
   },
 });
 </script>

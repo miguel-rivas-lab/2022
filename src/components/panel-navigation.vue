@@ -119,7 +119,7 @@ export default Vue.extend({
     navigationBuilder: [
       {
         icon: "window",
-        route: ["canvas", "locations", "avatar", "gear", "wheel"],
+        route: ["canvas", "locations", "avatar", "gear", "wheel", "pixel"],
       },
       {
         icon: "move",
