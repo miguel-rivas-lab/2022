@@ -25,7 +25,7 @@
         height: height,
         fill: textColor,
         align: 'center',
-        fontSize: 1.5,
+        fontSize: fontSize,
         fontFamily: 'icomoon',
         lineHeight: 0,
         verticalAlign: 'middle',
@@ -67,41 +67,57 @@ export default Vue.extend({
       type: String,
       default: "rgb(100 100 100 / 5%)",
     },
+    offsetX: {
+      type: Number,
+      default: 0,
+    },
+    offsetY: {
+      type: Number,
+      default: 0,
+    },
   },
   data: () => ({
     h,
     textColor: "#999",
     strokeColor: "#222",
+    fontSize: 0,
   }),
   computed: {
     offset() {
-      switch (this.rotation) {
-        case 90:
-          return { x: 0, y: this.height };
-          break;
+      if (this.offsetX || this.offsetY) {
+        return { x: this.offsetX, y: this.offsetY };
+      } else {
+        switch (this.rotation) {
+          case 90:
+            return { x: 0, y: this.height };
+            break;
 
-        case 180:
-          return { x: this.width, y: this.height };
-          break;
+          case 180:
+            return { x: this.width, y: this.height };
+            break;
 
-        case 270:
-          return { x: this.width, y: 0 };
-          break;
+          case 270:
+            return { x: this.width, y: 0 };
+            break;
 
-        default:
-          return { x: 0, y: 0 };
+          default:
+            return { x: 0, y: 0 };
+        }
       }
     },
   },
   methods: {
     mouseOverPixel() {
-      this.$refs.bk.getStage().fill('#cb9619');
-      this.$refs.text.getStage().fill('#443208');
+      this.$refs.bk.getStage().fill("#cb9619");
+      this.$refs.text.getStage().fill("#443208");
     },
     mouseOutPixel() {
       this.$refs.bk.getStage().fill(this.bkColor);
       this.$refs.text.getStage().fill(this.textColor);
     },
+  },
+  mounted() {
+    this.fontSize = Math.min(this.width, this.height) * 0.75;
   },
 });
 </script>

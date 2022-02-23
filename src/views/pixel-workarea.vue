@@ -62,7 +62,9 @@
           :y="1"
           :width="1"
           :height="gridSize"
-          :rotation="0"
+          :rotation="90"
+          :offsetX="-(gridSize - 1) * 0.5"
+          :offsetY="(gridSize + 1) * 0.5"
         />
         <ctrl
           @click="moveMatrix(1, 0)"
@@ -71,7 +73,9 @@
           :y="1"
           :width="1"
           :height="gridSize"
-          :rotation="0"
+          :rotation="270"
+          :offsetX="(gridSize + 1) * 0.5"
+          :offsetY="(gridSize - 1) * 0.5"
         />
       </v-layer>
       <v-layer>
@@ -84,7 +88,7 @@
             :y="0"
             :width="1"
             :height="1"
-            :rotation="0"
+            :rotation="180"
           />
           <ctrl
             @click="moveLine('bottom', pixel)"
@@ -104,7 +108,7 @@
             :y="pixel"
             :width="1"
             :height="1"
-            :rotation="0"
+            :rotation="90"
           />
           <ctrl
             v-bind:key="`buttonRight${pixel}`"
@@ -114,7 +118,7 @@
             :y="pixel"
             :width="1"
             :height="1"
-            :rotation="0"
+            :rotation="270"
           />
         </template>
       </v-layer>
