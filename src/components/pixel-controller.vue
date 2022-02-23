@@ -117,7 +117,7 @@ export default Vue.extend({
     },
   },
   mounted() {
-    this.fontSize = Math.min(this.width, this.height) * 0.75;
+    this.fontSize = 1; //Math.min(this.width, this.height) * 0.75;
   },
 });
 </script>

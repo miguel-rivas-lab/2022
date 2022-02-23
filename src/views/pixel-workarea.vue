@@ -2,124 +2,132 @@
   <div ref="konvaContainer">
     <v-stage ref="stage" :config="konvaConfig" @wheel="zoom">
       <v-layer>
-        <ctrl
-          @click="rotateLeftMatrix()"
-          glyph="rotate-left"
-          :x="-1"
-          :y="-1"
-          :width="2"
-          :height="2"
-        />
-        <ctrl
-          @click="rotateRightMatrix()"
-          glyph="rotate-right"
-          :x="gridSize + 1"
-          :y="gridSize + 1"
-          :width="2"
-          :height="2"
-        />
-        <ctrl
-          @click="reverseHorizontalMatrix()"
-          glyph="swap"
-          :x="gridSize + 1"
-          :y="-1"
-          :width="2"
-          :height="2"
-        />
-        <ctrl
-          @click="reverseVerticalMatrix()"
-          glyph="swap"
-          :x="-1"
-          :y="gridSize + 1"
-          :width="2"
-          :height="2"
-          :rotation="90"
-        />
-      </v-layer>
-      <v-layer>
-        <ctrl
-          @click="moveMatrix(0, -1)"
-          glyph="chevron"
-          :x="1"
-          :y="-1"
-          :width="gridSize"
-          :height="1"
-          :rotation="180"
-        />
-        <ctrl
-          @click="moveMatrix(0, 1)"
-          glyph="chevron"
-          :x="1"
-          :y="gridSize + 2"
-          :width="gridSize"
-          :height="1"
-          :rotation="0"
-        />
-        <ctrl
-          @click="moveMatrix(-1, 0)"
-          glyph="chevron"
-          :x="-1"
-          :y="1"
-          :width="1"
-          :height="gridSize"
-          :rotation="90"
-          :offsetX="-(gridSize - 1) * 0.5"
-          :offsetY="(gridSize + 1) * 0.5"
-        />
-        <ctrl
-          @click="moveMatrix(1, 0)"
-          glyph="chevron"
-          :x="gridSize + 2"
-          :y="1"
-          :width="1"
-          :height="gridSize"
-          :rotation="270"
-          :offsetX="(gridSize + 1) * 0.5"
-          :offsetY="(gridSize - 1) * 0.5"
-        />
-      </v-layer>
-      <v-layer>
-        <template v-for="pixel in gridSize">
+        <v-group @click="rotateLeftMatrix()">
+          <ctrl glyph="rotate-left" :x="-1" :y="-1" :width="2" :height="2" />
+        </v-group>
+        <v-group @click="rotateRightMatrix()">
           <ctrl
-            @click="moveLine('top', pixel)"
-            v-bind:key="`buttonTop${pixel}`"
+            glyph="rotate-right"
+            :x="gridSize + 1"
+            :y="gridSize + 1"
+            :width="2"
+            :height="2"
+          />
+        </v-group>
+        <v-group @click="reverseHorizontalMatrix()">
+          <ctrl glyph="swap" :x="gridSize + 1" :y="-1" :width="2" :height="2" />
+        </v-group>
+        <v-group @click="reverseVerticalMatrix()">
+          <ctrl
+            glyph="swap"
+            :x="-1"
+            :y="gridSize + 1"
+            :width="2"
+            :height="2"
+            :rotation="90"
+          />
+        </v-group>
+      </v-layer>
+      <v-layer>
+        <v-group @click="moveMatrix(0, -1)">
+          <ctrl
             glyph="chevron"
-            :x="pixel"
-            :y="0"
-            :width="1"
+            :x="1"
+            :y="-1"
+            :width="gridSize"
             :height="1"
             :rotation="180"
           />
+        </v-group>
+        <v-group @click="moveMatrix(0, 1)">
           <ctrl
-            @click="moveLine('bottom', pixel)"
-            v-bind:key="`buttonBottom${pixel}`"
             glyph="chevron"
-            :x="pixel"
-            :y="gridSize + 1"
-            :width="1"
+            :x="1"
+            :y="gridSize + 2"
+            :width="gridSize"
             :height="1"
             :rotation="0"
           />
+        </v-group>
+        <v-group @click="moveMatrix(-1, 0)">
           <ctrl
-            @click="moveLine('left', pixel)"
-            v-bind:key="`buttonLeft${pixel}`"
             glyph="chevron"
-            :x="0"
-            :y="pixel"
+            :x="-1"
+            :y="1"
             :width="1"
-            :height="1"
+            :height="gridSize"
             :rotation="90"
+            :offsetX="-(gridSize - 1) * 0.5"
+            :offsetY="(gridSize + 1) * 0.5"
           />
+        </v-group>
+        <v-group @click="moveMatrix(1, 0)">
           <ctrl
+            glyph="chevron"
+            :x="gridSize + 2"
+            :y="1"
+            :width="1"
+            :height="gridSize"
+            :rotation="270"
+            :offsetX="(gridSize + 1) * 0.5"
+            :offsetY="(gridSize - 1) * 0.5"
+          />
+        </v-group>
+      </v-layer>
+      <v-layer>
+        <template v-for="pixel in gridSize">
+          <v-group
+            v-bind:key="`buttonTop${pixel}`"
+            @click="moveLine('top', pixel)"
+          >
+            <ctrl
+              glyph="chevron"
+              :x="pixel"
+              :y="0"
+              :width="1"
+              :height="1"
+              :rotation="180"
+            />
+          </v-group>
+          <v-group
+            v-bind:key="`buttonBottom${pixel}`"
+            @click="moveLine('bottom', pixel)"
+          >
+            <ctrl
+              glyph="chevron"
+              :x="pixel"
+              :y="gridSize + 1"
+              :width="1"
+              :height="1"
+              :rotation="0"
+            />
+          </v-group>
+          <v-group
+            v-bind:key="`buttonLeft${pixel}`"
+            @click="moveLine('left', pixel)"
+          >
+            <ctrl
+              glyph="chevron"
+              :x="0"
+              :y="pixel"
+              :width="1"
+              :height="1"
+              :rotation="90"
+            />
+          </v-group>
+          <v-group
             v-bind:key="`buttonRight${pixel}`"
             @click="moveLine('right', pixel)"
-            glyph="chevron"
-            :x="gridSize + 1"
-            :y="pixel"
-            :width="1"
-            :height="1"
-            :rotation="270"
-          />
+          >
+            <ctrl
+              glyph="chevron"
+              :x="gridSize + 1"
+              :y="pixel"
+              :width="1"
+              :height="1"
+              :rotation="270"
+            />
+          </v-group>
         </template>
       </v-layer>
 
