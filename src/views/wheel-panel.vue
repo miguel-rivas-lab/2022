@@ -2,34 +2,24 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Color Wheel
+      legend General
 
-      template(v-for="colorIndex in selection.colors")
-        row(v-bind:key="colorIndex")
-          column(size="100%-35")
-            btn(
-              color="silver",
-              size="md",
-              @click="toggleBlockVisibility()",
-              :text="`Color #${colorIndex}`"
-            )
-          suffix(size="35")
-            btn(
-              color="persian-red",
-              size="md",
-              glyph="close",
-              title="Remove button",
-              @click="removeBlock()"
-            )
-  row.row-block
-    column(size="100%")
-      btn(color="gold-tips", @click="addColumn()", text="Add Color")
+      slider#colors(
+        label="Colors",
+        min="1",
+        max="720",
+        step="1",
+        v-on:update-value="updateVal('colors', $event)",
+        :value="selection.colors"
+      )
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   data: () => ({
     selection: {},
   }),

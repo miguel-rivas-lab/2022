@@ -202,7 +202,7 @@ export default Vue.extend({
     },
     gridSize: function () {
       this.updateMatrix();
-      // this.cleanMatrix();
+      this.cleanMatrix();
     },
   },
   mounted() {
@@ -314,8 +314,8 @@ export default Vue.extend({
         const loopBegin = y > 0 ? maxValue : minValue;
         const loopEnd = y > 0 ? minValue : maxValue;
         const inc = -y;
-        console.clear();
-        console.log({ x, y, loopBegin, loopEnd, inc });
+        // console.clear();
+        // console.log({ x, y, loopBegin, loopEnd, inc });
         for (let cx = minValue; cx <= maxValue; cx++) {
           firstRowColor.push(
             this.stage.find(`#px${cx}y${loopBegin}`)[0].attrs.fill
@@ -414,18 +414,13 @@ export default Vue.extend({
         }
       }
     },
-    // cleanMatrix(){
-    //   for (let y = 0; y < 64; y++) {
-    //     for (let x = 0; x < 64; x++) {
-    //       this.stage.find(`#px${x}y${y}`)[0].attrs.fill = "rgb(0 0 0 / 0%)";
-    //     }
-    //   }
-    //   for (let y = 0; y < this.gridSize; y++) {
-    //     for (let x = 0; x < this.gridSize; x++) {
-    //       this.stage.find(`#px${x}y${y}`)[0].attrs.fill = pixelColor.Empty.rgb;
-    //     }
-    //   }
-    // },
+    cleanMatrix(){
+      for (let y = 0; y < this.gridSize; y++) {
+        for (let x = 0; x < this.gridSize; x++) {
+          this.stage.find(`#px${x}y${y}`)[0].attrs.fill = pixelColor.Empty.rgb;
+        }
+      }
+    },
     paintColor(x, y, event) {
       const el = event.target;
       this.selection.pixelGrid[y][x] = this.currentColor;

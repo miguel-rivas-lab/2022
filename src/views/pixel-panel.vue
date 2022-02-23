@@ -4,15 +4,6 @@ scroll-area(color="royal-purple")
     column(size="100%")
       legend General
 
-      slider#grid-size(
-        label="Grid Size",
-        min="2",
-        max="64",
-        step="2",
-        v-on:update-value="updateVal('gridSize', $event)",
-        :value="selection.gridSize"
-      )
-
       row
         column(size="100%")
           row
