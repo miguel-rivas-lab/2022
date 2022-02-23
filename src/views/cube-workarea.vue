@@ -5,14 +5,14 @@
 <script lang="ts">
 import Vue from "vue";
 import * as THREE from "three";
-import gColorsDB from "../db/wiki-colors";
+import {wikiColors} from "../db/wiki-colors";
 import ThreeScene from "../mixins/three-scene";
 import h from "../modules/helpers";
 
 export default Vue.extend({
   mixins: [ThreeScene],
   data: () => ({
-    gColorsDB: gColorsDB,
+    gColorsDB: Object.values(wikiColors),
     linesGroup: undefined,
     minPolarAngle: 75 * h.rad,
     maxPolarAngle: 120 * h.rad,
@@ -44,7 +44,7 @@ export default Vue.extend({
     buildGeometry() {
       const geometry = new THREE.BoxGeometry(1, 1, 1);
 
-      for (const value of gColorsDB) {
+      for (const value of this.gColorsDB) {
         let x = value.red;
         let y = value.green;
         let z = value.blue;

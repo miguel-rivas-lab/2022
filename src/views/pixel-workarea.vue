@@ -154,7 +154,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
-import { pixelColor } from "../modules/colors";
+import { pixelColor } from "../db/wiki-colors";
 import ctrl from "../components/pixel-controller.vue";
 
 export default Vue.extend({
@@ -410,14 +410,14 @@ export default Vue.extend({
       for (let y = 0; y < this.gridSize; y++) {
         this.selection.pixelGrid[y] = new Array(this.gridSize);
         for (let x = 0; x < this.gridSize; x++) {
-          this.selection.pixelGrid[y][x] = pixelColor.Empty;
+          this.selection.pixelGrid[y][x] = pixelColor.empty;
         }
       }
     },
     cleanMatrix(){
       for (let y = 0; y < this.gridSize; y++) {
         for (let x = 0; x < this.gridSize; x++) {
-          this.stage.find(`#px${x}y${y}`)[0].attrs.fill = pixelColor.Empty.rgb;
+          this.stage.find(`#px${x}y${y}`)[0].attrs.fill = pixelColor.empty.rgb;
         }
       }
     },

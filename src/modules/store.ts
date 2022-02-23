@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { pixelColor } from "../modules/colors";
+import { pixelColor } from "../db/wiki-colors";
 
 import { modalState } from '../store/modal';
 import { avatarState } from '../store/avatar';
@@ -30,9 +30,9 @@ export const store = new Vuex.Store({
         gridSize: 32,
         pixelGrid: [],
         currentColor: {
-          label: pixelColor.Pumpkin.label,
-          pascalCase: pixelColor.Pumpkin.pascalCase,
-          rgb: pixelColor.Pumpkin.rgb,
+          label: pixelColor.pumpkin.label,
+          spinalCase: pixelColor.pumpkin.spinalCase,
+          rgb: pixelColor.pumpkin.rgb,
           active: true,
         },
       },

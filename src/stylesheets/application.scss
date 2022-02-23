@@ -230,7 +230,7 @@ main {
       }
     }
     .column {
-      padding: 0.05rem;
+      padding: 0.25rem;
     }
   }
 }
@@ -251,6 +251,27 @@ main {
       > input {
         padding-right: 0.25rem;
         text-align: center;
+      }
+    }
+  }
+}
+
+
+/*------------------------*/
+
+.nano-row {
+  &.list-palette {
+    border: 1px solid var(--color-border) !important;
+    .input-label {
+      font-size: 12px;
+      min-height: 36px !important;
+    }
+    .shade {
+      height: 35px;
+      width: 100%;
+      border-left: 1px solid var(--color-border) !important;
+      &:hover {
+        opacity: 0.8;
       }
     }
   }
