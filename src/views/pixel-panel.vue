@@ -8,12 +8,12 @@ scroll-area(color="royal-purple")
         column(size="100%")
           row
             column(size="100%")
-              btn(text="New Image", color="gold-tips")
+              btn(text="New Image", color="gold-tips", @click="newImage()")
 
       row
         column(size="100%")
           label.btn.flat.gold-tips
-            | Open Image
+            | Open JSON
             input(
               type="file",
               ref="file",
@@ -25,7 +25,7 @@ scroll-area(color="royal-purple")
         column(size="100%")
           row
             column(size="100%")
-              btn(text="Save Image", color="gold-tips", @click="saveImage()")
+              btn(text="Save JSON", color="gold-tips", @click="saveImage()")
 
       row.palette
         column(size="100%")
@@ -44,6 +44,8 @@ scroll-area(color="royal-purple")
 import Vue from "vue";
 import { pixelColor } from "../db/wiki-colors";
 import Slider from "../mixins/slider";
+import { wikiColorEnum } from "../enums/wikicolors";
+import h from "../modules/helpers";
 
 export default Vue.extend({
   mixins: [Slider],
@@ -86,17 +88,35 @@ export default Vue.extend({
       const newFile = this.$refs.file.files[0];
       reader.onload = (res) => {
         this.selection.pixelGrid = JSON.parse(res.target.result).map((y) =>
-          y.map((x) => pixelColor[x])
+          y.map((x) => pixelColor[wikiColorEnum[h.hexToDec(x)]])
         );
       };
       reader.onerror = (err) => console.log(err);
       reader.readAsText(newFile);
     },
+    newImage() {
+      const newMatrix = this.selection.pixelGrid.map((y) =>
+        y.map((x) => pixelColor.empty)
+      );
+      this.selection.pixelGrid = newMatrix;
+    },
     saveImage() {
       const arr = this.selection.pixelGrid.map((y) =>
-        y.map((x) => x.spinalCase)
+        y.map((x) => {
+          let id = h.decToHex(wikiColorEnum[x.spinalCase]);
+          if (id.length < 2) {
+            id = "0" + id;
+          }
+          if (id.length < 3) {
+            id = "0" + id;
+          }
+          return id;
+        })
       );
-      const jsData = JSON.stringify(arr);
+      const jsData = JSON.stringify(arr)
+        .replace(/\[\[/g, "[\n[")
+        .replace(/\],/g, "],\n")
+        .replace(/\]\]/g, "]\n]");
       const filename = "image.json";
 
       let blob = new Blob([jsData], { type: "text/plain;charset=utf-8;" });

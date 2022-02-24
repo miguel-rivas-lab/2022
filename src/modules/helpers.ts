@@ -43,8 +43,11 @@ const helpers = {
   getIcon(icon) {
     return String.fromCharCode(this.hexToDec(icons[icon]));
   },
-  hexToDec(icon) {
-    return parseInt(icon, 16);
+  hexToDec(number) {
+    return parseInt(number, 16);
+  },
+  decToHex(number) {
+    return (number).toString(16);
   },
   rad: Math.PI / 180,
   deg: 180 / Math.PI,
