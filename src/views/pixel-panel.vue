@@ -25,18 +25,23 @@ scroll-area(color="royal-purple")
         column(size="100%")
           row
             column(size="100%")
-              btn(text="Save JSON", color="gold-tips", @click="saveImage()")
+              btn(text="Save JSON", color="gold-tips", @click="saveJson()")
+
+      row
+        column(size="100%")
+          row
+            column(size="100%")
+              btn(text="Save PNG", color="gold-tips", @click="saveImage()")
 
       row.palette
         column(size="100%")
           label Palette
-        template(v-for="color in palette")
+        template(v-for="color in pixelColor")
           column(size="20%")
             button.shade(
               @click="changeColor(color)",
               :style="`background-color: ${color.rgb}`",
-              :class="{ active: color.active }",
-              v-nano-tooltip.right="color.label"
+              v-nano-tooltip.right="color.titleCase"
             )
 </template>
 
@@ -56,31 +61,20 @@ export default Vue.extend({
         return a.lightness - b.lightness;
       })
       .sort((a, b) => {
-        return a.hue - b.hue;
+        return b.saturation - a.saturation;
       })
       .sort((a, b) => {
-        return b.saturation - a.saturation;
+        return a.hue - b.hue;
       })
       .sort((a, b) => {
         return a.opacity - b.opacity;
       }),
-    palette: {},
   }),
   created() {
     this.selection = this.$store.getters.getPixelSelection;
-    Object.values(this.pixelColor).forEach((el) => {
-      this.palette[el.spinalCase] = {
-        rgb: el.rgb,
-        spinalCase: el.spinalCase,
-        label: el.label,
-        active: false,
-      };
-    });
   },
   methods: {
     changeColor(color) {
-      this.selection.currentColor.active = false;
-      this.palette[color.spinalCase].active = true;
       this.selection.currentColor = color;
     },
     openImage() {
@@ -101,6 +95,11 @@ export default Vue.extend({
       this.selection.pixelGrid = newMatrix;
     },
     saveImage() {
+      // stage.toDataURL({
+      //   pixelRatio: 2 // or other value you need
+      // })
+    },
+    saveJson() {
       const arr = this.selection.pixelGrid.map((y) =>
         y.map((x) => {
           let id = h.decToHex(wikiColorEnum[x.spinalCase]);

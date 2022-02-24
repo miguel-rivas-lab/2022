@@ -29,12 +29,7 @@ export const store = new Vuex.Store({
       pixel: {
         gridSize: 32,
         pixelGrid: [],
-        currentColor: {
-          label: pixelColor.pumpkin.label,
-          spinalCase: pixelColor.pumpkin.spinalCase,
-          rgb: pixelColor.pumpkin.rgb,
-          active: true,
-        },
+        currentColor: pixelColor.pumpkin,
       },
       locations: {
         mapCenter: {

@@ -88,4 +88,8 @@ export class gColor {
   get pascalCase() {
     return h.pascalCase(this.label)
   }
+
+  get titleCase() {
+    return h.titleCase(this.label)
+  }
 }

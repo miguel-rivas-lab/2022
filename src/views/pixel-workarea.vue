@@ -1,7 +1,7 @@
 <template>
   <div ref="konvaContainer">
     <v-stage ref="stage" :config="konvaConfig" @wheel="zoom">
-      <v-layer>
+      <v-layer id="controllers">
         <v-group @click="rotateLeftMatrix()">
           <ctrl glyph="rotate-left" :x="-1" :y="-1" :width="2" :height="2" />
         </v-group>
@@ -125,6 +125,17 @@
             />
           </v-group>
         </template>
+        <v-group @click="saveImg()">
+          <ctrl
+            glyph="monster"
+            :x="gridSize + 4"
+            :y="0"
+            :width="2"
+            :height="2"
+          />
+        </v-group>
+      </v-layer>
+      <v-layer>
         <template v-for="(row, y) in pixelGrid">
           <template v-for="(color, x) in row">
             <v-rect
@@ -231,6 +242,24 @@ export default Vue.extend({
     },
   },
   methods: {
+    saveImg() {
+      // console.log(this.stage.find("#controllers")[0].attrs);
+      this.stage.find("#controllers")[0].attrs.opacity = 0;
+
+      function downloadURI(uri, name) {
+        let link = document.createElement("a");
+        link.download = name;
+        link.href = uri;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        // delete link;
+      }
+
+      const dataURL = this.stage.toDataURL({ pixelRatio: 3 });
+      downloadURI(dataURL, "stage.png");
+      // this.stage.find("#controllers").opacity = 1;
+    },
     mouseOverPixel(event) {
       event.target.opacity(0.2);
     },
@@ -324,11 +353,15 @@ export default Vue.extend({
         }
         for (let cy = minValue + 1; cy <= maxValue; cy++) {
           const cty = (loopBegin - cy) * y;
-          if (this.selection.pixelGrid[cty] && this.selection.pixelGrid[cty + inc]) {
+          if (
+            this.selection.pixelGrid[cty] &&
+            this.selection.pixelGrid[cty + inc]
+          ) {
             for (let cx = 0; cx < maxValue; cx++) {
               this.stage.find(`#px${cx}y${cty + inc}`)[0].attrs.fill =
                 this.selection.pixelGrid[cty][cx].rgb;
-              this.selection.pixelGrid[cty + inc][cx] = this.selection.pixelGrid[cty][cx];
+              this.selection.pixelGrid[cty + inc][cx] =
+                this.selection.pixelGrid[cty][cx];
             }
           }
         }
@@ -414,7 +447,7 @@ export default Vue.extend({
         }
       }
     },
-    cleanMatrix(){
+    cleanMatrix() {
       for (let y = 0; y < this.gridSize; y++) {
         for (let x = 0; x < this.gridSize; x++) {
           this.stage.find(`#px${x}y${y}`)[0].attrs.fill = pixelColor.empty.rgb;

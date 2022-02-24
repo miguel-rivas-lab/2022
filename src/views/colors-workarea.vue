@@ -6,21 +6,33 @@ scroll-area(color="royal-purple")
         li(v-bind:key="colorIndex")
           row.swatch.item(vertical)
             column.color(
-              size="200, 200",
+              size="250, 100",
               :style="`background-color: ${color.hex}`"
             )
-            column
-              h1 {{ color.label }}
+            column(size="250")
+              h1 {{ color.titleCase }}
               p {{ color.hex }}
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { gColorsDB } from "../modules/colors";
+import { wikiColors } from "../db/wiki-colors";
 
 export default Vue.extend({
   data: () => ({
-    gColorsDB: gColorsDB,
+    gColorsDB: Object.values(wikiColors)
+      .sort((a, b) => {
+        return a.lightness - b.lightness;
+      })
+      .sort((a, b) => {
+        return b.saturation - a.saturation;
+      })
+      .sort((a, b) => {
+        return a.hue - b.hue;
+      })
+      .sort((a, b) => {
+        return a.opacity - b.opacity;
+      }),
   }),
 });
 </script>

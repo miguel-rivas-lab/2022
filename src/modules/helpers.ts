@@ -40,6 +40,15 @@ const helpers = {
       .trim()
       .replace(/[ ]{1,}/g, "");
   },
+  titleCase(label: string) {
+    return label
+      .replace(/_/g, " ")
+      .replace(/(?:^\w|[A-Z]|\b\w)/g, word => {
+        return word.toUpperCase();
+      })
+      .trim()
+      .replace(/-/g, " ");
+  },
   getIcon(icon) {
     return String.fromCharCode(this.hexToDec(icons[icon]));
   },
