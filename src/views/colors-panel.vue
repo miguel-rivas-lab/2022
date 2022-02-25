@@ -8,12 +8,12 @@ scroll-area(color="royal-purple")
           ul.buttons
             template(v-for="(color, colorIndex) in gColorsDB")
               li(v-bind:key="colorIndex")
-                btn(tag="span", :color="color.spinalCase", :text="color.label")
+                btn(tag="span", :color="color.spinalCase", :text="color.spinalCase")
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { gColorsDB } from "../modules/colors";
+import { gColorsDB } from "../db/colors";
 
 export default Vue.extend({
   data: () => ({

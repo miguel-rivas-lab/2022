@@ -137,7 +137,7 @@ export default Vue.extend({
       { icon: "unity", route: ["unity", "kaspar", "iqra"] },
       { icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
       { icon: "robot", route: ["grid"] },
-      { icon: "color", route: ["colors"] },
+      { icon: "color", route: ["ui", "colors", "icons"] },
     ],
     linkGithub,
     linkLinkedin,

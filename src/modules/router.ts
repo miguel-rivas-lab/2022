@@ -7,8 +7,7 @@ import GridWorkareaView from '../views/grid-workarea.vue';
 import GridPanelView from '../views/grid-panel.vue';
 import StargazeWorkareaView from '../views/stargaze-workarea.vue';
 import StargazePanelView from '../views/stargaze-panel.vue';
-import ColorsPanelView from '../views/colors-panel.vue';
-import ColorsWorkareaView from '../views/colors-workarea.vue';
+
 
 import CanvasRouter from '../router/canvas';
 import CssRouter from '../router/css';
@@ -16,6 +15,7 @@ import ProjectsRouter from '../router/projects';
 import ThreeRouter from '../router/three';
 import GalleryRouter from '../router/gallery';
 import UnityRouter from '../router/unity';
+import UiRouter from '../router/ui';
 
 Vue.use(VueRouter);
 
@@ -30,15 +30,6 @@ const routes: Array<RouteConfig> = [
     components: {
       workarea: StargazeWorkareaView,
       panel: StargazePanelView,
-    },
-  },
-  
-  {
-    name: 'colors',
-    path: '/colors',
-    components: {
-      workarea: ColorsWorkareaView,
-      panel: ColorsPanelView,
     },
   },
   {
@@ -58,10 +49,11 @@ const routes: Array<RouteConfig> = [
 
   CanvasRouter,
   CssRouter,
-  ProjectsRouter,  
+  ProjectsRouter,
   ThreeRouter,
   GalleryRouter,
   UnityRouter,
+  UiRouter
 ];
 
 const router = new VueRouter({
