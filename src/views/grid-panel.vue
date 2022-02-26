@@ -28,17 +28,16 @@ scroll-area(color="royal-purple")
               v-model="selection.row"
             )
 
-      row(v-if="selection.row == 'Row'")
-        column(size="100%")
-          label(:for="`spacing`") Spacing
-        column(size="100%")
-          select#spacing(v-model="selection.spacing")
-            option(
-              v-for="option in spacing",
-              :value="option",
-              :key="option",
-              v-html="option / 100"
-            )
+      slider(
+        v-if="selection.row == 'Row'"
+        id="spacing"
+        label="Spacing"
+        step="0.25"
+        min="0"
+        max="4"
+        v-on:update-value="updateVal('spacing', $event)"
+        :value="selection.spacing"
+      )
 
       row(v-if="selection.row == 'Group'")
         column(size="100%")
@@ -77,21 +76,19 @@ scroll-area(color="royal-purple")
 <script lang="ts">
 import Vue from "vue";
 import panelBlockColumn from "../components/panel-block-column.vue";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   components: {
     panelBlockColumn,
   },
   data: () => ({
     selection: { columns: [] },
-    spacing: [],
     breakpoint: ["-", "sm", "md", "lg", "xl", "xxl"],
   }),
   created() {
     this.selection = this.$store.getters.getGridSelection;
-    for (let c = 0; c <= 400; c += 25) {
-      this.spacing.push(c);
-    }
   },
   methods: {
     addColumn() {

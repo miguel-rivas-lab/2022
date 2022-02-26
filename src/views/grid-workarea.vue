@@ -58,7 +58,9 @@ export default Vue.extend({
           ? ' breakpoint="' + this.computedBreakpoint + '"'
           : ""
       }${
-        this.computedSpacing ? ' spacing="' + this.computedSpacing + '"' : ""
+        this.computedSpacing
+          ? ' spacing="' + this.computedSpacing * 100 + '"'
+          : ""
       }>\n${columns}</row>`;
       return row;
     },

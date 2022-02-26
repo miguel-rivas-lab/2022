@@ -7,7 +7,7 @@
   >
     <row>
       <column size="100%">
-        <label :for="`id-${name}-size-type`">Width</label>
+        <label :for="`id-${name}-size-type`">Mode</label>
       </column>
       <column size="100%">
         <select
@@ -24,75 +24,59 @@
       </column>
     </row>
 
-    <row>
-      <column size="100%" v-if="selection.columns[index].mode == 'Percent'">
-        <select id="a-size" v-model="selection.columns[index].size">
-          <option value="0" key="0" v-html="0" />
-          <option
-            v-for="option in percentsValues"
-            :value="option"
-            :key="option"
-            v-html="option"
-          />
-        </select>
-      </column>
-      <column size="100%" v-if="selection.columns[index].mode == 'Twelve Grid'">
-        <select :id="`id-${name}-size`" v-model="selection.columns[index].size">
-          <option value="0" key="0" v-html="0" />
-          <option
-            v-for="option in twelveValues"
-            :value="option"
-            :key="option"
-            v-html="option"
-          />
-        </select>
-      </column>
-      <column size="100%" v-if="selection.columns[index].mode == 'Fixed'">
-        <select :id="`id-${name}-size`" v-model="selection.columns[index].size">
-          <option value="0" key="0" v-html="0" />
-          <option
-            v-for="option in fixedValues"
-            :value="option"
-            :key="option"
-            v-html="option"
-          />
-        </select>
-      </column>
-      <column
-        size="100%"
-        v-if="selection.columns[index].mode == 'Column Based'"
-      >
-        <select :id="`id-${name}-size`" v-model="selection.columns[index].size">
-          <option value="0" key="0" v-html="0" />
-          <option
-            v-for="option in columnsValues"
-            :value="option"
-            :key="option"
-            v-html="option"
-          />
-        </select>
-      </column>
-    </row>
+    <slider
+      v-if="selection.columns[index].mode == 'Percent'"
+      id="p-size"
+      label="Size %"
+      step="5"
+      min="0"
+      max="100"
+      v-on:update-value="updateColVal(index, 'size', '%', '', $event)"
+      :value="selection.columns[index].size"
+    />
 
-    <row v-if="selection.columns[index].mode != 'Fixed'">
-      <column size="100%">
-        <label :for="`id-${name}-subtraction`">Width Subtraction</label>
-      </column>
-      <column size="100%">
-        <select
-          :id="`id-${name}-subtraction`"
-          v-model="selection.columns[index].subtraction"
-        >
-          <option value="0" key="0" v-html="0" />
-          <option
-            v-for="option in fixedSubstractionValues"
-            :value="option"
-            :key="option"
-            v-html="option"
-          />
-        </select>
-      </column>
-    </row>
+    <slider
+      v-if="selection.columns[index].mode == 'Fixed'"
+      id="f-size"
+      label="Size Px"
+      step="5"
+      min="0"
+      max="300"
+      v-on:update-value="updateColVal(index, 'size', '', '', $event)"
+      :value="selection.columns[index].size"
+    />
+
+    <slider
+      v-if="selection.columns[index].mode == 'Twelve Grid'"
+      id="t-size"
+      label="Size Numerator (Fraction)"
+      step="1"
+      min="1"
+      max="12"
+      v-on:update-value="updateColVal(index, 'size', '/12', '', $event)"
+      :value="selection.columns[index].size"
+    />
+
+    <slider
+      v-if="selection.columns[index].mode == 'Column Based'"
+      id="t-size"
+      label="Size Denominator (Fraction)"
+      step="1"
+      min="1"
+      max="20"
+      v-on:update-value="updateColVal(index, 'size', '', '1/', $event)"
+      :value="selection.columns[index].size"
+    />
+
+    <slider
+      :id="`id-${name}-subtraction`"
+      label="Width Subtraction"
+      step="5"
+      min="0"
+      max="600"
+      v-on:update-value="updateColVal(index, 'subtraction', '', '', $event)"
+      :value="selection.columns[index].subtraction"
+    />
 
     <row>
       <column size="100%">
@@ -155,10 +139,12 @@
 <script lang="ts">
 import Vue from "vue";
 import panelBlock from "./panel-block.vue";
-import { validateSize, cssSizesWidth } from "nano-grid/modules/columns-manager";
+import { validateSize } from "nano-grid/modules/columns-manager";
 import { gColorsDB } from "../db/colors";
+import Slider from "../mixins/slider";
 
 export default Vue.extend({
+  mixins: [Slider],
   components: { panelBlock },
   props: {
     name: {
@@ -168,7 +154,6 @@ export default Vue.extend({
     index: undefined,
   },
   data: () => ({
-    cssSizes: cssSizesWidth,
     gridType: ["Percent", "Fixed", "Twelve Grid", "Column Based"],
     styles: ["prefix", "column", "suffix"],
     gColorsDB: gColorsDB,
@@ -178,41 +163,6 @@ export default Vue.extend({
     this.selection = this.$store.getters.getGridSelection;
   },
   computed: {
-    fixedValues(): Array<string> {
-      let result = [];
-      for (let c = 5; c <= 60; c++) {
-        result.push(`${c * 5}`);
-      }
-      return result;
-    },
-    fixedSubstractionValues(): Array<string> {
-      let result = [];
-      for (let c = 1; c <= 120; c++) {
-        result.push(`${c * 5}`);
-      }
-      return result;
-    },
-    percentsValues(): Array<string> {
-      let result = [];
-      for (let c = 1; c * 5 <= 100; c++) {
-        result.push(`${c * 5}%`);
-      }
-      return result;
-    },
-    twelveValues(): Array<string> {
-      let result = [];
-      for (let c = 1; c <= 12; c++) {
-        result.push(`${c}/12`);
-      }
-      return result;
-    },
-    columnsValues(): Array<string> {
-      let result = [];
-      for (let c = 1; c <= 20; c++) {
-        result.push(`1/${c}`);
-      }
-      return result;
-    },
     finalValue(): string {
       let result = "";
       if (this.selection.columns[this.index].size) {
@@ -225,6 +175,9 @@ export default Vue.extend({
     },
   },
   methods: {
+    updateColVal(index, property, unit = "", prepend = "", newVal) {
+      this.selection.columns[index][property] = prepend + newVal + unit;
+    },
     removeBlock() {
       this.$store.commit("removeColumn", this.index);
       this.selection = this.$store.getters.getGridSelection;

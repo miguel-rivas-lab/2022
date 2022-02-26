@@ -66,10 +66,37 @@ const projects: ProjectsType = [
       h.getNewID(client.miguelRivas, "2018/06/27"),
       h.getNewID(client.miguelRivas, "2021/03/22"),
       h.getNewID(client.miguelRivas, "2021/02/27"),
-      h.getNewID(client.miguelRivas, "2021/11/14"),
+      h.getNewID(client.miguelRivas, "2022/01/05"),
       h.getNewID(client.miguelRivas, "2022/01/24"),
       h.getNewID(client.miguelRivas, "2022/02/02"),
       h.getNewID(client.miguelRivas, "2022/02/07"),
+      h.getNewID(client.miguelRivas, "2022/02/20"),
+    ],
+  },
+
+  {
+    date: "2022/02/20",
+    title: "Pixel Editor",
+    types: [
+      typeEnum.prototype,
+    ],
+    roles: [
+      roleEnum.design,
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    disabled: true,
+    tools: [
+      toolEnum.vue,
+      toolEnum.vuex,
+      toolEnum.vueRouter,
+      toolEnum.typescript,
+      toolEnum.scss,
+      toolEnum.git,
+      toolEnum.konva,
+      toolEnum.pug,
     ],
   },
 
@@ -3884,7 +3911,7 @@ const projects: ProjectsType = [
     roles: [
       roleEnum.design,
     ],
-    disabled: false,
+    disabled: true,
     clients: [
       clientEnum.miguelRivas,
     ],
