@@ -31,7 +31,7 @@ export const store = new Vuex.Store({
         pixelGrid: [],
         currentColor: allColors.pumpkin,
         lock: false,
-        tool: 'brush', //brush, eraser, dropper
+        tool: 'brush',
       },
       locations: {
         mapCenter: {

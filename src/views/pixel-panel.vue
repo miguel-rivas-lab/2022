@@ -58,17 +58,35 @@ scroll-area(color="royal-purple")
         column(size="100%")
           row
             prefix
-              btn(glyph="", color="burn-orange", @click="pickDropper()")
+              btn(
+                glyph="",
+                :color="selection.tool === 'dropper' ? 'green-pea' : 'burn-orange'",
+                @click="pickDropper()"
+              )
             column(size="100%-35")
-              btn(text="Color Dropper", color="gold-tips", @click="pickDropper()")
+              btn(
+                text="Color Dropper",
+                color="gold-tips",
+                @click="pickDropper()",
+                :active="selection.tool === 'dropper'"
+              )
 
       row
         column(size="100%")
           row
             prefix
-              btn(glyph="", color="burn-orange", @click="eraser()")
+              btn(
+                glyph="",
+                :color="selection.currentColor.spinalCase === 'empty' ? 'green-pea' : 'burn-orange'",
+                @click="eraser()"
+              )
             column(size="100%-35")
-              btn(text="Eraser", color="gold-tips", @click="eraser()")
+              btn(
+                text="Eraser",
+                color="gold-tips",
+                @click="eraser()",
+                :active="selection.currentColor.spinalCase === 'empty'"
+              )
 
   row.row-block(tag="fieldset")
     column(size="100%")
@@ -138,8 +156,8 @@ export default Vue.extend({
     this.selection = this.$store.getters.getPixelSelection;
   },
   methods: {
-    pickDropper(){
-      this.selection.tool = 'dropper';
+    pickDropper() {
+      this.selection.tool = "dropper";
     },
     eraser() {
       this.selection.currentColor = allColors.empty;

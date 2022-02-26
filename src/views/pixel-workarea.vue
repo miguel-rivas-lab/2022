@@ -451,9 +451,16 @@ export default Vue.extend({
       }
     },
     paintColor(x, y, event) {
-      const el = event.target;
-      this.selection.pixelGrid[y][x] = this.currentColor;
-      el.attrs.fill = this.currentColor.rgb;
+      if(this.selection.tool === 'brush'){
+        const el = event.target;
+        this.selection.pixelGrid[y][x] = this.currentColor;
+        el.attrs.fill = this.currentColor.rgb;
+      }
+      if(this.selection.tool === 'dropper'){
+        const el = event.target;
+        this.selection.currentColor = this.selection.pixelGrid[y][x];
+        this.selection.tool = 'brush';
+      }
     },
     updateCanvas: function () {
       const margin = this.panel ? this.panelSize : 0;
