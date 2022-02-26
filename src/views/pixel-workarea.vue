@@ -125,15 +125,6 @@
             />
           </v-group>
         </template>
-        <v-group @click="saveImg()">
-          <ctrl
-            glyph="monster"
-            :x="gridSize + 4"
-            :y="0"
-            :width="2"
-            :height="2"
-          />
-        </v-group>
       </v-layer>
       <v-layer>
         <template v-for="(row, y) in pixelGrid">
@@ -165,14 +156,15 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapGetters } from "vuex";
-import { pixelColor } from "../db/wiki-colors";
+import { allColors } from "../db/wiki-colors";
 import ctrl from "../components/pixel-controller.vue";
 
 export default Vue.extend({
   components: { ctrl },
   data: () => ({
-    pixelColor,
+    allColors,
     selection: {},
+    tool: 'brush',
     konvaConfig: { width: 0, height: 0, draggable: true },
     ctrConfig: {
       width: 1,
@@ -215,6 +207,9 @@ export default Vue.extend({
       this.updateMatrix();
       this.cleanMatrix();
     },
+    lock: function(){
+      this.konvaConfig.draggable = !this.lock;
+    },
   },
   mounted() {
     this.stage = this.$refs.stage.getStage();
@@ -233,6 +228,7 @@ export default Vue.extend({
       panel: "getPanelVisibility",
       panelSize: "getPanelVisibility",
       gridSize: "getGridSize",
+      lock: "getLock"
     }),
     currentColor() {
       return this.selection.currentColor;
@@ -443,14 +439,14 @@ export default Vue.extend({
       for (let y = 0; y < this.gridSize; y++) {
         this.selection.pixelGrid[y] = new Array(this.gridSize);
         for (let x = 0; x < this.gridSize; x++) {
-          this.selection.pixelGrid[y][x] = pixelColor.empty;
+          this.selection.pixelGrid[y][x] = this.allColors.empty;
         }
       }
     },
     cleanMatrix() {
       for (let y = 0; y < this.gridSize; y++) {
         for (let x = 0; x < this.gridSize; x++) {
-          this.stage.find(`#px${x}y${y}`)[0].attrs.fill = pixelColor.empty.rgb;
+          this.stage.find(`#px${x}y${y}`)[0].attrs.fill = this.allColors.empty.rgb;
         }
       }
     },

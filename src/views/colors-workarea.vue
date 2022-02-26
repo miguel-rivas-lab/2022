@@ -16,11 +16,11 @@ scroll-area(color="royal-purple")
 
 <script lang="ts">
 import Vue from "vue";
-import { wikiColors } from "../db/wiki-colors";
+import { allColors } from "../db/wiki-colors";
 
 export default Vue.extend({
   data: () => ({
-    gColorsDB: Object.values(wikiColors)
+    gColorsDB: Object.values(allColors)
       .sort((a, b) => {
         return a.lightness - b.lightness;
       })

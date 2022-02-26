@@ -33,10 +33,73 @@ scroll-area(color="royal-purple")
             column(size="100%")
               btn(text="Save PNG", color="gold-tips", @click="saveImage()")
 
+  row.row-block(tag="fieldset")
+    column(size="100%")
+      legend Tools
+
+      row
+        column(size="100%")
+          row
+            prefix
+              btn(
+                glyph="",
+                :color="selection.lock ? 'green-pea' : 'burn-orange'",
+                @click="lockWorkarea()"
+              )
+            column(size="100%-35")
+              btn(
+                text="Lock Workarea",
+                color="gold-tips",
+                @click="lockWorkarea()",
+                :active="selection.lock"
+              )
+
+      row
+        column(size="100%")
+          row
+            prefix
+              btn(glyph="", color="burn-orange", @click="pickDropper()")
+            column(size="100%-35")
+              btn(text="Color Dropper", color="gold-tips", @click="pickDropper()")
+
+      row
+        column(size="100%")
+          row
+            prefix
+              btn(glyph="", color="burn-orange", @click="eraser()")
+            column(size="100%-35")
+              btn(text="Eraser", color="gold-tips", @click="eraser()")
+
+  row.row-block(tag="fieldset")
+    column(size="100%")
+      legend Palette
+
+      row.list-palette(group, integrate)
+        column(size="100%-40")
+          p.input-label {{ selection.currentColor.titleCase }}
+        column(size="40")
+          span.shade(
+            :style="`background-color: ${selection.currentColor.rgb}`"
+          )
+
+      row.palette
+        column(size="100%"): hr
+
+      row
+        column.palette(size="100%")
+          row.palette
+            template(v-for="color in pixelColors")
+              column(size="20%")
+                button.shade(
+                  @click="changeColor(color)",
+                  :style="`background-color: ${color.rgb}`",
+                  v-nano-tooltip.right="color.titleCase"
+                )
+
       row.palette
         column(size="100%")
-          label Palette
-        template(v-for="color in pixelColor")
+          label Wiki Colors
+        template(v-for="color in wikiColors")
           column(size="20%")
             button.shade(
               @click="changeColor(color)",
@@ -47,7 +110,7 @@ scroll-area(color="royal-purple")
 
 <script lang="ts">
 import Vue from "vue";
-import { pixelColor } from "../db/wiki-colors";
+import { pixelColors, wikiColors, allColors } from "../db/wiki-colors";
 import Slider from "../mixins/slider";
 import { wikiColorEnum } from "../enums/wikicolors";
 import h from "../modules/helpers";
@@ -56,7 +119,8 @@ export default Vue.extend({
   mixins: [Slider],
   data: () => ({
     selection: {},
-    pixelColor: Object.values(pixelColor)
+    pixelColors: Object.values(pixelColors),
+    wikiColors: Object.values(wikiColors)
       .sort((a, b) => {
         return a.lightness - b.lightness;
       })
@@ -74,6 +138,15 @@ export default Vue.extend({
     this.selection = this.$store.getters.getPixelSelection;
   },
   methods: {
+    pickDropper(){
+      this.selection.tool = 'dropper';
+    },
+    eraser() {
+      this.selection.currentColor = allColors.empty;
+    },
+    lockWorkarea() {
+      this.selection.lock = !this.selection.lock;
+    },
     changeColor(color) {
       this.selection.currentColor = color;
     },
@@ -82,7 +155,7 @@ export default Vue.extend({
       const newFile = this.$refs.file.files[0];
       reader.onload = (res) => {
         this.selection.pixelGrid = JSON.parse(res.target.result).map((y) =>
-          y.map((x) => pixelColor[wikiColorEnum[h.hexToDec(x)]])
+          y.map((x) => allColors[wikiColorEnum[h.hexToDec(x)]])
         );
       };
       reader.onerror = (err) => console.log(err);
@@ -90,7 +163,7 @@ export default Vue.extend({
     },
     newImage() {
       const newMatrix = this.selection.pixelGrid.map((y) =>
-        y.map((x) => pixelColor.empty)
+        y.map((x) => this.pixelColors.empty)
       );
       this.selection.pixelGrid = newMatrix;
     },

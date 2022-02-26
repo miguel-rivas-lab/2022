@@ -5,7 +5,6 @@ import NestedPanelView from '../views/nested-panel.vue';
 
 import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
-import IconsPanelView from '../views/icons-panel.vue';
 import IconsWorkareaView from '../views/icons-workarea.vue';
 
 export default {

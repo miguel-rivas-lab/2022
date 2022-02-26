@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { pixelColor } from "../db/wiki-colors";
+import { allColors } from "../db/wiki-colors";
 
 import { modalState } from '../store/modal';
 import { avatarState } from '../store/avatar';
@@ -29,7 +29,9 @@ export const store = new Vuex.Store({
       pixel: {
         gridSize: 32,
         pixelGrid: [],
-        currentColor: pixelColor.pumpkin,
+        currentColor: allColors.pumpkin,
+        lock: false,
+        tool: 'brush', //brush, eraser, dropper
       },
       locations: {
         mapCenter: {
@@ -94,5 +96,6 @@ export const store = new Vuex.Store({
     getAvatarSelection: state => state.selection.avatarState,
     getPixelSelection: state => state.selection.pixel,
     getPixelGridSelection: state => state.selection.pixel.pixelGrid,
+    getLock: state => state.selection.pixel.lock,
   }
 });

@@ -4,8 +4,8 @@ export const wikiColors = {
 	/*0 - 50 */
 	'black': new gColor('black', '#000000'),
 	'auburn': new gColor('auburn', '#A52A2A'),
-	'baby-pink': new gColor('baby-pink', '#F4C2C2'),
-	'eerie-black': new gColor('eerie-black', '#1B1B1B'),
+	
+	
 	'smoky-black': new gColor('smoky-black', '#100C08'),
 	'barn-red': new gColor('barn-red', '#7C0A02'),
 	'almond': new gColor('almond', '#EFDECD'),
@@ -44,7 +44,7 @@ export const wikiColors = {
 
 	/*151 - 200 */
 	'aero-blue': new gColor('aero-blue', '#C0E8D5'),
-	'aquamarine': new gColor('aquamarine', '#7FFFD4'),
+	
 	'aqua': new gColor('aqua', '#00FFFF'),
 	'blue-munsell': new gColor('blue-munsell', '#0093AF'),
 	'blue-ncs': new gColor('blue-ncs', '#0087BD'),
@@ -69,11 +69,10 @@ export const wikiColors = {
 	'blue-crayola': new gColor('blue-crayola', '#1F75FE'),
 	'cobalt-blue': new gColor('cobalt-blue', '#0047AB'),
 	'bdazzled-blue': new gColor('bdazzled-blue', '#2E5894'),
-	'blue-violet-crayola': new gColor('blue-violet-crayola', '#7366BD'),
+	
 	'blue-pigment': new gColor('blue-pigment', '#333399'),
 
 	/*251 - 300 */
-	'raisin-black': new gColor('raisin-black', '#242124'),
 	'african-violet': new gColor('african-violet', '#B284BE'),
 	'amethyst': new gColor('amethyst', '#9966CC'),
 	'blue-violet': new gColor('blue-violet', '#8A2BE2'),
@@ -84,9 +83,9 @@ export const wikiColors = {
 	'barbie-pink': new gColor('barbie-pink', '#DA1884'),
 	'lipstick': new gColor('lipstick', '#9F2B68'), // amaranth-m-p
 	'illusion': new gColor('illusion', '#F19CBB'), // amaranth-pink
-	'amaranth-purple': new gColor('amaranth-purple', '#AB274F'),
+	
 	'antique-fuchsia': new gColor('antique-fuchsia', '#915C83'),
-	'antique-ruby': new gColor('antique-ruby', '#841B2D'),
+
 	'baker-miller-pink': new gColor('baker-miller-pink', '#FF91AF'),
 
 	/*rest */
@@ -104,7 +103,6 @@ export const wikiColors = {
 	'bitter-lime': new gColor('bitter-lime', '#BFFF00'),
 	'bittersweet': new gColor('bittersweet', '#FE6F5E'),
 	'bittersweet-shimmer': new gColor('bittersweet-shimmer', '#BF4F51'),
-	'black-bean': new gColor('black-bean', '#3D0C02'),
 	'black-coffee': new gColor('black-coffee', '#3B2F2F'),
 	'black-coral': new gColor('black-coral', '#54626F'),
 	'black-olive': new gColor('black-olive', '#3B3C36'),
@@ -121,7 +119,7 @@ export const wikiColors = {
 	'blue-sapphire': new gColor('blue-sapphire', '#126180'),
 	'blue-yonder': new gColor('blue-yonder', '#5072A7'),
 	'bluetiful': new gColor('bluetiful', '#3C69E7'),
-	'blush': new gColor('blush', '#DE5D83'),
+	
 	'bole': new gColor('bole', '#79443B'),
 	'bone': new gColor('bone', '#E3DAC9'),
 	'bottle-green': new gColor('bottle-green', '#006A4E'),
@@ -158,7 +156,7 @@ export const wikiColors = {
 	'cadmium-red': new gColor('cadmium-red', '#E30022'),
 	'cadmium-yellow': new gColor('cadmium-yellow', '#FFF600'),
 	'café-au-lait': new gColor('café-au-lait', '#A67B5B'),
-	'café-noir': new gColor('café-noir', '#4B3621'),
+	
 	'cambridge-blue': new gColor('cambridge-blue', '#A3C1AD'),
 	'camel': new gColor('camel', '#C19A6B'),
 	'cameo-pink': new gColor('cameo-pink', '#EFBBCC'),
@@ -169,7 +167,7 @@ export const wikiColors = {
 	'capri': new gColor('capri', '#00BFFF'),
 	'caput-mortuum': new gColor('caput-mortuum', '#592720'),
 	'cardinal': new gColor('cardinal', '#C41E3A'),
-	'caribbean-green': new gColor('caribbean-green', '#00CC99'),
+	
 	'carmine': new gColor('carmine', '#960018'),
 	'carmine-m-p': new gColor('carmine-m-p', '#D70040'),
 	'carnation-pink': new gColor('carnation-pink', '#FFA6C9'),
@@ -215,13 +213,11 @@ export const wikiColors = {
 	'cinnamon-satin': new gColor('cinnamon-satin', '#CD607E'),
 	'citrine': new gColor('citrine', '#E4D00A'),
 	'citron': new gColor('citron', '#9FA91F'),
-	'claret': new gColor('claret', '#7F1734'),
 	'cocoa-brown': new gColor('cocoa-brown', '#D2691E'),
 	'coffee': new gColor('coffee', '#6F4E37'),
 	'columbia-blue': new gColor('columbia-blue', '#B9D9EB'),
 	'congo-pink': new gColor('congo-pink', '#F88379'),
 	'cool-grey': new gColor('cool-grey', '#8C92AC'),
-	'copper': new gColor('copper', '#B87333'),
 	'copper-crayola': new gColor('copper-crayola', '#DA8A67'),
 	'copper-penny': new gColor('copper-penny', '#AD6F69'),
 	'copper-red': new gColor('copper-red', '#CB6D51'),
@@ -232,7 +228,6 @@ export const wikiColors = {
 	'cordovan': new gColor('cordovan', '#893F45'),
 	'corn': new gColor('corn', '#FBEC5D'),
 	'cornell-red': new gColor('cornell-red', '#B31B1B'),
-	'cornflower-blue': new gColor('cornflower-blue', '#6495ED'),
 	'cornsilk': new gColor('cornsilk', '#FFF8DC'),
 	'cosmic-cobalt': new gColor('cosmic-cobalt', '#2E2D88'),
 	'cosmic-latte': new gColor('cosmic-latte', '#FFF8E7'),
@@ -267,11 +262,11 @@ export const wikiColors = {
 	'dark-olive-green': new gColor('dark-olive-green', '#556B2F'),
 	'dark-orchid': new gColor('dark-orchid', '#9932CC'),
 	'dark-pastel-green': new gColor('dark-pastel-green', '#03C03C'),
-	'dark-purple': new gColor('dark-purple', '#301934'),
+	
 	'dark-red': new gColor('dark-red', '#8B0000'),
 	'dark-salmon': new gColor('dark-salmon', '#E9967A'),
-	'dark-sea-green': new gColor('dark-sea-green', '#8FBC8F'),
-	'dark-sienna': new gColor('dark-sienna', '#3C1414'),
+
+	
 	'dark-sky-blue': new gColor('dark-sky-blue', '#8CBED6'),
 	'dark-slate-blue': new gColor('dark-slate-blue', '#483D8B'),
 	'dark-slate-gray': new gColor('dark-slate-gray', '#2F4F4F'),
@@ -303,7 +298,7 @@ export const wikiColors = {
 	'ebony': new gColor('ebony', '#555D50'),
 	'ecru': new gColor('ecru', '#C2B280'),
 	'eggplant': new gColor('eggplant', '#614051'),
-	'eggshell': new gColor('eggshell', '#F0EAD6'),
+	
 	'egyptian-blue': new gColor('egyptian-blue', '#1034A6'),
 	'electric-blue': new gColor('electric-blue', '#7DF9FF'),
 	'electric-green': new gColor('electric-green', '#00FF00'),
@@ -311,7 +306,7 @@ export const wikiColors = {
 	'electric-lime': new gColor('electric-lime', '#CCFF00'),
 	'electric-purple': new gColor('electric-purple', '#BF00FF'),
 	'electric-violet': new gColor('electric-violet', '#8F00FF'),
-	'emerald': new gColor('emerald', '#50C878'),
+	
 	'eminence': new gColor('eminence', '#6C3082'),
 	'english-green': new gColor('english-green', '#1B4D3E'),
 	'english-lavender': new gColor('english-lavender', '#B48395'),
@@ -328,7 +323,6 @@ export const wikiColors = {
 	'fawn': new gColor('fawn', '#E5AA70'),
 	'feldgrau': new gColor('feldgrau', '#4D5D53'),
 	'fern-green': new gColor('fern-green', '#4F7942'),
-	'field-drab': new gColor('field-drab', '#6C541E'),
 	'fiery-rose': new gColor('fiery-rose', '#FF5470'),
 	'firebrick': new gColor('firebrick', '#B22222'),
 	'fire-engine-red': new gColor('fire-engine-red', '#CE2029'),
@@ -339,7 +333,6 @@ export const wikiColors = {
 	'floral-white': new gColor('floral-white', '#FFFAF0'),
 	'fluorescent-blue': new gColor('fluorescent-blue', '#15F4EE'),
 	'forest-green-crayola': new gColor('forest-green-crayola', '#5FA777'),
-	'forest-green-traditional': new gColor('forest-green-traditional', '#014421'),
 	'forest-green-web': new gColor('forest-green-web', '#228B22'),
 	'french-beige': new gColor('french-beige', '#A67B5B'),
 	'french-bistre': new gColor('french-bistre', '#856D4D'),
@@ -347,7 +340,7 @@ export const wikiColors = {
 	'french-fuchsia': new gColor('french-fuchsia', '#FD3F92'),
 	'french-lilac': new gColor('french-lilac', '#86608E'),
 	'french-lime': new gColor('french-lime', '#9EFD38'),
-	'french-mauve': new gColor('french-mauve', '#D473D4'),
+	
 	'french-pink': new gColor('french-pink', '#FD6C9E'),
 	'french-raspberry': new gColor('french-raspberry', '#C72C48'),
 	'french-rose': new gColor('french-rose', '#F64A8A'),
@@ -393,11 +386,11 @@ export const wikiColors = {
 	'green-cyan': new gColor('green-cyan', '#009966'),
 	'green-lizard': new gColor('green-lizard', '#A7F432'),
 	'green-sheen': new gColor('green-sheen', '#6EAEA1'),
-	'green-yellow': new gColor('green-yellow', '#ADFF2F'),
+	
 	'green-yellow-crayola': new gColor('green-yellow-crayola', '#F0E891'),
 	'grullo': new gColor('grullo', '#A99A86'),
 	'gunmetal': new gColor('gunmetal', '#2a3439'),
-	'han-blue': new gColor('han-blue', '#446CCF'),
+
 	'han-purple': new gColor('han-purple', '#5218FA'),
 	'hansa-yellow': new gColor('hansa-yellow', '#E9D66B'),
 	'harlequin': new gColor('harlequin', '#3FFF00'),
@@ -465,8 +458,7 @@ export const wikiColors = {
 	'lemon-chiffon': new gColor('lemon-chiffon', '#FFFACD'),
 	'lemon-curry': new gColor('lemon-curry', '#CCA01D'),
 	'lemon-glacier': new gColor('lemon-glacier', '#FDFF00'),
-	'lemon-meringue': new gColor('lemon-meringue', '#F6EABE'),
-	'lemon-yellow': new gColor('lemon-yellow', '#FFF44F'),
+	
 	'lemon-yellow-crayola': new gColor('lemon-yellow-crayola', '#FFFF9F'),
 	'liberty': new gColor('liberty', '#545AA7'),
 	'light-blue': new gColor('light-blue', '#ADD8E6'),
@@ -484,7 +476,6 @@ export const wikiColors = {
 	'light-sea-green': new gColor('light-sea-green', '#20B2AA'),
 	'light-sky-blue': new gColor('light-sky-blue', '#87CEFA'),
 	'light-slate-gray': new gColor('light-slate-gray', '#778899'),
-	'light-steel-blue': new gColor('light-steel-blue', '#B0C4DE'),
 	'light-yellow': new gColor('light-yellow', '#FFFFE0'),
 	'lilac': new gColor('lilac', '#C8A2C8'),
 	'lilac-luster': new gColor('lilac-luster', '#AE98AA'),
@@ -512,7 +503,6 @@ export const wikiColors = {
 	'magic-mint': new gColor('magic-mint', '#AAF0D1'),
 	'magnolia': new gColor('magnolia', '#F2E8D7'),
 	'mahogany': new gColor('mahogany', '#C04000'),
-	'maize': new gColor('maize', '#FBEC5D'),
 	'maize-crayola': new gColor('maize-crayola', '#F2C649'),
 	'majorelle-blue': new gColor('majorelle-blue', '#6050DC'),
 	'malachite': new gColor('malachite', '#0BDA51'),
@@ -527,24 +517,21 @@ export const wikiColors = {
 	'maroon-web': new gColor('maroon-web', '#800000'),
 	'maroon-x11': new gColor('maroon-x11', '#B03060'),
 	'mauve': new gColor('mauve', '#E0B0FF'),
-	'mauve-taupe': new gColor('mauve-taupe', '#915F6D'),
 	'mauvelous': new gColor('mauvelous', '#EF98AA'),
 	'maximum-blue': new gColor('maximum-blue', '#47ABCC'),
 	'maximum-blue-green': new gColor('maximum-blue-green', '#30BFBF'),
-	'maximum-blue-purple': new gColor('maximum-blue-purple', '#ACACE6'),
+	
 	'maximum-green': new gColor('maximum-green', '#5E8C31'),
 	'maximum-green-yellow': new gColor('maximum-green-yellow', '#D9E650'),
 	'maximum-purple': new gColor('maximum-purple', '#733380'),
 	'maximum-red': new gColor('maximum-red', '#D92121'),
 	'maximum-red-purple': new gColor('maximum-red-purple', '#A63A79'),
 	'maximum-yellow': new gColor('maximum-yellow', '#FAFA37'),
-	'maximum-yellow-red': new gColor('maximum-yellow-red', '#F2BA49'),
 	'may-green': new gColor('may-green', '#4C9141'),
 	'maya-blue': new gColor('maya-blue', '#73C2FB'),
 	'medium-aquamarine': new gColor('medium-aquamarine', '#66DDAA'),
 	'medium-blue': new gColor('medium-blue', '#0000CD'),
 	'medium-candy-apple-red': new gColor('medium-candy-apple-red', '#E2062C'),
-	'medium-carmine': new gColor('medium-carmine', '#AF4035'),
 	'medium-champagne': new gColor('medium-champagne', '#F3E5AB'),
 	'medium-orchid': new gColor('medium-orchid', '#BA55D3'),
 	'medium-purple': new gColor('medium-purple', '#9370DB'),
@@ -571,7 +558,6 @@ export const wikiColors = {
 	'middle-red-purple': new gColor('middle-red-purple', '#A55353'),
 	'middle-yellow': new gColor('middle-yellow', '#FFEB00'),
 	'middle-yellow-red': new gColor('middle-yellow-red', '#ECB176'),
-	'midnight': new gColor('midnight', '#702670'),
 	'midnight-blue': new gColor('midnight-blue', '#191970'),
 	'midnight-green-eagle-green': new gColor('midnight-green-eagle-green', '#004953'),
 	'mikado-yellow': new gColor('mikado-yellow', '#FFC40C'),
@@ -589,7 +575,6 @@ export const wikiColors = {
 	'moss-green': new gColor('moss-green', '#8A9A5B'),
 	'mountain-meadow': new gColor('mountain-meadow', '#30BA8F'),
 	'mountbatten-pink': new gColor('mountbatten-pink', '#997A8D'),
-	'msu-green': new gColor('msu-green', '#18453B'),
 	'mulberry': new gColor('mulberry', '#C54B8C'),
 	'mulberry-crayola': new gColor('mulberry-crayola', '#C8509B'),
 	'mustard': new gColor('mustard', '#FFDB58'),
@@ -610,14 +595,12 @@ export const wikiColors = {
 	'non-photo-blue': new gColor('non-photo-blue', '#A4DDED'),
 	'nyanza': new gColor('nyanza', '#E9FFDB'),
 	'ocean-blue': new gColor('ocean-blue', '#4F42B5'),
-	'ocean-green': new gColor('ocean-green', '#48BF91'),
 	'ochre': new gColor('ochre', '#CC7722'),
 	'old-burgundy': new gColor('old-burgundy', '#43302E'),
 	'old-gold': new gColor('old-gold', '#CFB53B'),
 	'old-lace': new gColor('old-lace', '#FDF5E6'),
 	'old-lavender': new gColor('old-lavender', '#796878'),
 	'old-mauve': new gColor('old-mauve', '#673147'),
-	'old-rose': new gColor('old-rose', '#C08081'),
 	'old-silver': new gColor('old-silver', '#848482'),
 	'olive': new gColor('olive', '#808000'),
 	'olive-drab-no3': new gColor('olive-drab-no3', '#6B8E23'),
@@ -652,7 +635,7 @@ export const wikiColors = {
 	'pale-cerulean': new gColor('pale-cerulean', '#9BC4E2'),
 	'pale-dogwood': new gColor('pale-dogwood', '#ED7A9B'),
 	'pale-pink': new gColor('pale-pink', '#FADADD'),
-	'pale-purple-pantone': new gColor('pale-purple-pantone', '#FAE6FA'),
+	
 	'pale-silver': new gColor('pale-silver', '#C9C0BB'),
 	'pale-spring-bud': new gColor('pale-spring-bud', '#ECEBBD'),
 	'pansy-purple': new gColor('pansy-purple', '#78184A'),
@@ -674,7 +657,6 @@ export const wikiColors = {
 	'permanent-geranium-lake': new gColor('permanent-geranium-lake', '#E12C2C'),
 	'persian-blue': new gColor('persian-blue', '#1C39BB'),
 	'persian-green': new gColor('persian-green', '#00A693'),
-	'persian-indigo': new gColor('persian-indigo', '#32127A'),
 	'persian-orange': new gColor('persian-orange', '#D99058'),
 	'persian-pink': new gColor('persian-pink', '#F77FBE'),
 	'persian-plum': new gColor('persian-plum', '#701C1C'),
@@ -684,11 +666,11 @@ export const wikiColors = {
 	'pewter-blue': new gColor('pewter-blue', '#8BA8B7'),
 	'phlox': new gColor('phlox', '#DF00FF'),
 	'phthalo-blue': new gColor('phthalo-blue', '#000F89'),
-	'phthalo-green': new gColor('phthalo-green', '#123524'),
+
 	'picotee-blue': new gColor('picotee-blue', '#2E2787'),
 	'pictorial-carmine': new gColor('pictorial-carmine', '#C30B4E'),
 	'piggy-pink': new gColor('piggy-pink', '#FDDDE6'),
-	'pine-green': new gColor('pine-green', '#01796F'),
+	
 	'pine-tree': new gColor('pine-tree', '#2A2F23'),
 	'pink': new gColor('pink', '#FFC0CB'),
 	'pink-pantone': new gColor('pink-pantone', '#D74894'),
@@ -728,7 +710,7 @@ export const wikiColors = {
 	'quick-silver': new gColor('quick-silver', '#A6A6A6'),
 	'quinacridone-magenta': new gColor('quinacridone-magenta', '#8E3A59'),
 	'radical-red': new gColor('radical-red', '#FF355E'),
-	'rajah': new gColor('rajah', '#FBAB60'),
+	
 	'raspberry': new gColor('raspberry', '#E30B5D'),
 	'raspberry-glace': new gColor('raspberry-glace', '#915F6D'),
 	'raspberry-rose': new gColor('raspberry-rose', '#B3446C'),
@@ -757,7 +739,6 @@ export const wikiColors = {
 	'resolution-blue': new gColor('resolution-blue', '#002387'),
 	'rhythm': new gColor('rhythm', '#777696'),
 	'rich-black': new gColor('rich-black', '#004040'),
-	'rifle-green': new gColor('rifle-green', '#444C38'),
 	'robin-egg-blue': new gColor('robin-egg-blue', '#00CCCC'),
 	'rocket-metallic': new gColor('rocket-metallic', '#8A7F80'),
 	'rojo-spanish-red': new gColor('rojo-spanish-red', '#A91101'),
@@ -803,7 +784,7 @@ export const wikiColors = {
 	'sand': new gColor('sand', '#C2B280'),
 	'sand-dune': new gColor('sand-dune', '#967117'),
 	'sandy-brown': new gColor('sandy-brown', '#F4A460'),
-	'sap-green': new gColor('sap-green', '#507D2A'),
+	
 	'sapphire': new gColor('sapphire', '#0F52BA'),
 	'sapphire-blue': new gColor('sapphire-blue', '#0067A5'),
 	'sapphire-crayola': new gColor('sapphire-crayola', '#0067A5'),
@@ -819,7 +800,6 @@ export const wikiColors = {
 	'selective-yellow': new gColor('selective-yellow', '#FFBA00'),
 	'sepia': new gColor('sepia', '#704214'),
 	'shadow': new gColor('shadow', '#8A795D'),
-	'shadow-blue': new gColor('shadow-blue', '#778BA5'),
 	'shamrock-green': new gColor('shamrock-green', '#009E60'),
 	'sheen-green': new gColor('sheen-green', '#8FD400'),
 	'shimmering-blush': new gColor('shimmering-blush', '#D98695'),
@@ -844,9 +824,8 @@ export const wikiColors = {
 	'slate-gray': new gColor('slate-gray', '#708090'),
 	'slimy-green': new gColor('slimy-green', '#299617'),
 	'smitten': new gColor('smitten', '#C84186'),
-	'snow': new gColor('snow', '#FFFAFA'),
 	'solid-pink': new gColor('solid-pink', '#893843'),
-	'sonic-silver': new gColor('sonic-silver', '#757575'),
+	
 	'space-cadet': new gColor('space-cadet', '#1D2951'),
 	'spanish-bistre': new gColor('spanish-bistre', '#807532'),
 	'spanish-blue': new gColor('spanish-blue', '#0070B8'),
@@ -857,7 +836,6 @@ export const wikiColors = {
 	'spanish-pink': new gColor('spanish-pink', '#F7BFBE'),
 	'spanish-red': new gColor('spanish-red', '#E60026'),
 	'spanish-sky-blue': new gColor('spanish-sky-blue', '#00FFFF'),
-	'spanish-violet': new gColor('spanish-violet', '#4C2882'),
 	'spanish-viridian': new gColor('spanish-viridian', '#007F5C'),
 	'spring-bud': new gColor('spring-bud', '#A7FC00'),
 	'spring-frost': new gColor('spring-frost', '#87FF2A'),
@@ -885,7 +863,7 @@ export const wikiColors = {
 	'tart-orange': new gColor('tart-orange', '#FB4D46'),
 	'taupe': new gColor('taupe', '#483C32'),
 	'taupe-gray': new gColor('taupe-gray', '#8B8589'),
-	'tea-green': new gColor('tea-green', '#D0F0C0'),
+	
 	'tea-rose': new gColor('tea-rose', '#F88379'),
 	'tea-rose2': new gColor('tea-rose2', '#F4C2C2'),
 	'teal': new gColor('teal', '#008080'),
@@ -900,7 +878,7 @@ export const wikiColors = {
 	'timberwolf': new gColor('timberwolf', '#DBD7D2'),
 	'titanium-yellow': new gColor('titanium-yellow', '#EEE600'),
 	'tomato': new gColor('tomato', '#FF6347'),
-	'tropical-rainforest': new gColor('tropical-rainforest', '#00755E'),
+	
 	'true-blue': new gColor('true-blue', '#2D68C4'),
 	'trypan-blue': new gColor('trypan-blue', '#1C05B3'),
 	'tufts-blue': new gColor('tufts-blue', '#3E8EDE'),
@@ -931,7 +909,7 @@ export const wikiColors = {
 	'up-maroon': new gColor('up-maroon', '#7B1113'),
 	'upsdell-red': new gColor('upsdell-red', '#AE2029'),
 	'uranian-blue': new gColor('uranian-blue', '#AFDBF5'),
-	'usafa-blue': new gColor('usafa-blue', '#004F98'),
+	
 	'van-dyke-brown': new gColor('van-dyke-brown', '#664228'),
 	'vanilla': new gColor('vanilla', '#F3E5AB'),
 	'vanilla-ice': new gColor('vanilla-ice', '#F38FA9'),
@@ -970,12 +948,12 @@ export const wikiColors = {
 	'wintergreen-dream': new gColor('wintergreen-dream', '#56887D'),
 	'wisteria': new gColor('wisteria', '#C9A0DC'),
 	'wood-brown': new gColor('wood-brown', '#C19A6B'),
-	'xanadu': new gColor('xanadu', '#738678'),
+	
 	'xanthic': new gColor('xanthic', '#EEED09'),
 	'xanthous': new gColor('xanthous', '#F1B42F'),
 	'yale-blue': new gColor('yale-blue', '#00356B'),
 	'yellow': new gColor('yellow', '#FFFF00'),
-	'yellow-crayola': new gColor('yellow-crayola', '#FCE883'),
+	
 	'yellow-munsell': new gColor('yellow-munsell', '#EFCC00'),
 	'yellow-pantone': new gColor('yellow-pantone', '#FEDF00'),
 	'yellow-process': new gColor('yellow-process', '#FFEF00'),
@@ -989,9 +967,77 @@ export const wikiColors = {
 	'yinmn-blue': new gColor('yinmn-blue', '#2E5090'),
 	'zaffre': new gColor('zaffre', '#0014A8'),
 	'zomp': new gColor('zomp', '#39A78E'),
+	'dark-sienna': new gColor('dark-sienna', '#3C1414'),
+	'green-yellow': new gColor('green-yellow', '#ADFF2F'),
+	'forest-green-traditional': new gColor('forest-green-traditional', '#014421'),
+	'emerald': new gColor('emerald', '#50C878'),
+	'rifle-green': new gColor('rifle-green', '#444C38'),
+	'french-mauve': new gColor('french-mauve', '#D473D4'),
+	'persian-indigo': new gColor('persian-indigo', '#32127A'),
+	'caribbean-green': new gColor('caribbean-green', '#00CC99'),
 };
 
-export const pixelColor = {
+export const paletteColors = {
+	'snow': new gColor('snow', '#FFFAFA'),
+	'sonic-silver': new gColor('sonic-silver', '#757575'),
+	'raisin-black': new gColor('raisin-black', '#242124'),
+	'eerie-black': new gColor('eerie-black', '#1B1B1B'),
+
+	'maximum-blue-purple': new gColor('maximum-blue-purple', '#ACACE6'),
+	'blue-violet-crayola': new gColor('blue-violet-crayola', '#7366BD'),
+	'midnight': new gColor('midnight', '#702670'),
+	'spanish-violet': new gColor('spanish-violet', '#4C2882'),
+	'dark-purple': new gColor('dark-purple', '#301934'),
+	
+	'pale-purple-pantone': new gColor('pale-purple-pantone', '#FAE6FA'),
+	'blush': new gColor('blush', '#DE5D83'),
+	'mauve-taupe': new gColor('mauve-taupe', '#915F6D'),
+	'amaranth-purple': new gColor('amaranth-purple', '#AB274F'),
+	'claret': new gColor('claret', '#7F1734'),
+
+	'baby-pink': new gColor('baby-pink', '#F4C2C2'),
+	'old-rose': new gColor('old-rose', '#C08081'),
+	'medium-carmine': new gColor('medium-carmine', '#AF4035'),
+	'antique-ruby': new gColor('antique-ruby', '#841B2D'),
+	'black-bean': new gColor('black-bean', '#3D0C02'),
+
+	'tea-green': new gColor('tea-green', '#D0F0C0'),
+	'dark-sea-green': new gColor('dark-sea-green', '#8FBC8F'),
+	'xanadu': new gColor('xanadu', '#738678'),
+	'sap-green': new gColor('sap-green', '#507D2A'),
+	'phthalo-green': new gColor('phthalo-green', '#123524'),
+
+	'aquamarine': new gColor('aquamarine', '#7FFFD4'),
+	'ocean-green': new gColor('ocean-green', '#48BF91'),
+	'pine-green': new gColor('pine-green', '#01796F'),
+	'tropical-rainforest': new gColor('tropical-rainforest', '#00755E'),
+	'msu-green': new gColor('msu-green', '#18453B'),
+
+	'light-steel-blue': new gColor('light-steel-blue', '#B0C4DE'),
+	'shadow-blue': new gColor('shadow-blue', '#778BA5'),
+	'cornflower-blue': new gColor('cornflower-blue', '#6495ED'),
+	'han-blue': new gColor('han-blue', '#446CCF'),
+	'usafa-blue': new gColor('usafa-blue', '#004F98'),
+
+	'eggshell': new gColor('eggshell', '#F0EAD6'),	
+	'yellow-crayola': new gColor('yellow-crayola', '#FCE883'),
+	'maize': new gColor('maize', '#FBEC5D'),
+	'lemon-yellow': new gColor('lemon-yellow', '#FFF44F'),
+	'field-drab': new gColor('field-drab', '#6C541E'),
+
+	'lemon-meringue': new gColor('lemon-meringue', '#F6EABE'),
+	'maximum-yellow-red': new gColor('maximum-yellow-red', '#F2BA49'),
+	'rajah': new gColor('rajah', '#FBAB60'),
+	'copper': new gColor('copper', '#B87333'),
+	'café-noir': new gColor('café-noir', '#4B3621'),
+};
+
+export const pixelColors = {
 	'empty': new gColor('empty', '#5a5a5a19'),
+	...paletteColors
+};
+
+export const allColors = {
+	...pixelColors,
 	...wikiColors,
 };
