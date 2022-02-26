@@ -7,11 +7,23 @@ scroll-area(color="royal-purple")
       row
         column(size="100%")
           row
-            column(size="100%")
+            prefix
+              btn(
+                glyph="plus",
+                color="burn-orange",
+                @click="newImage()"
+              )
+            column(size="100%-35")
               btn(text="New Image", color="gold-tips", @click="newImage()")
 
       row
-        column(size="100%")
+        prefix
+          btn(
+            glyph="open",
+            color="burn-orange",
+            @click="openImage()"
+          )
+        column(size="100%-35")
           label.btn.flat.gold-tips
             | Open JSON
             input(
@@ -24,14 +36,26 @@ scroll-area(color="royal-purple")
       row
         column(size="100%")
           row
-            column(size="100%")
+            prefix
+              btn(
+                glyph="save",
+                color="burn-orange",
+                @click="saveJson()"
+              )
+            column(size="100%-35")
               btn(text="Save JSON", color="gold-tips", @click="saveJson()")
 
       row
         column(size="100%")
           row
-            column(size="100%")
-              btn(text="Save PNG", color="gold-tips", @click="saveImage()")
+            prefix
+              btn(
+                glyph="download",
+                color="burn-orange",
+                @click="saveImage()"
+              )
+            column(size="100%-35")
+              btn(text="Export PNG", color="gold-tips", @click="saveImage()")
 
   row.row-block(tag="fieldset")
     column(size="100%")
@@ -42,7 +66,7 @@ scroll-area(color="royal-purple")
           row
             prefix
               btn(
-                glyph="",
+                :glyph="selection.lock ? 'lock' : 'unlock'",
                 :color="selection.lock ? 'green-pea' : 'burn-orange'",
                 @click="lockWorkarea()"
               )
@@ -59,7 +83,7 @@ scroll-area(color="royal-purple")
           row
             prefix
               btn(
-                glyph="",
+                glyph="eyedropper",
                 :color="selection.tool === 'dropper' ? 'green-pea' : 'burn-orange'",
                 @click="pickDropper()"
               )
@@ -76,7 +100,7 @@ scroll-area(color="royal-purple")
           row
             prefix
               btn(
-                glyph="",
+                glyph="eraser",
                 :color="selection.currentColor.spinalCase === 'empty' ? 'green-pea' : 'burn-orange'",
                 @click="eraser()"
               )
@@ -100,7 +124,7 @@ scroll-area(color="royal-purple")
             :style="`background-color: ${selection.currentColor.rgb}`"
           )
 
-      row.palette
+      row
         column(size="100%"): hr
 
       row
@@ -114,16 +138,20 @@ scroll-area(color="royal-purple")
                   v-nano-tooltip.right="color.titleCase"
                 )
 
-      row.palette
-        column(size="100%")
-          label Wiki Colors
-        template(v-for="color in wikiColors")
-          column(size="20%")
-            button.shade(
-              @click="changeColor(color)",
-              :style="`background-color: ${color.rgb}`",
-              v-nano-tooltip.right="color.titleCase"
-            )
+            column(size="100%"): hr
+
+            column(size="100%")
+              toggle-row(breakpoint="lg").toggle-input
+                template(v-slot:header)
+                  column(size="100%-35") More Colors
+                template(v-slot:more)
+                  template(v-for="color in wikiColors")
+                    column(size="20%")
+                      button.shade(
+                        @click="changeColor(color)",
+                        :style="`background-color: ${color.rgb}`",
+                        v-nano-tooltip.right="color.titleCase"
+                      )
 </template>
 
 <script lang="ts">
@@ -132,9 +160,11 @@ import { pixelColors, wikiColors, allColors } from "../db/wiki-colors";
 import Slider from "../mixins/slider";
 import { wikiColorEnum } from "../enums/wikicolors";
 import h from "../modules/helpers";
+import ToggleRow from "../components/toggle-row.vue";
 
 export default Vue.extend({
   mixins: [Slider],
+  components: {ToggleRow},
   data: () => ({
     selection: {},
     pixelColors: Object.values(pixelColors),
