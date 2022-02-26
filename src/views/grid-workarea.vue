@@ -16,7 +16,7 @@ scroll-area(color="royal-purple")
             v-bind:key="index",
             :size="finalExpression(index)"
           )
-            btn(:text="column.size", :color="column.color")
+            span.fake-btn(v-html="column.size", :style="`border-color: ${createColor(index, selection.columns.length)}`")
 
     hr
 
@@ -47,7 +47,7 @@ export default Vue.extend({
       this.selection.columns.forEach((column) => {
         columns += `  <${column.block} size="${column.size}${
           parseInt(column.subtraction) > 0 ? "-" + column.subtraction : ""
-        }">\n    <btn size="md" color="${column.color}" text="${
+        }">\n    <btn text="${
           column.size
         }" />\n  </${column.block}>\n`;
       });
@@ -112,6 +112,16 @@ export default Vue.extend({
         }
       }
       return validateSize(result);
+    },
+    createColor(index: number, max_color_amount: number) {
+      var hue, difference, filter_max_color, filter_min_color;
+      filter_max_color = max_color_amount > 359 ? 359 : max_color_amount;
+      filter_min_color = filter_max_color < 3 ? 3 : filter_max_color;
+      max_color_amount = filter_min_color;
+
+      difference = 360 / max_color_amount;
+      hue = (index * difference).toFixed(1);
+      return `hsl(${hue} 60% 40%)`;
     },
     copyCode() {
       this.$refs.textarea.select();

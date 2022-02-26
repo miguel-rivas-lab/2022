@@ -61,16 +61,16 @@ scroll-area(color="royal-purple")
               v-html="option"
             )
 
+  row.row-block
+    column(size="100%")
+      btn(color="gold-tips", @click="addColumn()", text="Add Column")
+
   template(v-for="(column, index) in selection.columns")
     panel-block-column(
       v-bind:key="index",
       :index="index",
       :name="(index + 1).toString()"
     )
-
-  row.row-block
-    column(size="100%")
-      btn(color="gold-tips", @click="addColumn()", text="Add Column")
 </template>
 
 <script lang="ts">
@@ -96,7 +96,6 @@ export default Vue.extend({
         mode: "Percent",
         size: "50%",
         subtraction: "0",
-        color: "desert",
         expression: "sz1b4",
         block: "column",
       });

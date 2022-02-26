@@ -26,13 +26,5 @@ export default Vue.extend({
   created() {
     this.selection = this.$store.getters.getWheelSelection;
   },
-  methods: {
-    addColumn() {
-      this.selection.colors++;
-    },
-    removeBlock() {
-      this.selection.colors--;
-    },
-  },
 });
 </script>

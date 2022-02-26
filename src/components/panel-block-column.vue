@@ -3,7 +3,6 @@
     v-if="selection.columns[index]"
     @onRemove="removeBlock()"
     :title="`${name.toUpperCase()}: Column Styles`"
-    :color="selection.columns[index].color"
   >
     <row>
       <column size="100%">
@@ -108,29 +107,6 @@
             v-html="option"
           />
         </select>
-      </column>
-    </row>
-
-    <row>
-      <column size="100%">
-        <label>Button Color</label>
-      </column>
-      <column size="100%">
-        <div class="radio-select">
-          <template v-for="option in gColorsDB">
-            <label
-              :class="[option.spinalCase, 'btn', 'flat']"
-              v-bind:key="option.spinalCase"
-            >
-              <input
-                type="radio"
-                :name="`id-${name}-color`"
-                :value="option.spinalCase"
-                v-model="selection.columns[index].color"
-              />
-            </label>
-          </template>
-        </div>
       </column>
     </row>
   </panel-block>

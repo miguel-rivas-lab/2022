@@ -42,7 +42,7 @@
       },
       color: {
         type: String,
-        default: 'gravel',
+        default: 'silver',
       }
     },
     data: () => ({
