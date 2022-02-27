@@ -113,14 +113,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import panelBlock from "./panel-block.vue";
 import { validateSize } from "nano-grid/modules/columns-manager";
 import { gColorsDB } from "../db/colors";
 import Slider from "../mixins/slider";
 
 export default Vue.extend({
   mixins: [Slider],
-  components: { panelBlock },
   props: {
     name: {
       type: String,

@@ -132,7 +132,7 @@
             <v-rect
               v-bind:key="`px${x}y${y}`"
               :id="`px${x}y${y}`"
-              @click="paintColor(x, y, $event)"
+              @mousedown="paintColor(x, y, $event)"
               @mouseover="mouseOverPixel($event)"
               @mouseout="mouseOutPixel($event)"
               :config="{
@@ -164,7 +164,7 @@ export default Vue.extend({
   data: () => ({
     allColors,
     selection: {},
-    tool: 'brush',
+    tool: "brush",
     konvaConfig: { width: 0, height: 0, draggable: true },
     ctrConfig: {
       width: 1,
@@ -207,7 +207,7 @@ export default Vue.extend({
       this.updateMatrix();
       this.cleanMatrix();
     },
-    lock: function(){
+    lock: function () {
       this.konvaConfig.draggable = !this.lock;
     },
   },
@@ -228,7 +228,7 @@ export default Vue.extend({
       panel: "getPanelVisibility",
       panelSize: "getPanelVisibility",
       gridSize: "getGridSize",
-      lock: "getLock"
+      lock: "getLock",
     }),
     currentColor() {
       return this.selection.currentColor;
@@ -239,22 +239,20 @@ export default Vue.extend({
   },
   methods: {
     saveImg() {
-      // console.log(this.stage.find("#controllers")[0].attrs);
-      this.stage.find("#controllers")[0].attrs.opacity = 0;
-
-      function downloadURI(uri, name) {
-        let link = document.createElement("a");
-        link.download = name;
-        link.href = uri;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        // delete link;
-      }
-
-      const dataURL = this.stage.toDataURL({ pixelRatio: 3 });
-      downloadURI(dataURL, "stage.png");
-      // this.stage.find("#controllers").opacity = 1;
+      // // console.log(this.stage.find("#controllers")[0].attrs);
+      // this.stage.find("#controllers")[0].attrs.opacity = 0;
+      // function downloadURI(uri, name) {
+      //   let link = document.createElement("a");
+      //   link.download = name;
+      //   link.href = uri;
+      //   document.body.appendChild(link);
+      //   link.click();
+      //   document.body.removeChild(link);
+      //   // delete link;
+      // }
+      // const dataURL = this.stage.toDataURL({ pixelRatio: 3 });
+      // downloadURI(dataURL, "stage.png");
+      // // this.stage.find("#controllers").opacity = 1;
     },
     mouseOverPixel(event) {
       event.target.opacity(0.2);
@@ -263,109 +261,93 @@ export default Vue.extend({
       event.target.opacity(1);
     },
     rotateLeftMatrix() {
-      const currentMatrix = this.selection.pixelGrid.map((y) =>
-        y.map((x) => x)
-      );
       const maxValue = this.gridSize - 1;
       const minValue = 0;
+      const newMatrix = this.selection.pixelGrid.map((y) => y.map((x) => x));
 
       for (let y = minValue; y <= maxValue; y++) {
         for (let x = minValue; x <= maxValue; x++) {
-          currentMatrix[y][x] = this.selection.pixelGrid[x][maxValue - y];
-          this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
-            currentMatrix[y][x].rgb;
+          newMatrix[y][x] = this.selection.pixelGrid[x][maxValue - y];
         }
       }
-
-      this.selection.pixelGrid = currentMatrix;
+      this.cleanMatrix();
+      this.selection.pixelGrid = newMatrix;
     },
     rotateRightMatrix() {
-      const currentMatrix = this.selection.pixelGrid.map((y) =>
-        y.map((x) => x)
-      );
       const maxValue = this.gridSize - 1;
       const minValue = 0;
+      const newMatrix = this.selection.pixelGrid.map((y) => y.map((x) => x));
 
       for (let y = minValue; y <= maxValue; y++) {
         for (let x = minValue; x <= maxValue; x++) {
-          currentMatrix[y][x] = this.selection.pixelGrid[maxValue - x][y];
-          this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
-            currentMatrix[y][x].rgb;
+          newMatrix[y][x] = this.selection.pixelGrid[maxValue - x][y];
         }
       }
-
-      this.selection.pixelGrid = currentMatrix;
+      this.cleanMatrix();
+      this.selection.pixelGrid = newMatrix;
     },
     reverseHorizontalMatrix() {
-      const currentMatrix = this.selection.pixelGrid.map((y) =>
-        y.map((x) => x)
-      );
       const maxValue = this.gridSize - 1;
       const minValue = 0;
+      const newMatrix = this.selection.pixelGrid.map((y) => y.map((x) => x));
 
       for (let y = minValue; y <= maxValue; y++) {
         for (let x = minValue; x <= maxValue; x++) {
-          currentMatrix[y][x] = this.selection.pixelGrid[y][maxValue - x];
-          this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
-            currentMatrix[y][x].rgb;
+          newMatrix[y][x] = this.selection.pixelGrid[y][maxValue - x];
         }
       }
-
-      this.selection.pixelGrid = currentMatrix;
+      this.cleanMatrix();
+      this.selection.pixelGrid = newMatrix;
     },
     reverseVerticalMatrix() {
-      const currentMatrix = this.selection.pixelGrid.map((y) =>
-        y.map((x) => x)
-      );
       const maxValue = this.gridSize - 1;
       const minValue = 0;
+      const newMatrix = this.selection.pixelGrid.map((y) => y.map((x) => x));
 
       for (let y = minValue; y <= maxValue; y++) {
         for (let x = minValue; x <= maxValue; x++) {
-          currentMatrix[y][x] = this.selection.pixelGrid[maxValue - y][x];
-          this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
-            currentMatrix[y][x].rgb;
+          newMatrix[y][x] = this.selection.pixelGrid[maxValue - y][x];
         }
       }
-
-      this.selection.pixelGrid = currentMatrix;
+      this.cleanMatrix();
+      this.selection.pixelGrid = newMatrix;
     },
     moveMatrix(x, y) {
-      const firstRowColor = [];
-      const firstValue = [];
       const maxValue = this.gridSize - 1;
       const minValue = 0;
-      if (true) {
+      const newMatrix = this.selection.pixelGrid.map((y) => y.map((x) => x));
+      if (y !== 0) {
         const loopBegin = y > 0 ? maxValue : minValue;
         const loopEnd = y > 0 ? minValue : maxValue;
         const inc = -y;
-        // console.clear();
-        // console.log({ x, y, loopBegin, loopEnd, inc });
-        for (let cx = minValue; cx <= maxValue; cx++) {
-          firstRowColor.push(
-            this.stage.find(`#px${cx}y${loopBegin}`)[0].attrs.fill
-          );
-          firstValue.push(this.selection.pixelGrid[loopBegin][cx]);
-        }
-        for (let cy = minValue + 1; cy <= maxValue; cy++) {
+        newMatrix[loopBegin] = this.selection.pixelGrid[loopBegin + inc];
+        for (let cy = minValue + 1; cy <= maxValue - 1; cy++) {
           const cty = (loopBegin - cy) * y;
-          if (
-            this.selection.pixelGrid[cty] &&
-            this.selection.pixelGrid[cty + inc]
-          ) {
-            for (let cx = 0; cx < maxValue; cx++) {
-              this.stage.find(`#px${cx}y${cty + inc}`)[0].attrs.fill =
-                this.selection.pixelGrid[cty][cx].rgb;
-              this.selection.pixelGrid[cty + inc][cx] =
-                this.selection.pixelGrid[cty][cx];
-            }
+          newMatrix[cty] = this.selection.pixelGrid[cty + inc];
+        }
+        newMatrix[loopEnd] = this.selection.pixelGrid[loopBegin];
+        this.cleanMatrix();
+        this.selection.pixelGrid = newMatrix;
+      }
+      if (x !== 0) {
+        const loopBegin = x > 0 ? maxValue : minValue;
+        const loopEnd = x > 0 ? minValue : maxValue;
+        const inc = -x;
+
+        for (let cy = minValue; cy <= maxValue; cy++) {
+          newMatrix[cy][loopBegin] = this.selection.pixelGrid[cy][loopBegin + inc];
+        }
+        for (let cy = minValue; cy <= maxValue; cy++) {
+          for (let cx = minValue + 1; cx < maxValue - 1; cx++) {
+            const ctx = (loopBegin - cx) * x;
+            newMatrix[cy][ctx] = this.selection.pixelGrid[cy][ctx + inc];
           }
         }
-        // for (let cx = 0; cx < this.gridSize - 1; cx++) {
-        //   this.stage.find(`#px${cx}y${this.gridSize - 1}`)[0].attrs.fill =
-        //     firstRowColor[cx];
-        //   this.selection.pixelGrid[this.gridSize - 1][cx] = firstValue[cx];
-        // }
+        for (let cy = minValue; cy <= maxValue; cy++) {
+          newMatrix[cy][loopEnd] = this.selection.pixelGrid[cy][loopBegin];
+        }
+        this.cleanMatrix();
+        this.selection.pixelGrid = newMatrix;
       }
     },
     moveLine(direction, position = 0) {
@@ -446,20 +428,21 @@ export default Vue.extend({
     cleanMatrix() {
       for (let y = 0; y < this.gridSize; y++) {
         for (let x = 0; x < this.gridSize; x++) {
-          this.stage.find(`#px${x}y${y}`)[0].attrs.fill = this.allColors.empty.rgb;
+          this.stage.find(`#px${x}y${y}`)[0].attrs.fill =
+            this.allColors.empty.rgb;
         }
       }
     },
     paintColor(x, y, event) {
-      if(this.selection.tool === 'brush'){
+      if (this.selection.tool === "brush") {
         const el = event.target;
         this.selection.pixelGrid[y][x] = this.currentColor;
         el.attrs.fill = this.currentColor.rgb;
       }
-      if(this.selection.tool === 'dropper'){
+      if (this.selection.tool === "dropper") {
         const el = event.target;
         this.selection.currentColor = this.selection.pixelGrid[y][x];
-        this.selection.tool = 'brush';
+        this.selection.tool = "brush";
       }
     },
     updateCanvas: function () {
