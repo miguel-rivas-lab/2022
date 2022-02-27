@@ -1,115 +1,114 @@
 <template>
-  <panel-block
-    v-if="selection.columns[index]"
-    @onRemove="removeBlock()"
-    :title="`${name.toUpperCase()}: Column Styles`"
-  >
-    <row>
-      <column size="100%">
-        <label :for="`id-${name}-size-type`">Mode</label>
-      </column>
-      <column size="100%">
-        <select
-          :id="`id-${name}-size-type`"
-          v-model="selection.columns[index].mode"
-        >
-          <option
-            v-for="option in gridType"
-            :value="option"
-            :key="option"
-            v-html="option"
+  <row tag="fieldset" class="row-block">
+    <column size="100%">
+      <legend>
+        {{ selection.columns[index].size }}<span v-if="selection.columns[index].subtraction > 0"> -
+        {{ selection.columns[index].subtraction }}</span> // {{finalValue}}
+      </legend>
+
+      <row>
+        <column size="100%">
+          <label :for="`id-${name}-size-type`">Mode</label>
+        </column>
+        <column size="100%">
+          <select
+            :id="`id-${name}-size-type`"
+            v-model="selection.columns[index].mode"
+          >
+            <option
+              v-for="option in gridType"
+              :value="option"
+              :key="option"
+              v-html="option"
+            />
+          </select>
+        </column>
+      </row>
+
+      <slider
+        v-if="selection.columns[index].mode == 'Percent'"
+        :id="`id-${name}-p-size`"
+        label="Size %"
+        step="5"
+        min="5"
+        max="100"
+        v-on:update-value="updateColVal(index, 'size', '%', '', $event)"
+        :value="selection.columns[index].size"
+      />
+
+      <slider
+        v-if="selection.columns[index].mode == 'Fixed'"
+        :id="`id-${name}-f-size`"
+        label="Size Px"
+        step="5"
+        min="5"
+        max="300"
+        v-on:update-value="updateColVal(index, 'size', '', '', $event)"
+        :value="selection.columns[index].size"
+      />
+
+      <slider
+        v-if="selection.columns[index].mode == 'Twelve Grid'"
+        :id="`id-${name}-t-size`"
+        label="Size Numerator (Fraction)"
+        step="1"
+        min="1"
+        max="12"
+        v-on:update-value="updateColVal(index, 'size', '/12', '', $event)"
+        :value="selection.columns[index].size"
+      />
+
+      <slider
+        v-if="selection.columns[index].mode == 'Column Based'"
+        :id="`id-${name}-c-size`"
+        label="Size Denominator (Fraction)"
+        step="1"
+        min="1"
+        max="20"
+        v-on:update-value="updateColVal(index, 'size', '', '1/', $event)"
+        :value="selection.columns[index].size"
+      />
+
+      <slider
+        :id="`id-${name}-subtraction`"
+        label="Width Subtraction"
+        step="5"
+        min="5"
+        max="600"
+        v-on:update-value="updateColVal(index, 'subtraction', '', '', $event)"
+        :value="selection.columns[index].subtraction"
+      />
+
+      <row>
+        <column size="100%">
+          <label :for="`id-${name}-style`">Column Style</label>
+        </column>
+        <column size="100%">
+          <select
+            :id="`id-${name}-style`"
+            v-model="selection.columns[index].block"
+          >
+            <option
+              v-for="option in styles"
+              :value="option"
+              :key="option"
+              v-html="option"
+            />
+          </select>
+        </column>
+      </row>
+
+      <row>
+        <column size="100%">
+          <btn
+            color="persian-red"
+            text="Remove Column"
+            @click="removeBlock()"
           />
-        </select>
-      </column>
-    </row>
-
-    <slider
-      v-if="selection.columns[index].mode == 'Percent'"
-      id="p-size"
-      label="Size %"
-      step="5"
-      min="0"
-      max="100"
-      v-on:update-value="updateColVal(index, 'size', '%', '', $event)"
-      :value="selection.columns[index].size"
-    />
-
-    <slider
-      v-if="selection.columns[index].mode == 'Fixed'"
-      id="f-size"
-      label="Size Px"
-      step="5"
-      min="0"
-      max="300"
-      v-on:update-value="updateColVal(index, 'size', '', '', $event)"
-      :value="selection.columns[index].size"
-    />
-
-    <slider
-      v-if="selection.columns[index].mode == 'Twelve Grid'"
-      id="t-size"
-      label="Size Numerator (Fraction)"
-      step="1"
-      min="1"
-      max="12"
-      v-on:update-value="updateColVal(index, 'size', '/12', '', $event)"
-      :value="selection.columns[index].size"
-    />
-
-    <slider
-      v-if="selection.columns[index].mode == 'Column Based'"
-      id="t-size"
-      label="Size Denominator (Fraction)"
-      step="1"
-      min="1"
-      max="20"
-      v-on:update-value="updateColVal(index, 'size', '', '1/', $event)"
-      :value="selection.columns[index].size"
-    />
-
-    <slider
-      :id="`id-${name}-subtraction`"
-      label="Width Subtraction"
-      step="5"
-      min="0"
-      max="600"
-      v-on:update-value="updateColVal(index, 'subtraction', '', '', $event)"
-      :value="selection.columns[index].subtraction"
-    />
-
-    <row>
-      <column size="100%">
-        <label :for="`id-${name}-result`">Class Name</label>
-      </column>
-      <column size="100%">
-        <input
-          :id="`id-${name}-result`"
-          disabled
-          type="text"
-          v-model="finalValue"
-        />
-      </column>
-    </row>
-
-    <row>
-      <column size="100%">
-        <label :for="`id-${name}-style`">Column Style</label>
-      </column>
-      <column size="100%">
-        <select
-          :id="`id-${name}-style`"
-          v-model="selection.columns[index].block"
-        >
-          <option
-            v-for="option in styles"
-            :value="option"
-            :key="option"
-            v-html="option"
-          />
-        </select>
-      </column>
-    </row>
-  </panel-block>
+        </column>
+      </row>
+    </column>
+  </row>
 </template>
 
 <script lang="ts">

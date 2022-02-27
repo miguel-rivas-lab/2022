@@ -59,13 +59,13 @@ export default Vue.extend({
           : ""
       }${
         this.computedSpacing
-          ? ' spacing="' + this.computedSpacing * 100 + '"'
+          ? ' spacing="' + this.computedSpacing + '"'
           : ""
       }>\n${columns}</row>`;
       return row;
     },
     computedSpacing(): number {
-      return this.selection.row === "Row" ? this.selection.spacing : 0;
+      return this.selection.row === "Row" ? this.selection.spacing * 100 : 0;
     },
     computedBreakpoint(): number {
       return this.selection.row === "Row" ? this.selection.breakpoint : "-";

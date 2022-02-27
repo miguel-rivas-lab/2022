@@ -31,7 +31,7 @@ scroll-area(color="royal-purple")
       slider(
         v-if="selection.row == 'Row'"
         id="spacing"
-        label="Spacing"
+        label="Spacing (Rem)"
         step="0.25"
         min="0"
         max="4"
