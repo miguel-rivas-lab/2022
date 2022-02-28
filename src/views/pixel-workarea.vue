@@ -338,7 +338,7 @@ export default Vue.extend({
           newMatrix[cy][loopBegin] = this.selection.pixelGrid[cy][loopBegin + inc];
         }
         for (let cy = minValue; cy <= maxValue; cy++) {
-          for (let cx = minValue + 1; cx < maxValue - 1; cx++) {
+          for (let cx = minValue + 1; cx <= maxValue - 1; cx++) {
             const ctx = (loopBegin - cx) * x;
             newMatrix[cy][ctx] = this.selection.pixelGrid[cy][ctx + inc];
           }
