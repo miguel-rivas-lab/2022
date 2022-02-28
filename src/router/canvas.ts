@@ -21,7 +21,7 @@ export default {
     workarea: Vue.extend({
       props: {
         defaultRoute: {
-          default: "pixel"
+          default: "locations"
         },
       },
       extends: NestedWorkareaView,
