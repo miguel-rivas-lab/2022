@@ -19,7 +19,10 @@ export default Vue.extend({
       const width = this.cssSizesWidth[rawWidth];
       const decimal = width[0] / width[1];
       const fraction = `${width[0]}/${width[1]}`;
-      const percent = `${+(decimal * 100).toFixed(2)}%`;
+      let percent;
+      if (parseInt(decimal * 100) === (decimal * 100)) {
+        percent = `${+(decimal * 100).toFixed(2)}%`;
+      }
 
       return { percent, fraction, decimal: decimal.toFixed(2) };
     },
@@ -27,7 +30,10 @@ export default Vue.extend({
       const height = this.cssSizesHeight[rawHeight];
       const decimal = height[0] / height[1];
       const fraction = `${height[0]}/${height[1]}`;
-      const percent = `${+(decimal * 100).toFixed(2)}%`;
+      let percent;
+      if (parseInt(decimal * 100) === (decimal * 100)) {
+        percent = `${+(decimal * 100).toFixed(2)}%`;
+      }
 
       return { percent, fraction, decimal: decimal.toFixed(2) };
     },
@@ -39,7 +45,7 @@ export default Vue.extend({
           if (absoluteHeight) {
             computedSize += height;
           } else {
-            computedSize += this.getHeight(height).fraction;
+            computedSize += this.getHeight(height).fraction + "vh";
           }
         }
       }
@@ -76,7 +82,7 @@ export default Vue.extend({
 
       computedSize += this.getColumnHeight(height, absoluteHeight);
 
-      return { computedSize, columnClass: validateSize(computedSize) };
+      return { computedSize, columnClass: validateSize(computedSize).class };
     },
   },
 });

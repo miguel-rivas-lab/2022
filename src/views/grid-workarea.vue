@@ -48,7 +48,7 @@ export default Vue.extend({
           absoluteHeight: column.absoluteHeight,
           absoluteWidth: column.absoluteWidth,
         });
-        columns += `  <${column.block} size="${columnSize.computedSize}">\n    <btn text="${columnSize.columnClass}" />\n  </${column.block}>\n`;
+        columns += `  <${column.block} size="${columnSize.computedSize}">\n    <btn text="${columnSize.columnClass}"/>\n  </${column.block}>\n`;
       });
       let row = `<row${this.selection.row === "Group" ? " grid" : ""}${
         this.computedIntegrate ? " integrate" : ""
