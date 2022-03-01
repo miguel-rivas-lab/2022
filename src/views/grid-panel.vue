@@ -28,14 +28,13 @@ scroll-area(color="royal-purple")
               v-model="selection.row"
             )
 
-      slider(
-        v-if="selection.row == 'Row'"
-        id="spacing"
-        label="Spacing (Rem)"
-        step="0.25"
-        min="0"
-        max="4"
-        v-on:update-value="updateVal('spacing', $event)"
+      slider#spacing(
+        v-if="selection.row == 'Row'",
+        label="Spacing (Rem)",
+        step="0.25",
+        min="0",
+        max="4",
+        v-on:update-value="updateVal('spacing', $event)",
         :value="selection.spacing"
       )
 
@@ -93,10 +92,11 @@ export default Vue.extend({
   methods: {
     addColumn() {
       this.$store.commit("addColumn", {
-        mode: "Percent",
-        size: "50%",
-        subtraction: "0",
-        expression: "sz1b4",
+        absoluteWidth: false,
+        absoluteHeight: false,
+        width: 0,
+        height: 0,
+        subtraction: 100,
         block: "column",
       });
       this.selection = this.$store.getters.getGridSelection;

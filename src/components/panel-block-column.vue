@@ -2,82 +2,157 @@
   <row tag="fieldset" class="row-block">
     <column size="100%">
       <legend>
-        {{ selection.columns[index].size }}<span v-if="selection.columns[index].subtraction > 0"> -
-        {{ selection.columns[index].subtraction }}</span> // {{finalValue}}
+        {{
+          getColumnSize({
+            width: selection.columns[index].width,
+            height: selection.columns[index].height,
+            widthSubtraction: selection.columns[index].subtraction,
+            absoluteHeight: selection.columns[index].absoluteHeight,
+            absoluteWidth: selection.columns[index].absoluteWidth,
+          }).computedSize
+        }}
+        <small>
+          {{
+            getColumnSize({
+              width: selection.columns[index].width,
+              height: selection.columns[index].height,
+              widthSubtraction: selection.columns[index].subtraction,
+              absoluteHeight: selection.columns[index].absoluteHeight,
+              absoluteWidth: selection.columns[index].absoluteWidth,
+            }).columnClass
+          }}
+        </small>
       </legend>
 
       <row>
         <column size="100%">
-          <label :for="`id-${name}-size-type`">Mode</label>
-        </column>
-        <column size="100%">
-          <select
-            :id="`id-${name}-size-type`"
-            v-model="selection.columns[index].mode"
-          >
-            <option
-              v-for="option in gridType"
-              :value="option"
-              :key="option"
-              v-html="option"
-            />
-          </select>
+          <label class="btn flat charcoal" :class="{ active: absoluteWidth }">
+            Absolute Width
+            <input type="checkbox" v-model="absoluteWidth" />
+          </label>
         </column>
       </row>
 
       <slider
-        v-if="selection.columns[index].mode == 'Percent'"
-        :id="`id-${name}-p-size`"
-        label="Size %"
+        v-if="absoluteWidth"
+        :id="`id-${name}-width`"
+        label="Width (Px)"
         step="5"
-        min="5"
-        max="100"
-        v-on:update-value="updateColVal(index, 'size', '%', '', $event)"
-        :value="selection.columns[index].size"
-      />
-
-      <slider
-        v-if="selection.columns[index].mode == 'Fixed'"
-        :id="`id-${name}-f-size`"
-        label="Size Px"
-        step="5"
-        min="5"
+        min="0"
         max="300"
-        v-on:update-value="updateColVal(index, 'size', '', '', $event)"
-        :value="selection.columns[index].size"
+        v-on:update-value="updateColVal('width', $event)"
+        :value="selection.columns[index].width"
       />
 
-      <slider
-        v-if="selection.columns[index].mode == 'Twelve Grid'"
-        :id="`id-${name}-t-size`"
-        label="Size Numerator (Fraction)"
-        step="1"
-        min="1"
-        max="12"
-        v-on:update-value="updateColVal(index, 'size', '/12', '', $event)"
-        :value="selection.columns[index].size"
-      />
+      <template v-else>
+        <row>
+          <column size="100%">
+            <label :for="`id-${name}-width`">Width</label>
+          </column>
+          <column size="100%">
+            <row class="nano-slider-alt" group>
+              <column size="100%">
+                <input
+                  :id="`id-${name}-width`"
+                  type="range"
+                  min="0"
+                  class="cobalt-blue"
+                  :max="cssSizesWidth.length - 1"
+                  step="1"
+                  v-model="selection.columns[index].width"
+                />
+              </column>
+              <column size="1/3">
+                <p
+                  class="input-label"
+                  v-html="getWidth(selection.columns[index].width).percent"
+                />
+              </column>
+              <column size="1/3">
+                <p
+                  class="input-label"
+                  v-html="getWidth(selection.columns[index].width).fraction"
+                />
+              </column>
+              <column size="1/3">
+                <p
+                  class="input-label"
+                  v-html="getWidth(selection.columns[index].width).decimal"
+                />
+              </column>
+            </row>
+          </column>
+        </row>
+
+        <slider
+          :id="`id-${name}-subtraction`"
+          label="Width Subtraction"
+          step="5"
+          min="0"
+          max="300"
+          v-on:update-value="updateColVal('subtraction', $event)"
+          :value="selection.columns[index].subtraction"
+        />
+      </template>
+
+      <row>
+        <column size="100%">
+          <label class="btn flat charcoal" :class="{ active: absoluteHeight }">
+            Absolute Height
+            <input type="checkbox" v-model="absoluteHeight" />
+          </label>
+        </column>
+      </row>
 
       <slider
-        v-if="selection.columns[index].mode == 'Column Based'"
-        :id="`id-${name}-c-size`"
-        label="Size Denominator (Fraction)"
-        step="1"
-        min="1"
-        max="20"
-        v-on:update-value="updateColVal(index, 'size', '', '1/', $event)"
-        :value="selection.columns[index].size"
-      />
-
-      <slider
-        :id="`id-${name}-subtraction`"
-        label="Width Subtraction"
+        v-if="absoluteHeight"
+        :id="`id-${name}-height`"
+        label="Width (Px)"
         step="5"
-        min="5"
-        max="600"
-        v-on:update-value="updateColVal(index, 'subtraction', '', '', $event)"
-        :value="selection.columns[index].subtraction"
+        min="0"
+        max="300"
+        v-on:update-value="updateColVal('height', $event)"
+        :value="selection.columns[index].height"
       />
+
+      <row v-else>
+        <column size="100%">
+          <label :for="`id-${name}-height`">Height</label>
+        </column>
+        <column size="100%">
+          <row class="nano-slider-alt" group>
+            <column size="100%">
+              <input
+                :id="`id-${name}-height`"
+                type="range"
+                min="0"
+                class="cobalt-blue"
+                :max="cssSizesHeight.length - 1"
+                step="1"
+                v-model="selection.columns[index].height"
+              />
+            </column>
+             <column size="1/3">
+                <p
+                  class="input-label"
+                  v-html="getHeight(selection.columns[index].height).percent"
+                />
+              </column>
+              <column size="1/3">
+                <p
+                  class="input-label"
+                  v-html="getHeight(selection.columns[index].height).fraction"
+                />
+              </column>
+              <column size="1/3">
+                <p
+                  class="input-label"
+                  v-html="getHeight(selection.columns[index].height).decimal"
+                />
+              </column>
+          </row>
+        </column>
+      </row>
 
       <row>
         <column size="100%">
@@ -113,12 +188,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { validateSize } from "nano-grid/modules/columns-manager";
-import { gColorsDB } from "../db/colors";
 import Slider from "../mixins/slider";
+import GridMixin from "../mixins/grid";
 
 export default Vue.extend({
-  mixins: [Slider],
+  mixins: [Slider, GridMixin],
   props: {
     name: {
       type: String,
@@ -127,29 +201,28 @@ export default Vue.extend({
     index: undefined,
   },
   data: () => ({
-    gridType: ["Percent", "Fixed", "Twelve Grid", "Column Based"],
     styles: ["prefix", "column", "suffix"],
-    gColorsDB: gColorsDB,
-    selection: { columns: [] },
+    absoluteWidth: undefined,
+    absoluteHeight: undefined,
   }),
   mounted() {
-    this.selection = this.$store.getters.getGridSelection;
+    this.absoluteWidth = this.selection.columns[this.index].absoluteWidth;
+    this.absoluteHeight = this.selection.columns[this.index].absoluteHeight;
   },
-  computed: {
-    finalValue(): string {
-      let result = "";
-      if (this.selection.columns[this.index].size) {
-        result += this.selection.columns[this.index].size;
-        if (this.selection.columns[this.index].subtraction > 0) {
-          result += `-${this.selection.columns[this.index].subtraction}`;
-        }
-      }
-      return validateSize(result);
+  watch: {
+    absoluteWidth: function () {
+      this.selection.columns[this.index].width = this.absoluteWidth
+        ? 300
+        : this.cssSizesWidth.length - 1;
+      this.selection.columns[this.index].subtraction = 0;
+    },
+    absoluteHeight: function () {
+      this.selection.columns[this.index].height = 0;
     },
   },
   methods: {
-    updateColVal(index, property, unit = "", prepend = "", newVal) {
-      this.selection.columns[index][property] = prepend + newVal + unit;
+    updateColVal(property, newVal) {
+      this.selection.columns[this.index][property] = parseFloat(newVal);
     },
     removeBlock() {
       this.$store.commit("removeColumn", this.index);

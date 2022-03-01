@@ -25,21 +25,23 @@ import { user } from "./db/user";
 
 store.commit("addColumn",
   {
-    mode: "Percent",
-    size: "100%",
-    subtraction: "100",
-    expression: "sz1b4m100",
+    absoluteWidth: false,
+    absoluteHeight: false,
+    width: 0,
+    height: 0,
+    subtraction: 100,
     block: "column",
   }
 );
 
 store.commit("addColumn",
   {
-    mode: "Fixed",
-    size: "100",
-    subtraction: "0",
-    expression: "sz100",
-    block: "column",
+    absoluteWidth: true,
+    absoluteHeight: false,
+    width: 0,
+    height: 0,
+    subtraction: 0,
+    block: "suffix",
   },
 );
 

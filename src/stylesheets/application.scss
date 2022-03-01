@@ -242,7 +242,7 @@ main {
     border: transparent;
     > .column {
       > input[type="range"] {
-        padding: 0 0.5rem;
+        padding: 0.5rem;
         width: 100%;
         background: var(--color-background-input);
       }
@@ -254,8 +254,30 @@ main {
       }
     }
   }
-}
 
+  &.nano-slider-alt.nano-group {
+    border: transparent;
+    > .column {
+      > input[type="range"] {
+        padding: 0.5rem;
+        width: 100%;
+        background: var(--color-background-input);
+        border-radius: 10px 10px 0 0;
+        border: 0;
+      }
+      &:nth-child(2) {
+        .input-label {
+          border-radius: 0 0 0 10px;
+        }
+      }
+      &:nth-child(4) {
+        .input-label {
+          border-radius: 0 0 10px 0;
+        }
+      }
+    }
+  }
+}
 
 /*------------------------*/
 

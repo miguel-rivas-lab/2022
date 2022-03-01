@@ -93,6 +93,9 @@
       padding: 0;
       color: var(--color-legend);
       margin-bottom: 1rem;
+      small {
+        display: block;
+      }
     }
 
     label,

@@ -157,13 +157,11 @@ scroll-area(color="royal-purple")
 <script lang="ts">
 import Vue from "vue";
 import { pixelColors, wikiColors, allColors } from "../db/wiki-colors";
-// import Slider from "../mixins/slider";
 import { wikiColorEnum } from "../enums/wikicolors";
 import h from "../modules/helpers";
 import ToggleRow from "../components/toggle-row.vue";
 
 export default Vue.extend({
-  // mixins: [Slider],
   components: {ToggleRow},
   data: () => ({
     selection: {},
@@ -211,7 +209,7 @@ export default Vue.extend({
     },
     newImage() {
       const newMatrix = this.selection.pixelGrid.map((y) =>
-        y.map((x) => this.pixelColors.empty)
+        y.map((x) => allColors.empty)
       );
       this.selection.pixelGrid = newMatrix;
     },

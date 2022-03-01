@@ -9,6 +9,12 @@ import { threeState } from '../store/three';
 import { gridState } from '../store/grid';
 import { gearState } from '../store/gear';
 
+import {
+  validateSize,
+  cssSizesWidth,
+  cssSizesHeight,
+} from "nano-grid/modules/columns-manager";
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
@@ -79,7 +85,7 @@ export const store = new Vuex.Store({
     },
   },
   getters: {
-    getGridSize: state => parseFloat(state.selection.pixel.gridSize),
+    getGridSize: state => state.selection.pixel.gridSize,
     getPanelVisibility: state => state.panel,
     getPanelSize: state => state.panelSize,
     getTheme: state => state.theme,

@@ -1,8 +1,6 @@
 <template lang="pug">
 scroll-area(color="royal-purple")
   container(size="900")
-    h1 {{ rowSize }}
-
     .builder-container
       row(
         :group="selection.row == 'Group'",
@@ -14,9 +12,12 @@ scroll-area(color="royal-purple")
           component(
             v-bind:is="column.block",
             v-bind:key="index",
-            :size="finalExpression(index)"
+            :size="getColumnSize({ width: column.width, height: column.height, widthSubtraction: column.subtraction, absoluteHeight: column.absoluteHeight, absoluteWidth: column.absoluteWidth }).computedSize"
           )
-            span.fake-btn(v-html="column.size", :style="`border-color: ${createColor(index, selection.columns.length)}`")
+            span.fake-btn(
+              v-html="getColumnSize({ width: column.width, height: column.height, widthSubtraction: column.subtraction, absoluteHeight: column.absoluteHeight, absoluteWidth: column.absoluteWidth }).columnClass",
+              :style="`border-color: ${createColor(index, selection.columns.length)}`"
+            )
 
     hr
 
@@ -32,24 +33,22 @@ scroll-area(color="royal-purple")
 
 <script lang="ts">
 import Vue from "vue";
-import { validateSize } from "nano-grid/modules/columns-manager";
+import GridMixin from "../mixins/grid";
 
 export default Vue.extend({
-  data: () => ({
-    selection: { columns: [] },
-  }),
-  created() {
-    this.selection = this.$store.getters.getGridSelection;
-  },
+  mixins: [GridMixin],
   computed: {
     textareaValueVue() {
       let columns = "";
       this.selection.columns.forEach((column) => {
-        columns += `  <${column.block} size="${column.size}${
-          parseInt(column.subtraction) > 0 ? "-" + column.subtraction : ""
-        }">\n    <btn text="${
-          column.size
-        }" />\n  </${column.block}>\n`;
+        const columnSize = this.getColumnSize({
+          width: column.width,
+          height: column.height,
+          widthSubtraction: column.subtraction,
+          absoluteHeight: column.absoluteHeight,
+          absoluteWidth: column.absoluteWidth,
+        });
+        columns += `  <${column.block} size="${columnSize.computedSize}">\n    <btn text="${columnSize.columnClass}" />\n  </${column.block}>\n`;
       });
       let row = `<row${this.selection.row === "Group" ? " grid" : ""}${
         this.computedIntegrate ? " integrate" : ""
@@ -58,9 +57,7 @@ export default Vue.extend({
           ? ' breakpoint="' + this.computedBreakpoint + '"'
           : ""
       }${
-        this.computedSpacing
-          ? ' spacing="' + this.computedSpacing + '"'
-          : ""
+        this.computedSpacing ? ' spacing="' + this.computedSpacing + '"' : ""
       }>\n${columns}</row>`;
       return row;
     },
@@ -73,46 +70,8 @@ export default Vue.extend({
     computedIntegrate(): boolean {
       return this.selection.row === "Group" ? this.selection.integrate : false;
     },
-    rowSize(): string {
-      let subtraction = 0;
-      let fraction = 0;
-      let fixVal = 0;
-      let columns = this.selection.columns;
-
-      columns.forEach((column) => {
-        subtraction += parseInt(column.subtraction);
-
-        let isPercent = /[%]/.test(column.size);
-        let isFraction = /[/]/.test(column.size);
-        if (isPercent) {
-          fraction += parseInt(column.size);
-        } else if (isFraction) {
-          let parts = column.size.split("/");
-          fraction += (parseInt(parts[0]) / parseInt(parts[1])) * 100;
-        } else {
-          fixVal += parseInt(column.size);
-        }
-      });
-      let fixResult =
-        fixVal - subtraction > -1
-          ? "+" + (fixVal - subtraction).toString()
-          : (fixVal - subtraction).toString();
-      return parseInt(fixResult) !== 0
-        ? `${fraction}%${fixResult}`
-        : `${fraction}%`;
-    },
   },
   methods: {
-    finalExpression(column: number): string {
-      let result = "";
-      if (this.selection.columns[column].size) {
-        result += this.selection.columns[column].size;
-        if (parseInt(this.selection.columns[column].subtraction) > 0) {
-          result += `-${this.selection.columns[column].subtraction}`;
-        }
-      }
-      return validateSize(result);
-    },
     createColor(index: number, max_color_amount: number) {
       var hue, difference, filter_max_color, filter_min_color;
       filter_max_color = max_color_amount > 359 ? 359 : max_color_amount;
