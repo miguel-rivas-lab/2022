@@ -7,8 +7,8 @@
             width: selection.columns[index].width,
             height: selection.columns[index].height,
             widthSubtraction: selection.columns[index].subtraction,
-            absoluteHeight: selection.columns[index].absoluteHeight,
-            absoluteWidth: selection.columns[index].absoluteWidth,
+            absoluteHeight: absoluteHeight,
+            absoluteWidth: absoluteWidth,
           }).computedSize
         }}
         <small>
@@ -17,9 +17,18 @@
               width: selection.columns[index].width,
               height: selection.columns[index].height,
               widthSubtraction: selection.columns[index].subtraction,
-              absoluteHeight: selection.columns[index].absoluteHeight,
-              absoluteWidth: selection.columns[index].absoluteWidth,
+              absoluteHeight: absoluteHeight,
+              absoluteWidth: absoluteWidth,
             }).columnClass
+          }}
+          {{
+            getColumnSize({
+              width: selection.columns[index].width,
+              height: selection.columns[index].height,
+              widthSubtraction: selection.columns[index].subtraction,
+              absoluteHeight: absoluteHeight,
+              absoluteWidth: absoluteWidth,
+            }).columnStyle
           }}
         </small>
       </legend>
@@ -39,7 +48,7 @@
         label="Width (Px)"
         step="5"
         min="0"
-        max="300"
+        max="600"
         v-on:update-value="updateColVal('width', $event)"
         :value="selection.columns[index].width"
       />
@@ -62,14 +71,16 @@
                   v-model="selection.columns[index].width"
                 />
               </column>
-              <column size="100%">
-              <p class="input-label">
-                {{ getWidth(selection.columns[index].width).fraction }}
-                <span v-if="getWidth(selection.columns[index].width).percent">
-                  &nbsp;&nbsp;||&nbsp;&nbsp;{{ getWidth(selection.columns[index].width).percent }}
-                </span>
-              </p>
-            </column>
+              <column size="55%">
+                <p class="input-label">
+                  {{ getWidth(selection.columns[index].width).fraction }}
+                  <span v-if="getWidth(selection.columns[index].width).percent">
+                    &nbsp;&nbsp;||&nbsp;&nbsp;{{
+                      getWidth(selection.columns[index].width).percent
+                    }}
+                  </span>
+                </p>
+              </column>
             </row>
           </column>
         </row>
@@ -79,7 +90,7 @@
           label="Width Subtraction"
           step="5"
           min="0"
-          max="300"
+          max="600"
           v-on:update-value="updateColVal('subtraction', $event)"
           :value="selection.columns[index].subtraction"
         />
@@ -100,7 +111,7 @@
         label="Height (Px)"
         step="5"
         min="0"
-        max="300"
+        max="600"
         v-on:update-value="updateColVal('height', $event)"
         :value="selection.columns[index].height"
       />
@@ -122,11 +133,13 @@
                 v-model="selection.columns[index].height"
               />
             </column>
-            <column size="100%">
+            <column size="55%">
               <p class="input-label">
                 {{ getHeight(selection.columns[index].height).fraction }}
                 <span v-if="getHeight(selection.columns[index].height).percent">
-                  &nbsp;&nbsp;||&nbsp;&nbsp;{{ getHeight(selection.columns[index].height).percent }}
+                  &nbsp;&nbsp;||&nbsp;&nbsp;{{
+                    getHeight(selection.columns[index].height).percent
+                  }}
                 </span>
               </p>
             </column>

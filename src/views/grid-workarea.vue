@@ -15,9 +15,13 @@ scroll-area(color="royal-purple")
             :size="getColumnSize({ width: column.width, height: column.height, widthSubtraction: column.subtraction, absoluteHeight: column.absoluteHeight, absoluteWidth: column.absoluteWidth }).computedSize"
           )
             span.fake-btn(
-              v-html="getColumnSize({ width: column.width, height: column.height, widthSubtraction: column.subtraction, absoluteHeight: column.absoluteHeight, absoluteWidth: column.absoluteWidth }).columnClass",
               :style="`border-color: ${createColor(index, selection.columns.length)}`"
             )
+              | {{ getColumnSize({ width: column.width, height: column.height, widthSubtraction: column.subtraction, absoluteHeight: column.absoluteHeight, absoluteWidth: column.absoluteWidth }).columnClass }}
+              template(
+                v-if="getColumnSize({ width: column.width, height: column.height, widthSubtraction: column.subtraction, absoluteHeight: column.absoluteHeight, absoluteWidth: column.absoluteWidth }).columnClass && getColumnSize({ width: column.width, height: column.height, widthSubtraction: column.subtraction, absoluteHeight: column.absoluteHeight, absoluteWidth: column.absoluteWidth }).columnStyle"
+              ) &nbsp;-&nbsp;
+              | {{ getColumnSize({ width: column.width, height: column.height, widthSubtraction: column.subtraction, absoluteHeight: column.absoluteHeight, absoluteWidth: column.absoluteWidth }).columnStyle }}
 
     hr
 
@@ -48,7 +52,11 @@ export default Vue.extend({
           absoluteHeight: column.absoluteHeight,
           absoluteWidth: column.absoluteWidth,
         });
-        columns += `  <${column.block} size="${columnSize.computedSize}">\n    <btn text="${columnSize.columnClass}"/>\n  </${column.block}>\n`;
+        columns += `  <${column.block} size="${
+          columnSize.computedSize
+        }">\n    <btn text="${columnSize.columnClass}${
+          columnSize.columnClass && columnSize.columnStyle ? " - " : ""
+        }${columnSize.columnStyle}"/>\n  </${column.block}>\n`;
       });
       let row = `<row${this.selection.row === "Group" ? " grid" : ""}${
         this.computedIntegrate ? " integrate" : ""

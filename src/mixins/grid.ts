@@ -12,6 +12,7 @@ export default Vue.extend({
     cssSizesHeight,
   }),
   created() {
+    this.cssSizesWidth.shift(),
     this.selection = this.$store.getters.getGridSelection;
   },
   methods: {
@@ -39,11 +40,13 @@ export default Vue.extend({
     },
     getColumnHeight(height, absoluteHeight) {
       let computedSize = "";
-      if (height) {
-        if (height > 0) {
-          computedSize += ", ";
-          if (absoluteHeight) {
-            computedSize += height;
+      if (height > 0) {
+        computedSize += ", ";
+        if (absoluteHeight) {
+          computedSize += height;
+        } else {
+          if (height > this.cssSizesHeight.lenght - 1) {
+            computedSize += this.getHeight(this.cssSizesHeight.length - 1).fraction + "vh";
           } else {
             computedSize += this.getHeight(height).fraction + "vh";
           }
@@ -53,17 +56,17 @@ export default Vue.extend({
     },
     getColumnWidth(width, widthSubtraction, absoluteWidth) {
       let computedSize = "";
-      if (width) {
-        if (width > 0) {
-          if (absoluteWidth) {
-            computedSize += width;
-          } else {
-            computedSize += this.getWidth(width).fraction;
-          }
-          if (widthSubtraction > 0) {
-            computedSize += ` - ${widthSubtraction}`;
-          }
+      if (absoluteWidth) {
+        computedSize += width;
+      } else {
+        if (width > this.cssSizesWidth.length - 1) {
+          computedSize += this.getWidth(this.cssSizesWidth.length - 1).fraction;
+        } else {
+          computedSize += this.getWidth(width).fraction;
         }
+      }
+      if (widthSubtraction > 0) {
+        computedSize += ` - ${widthSubtraction}`;
       }
       return computedSize;
     },
@@ -71,8 +74,8 @@ export default Vue.extend({
       const width = newValues.width;
       const widthSubtraction = newValues.widthSubtraction;
       const height = newValues.height;
-      const absoluteHeight = newValues.absoluteHeight;
-      const absoluteWidth = newValues.absoluteWidth;
+      const absoluteHeight = height > this.cssSizesHeight.length - 1 ? true : newValues.absoluteHeight;
+      const absoluteWidth = width > this.cssSizesWidth.length - 1 ? true : newValues.absoluteWidth;
 
       let computedSize = this.getColumnWidth(
         width,
@@ -82,7 +85,7 @@ export default Vue.extend({
 
       computedSize += this.getColumnHeight(height, absoluteHeight);
 
-      return { computedSize, columnClass: validateSize(computedSize).class };
+      return { computedSize, columnClass: validateSize(computedSize).class, columnStyle: validateSize(computedSize).style };
     },
   },
 });
