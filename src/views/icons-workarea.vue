@@ -3,12 +3,11 @@ scroll-area(color="royal-purple")
   container
     ul.img-gallery
       template(v-for="(icon, iconIndex) in iconsDB")
-        li(v-bind:key="iconIndex")
-          row.icon-item.item(vertical)
-            column(size="150, 150")
-              icon(:glyph="icon")
-            column(size="150")
-              h1(v-html="icon")
+        row.icon-item.item(tag="li", v-bind:key="iconIndex")
+          column(size="100%, 150")
+            icon(:glyph="icon")
+          column(size="100%")
+            h1(v-html="icon")
 </template>
 
 <script lang="ts">

@@ -3,15 +3,14 @@ scroll-area(color="royal-purple")
   container
     ul.img-gallery
       template(v-for="(color, colorIndex) in gColorsDB")
-        li(v-bind:key="colorIndex")
-          row.swatch.item(vertical)
-            column.color(
-              size="250, 100",
-              :style="`background-color: ${color.hex}`"
-            )
-            column(size="250")
-              h1 {{ color.titleCase }}
-              p {{ color.hex }}
+        row.swatch.item(tag="li", v-bind:key="colorIndex")
+          column.color(
+            size="100%, 250",
+            :style="`background-color: ${color.hex}`"
+          )
+          column(size="100%")
+            h1 {{ color.titleCase }}
+            p {{ color.hex }}
 </template>
 
 <script lang="ts">

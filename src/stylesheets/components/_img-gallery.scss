@@ -5,6 +5,7 @@
 
   li {
     display: inline-flex;
+    min-width: 250px + 16 * 2;
   }
 }
 
