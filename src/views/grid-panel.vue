@@ -6,59 +6,47 @@ scroll-area(color="royal-purple")
 
       row
         column(size="100%")
-          label.btn.flat.charcoal(:class="{ active: selection.row == 'Row' }")
-            | Row
-            input(
-              type="radio",
-              value="Row",
-              name="row-style",
-              v-model="selection.row"
-            )
-
-      row
-        column(size="100%")
-          label.btn.flat.charcoal(
-            :class="{ active: selection.row == 'Group' }"
-          )
+          label.btn.flat.charcoal(:class="{ active: selection.group }")
             | Group
-            input(
-              type="radio",
-              value="Group",
-              name="row-style",
-              v-model="selection.row"
-            )
+            input(type="checkbox", v-model="selection.group")
 
-      slider#spacing(
-        v-if="selection.row == 'Row'",
-        label="Spacing (Rem)",
-        step="0.25",
-        min="0",
-        max="4",
-        v-on:update-value="updateVal('spacing', $event)",
-        :value="selection.spacing"
-      )
+      template(v-if="!selection.group")
+        row
+          column(size="100%")
+            label.btn.flat.charcoal(:class="{ active: selection.vertical }")
+              | Vertical
+              input(type="checkbox", v-model="selection.vertical")
 
-      row(v-if="selection.row == 'Group'")
-        column(size="100%")
-          label.btn.flat.charcoal(:class="{ active: selection.integrate }")
-            | Integrate
-            input(
-              type="checkbox",
-              value="Integrate",
-              v-model="selection.integrate"
-            )
+        slider#spacing(
+          label="Spacing (Rem)",
+          step="0.25",
+          min="0",
+          max="4",
+          v-on:update-value="updateVal('spacing', $event)",
+          :value="selection.spacing"
+        )
 
-      row(v-if="selection.row == 'Row'")
-        column(size="100%")
-          label(for="breakpoint") Breakpoint
-        column(size="100%")
-          select#breakpoint(v-model="selection.breakpoint")
-            option(
-              v-for="option in breakpoint",
-              :value="option",
-              :key="option",
-              v-html="option"
-            )
+        row
+          column(size="100%")
+            label(for="breakpoint") Breakpoint
+          column(size="100%")
+            select#breakpoint(v-model="selection.breakpoint")
+              option(
+                v-for="option in breakpoint",
+                :value="option",
+                :key="option",
+                v-html="option"
+              )
+      template(v-else)
+        row
+          column(size="100%")
+            label.btn.flat.charcoal(:class="{ active: selection.integrated }")
+              | Integrated
+              input(
+                type="checkbox",
+                value="Integrated",
+                v-model="selection.integrated"
+              )
 
   row.row-block
     column(size="100%")

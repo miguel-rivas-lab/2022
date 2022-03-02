@@ -3,7 +3,7 @@ row
   column(size="100%", v-if="label")
     label(:for="$attrs.id", v-html="label")
   column(size="100%")
-    row.nano-slider(group, integrate)
+    row.nano-slider(group, integrated)
       column(size="100%-40")
         input(
           :class="color",

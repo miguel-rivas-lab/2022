@@ -238,7 +238,7 @@ main {
 /*------------------------*/
 
 .nano-row {
-  &.nano-slider.nano-group.integrate {
+  &.nano-slider.nano-group.integrated {
     border: transparent;
     > .column {
       > input[type="range"] {
@@ -290,6 +290,20 @@ main {
       &:hover {
         opacity: 0.8;
       }
+    }
+  }
+}
+
+/*------------------------*/
+
+.bar {
+  &-or {
+    vertical-align: top;
+    padding: 0 0.5rem;
+    opacity: 0.2;
+    font-size: 97%;
+    &:before {
+      content: "||";
     }
   }
 }

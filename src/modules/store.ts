@@ -1,13 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { allColors } from "../db/wiki-colors";
-
 import { modalState } from '../store/modal';
 import { avatarState } from '../store/avatar';
 import { threeState } from '../store/three';
 import { gridState } from '../store/grid';
 import { gearState } from '../store/gear';
+import { pixelState } from '../store/pixel';
 
 Vue.use(Vuex);
 
@@ -26,13 +25,7 @@ export const store = new Vuex.Store({
       gridState,
       gearState,
       avatarState,
-      pixel: {
-        gridSize: 32,
-        pixelGrid: [],
-        currentColor: allColors.pumpkin,
-        lock: false,
-        tool: 'brush',
-      },
+      pixelState,
       locations: {
         mapCenter: {
           x: 0,
@@ -79,7 +72,7 @@ export const store = new Vuex.Store({
     },
   },
   getters: {
-    getGridSize: state => state.selection.pixel.gridSize,
+    getGridSize: state => state.selection.pixelState.gridSize,
     getPanelVisibility: state => state.panel,
     getPanelSize: state => state.panelSize,
     getTheme: state => state.theme,
@@ -94,8 +87,8 @@ export const store = new Vuex.Store({
     getMeshSelection: state => state.selection.threeState,
     getProjects3DSelection: state => state.selection.projects3d,
     getAvatarSelection: state => state.selection.avatarState,
-    getPixelSelection: state => state.selection.pixel,
-    getPixelGridSelection: state => state.selection.pixel.pixelGrid,
-    getLock: state => state.selection.pixel.lock,
+    getPixelSelection: state => state.selection.pixelState,
+    getPixelGridSelection: state => state.selection.pixelState.pixelGrid,
+    getLock: state => state.selection.pixelState.lock,
   }
 });

@@ -3,10 +3,11 @@ scroll-area(color="royal-purple")
   container(size="900")
     .builder-container
       row(
-        :group="selection.row == 'Group'",
-        :integrate="computedIntegrate",
+        :group="selection.group",
+        :integrated="computedIntegrated",
         :spacing="computedSpacing",
-        :breakpoint="computedBreakpoint"
+        :breakpoint="computedBreakpoint",
+        :vertical="computedvertical"
       )
         template(v-for="(column, index) in selection.columns")
           component(
@@ -58,25 +59,34 @@ export default Vue.extend({
           columnSize.columnClass && columnSize.columnStyle ? " - " : ""
         }${columnSize.columnStyle}"/>\n  </${column.block}>\n`;
       });
-      let row = `<row${this.selection.row === "Group" ? " grid" : ""}${
-        this.computedIntegrate ? " integrate" : ""
-      }${
-        this.computedBreakpoint !== "-"
+      let row = `<row${this.selection.group ? " nano-group" : ""}${
+        this.computedvertical ? " vertical" : ""
+      }${this.computedIntegrated ? " integrated" : ""}${
+        this.computedBreakpoint !== ""
           ? ' breakpoint="' + this.computedBreakpoint + '"'
           : ""
       }${
-        this.computedSpacing ? ' spacing="' + this.computedSpacing + '"' : ""
+        this.computedSpacing
+          ? ' spacing="' + this.computedSpacing + '"'
+          : ""
       }>\n${columns}</row>`;
       return row;
     },
     computedSpacing(): number {
-      return this.selection.row === "Row" ? this.selection.spacing * 100 : 0;
+      return !this.selection.group ? this.selection.spacing : 0;
     },
-    computedBreakpoint(): number {
-      return this.selection.row === "Row" ? this.selection.breakpoint : "-";
+    computedBreakpoint() {
+      if (this.selection.breakpoint !== "-") {
+        return !this.selection.group ? this.selection.breakpoint : "";
+      } else {
+        return "";
+      }
     },
-    computedIntegrate(): boolean {
-      return this.selection.row === "Group" ? this.selection.integrate : false;
+    computedIntegrated(): boolean {
+      return this.selection.group ? this.selection.integrated : false;
+    },
+    computedvertical(): boolean {
+      return !this.selection.group ? this.selection.vertical : false;
     },
   },
   methods: {

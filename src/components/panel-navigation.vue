@@ -115,6 +115,7 @@ export default Vue.extend({
       { icon: "monster", route: ["stargaze"] },
       { icon: "duck", route: ["projects", "list", "statistics"] },
       { icon: "collections", route: ["gallery", "images", "videos"] },
+      { icon: "color", route: ["ui", "colors", "icons", "grid"] },
     ],
     navigationBuilder: [
       {
@@ -136,8 +137,6 @@ export default Vue.extend({
       },
       { icon: "unity", route: ["unity", "kaspar", "iqra"] },
       { icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
-      { icon: "robot", route: ["grid"] },
-      { icon: "color", route: ["ui", "colors", "icons"] },
     ],
     linkGithub,
     linkLinkedin,

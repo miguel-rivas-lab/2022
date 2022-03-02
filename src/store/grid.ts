@@ -1,7 +1,8 @@
 export const gridState = {
-  row: "Row",
-  integrate: false,
+  group: false,
+  integrated: false,
   breakpoint: "-",
   spacing: 0,
+  vertical: false,
   columns: [],
 };

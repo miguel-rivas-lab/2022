@@ -116,7 +116,7 @@ scroll-area(color="royal-purple")
     column(size="100%")
       legend Palette
 
-      row.list-palette(group, integrate)
+      row.list-palette(group, integrated)
         column(size="100%-40")
           p.input-label {{ selection.currentColor.titleCase }}
         column(size="40")

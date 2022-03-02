@@ -118,12 +118,7 @@
     }
 
     &.hide-panel {
-      max-width: 0 !important;
       border-right: 0;
-
-      fieldset {
-        opacity: 0;
-      }
     }
   }
   .workarea {

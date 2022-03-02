@@ -6,6 +6,8 @@ import NestedPanelView from '../views/nested-panel.vue';
 import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
 import IconsWorkareaView from '../views/icons-workarea.vue';
+import GridWorkareaView from '../views/grid-workarea.vue';
+import GridPanelView from '../views/grid-panel.vue';
 
 export default {
   name: 'ui',
@@ -14,7 +16,7 @@ export default {
     workarea: Vue.extend({
       props: {
         defaultRoute: {
-          default: "colors"
+          default: "grid"
         },
       },
       extends: NestedWorkareaView,
@@ -22,10 +24,15 @@ export default {
     panel: Vue.extend({
       props: {
         panelTitle: {
-          default: "colors"
+          default: "Portfolio UI"
         },
         links: {
           default: () => ([
+            {
+              text: "Grid",
+              name: "grid",
+              icon: "robot",
+            },
             {
               text: "Colors",
               name: "colors",
@@ -56,6 +63,14 @@ export default {
       path: '/icons',
       components: {
         workarea2: IconsWorkareaView,
+      },
+    },
+    {
+      name: 'grid',
+      path: '/grid',
+      components: {
+        workarea2: GridWorkareaView,
+        panel2: GridPanelView,
       },
     },
   ],

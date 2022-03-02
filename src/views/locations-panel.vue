@@ -9,17 +9,17 @@ scroll-area(color="royal-purple")
             template(v-for="(location, locationIndex) in locationsDB")
               li(v-bind:key="locationIndex")
                 row
+                  prefix(size="35")
+                    btn(
+                      @click="centerMap(location.position)",
+                      color="burn-orange",
+                      glyph="gps-fixed"
+                    )
                   column(size="100%-35")
                     btn(
                       @click="openModal(location.clients[0])",
                       color="gold-tips",
                       :text="location.title"
-                    )
-                  suffix(size="35")
-                    btn(
-                      @click="centerMap(location.position)",
-                      color="burn-orange",
-                      glyph="gps-fixed"
                     )
 
 </template>

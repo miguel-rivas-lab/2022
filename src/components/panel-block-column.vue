@@ -75,7 +75,7 @@
                 <p class="input-label">
                   {{ getWidth(selection.columns[index].width).fraction }}
                   <span v-if="getWidth(selection.columns[index].width).percent">
-                    &nbsp;&nbsp;||&nbsp;&nbsp;{{
+                    <span class="bar-or" />{{
                       getWidth(selection.columns[index].width).percent
                     }}
                   </span>
@@ -137,7 +137,7 @@
               <p class="input-label">
                 {{ getHeight(selection.columns[index].height).fraction }}
                 <span v-if="getHeight(selection.columns[index].height).percent">
-                  &nbsp;&nbsp;||&nbsp;&nbsp;{{
+                  <span class="bar-or" />{{
                     getHeight(selection.columns[index].height).percent
                   }}
                 </span>

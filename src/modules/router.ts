@@ -3,11 +3,8 @@ import VueRouter, { RouteConfig } from 'vue-router';
 
 import DefaultPanelView from '../views/default-panel.vue';
 
-import GridWorkareaView from '../views/grid-workarea.vue';
-import GridPanelView from '../views/grid-panel.vue';
 import StargazeWorkareaView from '../views/stargaze-workarea.vue';
 import StargazePanelView from '../views/stargaze-panel.vue';
-
 
 import CanvasRouter from '../router/canvas';
 import CssRouter from '../router/css';
@@ -30,14 +27,6 @@ const routes: Array<RouteConfig> = [
     components: {
       workarea: StargazeWorkareaView,
       panel: StargazePanelView,
-    },
-  },
-  {
-    name: 'grid',
-    path: '/grid',
-    components: {
-      workarea: GridWorkareaView,
-      panel: GridPanelView,
     },
   },
   {

@@ -6,7 +6,7 @@
 
       <column
         class="panel"
-        :size="panelSize[0]"
+        :size="panel ? panelSize[0] : '0'"
         :class="{ 'hide-panel': !panel }"
       >
         <router-view name="panel" />
@@ -19,14 +19,12 @@
           glyph="chevron"
           :direction="panel ? 'left' : 'right'"
           @click="toggleValue('panel'), playSound()"
-          
         />
       </column>
 
       <column :size="panel ? panelSize[1] : '100%-50'" class="workarea">
         <router-view name="workarea" />
       </column>
-
     </row>
   </main>
 </template>
@@ -52,10 +50,7 @@ export default Vue.extend({
       return `section-${this.$route.name}`;
     },
     classes() {
-      return [
-        this.sectionName,
-        this.theme ? "nano-light" : "nano-dark",
-      ];
+      return [this.sectionName, this.theme ? "nano-light" : "nano-dark"];
     },
   },
   methods: {
