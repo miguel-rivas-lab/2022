@@ -75,6 +75,31 @@ const projects: ProjectsType = [
   },
 
   {
+    date: "2022/03/04",
+    title: "Grid Gallery",
+    types: [
+      typeEnum.prototype,
+    ],
+    roles: [
+      roleEnum.design,
+      roleEnum.frontend,
+    ],
+    clients: [
+      clientEnum.miguelRivas,
+    ],
+    disabled: true,
+    tools: [
+      toolEnum.vue,
+      toolEnum.vuex,
+      toolEnum.vueRouter,
+      toolEnum.typescript,
+      toolEnum.scss,
+      toolEnum.git,
+      toolEnum.pug,
+    ],
+  },
+
+  {
     date: "2022/02/20",
     title: "Pixel Editor",
     types: [

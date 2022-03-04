@@ -52,7 +52,7 @@ scroll-area(color="royal-purple")
     section.nano-box
       h1 Formulas
       row.alert.warning
-        column(size="100%") Multiplication is only allow with subtraction values.
+        column(size="100%") Multiplication is only allow for subtraction values.
       template(v-for="(columns, indexRow) in formulas")
         row(v-bind:key="`indexRowFx${indexRow}`")
           template(v-for="(column, indexColumn) in columns")
@@ -69,8 +69,8 @@ scroll-area(color="royal-purple")
     section.nano-box
       h1 Height Fractions (% / VH)
       row.alert.warning
-        column(size="100%") 1/2 refers to a relative size based on the container, 1/2vh refers to a relative size based on the screen height.
-      row(:spacing="0.25")
+        column(size="100%") 1/2 refers to a relative size based on the container, while 1/2vh refers to a relative size based on the screen height.
+      row(grid)
         template(v-for="(columns, indexRow) in rowsHeightVH")
           column(size="1/5").fheight
             row(v-bind:key="`indexRowHF${indexRow}`")
@@ -88,8 +88,8 @@ scroll-area(color="royal-purple")
     section.nano-box
       h1 Height Percents (% / VH)
       row.alert.warning
-        column(size="100%") 100% refers to a relative size based on the container, 100%vh refers to a relative size based on the screen height.
-      row(:spacing="0.25")
+        column(size="100%") 100% refers to a relative size based on the container, while 100%vh refers to a relative size based on the screen height.
+      row(grid)
         template(v-for="(columns, indexRow) in rowsHeightPercents")
           column(size="1/5").fheight
             row(v-bind:key="`indexRowHF${indexRow}`")
@@ -108,7 +108,7 @@ scroll-area(color="royal-purple")
       h1 Height Absolute
       row.alert.warning
         column(size="100%") Values above 300px will be appended as a style attribute instead of a class.
-      row(:spacing="0.25")
+      row(grid)
         template(v-for="(columns, indexRow) in rowsHeightAbsolutes")
           column(size="1/5").fheight
             row(v-bind:key="`indexRowHF${indexRow}`")
@@ -149,15 +149,10 @@ export default Vue.extend({
       this.rowsFractions.push([`1/${c}`, `${c - 1}/${c}`]);
     }
 
-    for (let c = 1; c * 5 < 100; c++) {
-      let mainColumn = 100 - c * 5;
-      let complementColumn = c * 5;
-      this.rowsPercents.push([`${mainColumn}%`, `${complementColumn}%`]);
-    }
-
     for (let c = 1; c * 5 <= 50; c++) {
       let mainColumn = 100 - c * 5;
       let complementColumn = c * 5;
+      this.rowsPercents.push([`${mainColumn}%`, `${complementColumn}%`]);
       this.rowsHeightPercents.push([
         `100%, ${mainColumn}%`,
         `100%, ${complementColumn}%`,
