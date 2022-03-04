@@ -70,7 +70,37 @@ scroll-area(color="royal-purple")
       row: column(size="100%"): btn(
         color="gold-tips",
         text="Umber",
-        @click="tan('#8b653dff', '#705340ff', '#705340ff')"
+        @click="tan('#8b653dff', '#513b3bff', '#513b3bff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Sable",
+        @click="tan('#383028ff', '#4c433eff', '#4c433eff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Avatar",
+        @click="tan('#1d2847ff', '#26345eff', '#26345eff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Hellboy",
+        @click="tan('#541e21ff', '#773636ff', '#773636ff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Bubblegum",
+        @click="tan('#ad7b9cff', '#875a7dff', '#875a7dff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Green Giant",
+        @click="tan('#284426ff', '#1d281eff', '#1d281eff')"
       )
 
       row: column(size="100%")
@@ -129,6 +159,30 @@ scroll-area(color="royal-purple")
         color="gold-tips",
         text="Silver",
         @click="dyeHair('#abababff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Indigo Dye",
+        @click="dyeHair('#191823ff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Dark Sienna",
+        @click="dyeHair('#3C1414ff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Bubblegum",
+        @click="dyeHair('#913f76ff')"
+      )
+
+      row: column(size="100%"): btn(
+        color="gold-tips",
+        text="Phthalo Green",
+        @click="dyeHair('#123524ff')"
       )
 
       row
