@@ -5,6 +5,7 @@ import { store } from './modules/store';
 import './stylesheets/application.scss';
 import './modules/commons';
 import "nano-grid/modules/tooltip";
+import "nano-grid/modules/nano";
 import {
   formatRawDBToJSON,
   formatRawDBToFirebase,
@@ -32,17 +33,6 @@ store.commit("addColumn",
     subtraction: 100,
     block: "column",
   }
-);
-
-store.commit("addColumn",
-  {
-    absoluteWidth: true,
-    absoluteHeight: false,
-    width: 0,
-    height: 0,
-    subtraction: 0,
-    block: "suffix",
-  },
 );
 
 Vue.use(VueKonva);

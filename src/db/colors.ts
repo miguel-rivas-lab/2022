@@ -17,7 +17,7 @@ export const gColorsDB = [
   new gColor('razzmatazz', '#da0040'),
   new gColor('alizarin', '#e72113'),
   new gColor('fire-brick', '#a5213a'),
-  new gColor('rersian-red', '#d73333'),
+  new gColor('persian-red', '#d73333'),
   new gColor('blush', '#bf4a67'),
   new gColor('desert', '#a0613d'),
   new gColor('rust', '#c84d11'),

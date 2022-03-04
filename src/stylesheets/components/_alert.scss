@@ -10,6 +10,11 @@
   > .column {
     padding: 1rem;
   }
+  &.warning {
+    background-color: hsl(44deg 67% 77%);
+    border: hsl(44deg 67% 59%);
+    color: hsl(44deg 86% 13%);
+  }
   &.error {
     background-color: hsl(0deg 67% 77%);
     border: hsl(0deg 67% 59%);

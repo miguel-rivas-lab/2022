@@ -7,6 +7,7 @@ import ColorsPanelView from '../views/colors-panel.vue';
 import ColorsWorkareaView from '../views/colors-workarea.vue';
 import IconsWorkareaView from '../views/icons-workarea.vue';
 import GridWorkareaView from '../views/grid-workarea.vue';
+import GridGalleryWorkareaView from '../views/grid-gallery-workarea.vue';
 import GridPanelView from '../views/grid-panel.vue';
 
 export default {
@@ -29,8 +30,13 @@ export default {
         links: {
           default: () => ([
             {
-              text: "Grid",
+              text: "Grid Builder",
               name: "grid",
+              icon: "robot",
+            },
+            {
+              text: "Grid Gallery",
+              name: "grid-gallery",
               icon: "robot",
             },
             {
@@ -71,6 +77,13 @@ export default {
       components: {
         workarea2: GridWorkareaView,
         panel2: GridPanelView,
+      },
+    },
+    {
+      name: 'grid-gallery',
+      path: '/grid-gallery',
+      components: {
+        workarea2: GridGalleryWorkareaView,
       },
     },
   ],

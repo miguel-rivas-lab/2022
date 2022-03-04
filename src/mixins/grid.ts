@@ -13,7 +13,7 @@ export default Vue.extend({
   }),
   created() {
     this.cssSizesWidth.shift(),
-    this.selection = this.$store.getters.getGridSelection;
+      this.selection = this.$store.getters.getGridSelection;
   },
   methods: {
     getWidth(rawWidth) {
@@ -39,43 +39,51 @@ export default Vue.extend({
       return { percent, fraction, decimal: decimal.toFixed(2) };
     },
     getColumnHeight(height, absoluteHeight) {
-      let computedSize = "";
-      if (height > 0) {
-        computedSize += ", ";
-        if (absoluteHeight) {
-          computedSize += height;
-        } else {
-          if (height > this.cssSizesHeight.lenght - 1) {
-            computedSize += this.getHeight(this.cssSizesHeight.length - 1).fraction + "vh";
+      if (typeof height !== 'undefined') {
+        let computedSize = "";
+        if (height > 0) {
+          computedSize += ", ";
+          if (absoluteHeight) {
+            computedSize += height;
           } else {
-            computedSize += this.getHeight(height).fraction + "vh";
+            if (height > this.cssSizesHeight.lenght - 1) {
+              computedSize += this.getHeight(this.cssSizesHeight.length - 1).fraction + "vh";
+            } else {
+              computedSize += this.getHeight(height).fraction + "vh";
+            }
           }
         }
+        return computedSize;
+      } else {
+        return '0';
       }
-      return computedSize;
     },
     getColumnWidth(width, widthSubtraction, absoluteWidth) {
-      let computedSize = "";
-      if (absoluteWidth) {
-        computedSize += width;
-      } else {
-        if (width > this.cssSizesWidth.length - 1) {
-          computedSize += this.getWidth(this.cssSizesWidth.length - 1).fraction;
+      if (typeof width !== 'undefined') {
+        let computedSize = "";
+        if (absoluteWidth) {
+          computedSize += width;
         } else {
-          computedSize += this.getWidth(width).fraction;
+          if (width > this.cssSizesWidth.length - 1) {
+            computedSize += this.getWidth(this.cssSizesWidth.length - 1).fraction;
+          } else {
+            computedSize += this.getWidth(width).fraction;
+          }
         }
+        if (widthSubtraction > 0) {
+          computedSize += ` - ${widthSubtraction}`;
+        }
+        return computedSize;
+      } else {
+        return '0';
       }
-      if (widthSubtraction > 0) {
-        computedSize += ` - ${widthSubtraction}`;
-      }
-      return computedSize;
     },
     getColumnSize(newValues) {
       const width = newValues.width;
       const widthSubtraction = newValues.widthSubtraction;
       const height = newValues.height;
-      const absoluteHeight = height > this.cssSizesHeight.length - 1 ? true : newValues.absoluteHeight;
-      const absoluteWidth = width > this.cssSizesWidth.length - 1 ? true : newValues.absoluteWidth;
+      let absoluteHeight = height > this.cssSizesHeight.length - 1 ? true : newValues.absoluteHeight || false;
+      let absoluteWidth = width > this.cssSizesWidth.length - 1 ? true : newValues.absoluteWidth || false;
 
       let computedSize = this.getColumnWidth(
         width,
