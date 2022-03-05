@@ -10,7 +10,8 @@ main.vue-theme {
   --color-6: hsl(var(--hue-2) 50% 25%);
   --color-5: hsl(var(--hue-2) 50% 10%);
 
-  --color-panel-background: hsl(0deg 0% 15%);
+  // --color-panel-background: hsl(0deg 0% 15%);
+  --color-panel-background: hsl(244deg 15% 16%);
 
   &.nano-light {
     --color-title: var(--color-3);
@@ -25,7 +26,7 @@ main.vue-theme {
     --color-label: var(--color-1);
   }
 
-  .btn.active:not(.panel-ctrl) {
+  .btn.flat.active:not(.panel-ctrl) {
     background-color: var(--color-2) !important;
     box-shadow: 0px 3px 0 var(--color-3) !important;
     color: var(--color-4) !important;

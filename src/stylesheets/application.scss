@@ -315,7 +315,7 @@ main {
   height: 100%;
   display: flex;
   border: 1px dashed hsl(263deg 40% 34%);
-  color: #fff;
+  color: var(--color-foreground);
   min-height: 35px;
   align-items: center;
   justify-content: center;

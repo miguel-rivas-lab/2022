@@ -9,7 +9,8 @@
                 <btn
                   :to="{ name: nav.route[0] }"
                   v-bind:key="nav.route[0]"
-                  color="gravel"
+                  mode="transparent"
+                  color="shamrock"
                   size="md"
                   :title="`${nav.route[0]} button`"
                   v-nano-tooltip.right="nav.route[0]"
@@ -19,7 +20,8 @@
               <template v-else>
                 <btn
                   v-bind:key="nav.route[0]"
-                  color="gravel"
+                  mode="transparent"
+                  color="shamrock"
                   size="md"
                   :title="`${nav.route[0]} button`"
                   v-nano-tooltip.right="nav.route[0]"
@@ -35,7 +37,8 @@
                 <btn
                   :to="{ name: nav.route[0] }"
                   v-bind:key="nav.route[0]"
-                  color="gravel"
+                  mode="transparent"
+                  color="mariner"
                   :title="`${nav.route} button`"
                   v-nano-tooltip.right="nav.route[0]"
                   size="md"
@@ -45,7 +48,8 @@
               <template v-else>
                 <btn
                   v-bind:key="nav.route[0]"
-                  color="gravel"
+                  mode="transparent"
+                  color="mariner"
                   size="md"
                   :title="`${nav.route[0]} button`"
                   v-nano-tooltip.right="nav.route[0]"
@@ -59,6 +63,7 @@
             <btn
               tag="a"
               :href="linkLinkedin"
+              mode="transparent"
               color="royal-purple"
               size="md"
               title="Linkedin button"
@@ -69,6 +74,7 @@
             <btn
               tag="a"
               :href="linkGithub"
+              mode="transparent"
               color="royal-purple"
               size="md"
               title="Github button"
@@ -79,6 +85,7 @@
             <btn
               tag="a"
               href="https://github.com/miguel-rivas"
+              mode="transparent"
               color="royal-purple"
               size="md"
               title="Github button"
@@ -88,13 +95,14 @@
             />
             <hr />
             <btn
-              color="charcoal"
+              color="gold-tips"
               size="md"
+              mode="transparent"
               title="Toggle theme button"
               v-nano-tooltip.right="'Toggle Theme'"
               glyph="brightness"
               @click="toggleValue('theme'), playSound()"
-              :active="!theme"
+              :active="theme"
             />
           </column>
         </row>
@@ -115,7 +123,7 @@ export default Vue.extend({
       { icon: "monster", route: ["stargaze"] },
       { icon: "duck", route: ["projects", "list", "statistics"] },
       { icon: "collections", route: ["gallery", "images", "videos"] },
-      { icon: "color", route: ["ui", "colors", "icons", "grid"] },
+      { icon: "color", route: ["ui", "colors", "icons", "grid", "grid-gallery"] },
     ],
     navigationBuilder: [
       {

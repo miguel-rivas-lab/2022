@@ -12,6 +12,7 @@ scroll-area(color="royal-purple")
                   prefix(size="35")
                     btn(
                       tag="span",
+                      mode="flat"
                       :color="$route.name === route.name ? 'green-pea' : 'charcoal'",
                       :glyph="route.icon",
                       :to="route"
@@ -20,6 +21,7 @@ scroll-area(color="royal-purple")
                     btn(
                       tag="span",
                       color="gravel"
+                      mode="flat"
                       :active="$route.name === route.name",
                       :text="route.text",
                       :to="route"
