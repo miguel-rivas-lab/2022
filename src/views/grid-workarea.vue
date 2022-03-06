@@ -26,12 +26,30 @@ scroll-area(color="royal-purple")
 
     hr
 
-    row(:spacing="50")
+    row
       column(size="1/1")
-        spirit(:text="textareaValueVue")
-      column(size="80%")
-      column(size="20%")
-        btn.fsz(text="Get Vue Code", color="shamrock", @click="copyCode()")
+        spirit(:text="htmlVue")
+        textarea(ref="textareaHtml").vue-code {{ htmlVue }}
+      column(size="1/1")
+        btn.fsz(text="Get HTML Code", color="shamrock", @click="copyCode('textareaHtml')")
+
+    br
+
+    row
+      column(size="1/1")
+        spirit(:text="pugVue", lang="pug")
+        textarea(ref="textareaPug").vue-code {{ pugVue }}
+      column(size="1/1")
+        btn.fsz(text="Get HAML Code", color="shamrock", @click="copyCode('textareaHaml')")
+
+    br
+
+    row
+      column(size="1/1")
+        spirit(:text="hamlVue", lang="haml")
+        textarea(ref="textareaHaml").vue-code {{ hamlVue }}
+      column(size="1/1")
+        btn.fsz(text="Get Pug Code", color="shamrock", @click="copyCode('textareaPug')")
 </template>
 
 <script lang="ts">
@@ -40,10 +58,10 @@ import GridMixin from "../mixins/grid";
 import spirit from "../components/spirit.vue";
 
 export default Vue.extend({
-  components: {spirit},
+  components: { spirit },
   mixins: [GridMixin],
   computed: {
-    textareaValueVue() {
+    htmlVue() {
       let columns = "";
       this.selection.columns.forEach((column) => {
         const columnSize = this.getColumnSize({
@@ -66,10 +84,62 @@ export default Vue.extend({
           ? ' breakpoint="' + this.computedBreakpoint + '"'
           : ""
       }${
-        this.computedSpacing
-          ? ' spacing="' + this.computedSpacing + '"'
-          : ""
+        this.computedSpacing ? ' spacing="' + this.computedSpacing + '"' : ""
       }>\n${columns}</row>`;
+      return row;
+    },
+    pugVue() {
+      let columns = "";
+      this.selection.columns.forEach((column) => {
+        const columnSize = this.getColumnSize({
+          width: column.width,
+          height: column.height,
+          widthSubtraction: column.subtraction,
+          absoluteHeight: column.absoluteHeight,
+          absoluteWidth: column.absoluteWidth,
+        });
+        columns += `  ${column.block}(size="${
+          columnSize.computedSize
+        }")\n    btn(text="${columnSize.columnClass}${
+          columnSize.columnClass && columnSize.columnStyle ? " - " : ""
+        }${columnSize.columnStyle}")\n`;
+      });
+      let row = `row(${this.selection.group ? "nano-group," : ""}${
+        this.computedvertical ? "vertical," : ""
+      }${this.computedIntegrated ? "integrated," : ""}${
+        this.computedBreakpoint !== ""
+          ? 'breakpoint="' + this.computedBreakpoint + '",'
+          : ""
+      }${
+        this.computedSpacing ? 'spacing="' + this.computedSpacing + '"' : ""
+      })\n${columns}`;
+      return row;
+    },
+    hamlVue() {
+      let columns = "";
+      this.selection.columns.forEach((column) => {
+        const columnSize = this.getColumnSize({
+          width: column.width,
+          height: column.height,
+          widthSubtraction: column.subtraction,
+          absoluteHeight: column.absoluteHeight,
+          absoluteWidth: column.absoluteWidth,
+        });
+        columns += `  %${column.block}{size: "${
+          columnSize.computedSize
+        }"}\n    %btn{text: "${columnSize.columnClass}${
+          columnSize.columnClass && columnSize.columnStyle ? " - " : ""
+        }${columnSize.columnStyle}"}\n`;
+      });
+      let row = `%row{${this.selection.group ? "nano-group," : ""}${
+        this.computedvertical ? "vertical," : ""
+      }${this.computedIntegrated ? "integrated," : ""}${
+        this.computedBreakpoint !== ""
+          ? 'breakpoint="' + this.computedBreakpoint + '",'
+          : ""
+      }${
+        this.computedSpacing ? 'spacing="' + this.computedSpacing + '"' : ""
+      }}\n${columns}`;
       return row;
     },
     computedSpacing(): number {
@@ -100,8 +170,8 @@ export default Vue.extend({
       hue = (index * difference).toFixed(1);
       return `hsl(${hue} 60% 40%)`;
     },
-    copyCode() {
-      this.$refs.textarea.select();
+    copyCode(ref) {
+      this.$refs[ref].select();
       document.execCommand("copy");
     },
   },

@@ -24,30 +24,62 @@ export default Vue.extend({
       type: String,
       default: "",
     },
+    lang: {
+      type: String,
+      default: "html",
+    },
   },
-  //(?<=\<[a-z]{1,})  ---- look for space after tag-name
-  // (?<=\<)\/ --- end tag begining
   computed: {
     textFormat() {
-      return this.text
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/\//g, "&#47;")
+      if (this.lang === "pug") {
+        return this.text
+          .replace(/\n/g, "<br>")
+          .replace(/\s/g, "&nbsp;")
 
-        .replace(/\n/g, "<br>")
-        .replace(/\s/g, "&nbsp;")
+          .replace(
+            /(\=\")/g,
+            spirit("&#61;&#34;", "quote") + spiritBegin("value")
+          )
+          .replace(/(\")/g, spiritEnd() + spirit("&#34;", "quote"))
+          .replace(/(?<=&lt;[a-z]{1,})&nbsp;/g, "&nbsp;" + spiritBegin("attr"))
 
-        .replace(
-          /(\=\")/g,
-          "&#61;" + spirit("&#34;", "quote") + spiritBegin("value")
-        )
-        .replace(/(\")/g, spiritEnd() + spirit("&#34;", "quote"))
-        .replace(/(?<=&lt;[a-z]{1,})&nbsp;/g, "&nbsp;" + spiritBegin("attr"))
+          .replace(/\(/g, spirit("\(", "tag") + spiritBegin("attr"))
+          .replace(/\)/g, spiritEnd() + spirit("\)", "tag"));
+      } else if (this.lang === "haml") {
+        return this.text
+          .replace(/\n/g, "<br>")
+          .replace(/\s/g, "&nbsp;")
 
-        .replace(/(?<=&lt;)&#47;/g, spirit("&#47;", "tag"))
-        .replace(/&lt;/g, spirit("&lt;", "tag"))
-        .replace(/&#47;(?=&gt;)/g, spiritEnd() + spirit("&#47;", "tag"))
-        .replace(/&gt;/g, spiritEnd() + spirit("&gt;", "tag"))
+          .replace(
+            /(\:&nbsp;\")/g,
+            spirit(":&nbsp;&#34;", "quote") + spiritBegin("value")
+          )
+          .replace(/(\")/g, spiritEnd() + spirit("&#34;", "quote"))
+          .replace(/(?<=&lt;[a-z]{1,})&nbsp;/g, "&nbsp;" + spiritBegin("attr"))
+
+          .replace(/\{/g, spirit("\{", "tag") + spiritBegin("attr"))
+          .replace(/\}/g, spiritEnd() + spirit("\}", "tag"));
+      } else {
+        return this.text
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\//g, "&#47;")
+
+          .replace(/\n/g, "<br>")
+          .replace(/\s/g, "&nbsp;")
+
+          .replace(
+            /(\=\")/g,
+            spirit("&#61;&#34;", "quote") + spiritBegin("value")
+          )
+          .replace(/(\")/g, spiritEnd() + spirit("&#34;", "quote"))
+          .replace(/(?<=&lt;[a-z]{1,})&nbsp;/g, "&nbsp;" + spiritBegin("attr"))
+
+          .replace(/(?<=&lt;)&#47;/g, spirit("&#47;", "tag"))
+          .replace(/&lt;/g, spirit("&lt;", "tag"))
+          .replace(/&#47;(?=&gt;)/g, spiritEnd() + spirit("&#47;", "tag"))
+          .replace(/&gt;/g, spiritEnd() + spirit("&gt;", "tag"));
+      }
     },
   },
 });
