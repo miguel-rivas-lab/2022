@@ -1,0 +1,27 @@
+.spirit-code {
+  color: #2962ab;
+  background-color: #1a1a1a;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+
+  .sp {
+    &-attr {
+      color: #7490d1;
+    }
+
+    &-acute,
+    &-quote,
+    &-d-quote {
+      color: #8454b7;
+    }
+    
+    &-value {
+      color: #ffca00;
+    }
+
+
+    &-tag {
+      color: #744756;
+    }
+  }
+}

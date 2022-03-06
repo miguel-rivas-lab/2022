@@ -28,9 +28,7 @@ scroll-area(color="royal-purple")
 
     row(:spacing="50")
       column(size="1/1")
-        highlight-code(lang="xml")
-          | {{ textareaValueVue }}
-        textarea.vue-code(ref="textarea", v-html="textareaValueVue")
+        spirit(:text="textareaValueVue")
       column(size="80%")
       column(size="20%")
         btn.fsz(text="Get Vue Code", color="shamrock", @click="copyCode()")
@@ -39,8 +37,10 @@ scroll-area(color="royal-purple")
 <script lang="ts">
 import Vue from "vue";
 import GridMixin from "../mixins/grid";
+import spirit from "../components/spirit.vue";
 
 export default Vue.extend({
+  components: {spirit},
   mixins: [GridMixin],
   computed: {
     textareaValueVue() {

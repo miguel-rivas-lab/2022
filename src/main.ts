@@ -14,8 +14,6 @@ import {
 import "highlight.js/styles/tomorrow-night-bright.css";
 
 import VueKonva from 'vue-konva';
-import VueHighlightJS from "vue-highlight.js";
-import xml from "highlight.js/lib/languages/xml";
 
 //-- db
 import { projectsDB } from "./db/projects";
@@ -36,11 +34,6 @@ store.commit("addColumn",
 );
 
 Vue.use(VueKonva);
-Vue.use(VueHighlightJS, {
-  languages: {
-    xml,
-  },
-});
 Vue.config.productionTip = false;
 
 new Vue({
