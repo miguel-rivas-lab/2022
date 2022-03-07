@@ -309,7 +309,7 @@ export const wikiColors = {
 	'english-green': new gColor('english-green', '#1B4D3E'),
 	'english-lavender': new gColor('english-lavender', '#B48395'),
 	'english-red': new gColor('english-red', '#AB4B52'),
-	'english-vermillion': new gColor('english-vermillion', '#CC474B'),
+	'english-vermilion': new gColor('english-vermilion', '#CC474B'),
 	'english-violet': new gColor('english-violet', '#563C5C'),
 	'erin': new gColor('erin', '#00FF40'),
 	'eton-blue': new gColor('eton-blue', '#96C8A2'),
