@@ -31,16 +31,7 @@ scroll-area(color="royal-purple")
         spirit(:text="htmlVue")
         textarea(ref="textareaHtml").vue-code {{ htmlVue }}
       column(size="1/1")
-        btn.fsz(text="Get HTML Code", color="shamrock", @click="copyCode('textareaHtml')")
-
-    br
-
-    row
-      column(size="1/1")
-        spirit(:text="pugVue", lang="pug")
-        textarea(ref="textareaPug").vue-code {{ pugVue }}
-      column(size="1/1")
-        btn.fsz(text="Get HAML Code", color="shamrock", @click="copyCode('textareaHaml')")
+        btn.fsz(glyph="html", text="Get HTML Code", color="shamrock", @click="copyCode('textareaHtml')")
 
     br
 
@@ -49,7 +40,16 @@ scroll-area(color="royal-purple")
         spirit(:text="hamlVue", lang="haml")
         textarea(ref="textareaHaml").vue-code {{ hamlVue }}
       column(size="1/1")
-        btn.fsz(text="Get Pug Code", color="shamrock", @click="copyCode('textareaPug')")
+        btn.fsz(glyph="haml", text="Get HAML Code", color="shamrock", @click="copyCode('textareaHaml')")
+
+    br
+
+    row
+      column(size="1/1")
+        spirit(:text="pugVue", lang="pug")
+        textarea(ref="textareaHaml").vue-code {{ pugVue }}
+      column(size="1/1")
+        btn.fsz(glyph="pug", text="Get Pug Code", color="shamrock", @click="copyCode('textareaPug')")
 </template>
 
 <script lang="ts">
