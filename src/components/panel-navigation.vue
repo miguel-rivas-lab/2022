@@ -31,14 +31,13 @@
                 />
               </template>
             </template>
-            <hr />
             <template v-for="nav in navigationBuilder">
               <template v-if="!nav.route.includes($route.name)">
                 <btn
                   :to="{ name: nav.route[0] }"
                   v-bind:key="nav.route[0]"
                   mode="transparent"
-                  color="mariner"
+                  color="shamrock"
                   :title="`${nav.route} button`"
                   v-nano-tooltip.right="nav.route[0]"
                   size="md"
@@ -49,7 +48,7 @@
                 <btn
                   v-bind:key="nav.route[0]"
                   mode="transparent"
-                  color="mariner"
+                  color="shamrock"
                   size="md"
                   :title="`${nav.route[0]} button`"
                   v-nano-tooltip.right="nav.route[0]"
@@ -94,6 +93,37 @@
               target="_blank"
             />
             <hr />
+            <btn
+              color="gold-tips"
+              size="md"
+              mode="transparent"
+              title="Switch to english"
+              v-nano-tooltip.right="'English'"
+              glyph="plus"
+              @click="switchLanguage('en')"
+              :active="$i18n.locale === 'en'"
+            />
+            <btn
+              color="gold-tips"
+              size="md"
+              mode="transparent"
+              title="Switch to spanish"
+              v-nano-tooltip.right="'Español'"
+              glyph="plus"
+              @click="switchLanguage('es')"
+              :active="$i18n.locale === 'es'"
+            />
+            <btn
+              color="gold-tips"
+              size="md"
+              mode="transparent"
+              title="Switch to esperanto"
+              v-nano-tooltip.right="'Esperanto'"
+              glyph="plus"
+              @click="switchLanguage('eo')"
+              :active="$i18n.locale === 'eo'"
+            />
+            <hr>
             <btn
               color="gold-tips"
               size="md"
@@ -155,6 +185,9 @@ export default Vue.extend({
     }),
   },
   methods: {
+    switchLanguage(lang){
+      this.$i18n.locale = lang
+    },
     ...mapMutations(["toggleValue"]),
     playSound() {
       let context = new AudioContext();

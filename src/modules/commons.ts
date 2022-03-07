@@ -15,15 +15,6 @@ Vue.component("icon", NanoIcon);
 Vue.component("btn", NanoBtn);
 Vue.component("scroll-area", NanoScrollArea);
 
-// ---------------------------------- Alias:Icon
-Vue.component("m-icon", Vue.extend({
-  props: {
-    mode: {
-      default: 'mdi'
-    }
-  },
-  extends: NanoIcon
-}));
 // ---------------------------------- Alias:Column
 Vue.component("prefix", Vue.extend({
   props: {

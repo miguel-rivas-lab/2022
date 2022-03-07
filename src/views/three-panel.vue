@@ -1,10 +1,10 @@
 <template lang="pug">
 row.row-block(tag="fieldset")
   column(size="100%")
-    legend Scene Controllers
+    legend {{ $t('three.panel.controller.legend') }}
 
     slider#rotation(
-      label="Rotation",
+      :label="$t('three.panel.controller.rotation')",
       min="-20",
       max="20",
       step="0.01",
@@ -15,13 +15,13 @@ row.row-block(tag="fieldset")
     row
       column(size="100%")
         label.btn.flat.charcoal(:class="{ active: selection.grid }")
-          | Grid
+          | {{ $t('three.panel.controller.grid') }}
           input(type="checkbox", v-model="selection.grid")
 
     row
       column(size="100%")
         label.btn.flat.charcoal(:class="{ active: selection.pause }")
-          | Pause
+          | {{ $t('three.panel.controller.pause') }}
           input(type="checkbox", v-model="selection.pause")
 </template>
 

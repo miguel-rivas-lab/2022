@@ -2,13 +2,17 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Buttons
+      legend {{ $t('ui.section.colors.panel.buttons.legend') }}
       row
         column(size="100%")
           ul.buttons
             template(v-for="(color, colorIndex) in gColorsDB")
               li(v-bind:key="colorIndex")
-                btn(tag="span", :color="color.spinalCase", :text="color.spinalCase")
+                btn(
+                  tag="span",
+                  :color="color.spinalCase",
+                  :text="color.spinalCase"
+                )
 </template>
 
 <script lang="ts">

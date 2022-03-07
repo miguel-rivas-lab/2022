@@ -1,0 +1,445 @@
+{
+  "toggleTheme": "Toggle Theme",
+  "githubOrg": "Github Organization",
+  "position": "Frontend Developer",
+  "footer": "Built with&nbsp;<strong><a href='https://vuejs.org/'>Vue.js&nbsp;</a></strong><time>",
+  "enum": {
+    "projectsType": {
+      "userFlow": "User Flow",
+      "wireFrame": "Wireframe",
+      "app": "Application",
+      "prototype": "Prototype",
+      "landingPage": "Landing Page",
+      "motionGraphics": "Motion Graphics",
+      "animation3D": "3D Animation",
+      "document": "Documentation",
+      "module": "Module",
+      "socialMedia": "Social Media",
+      "graphicDesign": "Graphic Design",
+      "group": "Group",
+      "location": "Location"
+    }
+  },
+  "stargaze": {
+    "navTitle": "Stargaze",
+    "panel": {
+      "controller": {
+        "legend": "Scene Controllers",
+        "hue": "Hue"
+      }
+    }
+  },
+  "projects": {
+    "navTitle": "Projects",
+    "section": {
+      "list": {
+        "title": "List",
+        "panel": {
+          "filter": {
+            "all": "All",
+            "companies": "Companies",
+            "projects": "Projects",
+            "experiments": "Experiments",
+            "homework": "Homework"
+          }
+        }
+      },
+      "statistics": {
+        "title": "Statistics",
+        "workarea": {
+          "yearlyAverage": "Projects Yearly Average",
+          "skillsUsed": "Skills Used",
+          "database": "Database",
+          "name": "Name",
+          "type": "Type",
+          "date": "Date",
+          "client": "Client"
+        }
+      }
+    }
+  },
+  "galleries": {
+    "navTitle": "Galleries",
+    "section": {
+      "images": {
+        "title": "Images",
+        "panel": {
+          "controller": {
+            "legend": "Animation Controllers",
+            "rotationDelay": "Rotation Delay"
+          }
+        }
+      },
+      "videos": {
+        "title": "Videos"
+      }
+    }
+  },
+  "ui": {
+    "navTitle": "Portfolio UI",
+    "section": {
+      "gridBuilder": {
+        "title": "Grid Builder",
+        "workarea": {
+          "html": "Get HTML Code",
+          "pug": "Get Pug Code",
+          "haml": "Get HAML Code"
+        },
+        "panel": {
+          "add": "Add Column",
+          "rowStyle": {
+            "legend": "Row Styles",
+            "group": "Group",
+            "vertical": "Vertical",
+            "integrated": "Integrated",
+            "spacing": "Spacing (Rem)",
+            "breakpoint": "Breakpoint"
+          },
+          "columnStyle": {
+            "absoluteWidth": "Absolute Width",
+            "width": "Width",
+            "widthSubtraction": "Width Subtraction",
+            "absoluteHeight": "Absolute Height",
+            "height": "Height",
+            "columnStyle": "Column Style",
+            "removeCTA": "Remove Column"
+          }
+        }
+      },
+      "gridGallery": {
+        "title": "Grid Gallery",
+        "workarea": {
+          "fractions": "Fractions",
+          "percents": "Percents",
+          "percentsAlert": "The final value of a percent size will be a fraction.",
+          "absolutes": "Absolutes",
+          "absolutesAlert": "Values above 300px will be appended as a style attribute instead of a class.",
+          "formulas": "Formulas",
+          "formulasAlert": "Multiplication is only allow for subtraction values.",
+          "heightFractions": "Height Fractions (% / VH)",
+          "heightFractionsAlert": "1/2 refers to a relative size based on the container, while 1/2vh refers to a relative size based on the screen height.",
+          "heightPercents": "Height Percents (% / VH)",
+          "heightPercentsAlert": "100% refers to a relative size based on the container, while 100%vh refers to a relative size based on the screen height.",
+          "heightAbsolute": "Height Absolute"
+        }
+      },
+      "colors": {
+        "title": "Colors",
+        "panel": {
+          "buttons": {
+            "legend": "Buttons"
+          }
+        }
+      },
+      "icons": {
+        "title": "Icons"
+      }
+    }
+  },
+  "canvas": {
+    "navTitle": "Canvas",
+    "section": {
+      "map": {
+        "title": "Map",
+        "panel": {
+          "locations": {
+            "legend": "Locations"
+          }
+        },
+        "modal": {
+          "removeCTA": "Close Modal",
+          "jellyfish": {
+            "title": "Jellyfish",
+            "position": "Frontend Developer",
+            "summary": [
+              "Build apps using HTML, SCSS and jQuery on a PHP environment with Grunt.",
+              "Optimize applications for maximum speed.",
+              "Work with Git for control version on projects."
+            ]
+          },
+          "enovational": {
+            "title": "Enovational",
+            "position": "Frontend Developer",
+            "summary": [
+              "Build government apps using HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js on a Ruby on Rails environment with Webpack.",
+              "Optimize applications for maximum speed compressing images and replacing repeated code with partials/headers/mixins/components.",
+              "Make sure applications are following conventions and extending them according to the complexity of the project and frameworks being used.",
+              "Collaborate with UI/UX Designers, Full Stack Developers, Project Managers, QA Testers and Business Analysts to improve usability.",
+              "Work with Git for control version on projects.",
+              "Work with Agile."
+            ]
+          },
+          "plantTherapy": {
+            "title": "Plant Therapy",
+            "position": "Graphic Web Designer",
+            "summary": [
+              "Build prototypes and landing pages with Pug, SCSS, jQuery and Miva.",
+              "Maintain and optimize the website.",
+              "Create wireframes and users flow with Adobe Illustrator."
+            ]
+          },
+          "pixel": {
+            "title": "Pixel Perfect Tree",
+            "position": "Frontend Developer",
+            "summary": [
+              "Design and develop applications using Haml, SCSS, Bootstrap, jQuery/React on a Ruby on Rails environment with Webpack.",
+              "Maintain and optimize applications.",
+              "Collaborate with Full Stack Developers and Project Managers to improve usability.",
+              "Work with Git for control version on projects.",
+              "Work with Agile."
+            ]
+          },
+          "capital": {
+            "title": "Capital",
+            "position": "Frontend Developer",
+            "summary": [
+              "Build applications using Pug, SCSS, jQuery on a PHP environment with GruntJS.",
+              "Optimize applications for maximum speed.",
+              "Create wireframes and users flow with Adobe Illustrator.",
+              "Collaborate with Backend Developers, Designers and Project Managers to improve usability.",
+              "Animate ad banners for websites using Adobe Flash.",
+              "Create motion graphics for social media using Adobe Flash."
+            ]
+          },
+          "avante": {
+            "title": "Avante Marketing",
+            "position": "Web Designer",
+            "summary": [
+              "Design and build applications using HTML, CSS, jQuery on a PHP environment.",
+              "Optimize applications for maximum speed.",
+              "Design social media assets using Adobe Illustrator, Adobe Photoshop and Adobe Indesign."
+            ]
+          },
+          "social": {
+            "title": "Social Network",
+            "position": "Web Designer",
+            "summary": [
+              "Design applications UI using Adobe Illustrator.",
+              "Design social media assets using Adobe Illustrator, Adobe Photoshop and Adobe Indesign."
+            ]
+          },
+          "several": {
+            "title": "Studio Several",
+            "position": "Graphic Designer",
+            "summary": [
+              "Retouch pictures with Adobe Photoshop",
+              "Design yearbooks with Adobe Indesign and Adobe Photoshop"
+            ]
+          },
+          "itla": {
+            "title": "ITLA",
+            "position": "Asociates of Art, Multimedia",
+            "summary": [
+              "Digital Illustration",
+              "Visual Communication",
+              "Bitmap Graphics",
+              "Vector Graphics",
+              "Desktop Publishing",
+              "Digital Video",
+              "Website Creation",
+              "Flash Animation with Action Script",
+              "3D Graphics & Animation",
+              "Digital Audio",
+              "Branding"
+            ]
+          },
+          "itesa": {
+            "title": "ITESA",
+            "position": "Computer Science, Highschool",
+            "summary": [
+              "HTML",
+              "CSS",
+              "Javascript",
+              "Adobe Flash",
+              "Fireworks",
+              "Adobe Dreamweaver",
+              "Pascal",
+              "C++",
+              "Visual Basic",
+              "Visual FoxPro",
+              "Bash",
+              "Linux",
+              "Microsoft Excel",
+              "Microsoft Word",
+              "Microsoft Powerpoint",
+              "ActionScript 2"
+            ]
+          }
+        }
+      },
+      "avatar": {
+        "title": "Avatar",
+        "panel": {
+          "presets": {
+            "legend": "Presets",
+            "90": "90's",
+            "work": "Work",
+            "sunday": "Sunday",
+            "pooh": "Winnie the Pooh",
+            "dc": "DC Boi",
+            "pool": "Pool Boi",
+            "franciscano": "Franciscano"
+          },
+          "general": {
+            "legend": "General",
+            "height": "Height",
+            "porcelain": "Porcelain",
+            "honey": "Honey",
+            "caramel": "Caramel",
+            "umber": "Umber",
+            "sable": "Sable",
+            "avatar": "Avatar",
+            "hellboy": "Hellboy",
+            "bubblegum": "Bubblegum",
+            "green": "Green Giant",
+            "skinColor": "Skin Color",
+            "skinColor2": "Secondary Skin Color"
+          },
+          "face": {
+            "legend": "Hair",
+            "raven": "Raven",
+            "brunette": "Brunette",
+            "blonde": "Blonde",
+            "ginger": "Ginger",
+            "silver": "Silver",
+            "blue": "Indigo Dye",
+            "red": "Dark Sienna",
+            "bubblegum": "Bubblegum",
+            "green": "Phthalo Green",
+            "topHair": "Toggle Top Hair",
+            "sideHair": "Toggle Side Hair",
+            "beard": "Toggle Beard",
+            "hairColor": "Hair Color",
+            "hairSideColor": "Hair Side Color",
+            "beardColor": "Beard Color",
+            "lipsColor": "Lips Color",
+            "happiness": "Happiness"
+          },
+          "shirt": {
+            "legend": "Shirt",
+            "shirt": "Toggle Shirt",
+            "lPockect": "L Pockect",
+            "rPockect": "R Pockect",
+            "buttons": "Toggle Buttons",
+            "length": "Shirt Length",
+            "sleeve": "Sleeve Length",
+            "shirtColor": "Shirt Color",
+            "sleeveColor": "Sleeve Color",
+            "pockectsColor": "Pockects Color"
+          },
+          "pants": {
+            "legend": "Pants",
+            "pants": "Toggle Pants",
+            "belt": "Toggle Belt",
+            "length": "Length",
+            "fit": "Fit",
+            "pantsColor": "Pants Color",
+            "legsColor": "Legs Color",
+            "beltColor": "Belt Color"
+          },
+          "shoes": {
+            "legend": "Shoes",
+            "shoes": "Toggle Shoes",
+            "shoesColor": "Shoes Color"
+          }
+        }
+      },
+      "pixelEditor": {
+        "title": "Pixel Editor",
+        "general": {
+          "legend": "General",
+          "new": "New Image",
+          "open": "Open Image",
+          "save": "Save Image",
+          "export": "Export PNG"
+        },
+        "tools": {
+          "legend": "Tools",
+          "lock": "Lock Workarea",
+          "dropper": "Color Dropper",
+          "eraser": "Eraser"
+        },
+        "palette": {
+          "legend": "Palette",
+          "more": "More Colors"
+        }
+      },
+      "gearBuilder": {
+        "title": "Gear Builder",
+        "properties": {
+          "legend": "Gear Properties",
+          "teethAmount": "Teeth Amount",
+          "pitchRadius": "Pitch Radius",
+          "baseCircleRadius": "Base Circle Radius",
+          "axisRadius": "Axis Radius",
+          "sidePerforationAmount": "Side Perforation Amount",
+          "sidePerforationRadius": "Side Perforation Radius",
+          "sidePerforationDistance": "Side Perforation Distance"
+        }
+      },
+      "colorWheel": {
+        "title": "Color Wheel",
+        "general": {
+          "legend": "General",
+          "colors": "Colors"
+        }
+      }
+    }
+  },
+  "three": {
+    "navTitle": "ThreeJS",
+    "panel": {
+      "controller": {
+        "legend": "Scene Controllers",
+        "rotation": "Rotation",
+        "grid": "Grid",
+        "pause": "Pause",
+        "lines": "Lines",
+        "open": "Open Book"
+      }
+    },
+    "section": {
+      "cube": {
+        "title": "Color Cube"
+      },
+      "spirit": {
+        "title": "Spirit"
+      },
+      "drakkar": {
+        "title": "Drakkar"
+      },
+      "car": {
+        "title": "Car"
+      },
+      "xwing": {
+        "title": "X-Wing"
+      },
+      "2017": {
+        "title": "Portfolio 2017"
+      },
+      "audio": {
+        "title": "Audio 2"
+      }
+    }
+  },
+  "unity": {
+    "navTitle": "Unity"
+  },
+  "css": {
+    "navTitle": "CSS Models",
+    "section": {
+      "house": {
+        "title": "House"
+      },
+      "window": {
+        "title": "Window"
+      },
+      "minivan": {
+        "title": "Minivan"
+      },
+      "pills": {
+        "title": "Pills"
+      }
+    }
+  }
+}

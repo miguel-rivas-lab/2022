@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import i18n from "../i18n";
 
 import NestedWorkareaView from '../views/nested-workarea.vue';
 import NestedPanelView from '../views/nested-panel.vue';
@@ -6,6 +7,7 @@ import NestedPanelView from '../views/nested-panel.vue';
 import ProjectsListWorkareaView from '../views/projects-list-workarea.vue';
 import ProjectsListPanelView from '../views/projects-list-panel.vue';
 import StatisticsWorkareaView from '../views/statistics-workarea.vue';
+
 
 export default {
   name: 'projects',
@@ -22,17 +24,17 @@ export default {
     panel: Vue.extend({
       props: {
         panelTitle: {
-          default: "Projects"
+          default: i18n.t("projects.navTitle")
         },
         links: {
           default: () => ([
             {
-              text: "List",
+              text: i18n.t("projects.section.list.title"),
               name: "list",
               icon: "list",
             },
             {
-              text: "Statistics",
+              text: i18n.t("projects.section.statistics.title"),
               name: "statistics",
               icon: "chart",
             },

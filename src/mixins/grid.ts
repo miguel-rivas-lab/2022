@@ -82,8 +82,8 @@ export default Vue.extend({
       const width = newValues.width;
       const widthSubtraction = newValues.widthSubtraction;
       const height = newValues.height;
-      let absoluteHeight = height > this.cssSizesHeight.length - 1 ? true : newValues.absoluteHeight || false;
-      let absoluteWidth = width > this.cssSizesWidth.length - 1 ? true : newValues.absoluteWidth || false;
+      const absoluteHeight = height > this.cssSizesHeight.length - 1 ? true : newValues.absoluteHeight || false;
+      const absoluteWidth = width > this.cssSizesWidth.length - 1 ? true : newValues.absoluteWidth || false;
 
       let computedSize = this.getColumnWidth(
         width,

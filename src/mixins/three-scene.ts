@@ -36,7 +36,7 @@ export default {
         : this.scene.remove(this.gridHelper);
     },
     buildScene(
-      allowPaning: boolean = false,
+      allowPaning = false,
       cameraPosition = { x: 15, y: 25, z: 0 },
       perspectiveCamera = { fov: 15, aspect: this.winWidth / this.winHeight, near: 1, far: 1000 },
       grid = { size: 60, divisions: 25 }

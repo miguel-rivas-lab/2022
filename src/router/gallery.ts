@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import i18n from "../i18n";
 
 import NestedWorkareaView from '../views/nested-workarea.vue';
 import NestedPanelView from '../views/nested-panel.vue';
@@ -22,17 +23,17 @@ export default {
     panel: Vue.extend({
       props: {
         panelTitle: {
-          default: "Galleries"
+          default: i18n.t("galleries.navTitle")
         },
         links: {
           default: () => ([
             {
-              text: "Images",
+              text: i18n.t("galleries.section.images.title"),
               name: "images",
               icon: "collections",
             },
             {
-              text: "Videos",
+              text: i18n.t("galleries.section.videos.title"),
               name: "videos",
               icon: "movie",
             },

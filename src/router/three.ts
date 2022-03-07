@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import i18n from "../i18n";
 
 import NestedWorkareaView from '../views/nested-workarea.vue';
 import NestedPanelView from '../views/nested-panel.vue';
@@ -26,50 +27,45 @@ export default {
     panel: Vue.extend({
       props: {
         panelTitle: {
-          default: "3D Models"
+          default: i18n.t("three.navTitle")
         },
         links: {
           default: () => ([
             {
-              text: "Color Cube",
+              text: i18n.t("three.section.cube.title"),
               name: "cube",
               icon: "cube",
             },
             {
-              text: "Spirit",
+              text: i18n.t("three.section.spirit.title"),
               name: "spirit",
               icon: "monster",
             },
             {
-              text: "Drakkar",
+              text: i18n.t("three.section.drakkar.title"),
               name: "drakkar",
               icon: "boat",
             },
             {
-              text: "Car",
+              text: i18n.t("three.section.car.title"),
               name: "car",
               icon: "car",
             },
             {
-              text: "X-wing",
+              text: i18n.t("three.section.xwing.title"),
               name: "xwing",
               icon: "rocket",
             },
             {
-              text: "Portfolio 2017",
+              text: i18n.t("three.section.2017.title"),
               name: "portfolio2017",
               icon: "book",
             },
             {
-              text: "Audio2",
+              text: i18n.t("three.section.audio.title"),
               name: "audio2",
               icon: "book",
             },
-            // {
-            //   text: "Planet",
-            //   name: "planet",
-            //   icon: "",
-            // },
           ])
         }
       },
