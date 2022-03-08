@@ -7,16 +7,14 @@ import "./modules/commons";
 import "nano-grid/modules/tooltip";
 import "nano-grid/modules/nano";
 import {
-  formatRawDBToJSON,
-  formatRawDBToFirebase,
-  formatGroupsToProjects,
+  projectsDBObj,
+  groupsDBObj,
 } from "./modules/format-db";
 import "highlight.js/styles/tomorrow-night-bright.css";
 import VueKonva from "vue-konva";
 
 //-- db
-import { projectsDB } from "./db/projects";
-import { groupsDB } from "./db/groups";
+
 import { user } from "./db/user";
 import i18n from "./i18n";
 
@@ -43,8 +41,8 @@ new Vue({
   i18n,
   data: () => ({
     user: user,
-    projects: formatRawDBToJSON(projectsDB.map(formatRawDBToFirebase)),
-    groups: formatGroupsToProjects(groupsDB),
+    projects: projectsDBObj,
+    groups: groupsDBObj,
   }),
   render: h => h(app)
 }).$mount('#app');

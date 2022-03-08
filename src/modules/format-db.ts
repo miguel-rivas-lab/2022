@@ -1,174 +1,63 @@
 import helpers from "../modules/helpers";
+import { projectsDB as rawDB } from "../db/projects";
+import { groupsDB as rawGroupsDB } from "../db/groups";
 
 // ---------------- Enums
 
 import { tool, toolEnum } from "../enums/tools";
-import { role, roleEnum } from "../enums/roles";
 import { type, typeEnum } from "../enums/types";
 import { client, clientEnum } from "../enums/clients";
 
-import { ProjectFirebase } from "../interfaces/project-firebase";
 
-interface ProjectLinkComb {
-  url: string;
-  text: string;
-  params?: Array<string>;
-  self?: boolean;
+export function sortByDate(a, b) {
+  return helpers.dateToNumber(b.date) - helpers.dateToNumber(a.date);
 }
 
-export interface ProjectComb {
-  date: string;
-  title: string;
-  types?: Array<string> | Array<number>;
-  roles?: Array<string> | Array<number>;
-  clients: Array<string> | Array<number>;
-  tools?: Array<string> | Array<number>;
-  links?: Array<ProjectLinkComb>;
-  disabled?: boolean;
-  children?: Array<string>;
-}
+/* ------------------------------------- */
 
-export function formatRawDBToFirebase(item: ProjectFirebase): ProjectFirebase {
-  let links = [];
-  if (item.links?.length > 0) {
-    links = item.links.map(
-      link => {
-        const params = link.params ? link.params : [];
-        return {
-          "url": link.url,
-          "text": link.text,
-          "params": params,
-          "self": link.self || false,
-        }
-      }
-    );
-  }
-
-  const roles = item.roles.sort();
-  const tools = item.tools.sort();
-  const clients = item.clients.sort();
-  const types = item.types.sort();
-  const disabled = item.disabled ? true : false;
-  const children = item.children || [];
-
-  return {
-    "title": item.title,
-    "clients": clients,
-    "date": item.date,
-    "types": types,
-    "disabled": disabled,
-    "links": links,
-    "roles": roles,
-    "tools": tools,
-    "children": children,
-  }
-}
-
-export function formatFirebaseDBToJSON(querySnapshot) {
-  const projectsDB = {};
-  querySnapshot.docs.forEach(doc => {
-    const p = doc.data();
-
-    const links = p.links.map(
-      link => {
-        const params = link.params.length ? `?${link.params.join("&")}` : '';
-        const url = link.url;
-
-        return {
-          "url": `${url}${params}`,
-          "text": link.text,
-          "self": link.self,
-        }
-      }
-    );
-
-    const roles = p.roles.map(
-      item => role[roleEnum[item]]
-    );
-
-    const tools = p.tools.map(
-      item => tool[toolEnum[item]]
-    );
-
-    const clients = p.clients.map(
-      item => client[clientEnum[item]]
-    );
-
-    const types = p.types.map(
-      item => type[typeEnum[item]]
-    ).join(' & ');
-
-    const project = {
-      "title": p.title,
-      "clients": clients,
-      "date": p.date,
-      "types": types,
-      "disabled": p.disabled,
-      "links": links,
-      "roles": roles,
-      "tools": tools,
-      "children": p.children,
-      "image": "",
-    };
-
-    const id = helpers.getNewID(project.clients[0], project.date);
-
-    try {
-      project.image = `https://miguel-rivas.github.io/zapp/img/preview-wide/${id}.jpg`;
-    }
-    catch {
-      project.image = require(`@/img/miguelrivas.jpg`);
-    }
-    projectsDB[id] = project;
-  });
-  return projectsDB;
-}
-
-export function formatRawDBToJSON(item) {
+function uncompressProjectsDBtoJSON(db) {
   const result = {};
-  item.forEach(doc => {
-    const p = doc;
+  db.forEach(entry => {
 
-    const links = p.links.map(
-      link => {
-        const params = link.params.length ? `?${link.params.join("&")}` : '';
-        const url = link.url;
+    const disabled = entry.disabled ? true : false;
+    const children = entry.children || [];
 
-        return {
-          "url": `${url}${params}`,
-          "text": link.text,
-          "self": link.self,
-        }
-      }
-    );
-
-    const roles = p.roles.map(
-      item => role[roleEnum[item]]
-    );
-
-    const tools = p.tools.map(
+    const tools = entry.tools.sort().map(
       item => tool[toolEnum[item]]
     );
 
-    const clients = p.clients.map(
+    const clients = entry.clients.sort().map(
       item => client[clientEnum[item]]
     );
 
-    const types = p.types.map(
-      item => type[typeEnum[item]]
-    ).join(' & ');
+    const types = type[typeEnum[entry.types]];
+
+    let links = [];
+    if (entry.links?.length > 0) {
+      links = entry.links.map(
+        link => {
+          const params = link.params?.length ? `?${link.params.join("&")}` : '';
+          const url = link.url;
+
+          return {
+            "url": `${url}${params}`,
+            "text": link.text,
+            "self": link.self,
+          }
+        }
+      );
+    }
 
     const project = {
-      "title": p.title,
+      "title": entry.title,
       "clients": clients,
-      "date": p.date,
-      "turingDate": helpers.turingDate(p.date),
+      "date": entry.date,
+      "turingDate": helpers.turingDate(entry.date),
       "types": types,
-      "disabled": p.disabled,
       "links": links,
-      "roles": roles,
+      "disabled": disabled,
       "tools": tools,
-      "children": p.children,
+      "children": children,
       "image": "",
     };
 
@@ -182,10 +71,11 @@ export function formatRawDBToJSON(item) {
     }
     result[id] = project;
   });
+
   return result;
 }
 
-export function formatGroupsToProjects(groups) {
+function uncompressGroupsDBtoJSON(groups) {
   const result = {};
   groups.forEach(group => {
     let position = { lat: '', lng: '' };
@@ -204,7 +94,7 @@ export function formatGroupsToProjects(groups) {
 
     const types = group.types.map(
       item => type[typeEnum[item]]
-    ).join(' & ');
+    );
 
     const project = {
       "title": clients[0],
@@ -236,6 +126,72 @@ export function formatGroupsToProjects(groups) {
   return result;
 }
 
-export function sortByDate(a, b) {
-  return helpers.dateToNumber(b.date) - helpers.dateToNumber(a.date);
+
+/* ------------------------------------- */
+
+export function allTools() {
+  let tools = {};
+  let result = [];
+
+  projectsDBList.forEach((project) => {
+    if (typeof project.tools !== "undefined") {
+      project.tools.forEach((tool) => {
+        if (typeof tools[tool] === "undefined") {
+          tools[tool] = 1;
+        } else {
+          tools[tool]++;
+        }
+      });
+    }
+  });
+
+  let keys = Object.keys(tools);
+  let values = Object.values(tools);
+
+  keys.forEach((key, index) => {
+    let newItem = new Object();
+    newItem["skill"] = key;
+    newItem["total"] = values[index];
+    result.push(newItem);
+  });
+
+  return result;
 }
+
+export function allDates() {
+  let dates = {};
+  let result = [];
+
+  projectsDBList.forEach((project) => {
+    if (typeof project.turingDate !== "undefined") {
+      let key = project.turingDate.split(" ")[0].substring(1);
+
+      if (typeof dates[key] === "undefined") {
+        dates[key] = 1;
+      } else {
+        dates[key]++;
+      }
+    }
+  });
+
+  let keys = Object.keys(dates);
+  let values = Object.values(dates);
+
+  keys.forEach((key, index) => {
+    let newItem = new Object();
+    newItem["date"] = key;
+    newItem["total"] = values[index];
+    result.push(newItem);
+  });
+
+  return result;
+}
+
+
+/* ------------------------------------- */
+
+export const projectsDBObj = uncompressProjectsDBtoJSON(rawDB);
+export const projectsDBList = Object.values(projectsDBObj).sort(sortByDate);
+
+export const groupsDBObj = uncompressGroupsDBtoJSON(rawGroupsDB);
+export const groupsDBList = Object.values(groupsDBObj).sort(sortByDate);

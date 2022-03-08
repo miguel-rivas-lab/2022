@@ -52,9 +52,6 @@ describe('Gallery component unit tests: ', () => {
           "links": [
             { url: linkWeb("2018/presidente.html"), text: "Presidente" },
           ],
-          "roles": [
-            role[roleEnum.frontend],
-          ],
           "tools": [
             tool[toolEnum.scss],
             tool[toolEnum.javascript],
@@ -69,9 +66,6 @@ describe('Gallery component unit tests: ', () => {
           "date": "2021/03/24",
           "disabled": true,
           "links": [],
-          "roles": [
-            role[roleEnum.frontend],
-          ],
           "tools": [
             tool[toolEnum.scss],
             tool[toolEnum.typescript],

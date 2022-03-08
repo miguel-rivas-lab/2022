@@ -18,7 +18,6 @@ import Vue from "vue";
 import Gallery from "../components/gallery.vue";
 import { client } from "../enums/clients";
 import { Project } from "../interfaces/project";
-import { sortByDate } from "../modules/format-db";
 
 export default Vue.extend({
   components: {
@@ -37,8 +36,7 @@ export default Vue.extend({
         ...this.$root.projects,
         ...this.$root.groups,
       })
-        .filter((item: Project) => !item.disabled)
-        .sort(sortByDate);
+        .filter((item: Project) => !item.disabled);
 
       let result = db;
       switch (this.selection.filterData) {

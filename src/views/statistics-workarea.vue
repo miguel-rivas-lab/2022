@@ -4,12 +4,12 @@ scroll-area(color="royal-purple")
     article.nano-box
       h1 {{ $t('projects.section.statistics.workarea.yearlyAverage') }}
       br
-      line-chart(:chart-data="dates")
+      line-chart(:chart-data="allDates()")
 
     article.nano-box
       h1 {{ $t('projects.section.statistics.workarea.skillsUsed') }}
       br
-      bar-chart(:chart-data="tools")
+      bar-chart(:chart-data="allTools()")
 
     article.nano-box
       h1 {{ $t('projects.section.statistics.workarea.database') }}
@@ -25,7 +25,7 @@ scroll-area(color="royal-purple")
             suffix(size="35")
 
         .table-body(role="rowgroup")
-          template(v-for="(project, projectIndex) in projectsDB")
+          template(v-for="(project, projectIndex) in projectsDBList")
             toggle-row(breakpoint="lg", v-bind:key="projectIndex")
               template(v-slot:header)
                 t-column(size="40%") {{ project.title }}
@@ -62,7 +62,7 @@ import Vue from "vue";
 import LineChart from "../components/line-chart.vue";
 import BarChart from "../components/bar-chart.vue";
 import ToggleRow from "../components/toggle-row.vue";
-import { sortByDate } from "../modules/format-db";
+import { projectsDBList, allTools, allDates } from "../modules/format-db";
 
 export default Vue.extend({
   components: {
@@ -70,67 +70,10 @@ export default Vue.extend({
     LineChart,
     BarChart,
   },
-  data: () => ({}),
-  computed: {
-    projectsDB() {
-      return Object.values(this.$root.projects).sort(sortByDate);
-    },
-    tools() {
-      let tools = {};
-      let result = [];
-
-      this.projectsDB.forEach((project) => {
-        if (typeof project.tools !== "undefined") {
-          project.tools.forEach((tool) => {
-            if (typeof tools[tool] === "undefined") {
-              tools[tool] = 1;
-            } else {
-              tools[tool]++;
-            }
-          });
-        }
-      });
-
-      let keys = Object.keys(tools);
-      let values = Object.values(tools);
-
-      keys.forEach((key, index) => {
-        let newItem = new Object();
-        newItem["skill"] = key;
-        newItem["total"] = values[index];
-        result.push(newItem);
-      });
-
-      return result;
-    },
-    dates() {
-      let dates = {};
-      let result = [];
-
-      this.projectsDB.forEach((project) => {
-        if (typeof project.turingDate !== "undefined") {
-          let key = project.turingDate.split(" ")[0].substring(1);
-
-          if (typeof dates[key] === "undefined") {
-            dates[key] = 1;
-          } else {
-            dates[key]++;
-          }
-        }
-      });
-
-      let keys = Object.keys(dates);
-      let values = Object.values(dates);
-
-      keys.forEach((key, index) => {
-        let newItem = new Object();
-        newItem["date"] = key;
-        newItem["total"] = values[index];
-        result.push(newItem);
-      });
-
-      return result;
-    },
-  },
+  data: () => ({
+    projectsDBList,
+    allTools,
+    allDates,
+  }),
 });
 </script>

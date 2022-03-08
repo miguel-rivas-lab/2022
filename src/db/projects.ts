@@ -1,9 +1,7 @@
 import { toolEnum } from "../enums/tools";
-import { roleEnum } from "../enums/roles";
 import { typeEnum } from "../enums/types";
 import { client, clientEnum } from "../enums/clients";
 import { ProjectFirebase } from "../interfaces/project-firebase";
-import { sortByDate } from "../modules/format-db";
 import { user } from "./user";
 
 import h from "../modules/helpers";
@@ -19,13 +17,7 @@ const projects: ProjectsType = [
   {
     date: "2021/12/20",
     title: "Portfolio 2022",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -78,13 +70,7 @@ const projects: ProjectsType = [
   {
     date: "2022/03/04",
     title: "Grid Gallery",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -103,13 +89,7 @@ const projects: ProjectsType = [
   {
     date: "2022/02/20",
     title: "Pixel Editor",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -130,13 +110,7 @@ const projects: ProjectsType = [
   {
     date: "2022/02/07",
     title: "Avatar Builder",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -156,13 +130,7 @@ const projects: ProjectsType = [
   {
     date: "2022/02/02",
     title: "3D House",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -178,12 +146,7 @@ const projects: ProjectsType = [
   {
     date: "2022/01/24",
     title: "Map 3D",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -196,13 +159,8 @@ const projects: ProjectsType = [
   {
     date: "2008/12/05",
     title: "Falling Code / Game",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -220,13 +178,8 @@ const projects: ProjectsType = [
   {
     date: "2008/11/11",
     title: "Bouncing Shapes",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -247,13 +200,8 @@ const projects: ProjectsType = [
   {
     date: "2008/05/16",
     title: "Analog Clock",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -271,13 +219,8 @@ const projects: ProjectsType = [
   {
     date: "2005/10/01",
     title: "ATM",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -295,13 +238,8 @@ const projects: ProjectsType = [
   {
     date: "2005/10/02",
     title: "Bubble Sort",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -313,13 +251,8 @@ const projects: ProjectsType = [
   {
     date: "2005/10/03",
     title: "Infinite Menu",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -337,13 +270,8 @@ const projects: ProjectsType = [
   {
     date: "2005/10/04",
     title: "Fibonacci Sequence",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -361,13 +289,8 @@ const projects: ProjectsType = [
   {
     date: "2005/10/05",
     title: "Summatory / Accumulator",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -385,13 +308,8 @@ const projects: ProjectsType = [
   {
     date: "2005/09/28",
     title: "Random Number",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -409,13 +327,8 @@ const projects: ProjectsType = [
   {
     date: "2007/09/04",
     title: "Pacman Pixel Draw",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -430,13 +343,8 @@ const projects: ProjectsType = [
   {
     date: "2008/05/17",
     title: "Tetravex",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -448,13 +356,8 @@ const projects: ProjectsType = [
   {
     date: "2008/05/18",
     title: "Minesweeper",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -466,13 +369,8 @@ const projects: ProjectsType = [
   {
     date: "2006/01/05",
     title: "Falling Code / Matrix Effect",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.itesa,
     ],
@@ -484,13 +382,8 @@ const projects: ProjectsType = [
   {
     date: "2013/12/06",
     title: "Pasteleria Del Jardin",
-    types: [
-      typeEnum.socialMedia,
-    ],
+    types:  typeEnum.socialMedia,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.delJardin,
     ],
@@ -508,13 +401,8 @@ const projects: ProjectsType = [
   {
     date: "2013/06/18",
     title: "Lanza tu Promo",
-    types: [
-      typeEnum.socialMedia,
-    ],
+    types:  typeEnum.socialMedia,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.highschool,
     ],
@@ -532,13 +420,8 @@ const projects: ProjectsType = [
   {
     date: "2013/05/28",
     title: "Audrey Hepburn",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -556,13 +439,8 @@ const projects: ProjectsType = [
   {
     date: "2013/03/21",
     title: "Audio 2",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -580,13 +458,8 @@ const projects: ProjectsType = [
   {
     date: "2012/11/26",
     title: "Beauty is a Beast",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -604,13 +477,8 @@ const projects: ProjectsType = [
   {
     date: "2012/10/24",
     title: "Linux Grub",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -628,13 +496,8 @@ const projects: ProjectsType = [
   {
     date: "2019/07/10",
     title: "Play Sound",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -651,13 +514,8 @@ const projects: ProjectsType = [
   {
     date: "2020/08/08",
     title: "Switch",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -675,13 +533,8 @@ const projects: ProjectsType = [
   {
     date: "2020/06/17",
     title: "Toggle Arrow",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -699,13 +552,8 @@ const projects: ProjectsType = [
   {
     date: "2020/08/18",
     title: "Range Slider",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -723,13 +571,8 @@ const projects: ProjectsType = [
   {
     date: "2011/07/17",
     title: "Madre Naturaleza",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -747,14 +590,8 @@ const projects: ProjectsType = [
   {
     date: "2011/04/24",
     title: "El Montaje",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.animation,
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -772,13 +609,8 @@ const projects: ProjectsType = [
   {
     date: "2011/02/22",
     title: "Transformer",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -796,13 +628,8 @@ const projects: ProjectsType = [
   {
     date: "2009/04/27",
     title: "Flygon",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -820,13 +647,8 @@ const projects: ProjectsType = [
   {
     date: "2012/12/12",
     title: "Baká",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -850,13 +672,8 @@ const projects: ProjectsType = [
   {
     date: "2012/06/14",
     title: "Le Machine",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -874,13 +691,8 @@ const projects: ProjectsType = [
   {
     date: "2012/01/16",
     title: "Stars",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -901,13 +713,8 @@ const projects: ProjectsType = [
   {
     date: "2012/06/25",
     title: "Water Matters",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -925,13 +732,8 @@ const projects: ProjectsType = [
   {
     date: "2012/06/21",
     title: "Wickhop",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -949,13 +751,8 @@ const projects: ProjectsType = [
   {
     date: "2012/04/29",
     title: "Corel Draw",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -973,14 +770,8 @@ const projects: ProjectsType = [
   {
     date: "2011/08/03",
     title: "MP4",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-      roleEnum.animation,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -998,13 +789,8 @@ const projects: ProjectsType = [
   {
     date: "2011/04/25",
     title: "Dream",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -1022,13 +808,8 @@ const projects: ProjectsType = [
   {
     date: "2010/12/27",
     title: "Lapices de Colores",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1046,13 +827,8 @@ const projects: ProjectsType = [
   {
     date: "2012/07/14",
     title: "Living Walls",
-    types: [
-      typeEnum.graphicDesign,
-    ],
+    types:  typeEnum.graphicDesign,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1070,13 +846,8 @@ const projects: ProjectsType = [
   {
     date: "2012/08/23",
     title: "Tambora",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1095,13 +866,8 @@ const projects: ProjectsType = [
   {
     date: "2012/09/20",
     title: "T-Magazine",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1119,13 +885,8 @@ const projects: ProjectsType = [
   {
     date: "2013/11/30",
     title: "AguacateKun Identidad",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1145,13 +906,8 @@ const projects: ProjectsType = [
   {
     date: "2013/01/20",
     title: "Libro de Cuentos",
-    types: [
-      typeEnum.graphicDesign,
-    ],
+    types:  typeEnum.graphicDesign,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1174,13 +930,8 @@ const projects: ProjectsType = [
   {
     date: "2013/12/03",
     title: "Vacaciones Navideñas",
-    types: [
-      typeEnum.socialMedia,
-    ],
+    types:  typeEnum.socialMedia,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.descubria,
     ],
@@ -1198,13 +949,8 @@ const projects: ProjectsType = [
   {
     date: "2013/08/03",
     title: "Social Network Facebook",
-    types: [
-      typeEnum.socialMedia,
-    ],
+    types:  typeEnum.socialMedia,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.socialNetwork,
     ],
@@ -1222,13 +968,8 @@ const projects: ProjectsType = [
   {
     date: "2013/07/06",
     title: "Facebook App",
-    types: [
-      typeEnum.graphicDesign,
-    ],
+    types:  typeEnum.graphicDesign,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.tiempoExtra,
     ],
@@ -1246,13 +987,8 @@ const projects: ProjectsType = [
   {
     date: "2013/07/05",
     title: "Home Gallery Facebook",
-    types: [
-      typeEnum.socialMedia,
-    ],
+    types:  typeEnum.socialMedia,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.homeGallery,
     ],
@@ -1270,13 +1006,8 @@ const projects: ProjectsType = [
   {
     date: "2013/07/05",
     title: "SDQ Training Center Facebook",
-    types: [
-      typeEnum.socialMedia,
-    ],
+    types:  typeEnum.socialMedia,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.sdq,
     ],
@@ -1294,13 +1025,8 @@ const projects: ProjectsType = [
   {
     date: "2013/06/27",
     title: "Harina Blaquita Facebook",
-    types: [
-      typeEnum.socialMedia,
-    ],
+    types:  typeEnum.socialMedia,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.harinaBlanquita,
     ],
@@ -1319,13 +1045,8 @@ const projects: ProjectsType = [
   {
     date: "2012/12/29",
     title: "Jenny Aquino",
-    types: [
-      typeEnum.graphicDesign,
-    ],
+    types:  typeEnum.graphicDesign,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1343,13 +1064,8 @@ const projects: ProjectsType = [
   {
     date: "2012/10/12",
     title: "Blindness Poster",
-    types: [
-      typeEnum.graphicDesign,
-    ],
+    types:  typeEnum.graphicDesign,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -1367,13 +1083,8 @@ const projects: ProjectsType = [
   {
     date: "2012/09/13",
     title: "Diseño de Productos",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -1391,13 +1102,8 @@ const projects: ProjectsType = [
   {
     date: "2012/04/16",
     title: "Raspberry Pi C",
-    types: [
-      typeEnum.graphicDesign,
-    ],
+    types:  typeEnum.graphicDesign,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -1415,13 +1121,8 @@ const projects: ProjectsType = [
   {
     date: "2012/02/28",
     title: "Maggiver",
-    types: [
-      typeEnum.document,
-    ],
+    types:  typeEnum.document,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.mangoBajito,
     ],
@@ -1439,13 +1140,8 @@ const projects: ProjectsType = [
   {
     date: "2013/12/15",
     title: "Badges",
-    types: [
-      typeEnum.graphicDesign,
-    ],
+    types:  typeEnum.graphicDesign,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.cosplayDominicano,
     ],
@@ -1464,12 +1160,7 @@ const projects: ProjectsType = [
   {
     date: "2012/10/26",
     title: "Print Portfolio",
-    types: [
-      typeEnum.document,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.document,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1548,13 +1239,7 @@ const projects: ProjectsType = [
   {
     date: "2015/01/03",
     title: "Mainfront",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1583,13 +1268,7 @@ const projects: ProjectsType = [
   {
     date: "2015/04/19",
     title: "CSS Study",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1617,13 +1296,7 @@ const projects: ProjectsType = [
   {
     date: "2021/03/24",
     title: "Hello",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.app,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -1675,13 +1348,7 @@ const projects: ProjectsType = [
   {
     date: "2015/04/26",
     title: "Evolution of the Web",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1708,13 +1375,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/14",
     title: "Robotic Screen",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -1734,13 +1395,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/23",
     title: "Minivan",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1753,13 +1408,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/25",
     title: "Windows Form",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -1773,13 +1422,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/28",
     title: "Gear Builder",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1796,13 +1439,7 @@ const projects: ProjectsType = [
   {
     date: "2015/12/07",
     title: "SVG 101",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1830,13 +1467,7 @@ const projects: ProjectsType = [
   {
     date: "2015/12/22",
     title: "Tetravex",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1867,13 +1498,7 @@ const projects: ProjectsType = [
   {
     date: "2017/02/20",
     title: "Pills",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -1887,13 +1512,7 @@ const projects: ProjectsType = [
     date: "2010/07/07",
     title: "French Toast",
     disabled: true,
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation,
-      roleEnum.design,
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.itla,
     ],
@@ -1911,12 +1530,7 @@ const projects: ProjectsType = [
   {
     date: "2012/07/24",
     title: "La Guerra de Vectores",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation,
-    ],
+    types:  typeEnum.motionGraphics,
     disabled: true,
     clients: [
       clientEnum.itla,
@@ -1935,12 +1549,7 @@ const projects: ProjectsType = [
   {
     date: "2016/11/21",
     title: "Wurlex",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.animation, roleEnum.design
-    ],
+    types:  typeEnum.animation3D,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -1962,13 +1571,7 @@ const projects: ProjectsType = [
   {
     date: "2014/02/09",
     title: "Screens Portfolio",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2000,13 +1603,7 @@ const projects: ProjectsType = [
   {
     date: "2016/08/11",
     title: "Spirit Portfolio",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2033,13 +1630,7 @@ const projects: ProjectsType = [
   {
     date: "2021/08/12",
     title: "Portfolio 2021",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2082,13 +1673,7 @@ const projects: ProjectsType = [
   {
     date: "2018/01/01",
     title: "Grid Portfolio",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2146,13 +1731,7 @@ const projects: ProjectsType = [
   {
     date: "2016/01/11",
     title: "HTML/LOVE",
-    types: [
-      typeEnum.landingPage,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.landingPage,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2179,12 +1758,7 @@ const projects: ProjectsType = [
   {
     date: "2021/03/22",
     title: "Nano Grid",
-    types: [
-      typeEnum.module,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.module,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2214,12 +1788,7 @@ const projects: ProjectsType = [
   {
     date: "2021/09/12",
     title: "MR Kernel",
-    types: [
-      typeEnum.module,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.module,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2245,12 +1814,7 @@ const projects: ProjectsType = [
   {
     date: "2012/09/26",
     title: "Tips of Design",
-    types: [
-      typeEnum.document,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.document,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -2262,12 +1826,7 @@ const projects: ProjectsType = [
   {
     date: "2017/03/05",
     title: "Art Direction",
-    types: [
-      typeEnum.document,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.document,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2281,13 +1840,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/10",
     title: "Bootstrap Prototype",
-    types: [
-      typeEnum.landingPage,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.landingPage,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -2302,13 +1855,7 @@ const projects: ProjectsType = [
   {
     date: "2021/03/26",
     title: "3D Viewer",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.design,
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2345,13 +1892,7 @@ const projects: ProjectsType = [
   {
     date: "2017/01/01",
     title: "FlatCSS",
-    types: [
-      typeEnum.module,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.module,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -2377,12 +1918,7 @@ const projects: ProjectsType = [
   {
     date: "2020/10/04",
     title: "Fake Audience",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -2402,13 +1938,8 @@ const projects: ProjectsType = [
   {
     date: "2021/02/27",
     title: "3D Graph Colors",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2419,13 +1950,8 @@ const projects: ProjectsType = [
   {
     date: "2020/05/09",
     title: "Animated SVG Header",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2444,13 +1970,8 @@ const projects: ProjectsType = [
   {
     date: "2020/03/23",
     title: "Xpinner",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2468,13 +1989,8 @@ const projects: ProjectsType = [
   {
     date: "2018/06/27",
     title: "Color Wheel Creator",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2492,13 +2008,8 @@ const projects: ProjectsType = [
   {
     date: "2018/09/11",
     title: "Movie projector",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2516,13 +2027,8 @@ const projects: ProjectsType = [
   {
     date: "2018/05/31",
     title: "Check Animation",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2540,13 +2046,8 @@ const projects: ProjectsType = [
   {
     date: "2018/03/28",
     title: "Bounce Animation",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2563,13 +2064,8 @@ const projects: ProjectsType = [
   {
     date: "2015/05/29",
     title: "Spinners",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -2587,12 +2083,7 @@ const projects: ProjectsType = [
   {
     date: "2012/11/06",
     title: "Drakkar",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -2611,13 +2102,8 @@ const projects: ProjectsType = [
   {
     date: "2011/12/05",
     title: "Reloj",
-    types: [
-      typeEnum.animation3D,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -2635,13 +2121,8 @@ const projects: ProjectsType = [
   {
     date: "2011/11/15",
     title: "Pencil Sharpener",
-    types: [
-      typeEnum.animation3D,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -2659,13 +2140,8 @@ const projects: ProjectsType = [
   {
     date: "2011/11/18",
     title: "Batteries: depth of field",
-    types: [
-      typeEnum.animation3D,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -2683,13 +2159,8 @@ const projects: ProjectsType = [
   {
     date: "2011/07/25",
     title: "Audi",
-    types: [
-      typeEnum.animation3D,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -2707,13 +2178,8 @@ const projects: ProjectsType = [
   {
     date: "2011/07/31",
     title: "Mackbook Pro",
-    types: [
-      typeEnum.animation3D,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -2731,13 +2197,8 @@ const projects: ProjectsType = [
   {
     date: "2011/06/22",
     title: "Backpack",
-    types: [
-      typeEnum.animation3D,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -2755,13 +2216,8 @@ const projects: ProjectsType = [
   {
     date: "2011/07/06",
     title: "X-wing",
-    types: [
-      typeEnum.animation3D,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.itla,
     ],
@@ -2779,12 +2235,7 @@ const projects: ProjectsType = [
   {
     date: "2014/06/16",
     title: "Destapa el Coro",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.presidente,
     ],
@@ -2813,12 +2264,7 @@ const projects: ProjectsType = [
     date: "2015/03/30",
     title: "Pacman",
     disabled: true,
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.presidente,
     ],
@@ -2836,12 +2282,7 @@ const projects: ProjectsType = [
   {
     date: "2015/03/24",
     title: "BigPapi Selfie",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.pepsi,
     ],
@@ -2860,12 +2301,7 @@ const projects: ProjectsType = [
   {
     date: "2015/04/18",
     title: "Carnaval Presidente 2015",
-    types: [
-      typeEnum.landingPage,
-    ],
-    roles: [
-      roleEnum.frontend
-    ],
+    types:  typeEnum.landingPage,
     disabled: true,
     clients: [
       clientEnum.presidente,
@@ -2899,12 +2335,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/20",
     title: "Recarga Con RedRock",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation
-    ],
+    types:  typeEnum.motionGraphics,
     disabled: true,
     clients: [
       clientEnum.redRock,
@@ -2923,13 +2354,8 @@ const projects: ProjectsType = [
   {
     date: "2015/10/23",
     title: "Retrobrindis",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend
-    ],
     clients: [
       clientEnum.presidente,
     ],
@@ -2956,12 +2382,7 @@ const projects: ProjectsType = [
   {
     date: "2015/11/12",
     title: "Mineriza a tu Familia",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.apap,
     ],
@@ -2990,12 +2411,7 @@ const projects: ProjectsType = [
   {
     date: "2017/04/04",
     title: "Promo",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -3015,13 +2431,8 @@ const projects: ProjectsType = [
   {
     date: "2015/12/16",
     title: "Verano Presidente 2015",
-    types: [
-      typeEnum.prototype,
-    ],
+    types:  typeEnum.prototype,
     disabled: true,
-    roles: [
-      roleEnum.frontend
-    ],
     clients: [
       clientEnum.presidente,
     ],
@@ -3052,12 +2463,7 @@ const projects: ProjectsType = [
   {
     date: "2016/02/22",
     title: "Website",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.drLogic,
     ],
@@ -3109,12 +2515,7 @@ const projects: ProjectsType = [
   {
     date: "2017/03/06",
     title: "Promo",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.animation,
-    ],
+    types:  typeEnum.animation3D,
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -3133,12 +2534,7 @@ const projects: ProjectsType = [
   {
     date: "2016/03/08",
     title: "Terms and Conditions",
-    types: [
-      typeEnum.document,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.document,
     clients: [
       clientEnum.drLogic,
     ],
@@ -3150,13 +2546,7 @@ const projects: ProjectsType = [
   {
     date: "2016/06/16",
     title: "Server Prompt",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.pixelPerfectTree,
     ],
@@ -3189,13 +2579,7 @@ const projects: ProjectsType = [
   {
     date: "2016/06/30",
     title: "Animated Header",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.voxel,
     ],
@@ -3223,12 +2607,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/27",
     title: "Orange Reel",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation,
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.orange,
     ],
@@ -3253,12 +2632,7 @@ const projects: ProjectsType = [
   {
     date: "2015/03/22",
     title: "Essentials",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation,
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.orange,
     ],
@@ -3270,12 +2644,7 @@ const projects: ProjectsType = [
   {
     date: "2015/03/24",
     title: "Selfie",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation,
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.orange,
     ],
@@ -3287,12 +2656,7 @@ const projects: ProjectsType = [
   {
     date: "2015/04/24",
     title: "Café",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation,
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.orange,
     ],
@@ -3304,12 +2668,7 @@ const projects: ProjectsType = [
   {
     date: "2015/05/22",
     title: "Día de las Madres",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation,
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.orange,
     ],
@@ -3321,12 +2680,7 @@ const projects: ProjectsType = [
   {
     date: "2015/03/31",
     title: "Snorkeling",
-    types: [
-      typeEnum.motionGraphics,
-    ],
-    roles: [
-      roleEnum.animation,
-    ],
+    types:  typeEnum.motionGraphics,
     clients: [
       clientEnum.orange,
     ],
@@ -3338,12 +2692,7 @@ const projects: ProjectsType = [
   {
     date: "2014/01/14",
     title: "Descubria Website",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     disabled: true,
     clients: [
       clientEnum.descubria,
@@ -3370,13 +2719,7 @@ const projects: ProjectsType = [
   {
     date: "2014/08/06",
     title: "Server Prompt",
-    types: [
-      typeEnum.prototype,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.prototype,
     clients: [
       clientEnum.capitalDBG,
     ],
@@ -3403,13 +2746,7 @@ const projects: ProjectsType = [
   {
     date: "2015/10/28",
     title: "Test",
-    types: [
-      typeEnum.landingPage,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.landingPage,
     disabled: true,
     clients: [
       clientEnum.pixelPerfectTree,
@@ -3443,24 +2780,13 @@ const projects: ProjectsType = [
     tools: [
       toolEnum.illustrator,
     ],
-    types: [
-      typeEnum.userFlow,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.userFlow,
     disabled: true,
   },
   {
     date: "2020/05/05",
     title: "Popkern",
-    types: [
-      typeEnum.module,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.module,
     clients: [
       clientEnum.enovational,
     ],
@@ -3485,13 +2811,7 @@ const projects: ProjectsType = [
   {
     date: "2017/09/20",
     title: "Lemon Deal",
-    types: [
-      typeEnum.landingPage,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.landingPage,
     clients: [
       clientEnum.plantTherapy,
     ],
@@ -3507,12 +2827,7 @@ const projects: ProjectsType = [
   {
     date: "2017/12/01",
     title: "25 Days of Christmas",
-    types: [
-      typeEnum.landingPage,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.landingPage,
     clients: [
       clientEnum.plantTherapy,
     ],
@@ -3528,12 +2843,7 @@ const projects: ProjectsType = [
   {
     date: "2015/08/03",
     title: "SIP",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.capitalDBG,
     ],
@@ -3547,12 +2857,7 @@ const projects: ProjectsType = [
   {
     date: "2014/10/18",
     title: "Presidente Photo Assignmet",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.presidente,
     ],
@@ -3568,12 +2873,7 @@ const projects: ProjectsType = [
   {
     date: "2014/11/05",
     title: "Pronosticos: Wireframe",
-    types: [
-      typeEnum.wireFrame,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.wireFrame,
     clients: [
       clientEnum.presidente,
     ],
@@ -3585,12 +2885,7 @@ const projects: ProjectsType = [
   {
     date: "2016/01/29",
     title: "Shop.pr",
-    types: [
-      typeEnum.document,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.document,
     clients: [
       clientEnum.pixelPerfectTree,
     ],
@@ -3603,13 +2898,7 @@ const projects: ProjectsType = [
     date: "2017/08/04",
     title: "Chakras",
     disabled: true,
-    types: [
-      typeEnum.wireFrame,
-    ],
-    roles: [
-      roleEnum.frontend,
-      roleEnum.design,
-    ],
+    types:  typeEnum.wireFrame,
     clients: [
       clientEnum.plantTherapy,
     ],
@@ -3620,12 +2909,7 @@ const projects: ProjectsType = [
   {
     date: "2016/02/18",
     title: "BPR Bank",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.bprBank,
     ],
@@ -3642,13 +2926,8 @@ const projects: ProjectsType = [
   {
     date: "2016/06/24",
     title: "Social Media Posts",
-    types: [
-      typeEnum.socialMedia,
-    ],
+    types:  typeEnum.socialMedia,
     disabled: true,
-    roles: [
-      roleEnum.design,
-    ],
     clients: [
       clientEnum.voxel,
     ],
@@ -3660,12 +2939,7 @@ const projects: ProjectsType = [
   {
     date: "2019/01/01",
     title: "MSEC Financial Disclosures Portal",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.enovational,
     ],
@@ -3690,12 +2964,7 @@ const projects: ProjectsType = [
   {
     date: "2018/05/01",
     title: "MDA Vetboard Portal",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     clients: [
       clientEnum.enovational,
     ],
@@ -3720,12 +2989,7 @@ const projects: ProjectsType = [
   {
     date: "2018/06/25",
     title: "Maryland Onestop",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     disabled: true,
     clients: [
       clientEnum.enovational,
@@ -3744,12 +3008,7 @@ const projects: ProjectsType = [
   {
     date: "2018/09/04",
     title: "Formability",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     disabled: true,
     clients: [
       clientEnum.enovational,
@@ -3795,12 +3054,7 @@ const projects: ProjectsType = [
   {
     date: "2021/06/21",
     title: "Connections Academy",
-    types: [
-      typeEnum.app,
-    ],
-    roles: [
-      roleEnum.frontend,
-    ],
+    types:  typeEnum.app,
     disabled: true,
     clients: [
       clientEnum.jellyfish,
@@ -3817,13 +3071,8 @@ const projects: ProjectsType = [
   {
     date: "2021/11/08",
     title: "Bitmap Creator",
-    types: [
-      typeEnum.app,
-    ],
+    types:  typeEnum.app,
     disabled: true,
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.miguelRivas,
     ],
@@ -3847,12 +3096,7 @@ const projects: ProjectsType = [
   {
     date: "2021/11/14",
     title: "Spirit 3D",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -3876,12 +3120,7 @@ const projects: ProjectsType = [
   {
     date: "2021/12/21",
     title: "Kaspar Island",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -3894,12 +3133,7 @@ const projects: ProjectsType = [
   {
     date: "2021/12/30",
     title: "Iqra Island",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -3912,12 +3146,7 @@ const projects: ProjectsType = [
   {
     date: "2021/12/10",
     title: "Goose",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -3930,12 +3159,7 @@ const projects: ProjectsType = [
   {
     date: "2022/01/05",
     title: "MR Universe",
-    types: [
-      typeEnum.animation3D,
-    ],
-    roles: [
-      roleEnum.design,
-    ],
+    types:  typeEnum.animation3D,
     disabled: true,
     clients: [
       clientEnum.miguelRivas,
@@ -3957,6 +3181,6 @@ const projects: ProjectsType = [
       },
     ],
   },
-].sort(sortByDate);
+];
 
 export { projects as projectsDB };

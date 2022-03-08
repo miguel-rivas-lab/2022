@@ -1,16 +1,10 @@
-import { tool, toolEnum } from "../enums/tools";
-import { roleEnum } from "../enums/roles";
+import { toolEnum } from "../enums/tools";
 import { typeEnum } from "../enums/types";
 import { client, clientEnum } from "../enums/clients";
-import { Group } from "../interfaces/project-firebase";
-import { sortByDate } from "../modules/format-db";
 
-import i18n from "../i18n";
 import h from "../modules/helpers";
 
-type GroupsType = Array<Group>;
-
-const groups: GroupsType = [
+const groups = [
   {
     date: "2004/09/20",
     disabled: false,
@@ -21,7 +15,6 @@ const groups: GroupsType = [
       typeEnum.group,
       typeEnum.location,
     ],
-    roles: [],
     tools: [
       toolEnum.html,
       toolEnum.css,
@@ -71,9 +64,6 @@ const groups: GroupsType = [
     clients: [
       clientEnum.codepen,
     ],
-    roles: [
-      roleEnum.design,
-    ],
     tools: [
       toolEnum.html,
       toolEnum.slim,
@@ -111,9 +101,6 @@ const groups: GroupsType = [
     ],
     clients: [
       clientEnum.itla,
-    ],
-    roles: [
-      roleEnum.design,
     ],
     tools: [
       toolEnum.html,
@@ -191,9 +178,6 @@ const groups: GroupsType = [
     clients: [
       clientEnum.socialNetwork,
     ],
-    roles: [
-      roleEnum.frontend,
-    ],
     tools: [
       toolEnum.illustrator,
       toolEnum.photoshop,
@@ -216,9 +200,6 @@ const groups: GroupsType = [
     ],
     clients: [
       clientEnum.presidente,
-    ],
-    roles: [
-      roleEnum.frontend,
     ],
     tools: [
       toolEnum.html,
@@ -255,9 +236,6 @@ const groups: GroupsType = [
     ],
     clients: [
       clientEnum.capitalDBG,
-    ],
-    roles: [
-      roleEnum.frontend,
     ],
     tools: [
       toolEnum.html,
@@ -303,9 +281,6 @@ const groups: GroupsType = [
     clients: [
       clientEnum.pixelPerfectTree,
     ],
-    roles: [
-      roleEnum.frontend,
-    ],
     tools: [
       toolEnum.haml,
       toolEnum.scss,
@@ -340,9 +315,6 @@ const groups: GroupsType = [
       typeEnum.group,
       typeEnum.location,
     ],
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.avante,
     ],
@@ -374,9 +346,6 @@ const groups: GroupsType = [
     types: [
       typeEnum.group,
       typeEnum.location,
-    ],
-    roles: [
-      roleEnum.frontend,
     ],
     clients: [
       clientEnum.plantTherapy,
@@ -412,9 +381,6 @@ const groups: GroupsType = [
   //     typeEnum.group,
   //     typeEnum.location,
   //   ],
-  //   roles: [
-  //     roleEnum.frontend,
-  //   ],
   //   clients: [
   //     clientEnum.jellyfish,
   //   ],
@@ -445,9 +411,6 @@ const groups: GroupsType = [
       typeEnum.group,
       typeEnum.location,
     ],
-    roles: [
-      roleEnum.frontend,
-    ],
     clients: [
       clientEnum.enovational,
     ],
@@ -475,6 +438,6 @@ const groups: GroupsType = [
       h.getNewID(client.enovational, "2019/01/01"),
     ],
   },
-].sort(sortByDate);
+];
 
 export { groups as groupsDB };
