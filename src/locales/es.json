@@ -27,7 +27,7 @@
       }
     },
     "workarea": {
-      "footer": "Desarrollado con &nbsp;<strong><a href='https://vuejs.org/'>Vue.js&nbsp;</a></strong><time>"
+      "footer": "Desarrollado con&nbsp;<strong><a href='https://vuejs.org/'>Vue.js&nbsp;</a></strong><time>"
     }
   },
   "projects": {
