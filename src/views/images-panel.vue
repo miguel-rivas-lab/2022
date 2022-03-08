@@ -2,10 +2,10 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Animation Controllers
+      legend {{ $t('galleries.section.images.panel.controller.legend') }}
 
       slider#outter-circle-radius(
-        label="Rotation Delay",
+        :label="$t('galleries.section.images.panel.controller.rotationDelay')",
         min="50",
         max="600",
         step="50",

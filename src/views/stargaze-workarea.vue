@@ -3,14 +3,13 @@
   .cover
     template(v-if="user.lastName")
       h1 {{ user.middleName }} {{ user.lastName }}
-      h2 {{ user.title }}
+      h2 {{ $t('position') }}
 
   mountains(:cx="cx", :cy="cy", :hue="selection.hue")
   footer
-    p
-      | Built with&nbsp;
-      strong: a(href="https://vuejs.org/") Vue.js&nbsp;
-      time // {{ helpers.currentTuringDate() }}
+    p(
+      v-html="$t('stargaze.workarea.footer') + `<time> // ${helpers.currentTuringDate()} </time>`"
+    )
 </template>
 
 <script lang="ts">
@@ -34,7 +33,6 @@ export default Vue.extend({
     user() {
       return this.$root.user;
     },
-   
   },
   created() {
     this.selection = this.$store.getters.getStargazeSelection;

@@ -2,23 +2,23 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Row Styles
+      legend {{ $t('ui.section.gridBuilder.panel.rowStyle.legend') }}
 
       row
         column(size="100%")
           label.btn.flat.charcoal(:class="{ active: selection.group }")
-            | Group
+            | {{ $t('ui.section.gridBuilder.panel.rowStyle.group') }}
             input(type="checkbox", v-model="selection.group")
 
       template(v-if="!selection.group")
         row
           column(size="100%")
             label.btn.flat.charcoal(:class="{ active: selection.vertical }")
-              | Vertical
+              | {{ $t('ui.section.gridBuilder.panel.rowStyle.vertical') }}
               input(type="checkbox", v-model="selection.vertical")
 
         slider#spacing(
-          label="Spacing (Rem)",
+          :label="$t('ui.section.gridBuilder.panel.rowStyle.spacing')",
           step="0.25",
           min="0",
           max="4",
@@ -28,7 +28,7 @@ scroll-area(color="royal-purple")
 
         row
           column(size="100%")
-            label(for="breakpoint") Breakpoint
+            label(for="breakpoint") {{ $t('ui.section.gridBuilder.panel.rowStyle.breakpoint') }}
           column(size="100%")
             select#breakpoint(v-model="selection.breakpoint")
               option(
@@ -41,7 +41,7 @@ scroll-area(color="royal-purple")
         row
           column(size="100%")
             label.btn.flat.charcoal(:class="{ active: selection.integrated }")
-              | Integrated
+              | {{ $t('ui.section.gridBuilder.panel.rowStyle.integrated') }}
               input(
                 type="checkbox",
                 value="Integrated",
@@ -50,7 +50,11 @@ scroll-area(color="royal-purple")
 
   row.row-block
     column(size="100%")
-      btn(color="gold-tips", @click="addColumn()", text="Add Column")
+      btn(
+        color="gold-tips",
+        @click="addColumn()",
+        :text="$t('ui.section.gridBuilder.panel.addCTA')"
+      )
 
   template(v-for="(column, index) in selection.columns")
     panel-block-column(

@@ -13,7 +13,7 @@
                   color="shamrock"
                   size="md"
                   :title="`${nav.route[0]} button`"
-                  v-nano-tooltip.right="nav.route[0]"
+                  v-nano-tooltip.right="nav.tooltip"
                   :glyph="nav.icon"
                 />
               </template>
@@ -24,7 +24,7 @@
                   color="shamrock"
                   size="md"
                   :title="`${nav.route[0]} button`"
-                  v-nano-tooltip.right="nav.route[0]"
+                  v-nano-tooltip.right="nav.tooltip"
                   @click="toggleValue('panel'), playSound()"
                   :glyph="nav.icon"
                   active
@@ -39,7 +39,7 @@
                   mode="transparent"
                   color="shamrock"
                   :title="`${nav.route} button`"
-                  v-nano-tooltip.right="nav.route[0]"
+                  v-nano-tooltip.right="nav.tooltip"
                   size="md"
                   :glyph="nav.icon"
                 />
@@ -51,7 +51,7 @@
                   color="shamrock"
                   size="md"
                   :title="`${nav.route[0]} button`"
-                  v-nano-tooltip.right="nav.route[0]"
+                  v-nano-tooltip.right="nav.tooltip"
                   @click="toggleValue('panel'), playSound()"
                   :glyph="nav.icon"
                   active
@@ -88,7 +88,7 @@
               color="royal-purple"
               size="md"
               title="Github button"
-              v-nano-tooltip.right="'Github Organization'"
+              v-nano-tooltip.right="$t('githubOrg')"
               glyph="github"
               target="_blank"
             />
@@ -129,7 +129,7 @@
               size="md"
               mode="transparent"
               title="Toggle theme button"
-              v-nano-tooltip.right="'Toggle Theme'"
+              v-nano-tooltip.right="$t('toggleTheme')"
               glyph="brightness"
               @click="toggleValue('theme'), playSound()"
               :active="theme"
@@ -145,24 +145,23 @@
 import Vue from "vue";
 import { mapGetters, mapMutations } from "vuex";
 import { linkGithub, linkLinkedin } from "../db/user";
+import i18n from "../i18n";
 
 export default Vue.extend({
   components: {},
   data: () => ({
     navigation: [
-      { icon: "monster", route: ["stargaze"] },
-      { icon: "duck", route: ["projects", "list", "statistics"] },
-      { icon: "collections", route: ["gallery", "images", "videos"] },
-      { icon: "color", route: ["ui", "colors", "icons", "grid", "grid-gallery"] },
+      { tooltip: i18n.t('stargaze.navTitle'), icon: "monster", route: ["stargaze"] },
+      { tooltip: i18n.t('projects.navTitle'), icon: "duck", route: ["projects", "list", "statistics"] },
+      { tooltip: i18n.t('galleries.navTitle'), icon: "collections", route: ["gallery", "images", "videos"] },
+      { tooltip: i18n.t('ui.navTitle'), icon: "color", route: ["ui", "colors", "icons", "grid", "grid-gallery"] },
     ],
     navigationBuilder: [
       {
-        icon: "window",
-        route: ["canvas", "locations", "avatar", "gear", "wheel", "pixel"],
+        tooltip: i18n.t('canvas.navTitle'), icon: "window", route: ["canvas", "locations", "avatar", "gear", "wheel", "pixel"],
       },
       {
-        icon: "move",
-        route: [
+        tooltip: i18n.t('three.navTitle'), icon: "move", route: [
           "threejs",
           "cube",
           "spirit",
@@ -173,8 +172,8 @@ export default Vue.extend({
           "audio2",
         ],
       },
-      { icon: "unity", route: ["unity", "kaspar", "iqra"] },
-      { icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
+      { tooltip: i18n.t('unity.navTitle'), icon: "unity", route: ["unity", "kaspar", "iqra"] },
+      { tooltip: i18n.t('css.navTitle'), icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
     ],
     linkGithub,
     linkLinkedin,

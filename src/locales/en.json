@@ -2,7 +2,6 @@
   "toggleTheme": "Toggle Theme",
   "githubOrg": "Github Organization",
   "position": "Frontend Developer",
-  "footer": "Built with&nbsp;<strong><a href='https://vuejs.org/'>Vue.js&nbsp;</a></strong><time>",
   "enum": {
     "projectsType": {
       "userFlow": "User Flow",
@@ -27,6 +26,9 @@
         "legend": "Scene Controllers",
         "hue": "Hue"
       }
+    },
+    "workarea": {
+      "footer": "Built with&nbsp;<strong><a href='https://vuejs.org/'>Vue.js&nbsp;</a></strong><time>"
     }
   },
   "projects": {
@@ -36,6 +38,7 @@
         "title": "List",
         "panel": {
           "filter": {
+            "legend": "Filter",
             "all": "All",
             "companies": "Companies",
             "projects": "Projects",
@@ -50,10 +53,12 @@
           "yearlyAverage": "Projects Yearly Average",
           "skillsUsed": "Skills Used",
           "database": "Database",
-          "name": "Name",
-          "type": "Type",
-          "date": "Date",
-          "client": "Client"
+          "table": {
+            "name": "Name",
+            "type": "Type",
+            "date": "Date",
+            "client": "Client"
+          }
         }
       }
     }
@@ -86,7 +91,7 @@
           "haml": "Get HAML Code"
         },
         "panel": {
-          "add": "Add Column",
+          "addCTA": "Add Column",
           "rowStyle": {
             "legend": "Row Styles",
             "group": "Group",
@@ -120,7 +125,8 @@
           "heightFractionsAlert": "1/2 refers to a relative size based on the container, while 1/2vh refers to a relative size based on the screen height.",
           "heightPercents": "Height Percents (% / VH)",
           "heightPercentsAlert": "100% refers to a relative size based on the container, while 100%vh refers to a relative size based on the screen height.",
-          "heightAbsolute": "Height Absolute"
+          "heightAbsolute": "Height Absolute",
+          "heightAbsoluteAlert": "Values above 300px will be appended as a style attribute instead of a class."
         }
       },
       "colors": {
@@ -346,42 +352,48 @@
       },
       "pixelEditor": {
         "title": "Pixel Editor",
-        "general": {
-          "legend": "General",
-          "new": "New Image",
-          "open": "Open Image",
-          "save": "Save Image",
-          "export": "Export PNG"
-        },
-        "tools": {
-          "legend": "Tools",
-          "lock": "Lock Workarea",
-          "dropper": "Color Dropper",
-          "eraser": "Eraser"
-        },
-        "palette": {
-          "legend": "Palette",
-          "more": "More Colors"
+        "panel": {
+          "general": {
+            "legend": "General",
+            "new": "New Image",
+            "open": "Open Image",
+            "save": "Save Image",
+            "export": "Export PNG"
+          },
+          "tools": {
+            "legend": "Tools",
+            "lock": "Lock Workarea",
+            "dropper": "Color Dropper",
+            "eraser": "Eraser"
+          },
+          "palette": {
+            "legend": "Palette",
+            "more": "More Colors"
+          }
         }
       },
       "gearBuilder": {
         "title": "Gear Builder",
-        "properties": {
-          "legend": "Gear Properties",
-          "teethAmount": "Teeth Amount",
-          "pitchRadius": "Pitch Radius",
-          "baseCircleRadius": "Base Circle Radius",
-          "axisRadius": "Axis Radius",
-          "sidePerforationAmount": "Side Perforation Amount",
-          "sidePerforationRadius": "Side Perforation Radius",
-          "sidePerforationDistance": "Side Perforation Distance"
+        "panel": {
+          "properties": {
+            "legend": "Gear Properties",
+            "teethAmount": "Teeth Amount",
+            "pitchRadius": "Pitch Radius",
+            "baseCircleRadius": "Base Circle Radius",
+            "axisRadius": "Axis Radius",
+            "sidePerforationAmount": "Side Perforation Amount",
+            "sidePerforationRadius": "Side Perforation Radius",
+            "sidePerforationDistance": "Side Perforation Distance"
+          }
         }
       },
       "colorWheel": {
         "title": "Color Wheel",
-        "general": {
-          "legend": "General",
-          "colors": "Colors"
+        "panel": {
+          "general": {
+            "legend": "General",
+            "colors": "Colors"
+          }
         }
       }
     }

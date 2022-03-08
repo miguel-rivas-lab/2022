@@ -2,10 +2,10 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend General
+      legend {{ $t('canvas.section.colorWheel.panel.general.legend') }}
 
       slider#colors(
-        label="Colors",
+        :label="$t('canvas.section.colorWheel.panel.general.colors')",
         min="1",
         max="720",
         step="1",

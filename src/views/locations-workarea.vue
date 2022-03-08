@@ -1,6 +1,6 @@
 <template lang="pug">
 .map
-  modal
+  modal(:ctaCaption="$t('canvas.section.map.modal.removeCTA')")
     template(v-slot:header)
       h1(v-if="modal.data.title") {{ modal.data.title }}
       h2(v-if="modal.data.description") {{ modal.data.description }}

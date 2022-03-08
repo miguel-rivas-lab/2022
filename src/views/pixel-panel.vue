@@ -2,30 +2,26 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend General
+      legend {{ $t('canvas.section.pixelEditor.panel.general.legend') }}
 
       row
         column(size="100%")
           row
             prefix
+              btn(glyph="plus", color="burn-orange", @click="newImage()")
+            column(size="100%-35")
               btn(
-                glyph="plus",
-                color="burn-orange",
+                :text="$t('canvas.section.pixelEditor.panel.general.new')",
+                color="gold-tips",
                 @click="newImage()"
               )
-            column(size="100%-35")
-              btn(text="New Image", color="gold-tips", @click="newImage()")
 
       row
         prefix
-          btn(
-            glyph="open",
-            color="burn-orange",
-            @click="openImage()"
-          )
+          btn(glyph="open", color="burn-orange", @click="openImage()")
         column(size="100%-35")
           label.btn.flat.gold-tips
-            | Open JSON
+            | {{ $t('canvas.section.pixelEditor.panel.general.open') }}
             input(
               type="file",
               ref="file",
@@ -37,29 +33,29 @@ scroll-area(color="royal-purple")
         column(size="100%")
           row
             prefix
+              btn(glyph="save", color="burn-orange", @click="saveJson()")
+            column(size="100%-35")
               btn(
-                glyph="save",
-                color="burn-orange",
+                :text="$t('canvas.section.pixelEditor.panel.general.save')",
+                color="gold-tips",
                 @click="saveJson()"
               )
-            column(size="100%-35")
-              btn(text="Save JSON", color="gold-tips", @click="saveJson()")
 
       row
         column(size="100%")
           row
             prefix
+              btn(glyph="download", color="burn-orange", @click="saveImage()")
+            column(size="100%-35")
               btn(
-                glyph="download",
-                color="burn-orange",
+                :text="$t('canvas.section.pixelEditor.panel.general.export')",
+                color="gold-tips",
                 @click="saveImage()"
               )
-            column(size="100%-35")
-              btn(text="Export PNG", color="gold-tips", @click="saveImage()")
 
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Tools
+      legend {{ $t('canvas.section.pixelEditor.panel.tools.legend') }}
 
       row
         column(size="100%")
@@ -72,7 +68,7 @@ scroll-area(color="royal-purple")
               )
             column(size="100%-35")
               btn(
-                text="Lock Workarea",
+                :text="$t('canvas.section.pixelEditor.panel.tools.lock')",
                 color="gold-tips",
                 @click="lockWorkarea()",
                 :active="selection.lock"
@@ -89,7 +85,7 @@ scroll-area(color="royal-purple")
               )
             column(size="100%-35")
               btn(
-                text="Color Dropper",
+                :text="$t('canvas.section.pixelEditor.panel.tools.dropper')",
                 color="gold-tips",
                 @click="pickDropper()",
                 :active="selection.tool === 'dropper'"
@@ -106,7 +102,7 @@ scroll-area(color="royal-purple")
               )
             column(size="100%-35")
               btn(
-                text="Eraser",
+                :text="$t('canvas.section.pixelEditor.panel.tools.eraser')",
                 color="gold-tips",
                 @click="eraser()",
                 :active="selection.currentColor.spinalCase === 'empty'"
@@ -114,7 +110,7 @@ scroll-area(color="royal-purple")
 
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Palette
+      legend {{ $t('canvas.section.pixelEditor.panel.palette.legend') }}
 
       row.list-palette(group, integrated)
         column(size="100%-40")
@@ -141,9 +137,9 @@ scroll-area(color="royal-purple")
             column(size="100%"): hr
 
             column(size="100%")
-              toggle-row(breakpoint="lg").toggle-input
+              toggle-row.toggle-input(breakpoint="lg")
                 template(v-slot:header)
-                  column(size="100%-35") More Colors
+                  column(size="100%-35") {{ $t('canvas.section.pixelEditor.panel.palette.more') }}
                 template(v-slot:more)
                   template(v-for="color in wikiColors")
                     column(size="20%")
@@ -162,7 +158,7 @@ import h from "../modules/helpers";
 import ToggleRow from "../components/toggle-row.vue";
 
 export default Vue.extend({
-  components: {ToggleRow},
+  components: { ToggleRow },
   data: () => ({
     selection: {},
     pixelColors: Object.values(pixelColors),

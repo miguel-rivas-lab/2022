@@ -2,7 +2,7 @@
 scroll-area(color="royal-purple")
   container(size="900")
     section.nano-box
-      h1 Fractions
+      h1 {{ $t('ui.section.gridGallery.workarea.fractions') }}
       template(v-for="(columns, indexRow) in rowsFractions")
         row(v-bind:key="`indexRowF${indexRow}`")
           template(v-for="(column, indexColumn) in columns")
@@ -16,9 +16,9 @@ scroll-area(color="royal-purple")
                 v-nano-tooltip.top="column"
               )
     section.nano-box
-      h1 Percents
+      h1 {{ $t('ui.section.gridGallery.workarea.percents') }}
       row.alert.warning
-        column(size="100%") The final value of a percent size will be a fraction.
+        column(size="100%") {{ $t('ui.section.gridGallery.workarea.percentsAlert') }}
       template(v-for="(columns, indexRow) in rowsPercents")
         row(v-bind:key="`indexRowP${indexRow}`")
           template(v-for="(column, indexColumn) in columns")
@@ -33,9 +33,9 @@ scroll-area(color="royal-purple")
               )
 
     section.nano-box
-      h1 Absolutes
+      h1 {{ $t('ui.section.gridGallery.workarea.absolutes') }}
       row.alert.warning
-        column(size="100%") Values above 300px will be appended as a style attribute instead of a class.
+        column(size="100%") {{ $t('ui.section.gridGallery.workarea.absolutesAlert') }}
       template(v-for="(columns, indexRow) in rowsAbsolutes")
         row(v-bind:key="`indexRowA${indexRow}`")
           template(v-for="(column, indexColumn) in columns")
@@ -50,9 +50,9 @@ scroll-area(color="royal-purple")
               )
 
     section.nano-box
-      h1 Formulas
+      h1 {{ $t('ui.section.gridGallery.workarea.formulas') }}
       row.alert.warning
-        column(size="100%") Multiplication is only allow for subtraction values.
+        column(size="100%") {{ $t('ui.section.gridGallery.workarea.formulasAlert') }}
       template(v-for="(columns, indexRow) in formulas")
         row(v-bind:key="`indexRowFx${indexRow}`")
           template(v-for="(column, indexColumn) in columns")
@@ -67,12 +67,12 @@ scroll-area(color="royal-purple")
               )
 
     section.nano-box
-      h1 Height Fractions (% / VH)
+      h1 {{ $t('ui.section.gridGallery.workarea.heightFractions') }}
       row.alert.warning
-        column(size="100%") 1/2 refers to a relative size based on the container, while 1/2vh refers to a relative size based on the screen height.
+        column(size="100%") {{ $t('ui.section.gridGallery.workarea.heightFractionsAlert') }}
       row(grid)
         template(v-for="(columns, indexRow) in rowsHeightVH")
-          column(size="1/5").fheight
+          column.fheight(size="1/5")
             row(v-bind:key="`indexRowHF${indexRow}`")
               template(v-for="(column, indexColumn) in columns")
                 column(
@@ -86,12 +86,12 @@ scroll-area(color="royal-purple")
                   )
 
     section.nano-box
-      h1 Height Percents (% / VH)
+      h1 {{ $t('ui.section.gridGallery.workarea.heightPercents') }}
       row.alert.warning
-        column(size="100%") 100% refers to a relative size based on the container, while 100%vh refers to a relative size based on the screen height.
+        column(size="100%") {{ $t('ui.section.gridGallery.workarea.heightPercentsAlert') }}
       row(grid)
         template(v-for="(columns, indexRow) in rowsHeightPercents")
-          column(size="1/5").fheight
+          column.fheight(size="1/5")
             row(v-bind:key="`indexRowHF${indexRow}`")
               template(v-for="(column, indexColumn) in columns")
                 column(
@@ -105,12 +105,12 @@ scroll-area(color="royal-purple")
                   )
 
     section.nano-box
-      h1 Height Absolute
+      h1 {{ $t('ui.section.gridGallery.workarea.heightAbsolute') }}
       row.alert.warning
-        column(size="100%") Values above 300px will be appended as a style attribute instead of a class.
+        column(size="100%") {{ $t('ui.section.gridGallery.workarea.heightAbsoluteAlert') }}
       row(grid)
         template(v-for="(columns, indexRow) in rowsHeightAbsolutes")
-          column(size="1/5").fheight
+          column.fheight(size="1/5")
             row(v-bind:key="`indexRowHF${indexRow}`")
               template(v-for="(column, indexColumn) in columns")
                 column(

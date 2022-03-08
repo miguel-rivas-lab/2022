@@ -2,10 +2,10 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Gear Properties
+      legend {{ $t('canvas.section.gearBuilder.panel.properties.legend') }}
 
       slider#corner-amount(
-        label="Teeth Amount",
+        :label="$t('canvas.section.gearBuilder.panel.properties.teethAmount')",
         min="3",
         max="50",
         step="1",
@@ -14,7 +14,7 @@ scroll-area(color="royal-purple")
       )
 
       slider#outter-circle-radius(
-        label="Pitch Radius",
+        :label="$t('canvas.section.gearBuilder.panel.properties.pitchRadius')",
         min="3",
         max="50",
         step="1",
@@ -23,7 +23,7 @@ scroll-area(color="royal-purple")
       )
 
       slider#inner-circle-radius(
-        label="Base Circle Radius",
+        :label="$t('canvas.section.gearBuilder.panel.properties.baseCircleRadius')",
         min="3",
         max="50",
         step="1",
@@ -32,7 +32,7 @@ scroll-area(color="royal-purple")
       )
 
       slider#main-perforation-radius(
-        label="Axis Radius",
+        :label="$t('canvas.section.gearBuilder.panel.properties.axisRadius')",
         min="3",
         max="50",
         step="1",
@@ -41,7 +41,7 @@ scroll-area(color="royal-purple")
       )
 
       slider#side-perforation-amount(
-        label="Side Perforation Amount",
+        :label="$t('canvas.section.gearBuilder.panel.properties.sidePerforationAmount')",
         min="3",
         max="50",
         step="1",
@@ -50,7 +50,7 @@ scroll-area(color="royal-purple")
       )
 
       slider#side-perforation-radius(
-        label="Side Perforation Radius",
+        :label="$t('canvas.section.gearBuilder.panel.properties.sidePerforationRadius')",
         min="3",
         max="50",
         step="1",
@@ -59,7 +59,7 @@ scroll-area(color="royal-purple")
       )
 
       slider#side-perforation-distance(
-        label="Side Perforation Distance",
+        :label="$t('canvas.section.gearBuilder.panel.properties.sidePerforationDistance')",
         min="3",
         max="50",
         step="1",
