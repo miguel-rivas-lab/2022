@@ -1,7 +1,7 @@
 <template lang="pug">
 row.row-block(tag="fieldset")
   column(size="100%")
-    legend {{$t('three.panel.controller.legend')}}
+    legend {{ $t('three.panel.controller.legend') }}
 
     slider#open-book(
       :label="$t('three.panel.controller.open')",
@@ -24,15 +24,14 @@ row.row-block(tag="fieldset")
     row
       column(size="100%")
         label.btn.flat.charcoal(:class="{ active: selection.grid }")
-          | {{$t('three.panel.controller.grid')}}
+          | {{ $t('three.panel.controller.grid') }}
           input(type="checkbox", v-model="selection.grid")
 
     row
       column(size="100%")
         label.btn.flat.charcoal(:class="{ active: selection.pause }")
-          | {{$t('three.panel.controller.pause')}}
+          | {{ $t('three.panel.controller.pause') }}
           input(type="checkbox", v-model="selection.pause")
-
 </template>
 
 <script lang="ts">

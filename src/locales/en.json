@@ -36,6 +36,7 @@
         "title": "List",
         "panel": {
           "filter": {
+            "legend": "Filter",
             "all": "All",
             "companies": "Companies",
             "projects": "Projects",
@@ -50,10 +51,12 @@
           "yearlyAverage": "Projects Yearly Average",
           "skillsUsed": "Skills Used",
           "database": "Database",
-          "name": "Name",
-          "type": "Type",
-          "date": "Date",
-          "client": "Client"
+          "table": {
+            "name": "Name",
+            "type": "Type",
+            "date": "Date",
+            "client": "Client"
+          }
         }
       }
     }
@@ -86,7 +89,7 @@
           "haml": "Get HAML Code"
         },
         "panel": {
-          "add": "Add Column",
+          "addCTA": "Add Column",
           "rowStyle": {
             "legend": "Row Styles",
             "group": "Group",
@@ -346,42 +349,48 @@
       },
       "pixelEditor": {
         "title": "Pixel Editor",
-        "general": {
-          "legend": "General",
-          "new": "New Image",
-          "open": "Open Image",
-          "save": "Save Image",
-          "export": "Export PNG"
-        },
-        "tools": {
-          "legend": "Tools",
-          "lock": "Lock Workarea",
-          "dropper": "Color Dropper",
-          "eraser": "Eraser"
-        },
-        "palette": {
-          "legend": "Palette",
-          "more": "More Colors"
+        "panel": {
+          "general": {
+            "legend": "General",
+            "new": "New Image",
+            "open": "Open Image",
+            "save": "Save Image",
+            "export": "Export PNG"
+          },
+          "tools": {
+            "legend": "Tools",
+            "lock": "Lock Workarea",
+            "dropper": "Color Dropper",
+            "eraser": "Eraser"
+          },
+          "palette": {
+            "legend": "Palette",
+            "more": "More Colors"
+          }
         }
       },
       "gearBuilder": {
         "title": "Gear Builder",
-        "properties": {
-          "legend": "Gear Properties",
-          "teethAmount": "Teeth Amount",
-          "pitchRadius": "Pitch Radius",
-          "baseCircleRadius": "Base Circle Radius",
-          "axisRadius": "Axis Radius",
-          "sidePerforationAmount": "Side Perforation Amount",
-          "sidePerforationRadius": "Side Perforation Radius",
-          "sidePerforationDistance": "Side Perforation Distance"
+        "panel": {
+          "properties": {
+            "legend": "Gear Properties",
+            "teethAmount": "Teeth Amount",
+            "pitchRadius": "Pitch Radius",
+            "baseCircleRadius": "Base Circle Radius",
+            "axisRadius": "Axis Radius",
+            "sidePerforationAmount": "Side Perforation Amount",
+            "sidePerforationRadius": "Side Perforation Radius",
+            "sidePerforationDistance": "Side Perforation Distance"
+          }
         }
       },
       "colorWheel": {
         "title": "Color Wheel",
-        "general": {
-          "legend": "General",
-          "colors": "Colors"
+        "panel": {
+          "general": {
+            "legend": "General",
+            "colors": "Colors"
+          }
         }
       }
     }

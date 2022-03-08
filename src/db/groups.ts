@@ -5,6 +5,7 @@ import { client, clientEnum } from "../enums/clients";
 import { Group } from "../interfaces/project-firebase";
 import { sortByDate } from "../modules/format-db";
 
+import i18n from "../i18n";
 import h from "../modules/helpers";
 
 type GroupsType = Array<Group>;
@@ -54,25 +55,8 @@ const groups: GroupsType = [
       h.getNewID(client.itesa, "2008/11/11"),
       h.getNewID(client.itesa, "2008/12/05"),
     ],
-    description: "Computer Science, High School",
-    list: [
-      tool.html,
-      tool.css,
-      tool.javascript,
-      tool.flash,
-      tool.fireworks,
-      tool.dreamweaver,
-      tool.pascal,
-      tool.c,
-      tool.vb,
-      tool.vfoxpro,
-      tool.bash,
-      tool.linux,
-      tool.excel,
-      tool.word,
-      tool.powerpoint,
-      tool.as2,
-    ],
+    description: i18n.t('canvas.section.map.modal.itla.position'),
+    list: i18n.t('canvas.section.map.modal.itesa.summary'),
     position: {
       x: -2269,
       y: -671,
@@ -115,20 +99,8 @@ const groups: GroupsType = [
   {
     date: "2009/09/01",
     disabled: false,
-    description: "Associates of Arts, Multimedia",
-    list: [
-      `Digital Illustration`,
-      `Visual Communication`,
-      `Bitmap Graphics`,
-      `Vector Graphics`,
-      `Desktop Publishing`,
-      `Digital Video`,
-      `Website Creation`,
-      `Flash Animation with Action Script`,
-      `3D Graphics & Animation`,
-      `Digital Audio`,
-      `Branding`,
-    ],
+    description: i18n.t('canvas.section.map.modal.itla.position'),
+    list: i18n.t('canvas.section.map.modal.itla.summary'),
     position: {
       x: -2511,
       y: -806,
@@ -185,7 +157,7 @@ const groups: GroupsType = [
   {
     date: "2013/01/01",
     disabled: true,
-    description: "Graphic Designer",
+    description: i18n.t('canvas.section.map.modal.several.position'),
     types: [
       typeEnum.location,
     ],
@@ -197,10 +169,7 @@ const groups: GroupsType = [
     clients: [
       clientEnum.studioSeveral,
     ],
-    list: [
-      `Retouch pictures with ${tool.photoshop}`,
-      `Design yearbooks with ${tool.indesign} and ${tool.photoshop}`,
-    ],
+    list: i18n.t('canvas.section.map.modal.several.summary'),
     position: {
       x: -1945,
       y: -1000,
@@ -209,11 +178,8 @@ const groups: GroupsType = [
   {
     date: "2013/05/01",
     disabled: false,
-    description: "Web Designer",
-    list: [
-      `Design applications UI using ${tool.illustrator}.`,
-      `Design social media assets using ${tool.illustrator}, ${tool.photoshop} and ${tool.indesign}.`,
-    ],
+    description: i18n.t('canvas.section.map.modal.social.position'),
+    list: i18n.t('canvas.section.map.modal.social.summary'),
     position: {
       x: -1945,
       y: -1000,
@@ -277,15 +243,8 @@ const groups: GroupsType = [
   {
     date: "2014/05/01",
     disabled: false,
-    description: "Frontend Developer",
-    list: [
-      `Build applications using ${tool.jade}, ${tool.scss}, ${tool.jQuery} on a ${tool.php} environment with ${tool.grunt}.`,
-      "Optimize applications for maximum speed.",
-      `Create wireframes and users flow with ${tool.illustrator}.`,
-      "Collaborate with Backend Developers, Designers and Project Managers to improve usability.",
-      `Animate ad banners for websites using ${tool.flash}.`,
-      `Create motion graphics for social media using ${tool.flash}.`,
-    ],
+    description: i18n.t('canvas.section.map.modal.capital.position'),
+    list: i18n.t('canvas.section.map.modal.capital.summary'),
     position: {
       x: -1380,
       y: -856,
@@ -331,14 +290,8 @@ const groups: GroupsType = [
   {
     date: "2016/01/01",
     disabled: false,
-    description: "Frontend Developer",
-    list: [
-      `Design and develop applications using ${tool.haml}, ${tool.scss}, ${tool.bootstrap}, ${tool.jQuery}/${tool.react} on a ${tool.rails} environment with ${tool.webpack}.`,
-      "Maintain and optimize applications.",
-      "Collaborate with Full Stack Developers and Project Managers to improve usability.",
-      `Work with ${tool.git} for control version on projects.`,
-      "Work with Agile.",
-    ],
+    description: i18n.t('canvas.section.map.modal.pixel.position'),
+    list: i18n.t('canvas.section.map.modal.pixel.summary'),
     position: {
       x: -804,
       y: -1097,
@@ -377,12 +330,8 @@ const groups: GroupsType = [
   {
     date: "2013/07/15",
     disabled: false,
-    description: "Web Designer",
-    list: [
-      `Design and build applications using ${tool.html}, ${tool.css}, ${tool.jQuery} on a ${tool.php} environment.`,
-      "Optimize applications for maximum speed.",
-      `Design social media assets using ${tool.illustrator}, ${tool.photoshop} and ${tool.indesign}.`,
-    ],
+    description: i18n.t('canvas.section.map.modal.avante.position'),
+    list: i18n.t('canvas.section.map.modal.avante.summary'),
     position: {
       x: -1501,
       y: -1170,
@@ -416,12 +365,8 @@ const groups: GroupsType = [
   {
     date: "2017/07/01",
     disabled: false,
-    description: "Graphic Web Designer",
-    list: [
-      `Build prototypes and landing pages with ${tool.pug}, ${tool.scss}, ${tool.jQuery} and ${tool.miva}.`,
-      "Maintain and optimize the website.",
-      `Create wireframes and users flow with ${tool.illustrator}.`,
-    ],
+    description: i18n.t('canvas.section.map.modal.plantTherapy.position'),
+    list: i18n.t('canvas.section.map.modal.plantTherapy.summary'),
     position: {
       x: -1230,
       y: -515,
@@ -457,12 +402,8 @@ const groups: GroupsType = [
   //   date: "2021/03/29",
 
   //   disabled: false,
-  //   description: "Frontend Developer",
-  //   list: [
-  //     `Build apps using ${tool.html}, ${tool.scss} and ${tool.jQuery} on a ${tool.php} environment with ${tool.grunt}.`,
-  //     "Optimize applications for maximum speed.",
-  //     `Work with ${tool.git} for control version on projects.`,
-  //   ],
+  //   description: i18n.t('canvas.section.map.modal.jellyfish.position'),
+  //   list: i18n.t('canvas.section.map.modal.jellyfish.summary'),
   //   position: {
   //     x: 0,
   //     y: 0,
@@ -494,15 +435,8 @@ const groups: GroupsType = [
   {
     date: "2018/04/01",
     disabled: false,
-    description: "Frontend Developer",
-    list: [
-      `Build government apps using ${tool.html}/${tool.slim}, ${tool.scss}, ${tool.bootstrap}, ${tool.jQuery}/${tool.vue} on a ${tool.rails} environment with ${tool.webpack}.`,
-      "Optimize applications for maximum speed compressing images and replacing repeated code with partials/headers/mixins/components.",
-      "Make sure applications are following conventions and extending them according to the complexity of the project and frameworks being used.",
-      "Collaborate with UI/UX Designers, Full Stack Developers, Project Managers, QA Testers and Business Analysts to improve usability.",
-      `Work with ${tool.git} for control version on projects.`,
-      "Work with Agile.",
-    ],
+    description: i18n.t('canvas.section.map.modal.enovational.position'),
+    list: i18n.t('canvas.section.map.modal.enovational.summary'),
     position: {
       x: -2368,
       y: -299,

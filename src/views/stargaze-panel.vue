@@ -2,10 +2,10 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Scene Controllers
+      legend {{ $t('stargaze.panel.controller.legend') }}
 
       slider#hue(
-        label="Hue",
+        :label="$t('stargaze.panel.controller.hue')",
         min="0",
         max="360",
         step="10",

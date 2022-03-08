@@ -5,18 +5,17 @@ div
     tag="fieldset"
   )
     column(size="100%")
-      legend Filter
+      legend {{ $t('projects.section.list.panel.filter.legend') }}
 
       row
         column(size="100%")
           ul.summary
-
             li: row
               column(size="100%")
                 label.btn.flat.charcoal(
                   :class="{ active: selection.filterData == 'all' }"
                 )
-                  | All
+                  | {{ $t('projects.section.list.panel.filter.all') }}
                   input(
                     type="radio",
                     name="filter",
@@ -29,7 +28,7 @@ div
                 label.btn.flat.charcoal(
                   :class="{ active: selection.filterData == 'companies' }"
                 )
-                  | Companies
+                  | {{ $t('projects.section.list.panel.filter.companies') }}
                   input(
                     type="radio",
                     name="filter",
@@ -42,7 +41,7 @@ div
                 label.btn.flat.charcoal(
                   :class="{ active: selection.filterData == 'projects' }"
                 )
-                  | Projects
+                  | {{ $t('projects.section.list.panel.filter.projects') }}
                   input(
                     type="radio",
                     name="filter",
@@ -55,7 +54,7 @@ div
                 label.btn.flat.charcoal(
                   :class="{ active: selection.filterData == 'experiments' }"
                 )
-                  | Experiments
+                  | {{ $t('projects.section.list.panel.filter.experiments') }}
                   input(
                     type="radio",
                     name="filter",
@@ -68,7 +67,7 @@ div
                 label.btn.flat.charcoal(
                   :class="{ active: selection.filterData == 'homework' }"
                 )
-                  | Homework
+                  | {{ $t('projects.section.list.panel.filter.homework') }}
                   input(
                     type="radio",
                     name="filter",

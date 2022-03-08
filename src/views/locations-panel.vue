@@ -2,7 +2,7 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend Locations
+      legend {{ $t('canvas.section.map.panel.locations.legend') }}
       row
         column(size="100%")
           ul.summary
@@ -21,7 +21,6 @@ scroll-area(color="royal-purple")
                       color="gold-tips",
                       :text="location.title"
                     )
-
 </template>
 
 <script lang="ts">

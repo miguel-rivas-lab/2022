@@ -1,7 +1,10 @@
 <template>
-  <aside class="modal" :class="{'hidden-modal': modal.hidden}">
+  <aside class="modal" :class="{ 'hidden-modal': modal.hidden }">
     <div class="modal-bk" v-on:click.self="closeModal">
-      <div class="modal-body" v-bind:style="{width: `${width}px`, maxWidth: `100%`}">
+      <div
+        class="modal-body"
+        v-bind:style="{ width: `${width}px`, maxWidth: `100%` }"
+      >
         <div class="modal-header">
           <row>
             <column size="100%-35">
@@ -35,18 +38,18 @@ export default Vue.extend({
     ctaCaption: {
       type: String,
       default: "Close Modal",
-    }
+    },
   },
   data: () => ({
     modal: {},
   }),
-  mounted(){
+  mounted() {
     this.modal = this.$store.getters.getModal;
   },
   methods: {
-    closeModal(){
+    closeModal() {
       this.modal.hidden = true;
-    }
+    },
   },
 });
 </script>

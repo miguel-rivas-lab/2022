@@ -36,7 +36,7 @@
       <row>
         <column size="100%">
           <label class="btn flat charcoal" :class="{ active: absoluteWidth }">
-            Absolute Width
+            {{ $t("ui.section.gridBuilder.panel.columnStyle.absoluteWidth") }}
             <input type="checkbox" v-model="absoluteWidth" />
           </label>
         </column>
@@ -45,7 +45,7 @@
       <slider
         v-if="absoluteWidth"
         :id="`id-${name}-width`"
-        label="Width (Px)"
+        :label="$t('ui.section.gridBuilder.panel.columnStyle.width')"
         step="5"
         min="0"
         max="600"
@@ -56,7 +56,9 @@
       <template v-else>
         <row>
           <column size="100%">
-            <label :for="`id-${name}-width`">Width</label>
+            <label :for="`id-${name}-width`">{{
+              $t("ui.section.gridBuilder.panel.columnStyle.width")
+            }}</label>
           </column>
           <column size="100%">
             <row class="nano-slider-alt" group>
@@ -87,7 +89,9 @@
 
         <slider
           :id="`id-${name}-subtraction`"
-          label="Width Subtraction"
+          :label="
+            $t('ui.section.gridBuilder.panel.columnStyle.widthSubtraction')
+          "
           step="5"
           min="0"
           max="600"
@@ -99,7 +103,7 @@
       <row>
         <column size="100%">
           <label class="btn flat charcoal" :class="{ active: absoluteHeight }">
-            Absolute Height
+            {{ $t("ui.section.gridBuilder.panel.columnStyle.absoluteHeight") }}
             <input type="checkbox" v-model="absoluteHeight" />
           </label>
         </column>
@@ -108,7 +112,7 @@
       <slider
         v-if="absoluteHeight"
         :id="`id-${name}-height`"
-        label="Height (Px)"
+        :label="$t('ui.section.gridBuilder.panel.columnStyle.height')"
         step="5"
         min="0"
         max="600"
@@ -118,7 +122,9 @@
 
       <row v-else>
         <column size="100%">
-          <label :for="`id-${name}-height`">Height</label>
+          <label :for="`id-${name}-height`">{{
+            $t("ui.section.gridBuilder.panel.columnStyle.height")
+          }}</label>
         </column>
         <column size="100%">
           <row class="nano-slider-alt" group>
@@ -149,7 +155,9 @@
 
       <row>
         <column size="100%">
-          <label :for="`id-${name}-style`">Column Style</label>
+          <label :for="`id-${name}-style`">{{
+            $t("ui.section.gridBuilder.panel.columnStyle.columnStyle")
+          }}</label>
         </column>
         <column size="100%">
           <select
@@ -170,7 +178,7 @@
         <column size="100%">
           <btn
             color="persian-red"
-            text="Remove Column"
+            :text="$t('ui.section.gridBuilder.panel.columnStyle.removeCTA')"
             @click="removeBlock()"
           />
         </column>
