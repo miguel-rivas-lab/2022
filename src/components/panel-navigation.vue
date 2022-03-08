@@ -113,7 +113,7 @@
               @click="switchLanguage('es')"
               :active="$i18n.locale === 'es'"
             />
-            <btn
+            <!-- <btn
               color="gold-tips"
               size="md"
               mode="transparent"
@@ -132,7 +132,7 @@
               text="PT"
               @click="switchLanguage('pt')"
               :active="$i18n.locale === 'pt'"
-            />
+            /> -->
             <hr>
             <btn
               color="gold-tips"

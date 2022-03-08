@@ -187,7 +187,6 @@ export function allDates() {
   return result;
 }
 
-
 /* ------------------------------------- */
 
 export const projectsDBObj = uncompressProjectsDBtoJSON(rawDB);
@@ -195,3 +194,5 @@ export const projectsDBList = Object.values(projectsDBObj).sort(sortByDate);
 
 export const groupsDBObj = uncompressGroupsDBtoJSON(rawGroupsDB);
 export const groupsDBList = Object.values(groupsDBObj).sort(sortByDate);
+
+export const locationsDBList = groupsDBList.filter((item) => item.types.includes(type.location));

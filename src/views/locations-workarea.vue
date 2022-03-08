@@ -2,17 +2,17 @@
 .map
   modal(:ctaCaption="$t('canvas.section.map.modal.removeCTA')")
     template(v-slot:header)
-      h1(v-if="$t(modal.data.title)") {{ $t(modal.data.title) }}
-      h2(v-if="$t(modal.data.description)") {{ $t(modal.data.description) }}
-      h3(v-if="$t(modal.data.turingDate)")
-        time {{ $t(modal.data.turingDate) }}
+      h1(v-if="modal.data.title") {{ modal.data.title }}
+      h2(v-if="modal.data.description") {{ $t(modal.data.description) }}
+      h3(v-if="modal.data.turingDate")
+        time {{ modal.data.turingDate }}
 
     template(v-slot:body)
-      ul.list(v-if="$t(modal.data.list).length")
+      ul.list(v-if="modal.data.list.length > 0")
         template(v-for="(item, index) in $t(modal.data.list)")
           li(v-bind:key="`locationList${index}`") {{ item }}
-      ul.skills(v-if="$t(modal.data.tools).length")
-        template(v-for="(item, index) in $t(modal.data.tools)")
+      ul.skills(v-if="modal.data.tools.length > 0")
+        template(v-for="(item, index) in modal.data.tools")
           li(v-bind:key="`locationList${index}`") {{ item }}
 
   div(ref="mapContainer")
@@ -36,9 +36,9 @@
 import Vue from "vue";
 import { mapGetters } from "vuex";
 import Modal from "../components/modal.vue";
-import { type } from "../enums/types";
 import { client } from "../enums/clients";
 import Carrousel from "../components/carrousel-konva.vue";
+import {locationsDBList} from "../modules/format-db";
 
 export default Vue.extend({
   components: { Modal, Carrousel },
@@ -141,11 +141,6 @@ export default Vue.extend({
       panel: "getPanelVisibility",
       panelSize: "getPanelVisibility",
     }),
-    locationsDB() {
-      return Object.values({
-        ...this.$root.groups,
-      }).filter((item) => this.$t(item.types).includes(type.location));
-    },
     mapPos() {
       if (this.map.image) {
         return {
@@ -217,7 +212,7 @@ export default Vue.extend({
   methods: {
     openModal(filter) {
       document.querySelector("aside.modal .scroll-area").scrollTo(0, 0);
-      this.modal.data = this.locationsDB.find(
+      this.modal.data = locationsDBList.find(
         (item) => item.clients[0] === filter
       );
       this.modal.hidden = false;
