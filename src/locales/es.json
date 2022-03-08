@@ -377,12 +377,12 @@
           "properties": {
             "legend": "Propiedades del engranaje",
             "teethAmount": "Cantidad de dientes",
-            "pitchRadius": "Pitch Radius",
-            "baseCircleRadius": "Base Circle Radius",
-            "axisRadius": "Axis Radius",
-            "sidePerforationAmount": "Side Perforation Amount",
-            "sidePerforationRadius": "Side Perforation Radius",
-            "sidePerforationDistance": "Side Perforation Distance"
+            "pitchRadius": "Alto de los Dientes",
+            "baseCircleRadius": "Radio de la Corona",
+            "axisRadius": "Radio del Cubo",
+            "sidePerforationAmount": "Numero de Perforaciones Laterales",
+            "sidePerforationRadius": "Radio de las Perforaciones Laterales",
+            "sidePerforationDistance": "Distancia entre las Perforaciones Laterales"
           }
         }
       },
