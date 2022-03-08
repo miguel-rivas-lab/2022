@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import i18n from "../i18n";
 
 import NestedWorkareaView from '../views/nested-workarea.vue';
 import NestedPanelView from '../views/nested-panel.vue';
@@ -30,32 +29,32 @@ export default {
     panel: Vue.extend({
       props: {
         panelTitle: {
-          default: i18n.t("canvas.navTitle")
+          default: "canvas.navTitle"
         },
         links: {
           default: () => ([
             {
-              text: i18n.t("canvas.section.map.title"),
+              text: "canvas.section.map.title",
               name: "locations",
               icon: "airplane",
             },
             {
-              text: i18n.t("canvas.section.avatar.title"),
+              text: "canvas.section.avatar.title",
               name: "avatar",
               icon: "person",
             },
             {
-              text: i18n.t("canvas.section.pixelEditor.title"),
+              text: "canvas.section.pixelEditor.title",
               name: "pixel",
               icon: "category",
             },
             {
-              text: i18n.t("canvas.section.gearBuilder.title"),
+              text: "canvas.section.gearBuilder.title",
               name: "gear",
               icon: "cog",
             },
             {
-              text: i18n.t("canvas.section.colorWheel.title"),
+              text: "canvas.section.colorWheel.title",
               name: "wheel",
               icon: "palette",
             },

@@ -20,7 +20,7 @@
     }
   },
   "stargaze": {
-    "navTitle": "Stargaze",
+    "navTitle": "Star Gazer",
     "panel": {
       "controller": {
         "legend": "Scene Controllers",
@@ -41,7 +41,7 @@
             "legend": "Filter",
             "all": "All",
             "companies": "Companies",
-            "projects": "Projects",
+            "projects": "Personal Projects",
             "experiments": "Experiments",
             "homework": "Homework"
           }
@@ -50,7 +50,7 @@
       "statistics": {
         "title": "Statistics",
         "workarea": {
-          "yearlyAverage": "Projects Yearly Average",
+          "yearlyAverage": "Projects per Year",
           "skillsUsed": "Skills Used",
           "database": "Database",
           "table": {
@@ -121,11 +121,11 @@
           "absolutesAlert": "Values above 300px will be appended as a style attribute instead of a class.",
           "formulas": "Formulas",
           "formulasAlert": "Multiplication is only allow for subtraction values.",
-          "heightFractions": "Height Fractions (% / VH)",
+          "heightFractions": "Height: Fractions (% / VH)",
           "heightFractionsAlert": "1/2 refers to a relative size based on the container, while 1/2vh refers to a relative size based on the screen height.",
-          "heightPercents": "Height Percents (% / VH)",
+          "heightPercents": "Height: Percents (% / VH)",
           "heightPercentsAlert": "100% refers to a relative size based on the container, while 100%vh refers to a relative size based on the screen height.",
-          "heightAbsolute": "Height Absolute",
+          "heightAbsolute": "Height: Absolute",
           "heightAbsoluteAlert": "Values above 300px will be appended as a style attribute instead of a class."
         }
       },
@@ -168,7 +168,7 @@
             "position": "Frontend Developer",
             "summary": [
               "Build government apps using HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js on a Ruby on Rails environment with Webpack.",
-              "Optimize applications for maximum speed compressing images and replacing repeated code with partials/headers/mixins/components.",
+              "Optimize applications for maximum speed compressing images and replacing repeated code.",
               "Make sure applications are following conventions and extending them according to the complexity of the project and frameworks being used.",
               "Collaborate with UI/UX Designers, Full Stack Developers, Project Managers, QA Testers and Business Analysts to improve usability.",
               "Work with Git for control version on projects.",
@@ -284,7 +284,7 @@
             "pooh": "Winnie the Pooh",
             "dc": "DC Boi",
             "pool": "Pool Boi",
-            "franciscano": "Franciscano"
+            "franciscano": "Franciscan"
           },
           "general": {
             "legend": "General",

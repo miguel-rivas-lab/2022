@@ -2,7 +2,7 @@
 scroll-area(color="royal-purple")
   row.row-block(tag="fieldset")
     column(size="100%")
-      legend {{panelTitle}}
+      legend {{$t(panelTitle)}}
       row
         column(size="100%")
           ul.summary
@@ -23,7 +23,7 @@ scroll-area(color="royal-purple")
                       color="gravel"
                       mode="flat"
                       :active="$route.name === route.name",
-                      :text="route.text",
+                      :text="$t(route.text)",
                       :to="route"
                     )
   router-view(name="panel2")

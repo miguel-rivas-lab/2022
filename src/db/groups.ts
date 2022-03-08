@@ -55,8 +55,8 @@ const groups: GroupsType = [
       h.getNewID(client.itesa, "2008/11/11"),
       h.getNewID(client.itesa, "2008/12/05"),
     ],
-    description: i18n.t('canvas.section.map.modal.itla.position'),
-    list: i18n.t('canvas.section.map.modal.itesa.summary'),
+    description: 'canvas.section.map.modal.itla.position',
+    list: 'canvas.section.map.modal.itesa.summary',
     position: {
       x: -2269,
       y: -671,
@@ -99,8 +99,8 @@ const groups: GroupsType = [
   {
     date: "2009/09/01",
     disabled: false,
-    description: i18n.t('canvas.section.map.modal.itla.position'),
-    list: i18n.t('canvas.section.map.modal.itla.summary'),
+    description: 'canvas.section.map.modal.itla.position',
+    list: 'canvas.section.map.modal.itla.summary',
     position: {
       x: -2511,
       y: -806,
@@ -157,7 +157,7 @@ const groups: GroupsType = [
   {
     date: "2013/01/01",
     disabled: true,
-    description: i18n.t('canvas.section.map.modal.several.position'),
+    description: 'canvas.section.map.modal.several.position',
     types: [
       typeEnum.location,
     ],
@@ -169,7 +169,7 @@ const groups: GroupsType = [
     clients: [
       clientEnum.studioSeveral,
     ],
-    list: i18n.t('canvas.section.map.modal.several.summary'),
+    list: 'canvas.section.map.modal.several.summary',
     position: {
       x: -1945,
       y: -1000,
@@ -178,8 +178,8 @@ const groups: GroupsType = [
   {
     date: "2013/05/01",
     disabled: false,
-    description: i18n.t('canvas.section.map.modal.social.position'),
-    list: i18n.t('canvas.section.map.modal.social.summary'),
+    description: 'canvas.section.map.modal.social.position',
+    list: 'canvas.section.map.modal.social.summary',
     position: {
       x: -1945,
       y: -1000,
@@ -243,8 +243,8 @@ const groups: GroupsType = [
   {
     date: "2014/05/01",
     disabled: false,
-    description: i18n.t('canvas.section.map.modal.capital.position'),
-    list: i18n.t('canvas.section.map.modal.capital.summary'),
+    description: 'canvas.section.map.modal.capital.position',
+    list: 'canvas.section.map.modal.capital.summary',
     position: {
       x: -1380,
       y: -856,
@@ -290,8 +290,8 @@ const groups: GroupsType = [
   {
     date: "2016/01/01",
     disabled: false,
-    description: i18n.t('canvas.section.map.modal.pixel.position'),
-    list: i18n.t('canvas.section.map.modal.pixel.summary'),
+    description: 'canvas.section.map.modal.pixel.position',
+    list: 'canvas.section.map.modal.pixel.summary',
     position: {
       x: -804,
       y: -1097,
@@ -330,8 +330,8 @@ const groups: GroupsType = [
   {
     date: "2013/07/15",
     disabled: false,
-    description: i18n.t('canvas.section.map.modal.avante.position'),
-    list: i18n.t('canvas.section.map.modal.avante.summary'),
+    description: 'canvas.section.map.modal.avante.position',
+    list: 'canvas.section.map.modal.avante.summary',
     position: {
       x: -1501,
       y: -1170,
@@ -365,8 +365,8 @@ const groups: GroupsType = [
   {
     date: "2017/07/01",
     disabled: false,
-    description: i18n.t('canvas.section.map.modal.plantTherapy.position'),
-    list: i18n.t('canvas.section.map.modal.plantTherapy.summary'),
+    description: 'canvas.section.map.modal.plantTherapy.position',
+    list: 'canvas.section.map.modal.plantTherapy.summary',
     position: {
       x: -1230,
       y: -515,
@@ -402,8 +402,8 @@ const groups: GroupsType = [
   //   date: "2021/03/29",
 
   //   disabled: false,
-  //   description: i18n.t('canvas.section.map.modal.jellyfish.position'),
-  //   list: i18n.t('canvas.section.map.modal.jellyfish.summary'),
+  //   description: 'canvas.section.map.modal.jellyfish.position',
+  //   list: 'canvas.section.map.modal.jellyfish.summary',
   //   position: {
   //     x: 0,
   //     y: 0,
@@ -435,8 +435,8 @@ const groups: GroupsType = [
   {
     date: "2018/04/01",
     disabled: false,
-    description: i18n.t('canvas.section.map.modal.enovational.position'),
-    list: i18n.t('canvas.section.map.modal.enovational.summary'),
+    description: 'canvas.section.map.modal.enovational.position',
+    list: 'canvas.section.map.modal.enovational.summary',
     position: {
       x: -2368,
       y: -299,

@@ -19,11 +19,11 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    redirect: '/stargaze',
+    redirect: '/stargazer',
   },
   {
-    name: 'stargaze',
-    path: '/stargaze',
+    name: 'stargazer',
+    path: '/stargazer',
     components: {
       workarea: StargazeWorkareaView,
       panel: StargazePanelView,

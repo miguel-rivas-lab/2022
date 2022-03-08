@@ -3,7 +3,7 @@
     <div role="rowgroup" class="table-body">
       <toggle-row>
         <template v-slot:header>
-          <template v-if="!projects[project].types.includes('Group')">
+          <template v-if="!$t(projects[project].types).includes('Group')">
             <t-column size="100%-35" v-html="projects[project].title" />
           </template>
           <template v-else>
@@ -14,8 +14,8 @@
           <t-column size="100%" v-if="projects[project]">
             <h2 v-html="projects[project].clients.join(' & ')" />
             <h3
-              v-if="!projects[project].types.includes('Group')"
-              v-html="projects[project].types"
+              v-if="!$t(projects[project].types).includes('Group')"
+              v-html="$t(projects[project].types)"
             />
             <h4>
               <time v-html="projects[project].turingDate" />

@@ -41,6 +41,7 @@ const projects: ProjectsType = [
       toolEnum.highlight,
       toolEnum.konva,
       toolEnum.pug,
+      toolEnum.i18n,
     ],
     links: [
       {
@@ -3454,7 +3455,6 @@ const projects: ProjectsType = [
     date: "2020/05/05",
     title: "Popkern",
     types: [
-      typeEnum.app,
       typeEnum.module,
     ],
     roles: [

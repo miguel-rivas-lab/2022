@@ -18,7 +18,7 @@
               <scroll-area color="royal-purple">
                 <h1 v-html="project.clients.join(' & ')" />
                 <ul class="summary">
-                  <template v-if="project.types.includes('Group')">
+                  <template v-if="$t(project.types).includes('Group')">
                     <summary-row
                       v-bind:key="`projectIndex-${projectIndex}`"
                       :project="

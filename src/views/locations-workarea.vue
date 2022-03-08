@@ -2,17 +2,17 @@
 .map
   modal(:ctaCaption="$t('canvas.section.map.modal.removeCTA')")
     template(v-slot:header)
-      h1(v-if="modal.data.title") {{ modal.data.title }}
-      h2(v-if="modal.data.description") {{ modal.data.description }}
-      h3(v-if="modal.data.turingDate")
-        time {{ modal.data.turingDate }}
+      h1(v-if="$t(modal.data.title)") {{ $t(modal.data.title) }}
+      h2(v-if="$t(modal.data.description)") {{ $t(modal.data.description) }}
+      h3(v-if="$t(modal.data.turingDate)")
+        time {{ $t(modal.data.turingDate) }}
 
     template(v-slot:body)
-      ul.list(v-if="modal.data.list.length")
-        template(v-for="(item, index) in modal.data.list")
+      ul.list(v-if="$t(modal.data.list).length")
+        template(v-for="(item, index) in $t(modal.data.list)")
           li(v-bind:key="`locationList${index}`") {{ item }}
-      ul.skills(v-if="modal.data.tools.length")
-        template(v-for="(item, index) in modal.data.tools")
+      ul.skills(v-if="$t(modal.data.tools).length")
+        template(v-for="(item, index) in $t(modal.data.tools)")
           li(v-bind:key="`locationList${index}`") {{ item }}
 
   div(ref="mapContainer")
@@ -144,7 +144,7 @@ export default Vue.extend({
     locationsDB() {
       return Object.values({
         ...this.$root.groups,
-      }).filter((item) => item.types.includes(type.location));
+      }).filter((item) => this.$t(item.types).includes(type.location));
     },
     mapPos() {
       if (this.map.image) {

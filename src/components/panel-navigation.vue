@@ -38,7 +38,7 @@
                   v-bind:key="nav.route[0]"
                   mode="transparent"
                   color="shamrock"
-                  :title="`${nav.route} button`"
+                  :title="`${nav.route[0]} button`"
                   v-nano-tooltip.right="nav.tooltip"
                   size="md"
                   :glyph="nav.icon"
@@ -99,7 +99,7 @@
               mode="transparent"
               title="Switch to english"
               v-nano-tooltip.right="'English'"
-              glyph="plus"
+              text="EN"
               @click="switchLanguage('en')"
               :active="$i18n.locale === 'en'"
             />
@@ -109,7 +109,7 @@
               mode="transparent"
               title="Switch to spanish"
               v-nano-tooltip.right="'Español'"
-              glyph="plus"
+              text="ES"
               @click="switchLanguage('es')"
               :active="$i18n.locale === 'es'"
             />
@@ -119,9 +119,19 @@
               mode="transparent"
               title="Switch to esperanto"
               v-nano-tooltip.right="'Esperanto'"
-              glyph="plus"
+              text="EO"
               @click="switchLanguage('eo')"
               :active="$i18n.locale === 'eo'"
+            />
+            <btn
+              color="gold-tips"
+              size="md"
+              mode="transparent"
+              title="Switch to portuguese"
+              v-nano-tooltip.right="'Português'"
+              text="PT"
+              @click="switchLanguage('pt')"
+              :active="$i18n.locale === 'pt'"
             />
             <hr>
             <btn
@@ -151,7 +161,7 @@ export default Vue.extend({
   components: {},
   data: () => ({
     navigation: [
-      { tooltip: i18n.t('stargaze.navTitle'), icon: "monster", route: ["stargaze"] },
+      { tooltip: i18n.t('stargaze.navTitle'), icon: "monster", route: ["stargazer"] },
       { tooltip: i18n.t('projects.navTitle'), icon: "duck", route: ["projects", "list", "statistics"] },
       { tooltip: i18n.t('galleries.navTitle'), icon: "collections", route: ["gallery", "images", "videos"] },
       { tooltip: i18n.t('ui.navTitle'), icon: "color", route: ["ui", "colors", "icons", "grid", "grid-gallery"] },
@@ -185,6 +195,7 @@ export default Vue.extend({
   },
   methods: {
     switchLanguage(lang){
+      this.playSound();
       this.$i18n.locale = lang
     },
     ...mapMutations(["toggleValue"]),

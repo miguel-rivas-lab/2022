@@ -29,7 +29,7 @@ scroll-area(color="royal-purple")
             toggle-row(breakpoint="lg", v-bind:key="projectIndex")
               template(v-slot:header)
                 t-column(size="40%") {{ project.title }}
-                t-column(size="20%") {{ project.types }}
+                t-column(size="20%") {{ $t(project.types) }}
                 t-column(size="20%") {{ project.turingDate }}
                 t-column(size="20%-35") {{ project.clients.join(' & ') }}
 
