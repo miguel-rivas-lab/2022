@@ -58,6 +58,8 @@ function uncompressProjectsDBtoJSON(db) {
       "disabled": disabled,
       "tools": tools,
       "children": children,
+      "group": false,
+      "location": false,
       "image": "",
     };
 
@@ -80,7 +82,7 @@ function uncompressGroupsDBtoJSON(groups) {
   groups.forEach(group => {
     let position = { lat: '', lng: '' };
 
-    if (group.types.includes(typeEnum.location)) {
+    if (group.location) {
       position = group.position;
     }
 
@@ -92,16 +94,14 @@ function uncompressGroupsDBtoJSON(groups) {
       item => client[clientEnum[item]]
     );
 
-    const types = group.types.map(
-      item => type[typeEnum[item]]
-    );
-
     const project = {
       "title": clients[0],
       "clients": clients,
       "date": group.date,
       "turingDate": helpers.turingDate(group.date),
-      "types": types,
+      "types": undefined,
+      "group": group.group,
+      "location": group.location,
       "links": [],
       "disabled": group.disabled,
       "tools": tools,
@@ -195,4 +195,6 @@ export const projectsDBList = Object.values(projectsDBObj).sort(sortByDate);
 export const groupsDBObj = uncompressGroupsDBtoJSON(rawGroupsDB);
 export const groupsDBList = Object.values(groupsDBObj).sort(sortByDate);
 
-export const locationsDBList = groupsDBList.filter((item) => item.types.includes(type.location));
+export const locationsDBList = groupsDBList.filter((item) => item.location);
+export const allDBObj = {...projectsDBObj, ...groupsDBObj};
+export const allDBListVisible = Object.values(allDBObj).filter((item: Project) => !item.disabled)

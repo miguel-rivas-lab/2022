@@ -10,7 +10,6 @@ export enum typeEnum {
   module,
   socialMedia,
   graphicDesign,
-  group,
   location,
 }
 
@@ -26,6 +25,5 @@ export const type = {
   module: "enum.projectsType.module",
   socialMedia: "enum.projectsType.socialMedia",
   graphicDesign: "enum.projectsType.graphicDesign",
-  group: "enum.projectsType.group",
   location: "enum.projectsType.location",
 };

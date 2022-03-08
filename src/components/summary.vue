@@ -3,27 +3,27 @@
     <div role="rowgroup" class="table-body">
       <toggle-row>
         <template v-slot:header>
-          <template v-if="!$t(projects[project].types).includes('Group')">
-            <t-column size="100%-35" v-html="projects[project].title" />
+          <template v-if="!allDBObj[project].group">
+            <t-column size="100%-35" v-html="allDBObj[project].title" />
           </template>
           <template v-else>
             <t-column size="100%-35" v-html="'Summary'" />
           </template>
         </template>
         <template v-slot:more>
-          <t-column size="100%" v-if="projects[project]">
-            <h2 v-html="projects[project].clients.join(' & ')" />
+          <t-column size="100%" v-if="allDBObj[project]">
+            <h2 v-html="allDBObj[project].clients.join(' & ')" />
             <h3
-              v-if="!$t(projects[project].types).includes('Group')"
-              v-html="$t(projects[project].types)"
+              v-if="!allDBObj[project].group"
+              v-html="$t(allDBObj[project].types)"
             />
             <h4>
-              <time v-html="projects[project].turingDate" />
+              <time v-html="allDBObj[project].turingDate" />
             </h4>
             <ul class="skills">
               <template>
                 <template
-                  v-for="(projectTool, projectToolIndex) in projects[project]
+                  v-for="(projectTool, projectToolIndex) in allDBObj[project]
                     .tools"
                 >
                   <li
@@ -33,9 +33,9 @@
                 </template>
               </template>
             </ul>
-            <ul v-if="projects[project].links.length" class="navigation">
+            <ul v-if="allDBObj[project].links.length" class="navigation">
               <template
-                v-for="(projectLink, projectLinkIndex) in projects[project]
+                v-for="(projectLink, projectLinkIndex) in allDBObj[project]
                   .links"
               >
                 <li v-bind:key="`projectLinkIndex-${projectLinkIndex}`">
@@ -72,6 +72,7 @@
 <script lang="ts">
 import Vue from "vue";
 import toggleRow from "./toggle-row.vue";
+import { allDBObj } from "../modules/format-db";
 
 export default Vue.extend({
   components: { toggleRow },
@@ -83,15 +84,8 @@ export default Vue.extend({
   },
   data: () => ({
     hasSlots: undefined,
+    allDBObj,
   }),
-  computed: {
-    projects() {
-      return {
-        ...this.$root.projects,
-        ...this.$root.groups,
-      };
-    },
-  },
   methods: {
     sentToProjector(src) {
       this.$store.commit("setProject", {

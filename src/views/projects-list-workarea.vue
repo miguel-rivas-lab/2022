@@ -18,6 +18,7 @@ import Vue from "vue";
 import Gallery from "../components/gallery.vue";
 import { client } from "../enums/clients";
 import { Project } from "../interfaces/project";
+import { allDBListVisible } from "../modules/format-db";
 
 export default Vue.extend({
   components: {
@@ -32,11 +33,7 @@ export default Vue.extend({
   }),
   computed: {
     projectsDB() {
-      let db = Object.values({
-        ...this.$root.projects,
-        ...this.$root.groups,
-      })
-        .filter((item: Project) => !item.disabled);
+      let db = allDBListVisible;
 
       let result = db;
       switch (this.selection.filterData) {

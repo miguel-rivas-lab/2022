@@ -6,10 +6,6 @@ import "./stylesheets/application.scss";
 import "./modules/commons";
 import "nano-grid/modules/tooltip";
 import "nano-grid/modules/nano";
-import {
-  projectsDBObj,
-  groupsDBObj,
-} from "./modules/format-db";
 import "highlight.js/styles/tomorrow-night-bright.css";
 import VueKonva from "vue-konva";
 
@@ -41,8 +37,6 @@ new Vue({
   i18n,
   data: () => ({
     user: user,
-    projects: projectsDBObj,
-    groups: groupsDBObj,
   }),
   render: h => h(app)
 }).$mount('#app');

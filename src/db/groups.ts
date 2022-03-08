@@ -1,5 +1,4 @@
 import { toolEnum } from "../enums/tools";
-import { typeEnum } from "../enums/types";
 import { client, clientEnum } from "../enums/clients";
 
 import h from "../modules/helpers";
@@ -11,10 +10,8 @@ const groups = [
     clients: [
       clientEnum.itesa,
     ],
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
+    group: true,
+    location: true,
     tools: [
       toolEnum.html,
       toolEnum.css,
@@ -57,9 +54,7 @@ const groups = [
   },
   {
     date: "2015/05/13",
-    types: [
-      typeEnum.group,
-    ],
+    group: true,
     disabled: true,
     clients: [
       clientEnum.codepen,
@@ -95,10 +90,8 @@ const groups = [
       x: -2511,
       y: -806,
     },
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
+    group: true,
+    location: true,
     clients: [
       clientEnum.itla,
     ],
@@ -145,9 +138,7 @@ const groups = [
     date: "2013/01/01",
     disabled: true,
     description: 'canvas.section.map.modal.several.position',
-    types: [
-      typeEnum.location,
-    ],
+    location: true,
     tools: [
       toolEnum.illustrator,
       toolEnum.photoshop,
@@ -171,10 +162,8 @@ const groups = [
       x: -1945,
       y: -1000,
     },
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
+    group: true,
+    location: true,
     clients: [
       clientEnum.socialNetwork,
     ],
@@ -195,9 +184,7 @@ const groups = [
   {
     date: "2014/06/01",
     disabled: false,
-    types: [
-      typeEnum.group,
-    ],
+    group: true,
     clients: [
       clientEnum.presidente,
     ],
@@ -230,10 +217,8 @@ const groups = [
       x: -1380,
       y: -856,
     },
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
+    group: true,
+    location: true,
     clients: [
       clientEnum.capitalDBG,
     ],
@@ -274,10 +259,8 @@ const groups = [
       x: -804,
       y: -1097,
     },
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
+    group: true,
+    location: true,
     clients: [
       clientEnum.pixelPerfectTree,
     ],
@@ -311,10 +294,8 @@ const groups = [
       x: -1501,
       y: -1170,
     },
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
+    group: true,
+    location: true,
     clients: [
       clientEnum.avante,
     ],
@@ -343,10 +324,8 @@ const groups = [
       x: -1230,
       y: -515,
     },
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
+    group: true,
+    location: true,
     clients: [
       clientEnum.plantTherapy,
     ],
@@ -377,10 +356,8 @@ const groups = [
   //     x: 0,
   //     y: 0,
   //   },
-  //   types: [
-  //     typeEnum.group,
-  //     typeEnum.location,
-  //   ],
+  //   group: true
+  // location: true,
   //   clients: [
   //     clientEnum.jellyfish,
   //   ],
@@ -407,10 +384,8 @@ const groups = [
       x: -2368,
       y: -299,
     },
-    types: [
-      typeEnum.group,
-      typeEnum.location,
-    ],
+    group: true,
+    location: true,
     clients: [
       clientEnum.enovational,
     ],

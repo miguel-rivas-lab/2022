@@ -18,7 +18,7 @@
               <scroll-area color="royal-purple">
                 <h1 v-html="project.clients.join(' & ')" />
                 <ul class="summary">
-                  <template v-if="$t(project.types).includes('Group')">
+                  <template v-if="project.group">
                     <summary-row
                       v-bind:key="`projectIndex-${projectIndex}`"
                       :project="
@@ -44,10 +44,10 @@
                       >
                         <ul
                           class="summary"
-                          v-if="projects[project2].children.length"
+                          v-if="allDBObj[project2].children.length"
                         >
                           <summary-row
-                            v-for="(project3, projectIndex3) in projects[
+                            v-for="(project3, projectIndex3) in allDBObj[
                               project2
                             ].children"
                             v-bind:key="`projectIndex3-${projectIndex3}`"
@@ -55,10 +55,10 @@
                           >
                             <ul
                               class="summary"
-                              v-if="projects[project3].children.length"
+                              v-if="allDBObj[project3].children.length"
                             >
                               <summary-row
-                                v-for="(project4, projectIndex4) in projects[
+                                v-for="(project4, projectIndex4) in allDBObj[
                                   project3
                                 ].children"
                                 v-bind:key="`projectIndex4-${projectIndex4}`"
@@ -89,6 +89,7 @@
 import Vue from "vue";
 import summaryRow from "./summary.vue";
 import helpers from "../modules/helpers";
+import { allDBObj } from "../modules/format-db";
 
 export default Vue.extend({
   components: { summaryRow },
@@ -98,15 +99,10 @@ export default Vue.extend({
     },
   },
   data: () => ({
+    allDBObj,
     helpers,
   }),
   computed: {
-    projects() {
-      return {
-        ...this.$root.projects,
-        ...this.$root.groups,
-      };
-    },
     database() {
       return this.db;
     },
