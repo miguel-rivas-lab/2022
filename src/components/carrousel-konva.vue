@@ -23,6 +23,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
   props: {
@@ -40,6 +41,7 @@ export default Vue.extend({
   },
   data: () => ({
     currentFrame: 0,
+    currentTheme: "dark",
     interval: undefined,
     frames: 8,
     increment: 1,
@@ -47,22 +49,36 @@ export default Vue.extend({
     playState: 1,
   }),
   created() {
-    for (let frame = 1; frame <= this.frames; frame++) {
-      this.items.push({ config: undefined, temp: undefined });
-      this.items[frame - 1].temp = new window.Image();
-      this.items[
-        frame - 1
-      ].temp.src = `3dlib/${this.item.name}/000${frame}.jpg`;
-      this.items[frame - 1].temp.onload = () => {
-        this.items[frame - 1].config = this.items[frame - 1].temp;
-      };
-    }
+    this.createImgs();
+  },
+  computed: {
+    ...mapGetters({
+      theme: "getTheme",
+    }),
+  },
+   watch: {
+    theme: function () {
+      this.createImgs();
+    },
   },
   mounted() {
     this.currentFrame = this.start;
     this.playCarrousel();
   },
   methods: {
+    createImgs() {
+      this.currentTheme = this.theme ? "light" : "dark";
+      for (let frame = 1; frame <= this.frames; frame++) {
+        this.items.push({ config: undefined, temp: undefined });
+        this.items[frame - 1].temp = new window.Image();
+        this.items[
+          frame - 1
+        ].temp.src = `3dlib/${this.currentTheme}/${this.item.name}/000${frame}.jpg`;
+        this.items[frame - 1].temp.onload = () => {
+          this.items[frame - 1].config = this.items[frame - 1].temp;
+        };
+      }
+    },
     playCarrousel() {
       this.interval = setInterval(() => {
         this.currentFrame += this.increment * this.playState;

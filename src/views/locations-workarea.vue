@@ -38,7 +38,7 @@ import { mapGetters } from "vuex";
 import Modal from "../components/modal.vue";
 import { client } from "../enums/clients";
 import Carrousel from "../components/carrousel-konva.vue";
-import {locationsDBList} from "../modules/format-db";
+import { locationsDBList } from "../modules/format-db";
 
 export default Vue.extend({
   components: { Modal, Carrousel },
@@ -128,6 +128,7 @@ export default Vue.extend({
         client: client.enovational,
       },
     ],
+    currentTheme: "dark",
     modal: {},
     selection: {},
     stage: undefined,
@@ -140,6 +141,7 @@ export default Vue.extend({
     ...mapGetters({
       panel: "getPanelVisibility",
       panelSize: "getPanelVisibility",
+      theme: "getTheme",
     }),
     mapPos() {
       if (this.map.image) {
@@ -181,20 +183,7 @@ export default Vue.extend({
     this.selection = this.$store.getters.getLocationSelection;
     this.modal = this.$store.getters.getModal;
     window.addEventListener("resize", this.updateCanvas);
-
-    this.map.temp = new window.Image();
-    this.map.temp.src = require(`@/img/map.jpg`);
-    this.map.temp.onload = () => {
-      this.map.image = this.map.temp;
-    };
-
-    this.img.forEach((item) => {
-      item.temp = new window.Image();
-      item.temp.src = require(`@/img/${item.name}.jpg`);
-      item.temp.onload = () => {
-        item.image = item.temp;
-      };
-    });
+    this.createImgs();
   },
   mounted() {
     this.stage = this.$refs.stage.getStage();
@@ -208,8 +197,27 @@ export default Vue.extend({
     panel: function () {
       this.updateCanvas();
     },
+    theme: function () {
+      this.createImgs();
+    },
   },
   methods: {
+    createImgs() {
+      this.currentTheme = this.theme ? "light" : "dark";
+      this.map.temp = new window.Image();
+      this.map.temp.src = require(`@/img/${this.currentTheme}/map.jpg`);
+      this.map.temp.onload = () => {
+        this.map.image = this.map.temp;
+      };
+
+      this.img.forEach((item) => {
+        item.temp = new window.Image();
+        item.temp.src = require(`@/img/${this.currentTheme}/${item.name}.jpg`);
+        item.temp.onload = () => {
+          item.image = item.temp;
+        };
+      });
+    },
     openModal(filter) {
       document.querySelector("aside.modal .scroll-area").scrollTo(0, 0);
       this.modal.data = locationsDBList.find(
