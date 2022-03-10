@@ -156,7 +156,7 @@
             "title": "Jellyfish",
             "position": "Frontend Developer",
             "summary": [
-              "Build apps using HTML, SCSS and jQuery on a PHP environment with Grunt.",
+              "Build apps with HTML, SCSS and jQuery on a PHP environment with Grunt.",
               "Optimize applications for maximum speed.",
               "Work with Git for control version on projects."
             ]
@@ -165,8 +165,8 @@
             "title": "Enovational",
             "position": "Frontend Developer",
             "summary": [
-              "Build government apps using HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js on a Ruby on Rails environment with Webpack.",
-              "Optimize applications for maximum speed compressing images and replacing repeated code.",
+              "Build government apps with HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js on a Ruby on Rails environment with Webpack.",
+              "Optimize applications for maximum speed.",
               "Make sure applications are following conventions and extending them according to the complexity of the project and frameworks being used.",
               "Collaborate with UI/UX Designers, Full Stack Developers, Project Managers, QA Testers and Business Analysts to improve usability.",
               "Work with Git for control version on projects.",
@@ -186,7 +186,7 @@
             "title": "Pixel Perfect Tree",
             "position": "Frontend Developer",
             "summary": [
-              "Design and develop applications using Haml, SCSS, Bootstrap, jQuery/React on a Ruby on Rails environment with Webpack.",
+              "Design and develop applications with Haml, SCSS, Bootstrap, jQuery/React on a Ruby on Rails environment with Webpack.",
               "Maintain and optimize applications.",
               "Collaborate with Full Stack Developers and Project Managers to improve usability.",
               "Work with Git for control version on projects.",
@@ -197,29 +197,29 @@
             "title": "Capital",
             "position": "Frontend Developer",
             "summary": [
-              "Build applications using Pug, SCSS, jQuery on a PHP environment with GruntJS.",
+              "Build applications with Pug, SCSS, jQuery on a PHP environment with GruntJS.",
               "Optimize applications for maximum speed.",
               "Create wireframes and users flow with Adobe Illustrator.",
               "Collaborate with Backend Developers, Designers and Project Managers to improve usability.",
-              "Animate ad banners for websites using Adobe Flash.",
-              "Create motion graphics for social media using Adobe Flash."
+              "Animate ad banners for websites with Adobe Flash.",
+              "Create motion graphics for social media with Adobe Flash."
             ]
           },
           "avante": {
             "title": "Avante Marketing",
             "position": "Web Designer",
             "summary": [
-              "Design and build applications using HTML, CSS, jQuery on a PHP environment.",
+              "Design and build applications with HTML, CSS, jQuery on a PHP environment.",
               "Optimize applications for maximum speed.",
-              "Design social media assets using Adobe Illustrator, Adobe Photoshop and Adobe Indesign."
+              "Design social media assets with Adobe Illustrator, Adobe Photoshop and Adobe Indesign."
             ]
           },
           "social": {
             "title": "Social Network",
             "position": "Web Designer",
             "summary": [
-              "Design applications UI using Adobe Illustrator.",
-              "Design social media assets using Adobe Illustrator, Adobe Photoshop and Adobe Indesign."
+              "Design applications UI with Adobe Illustrator.",
+              "Design social media assets with Adobe Illustrator, Adobe Photoshop and Adobe Indesign."
             ]
           },
           "several": {

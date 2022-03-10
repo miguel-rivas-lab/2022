@@ -156,78 +156,78 @@
             "title": "Jellyfish",
             "position": "Desenvolvedor Frontend",
             "summary": [
-              "Crear aplicaciones usando HTML, SCSS y jQuery en un entorno de PHP con Grunt.",
-              "Optimizar aplicaciones para máxima velocidad.",
-              "Trabajar con Git para controlar la versión de los proyectos."
+              "Criar aplicativos com HTML, SCSS e jQuery em um ambiente de PHP com Grunt.",
+              "Otimizar aplicativos para velocidade máxima.",
+              "Trabalhar com Git para controlar a versão dos projetos."
             ]
           },
           "enovational": {
             "title": "Enovational",
             "position": "Desenvolvedor Frontend",
             "summary": [
-              "Crear aplicaciones gubernamentales usando HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js en un entorno de Ruby on Rails con Webpack.",
-              "Optimizar las aplicaciones para obtener la máxima velocidad de compresión de imágenes y reemplazo de código repetido.",
-              "Asegúrar que las aplicaciones sigan las convenciones y ampliarlas de acuerdo con la complejidad del proyecto.",
-              "Colaborar con diseñadores de UI/UX, desarrolladores Fullstack, gerentes de proyecto, evaluadores de control de calidad y analistas comerciales para mejorar la usabilidad.",
-              "Trabajar con Git para controlar la versión de los proyectos.",
-              "Trabajar con Agile."
+              "Criar aplicativos governamentais com HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js em um ambiente de Ruby on Rails com Webpack.",
+              "Otimizar aplicativos para velocidade máxima.",
+              "Garantir que os aplicativos sigam as convenções e estenda-os de acordo com a complexidade do projeto.",
+              "Colabore com designers de UI/UX, desenvolvedores fullstack, gerentes de projeto, testadores de controle de qualidade e analistas de negócios para melhorar a usabilidade.",
+              "Trabalhar com Git para controlar a versão dos projetos.",
+              "Trabalhar com Agile."
             ]
           },
           "plantTherapy": {
             "title": "Plant Therapy",
             "position": "Web Designer",
             "summary": [
-              "Crear prototipos y páginas de aterrizaje con Pug, SCSS, jQuery y Miva.",
-              "Mantener y optimizar el sitio web.",
-              "Crear wireframes y flujo de usuarios con Adobe Illustrator."
+              "Criar protótipos e páginas de destino com Pug, SCSS, jQuery e Miva.",
+              "Manter e otimizar o site web.",
+              "Criar esquema e fluxo de usuários com Adobe Illustrator."
             ]
           },
           "pixel": {
             "title": "Pixel Perfect Tree",
             "position": "Desenvolvedor Frontend",
             "summary": [
-              "Diseñar y desarrollar aplicaciones utilizando Haml, SCSS, Bootstrap, jQuery/React en un entorno de Ruby on Rails con Webpack.",
-              "Mantener y optimizar aplicaciones.",
-              "Colaborar con los desarrolladores fullstack y administradores de proyectos para mejorar la usabilidad.",
-              "Trabajar con Git para controlar la versión de los proyectos.",
-              "Trabajar con Agile."
+              "Desenhar e desenvolver aplicativos com Haml, SCSS, Bootstrap, jQuery/React em um ambiente de Ruby on Rails com Webpack.",
+              "Manter y optimizar aplicativos.",
+              "Colabore com desenvolvedores fullstack e administradores de projetos para melhorar a usabilidade.",
+              "Trabalhar com Git para controlar a versão dos projetos.",
+              "Trabalhar com Agile."
             ]
           },
           "capital": {
             "title": "Capital",
             "position": "Desenvolvedor Frontend",
             "summary": [
-              "Crear aplicaciones utilizando Pug, SCSS, jQuery en un entorno de PHP con GruntJS.",
-              "Optimizar aplicaciones para máxima velocidad.",
-              "Crear esquema y flujo de usuarios con Adobe Illustrator.",
-              "Colaborar con los desarrolladores backend, diseñadores y administradores de proyectos para mejorar la usabilidad.",
-              "Animar banners publicitarios para sitios web usando Adobe Flash.",
-              "Crear gráficos en movimiento para las redes sociales usando Adobe Flash."
+              "Criar aplicativos com Pug, SCSS, jQuery em um ambiente de PHP com GruntJS.",
+              "Otimizar aplicativos para velocidade máxima.",
+              "Criar esquema e fluxo de usuários com Adobe Illustrator.",
+              "Colabore com desenvolvedores de back-end, designers e gerentes de projeto para melhorar a usabilidade.",
+              "Animar banners publicitarios para sites web com Adobe Flash.",
+              "Criar gráficos em movimento para as redes sociais com Adobe Flash."
             ]
           },
           "avante": {
             "title": "Avante Marketing",
             "position": "Web Designer",
             "summary": [
-              "Diseñar y crear aplicaciones utilizando HTML, CSS, jQuery en un entorno de PHP.",
-              "Optimizar aplicaciones para máxima velocidad.",
-              "Diseñar gráficos para redes sociales con Adobe Illustrator, Adobe Photoshop y Adobe Indesign."
+              "Desenhar e criar aplicativos com HTML, CSS, jQuery em um ambiente de PHP.",
+              "Otimizar aplicativos para velocidade máxima.",
+              "Desenhe gráficos para redes sociais com Adobe Illustrator, Adobe Photoshop e Adobe Indesign."
             ]
           },
           "social": {
             "title": "Social Network",
             "position": "Web Designer",
             "summary": [
-              "Diseñar la interfaz de las aplicaciones con Adobe Illustrator.",
-              "Diseñar gráficos para redes sociales con Adobe Illustrator, Adobe Photoshop y Adobe Indesign."
+              "Desenhar a interface das aplicativos com Adobe Illustrator.",
+              "Desenhe gráficos para redes sociais com Adobe Illustrator, Adobe Photoshop e Adobe Indesign."
             ]
           },
           "several": {
             "title": "Studio Several",
             "position": "Designer Gráfico",
             "summary": [
-              "Retocar fotos con Adobe Photoshop",
-              "Diseñar anuarios con Adobe Indesign y Adobe Photoshop"
+              "Retocar fotos com Adobe Photoshop",
+              "Desenhar anuários com Adobe Indesign e Adobe Photoshop"
             ]
           },
           "itla": {
@@ -236,7 +236,7 @@
             "summary": [
               "Ilustração digital",
               "Comunicação visual",
-              "Gráficos de bitmap",
+              "Gráficos bitmap",
               "Gráficos vetoriais",
               "Desktop Publishing",
               "Vídeo digital",

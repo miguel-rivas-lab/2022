@@ -156,7 +156,7 @@
             "title": "Jellyfish",
             "position": "Desarrollador Frontend",
             "summary": [
-              "Crear aplicaciones usando HTML, SCSS y jQuery en un entorno de PHP con Grunt.",
+              "Crear aplicaciones con HTML, SCSS y jQuery en un entorno de PHP con Grunt.",
               "Optimizar aplicaciones para máxima velocidad.",
               "Trabajar con Git para controlar la versión de los proyectos."
             ]
@@ -165,8 +165,8 @@
             "title": "Enovational",
             "position": "Desarrollador Frontend",
             "summary": [
-              "Crear aplicaciones gubernamentales usando HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js en un entorno de Ruby on Rails con Webpack.",
-              "Optimizar las aplicaciones para obtener la máxima velocidad de compresión de imágenes y reemplazo de código repetido.",
+              "Crear aplicaciones gubernamentales con HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js en un entorno de Ruby on Rails con Webpack.",
+              "Optimizar aplicaciones para máxima velocidad.",
               "Asegúrar que las aplicaciones sigan las convenciones y ampliarlas de acuerdo con la complejidad del proyecto.",
               "Colaborar con diseñadores de UI/UX, desarrolladores Fullstack, gerentes de proyecto, evaluadores de control de calidad y analistas comerciales para mejorar la usabilidad.",
               "Trabajar con Git para controlar la versión de los proyectos.",
@@ -179,14 +179,14 @@
             "summary": [
               "Crear prototipos y páginas de aterrizaje con Pug, SCSS, jQuery y Miva.",
               "Mantener y optimizar el sitio web.",
-              "Crear wireframes y flujo de usuarios con Adobe Illustrator."
+              "Crear esquemas y flujo de usuarios con Adobe Illustrator."
             ]
           },
           "pixel": {
             "title": "Pixel Perfect Tree",
             "position": "Desarrollador Frontend",
             "summary": [
-              "Diseñar y desarrollar aplicaciones utilizando Haml, SCSS, Bootstrap, jQuery/React en un entorno de Ruby on Rails con Webpack.",
+              "Diseñar y desarrollar aplicaciones con Haml, SCSS, Bootstrap, jQuery/React en un entorno de Ruby on Rails con Webpack.",
               "Mantener y optimizar aplicaciones.",
               "Colaborar con los desarrolladores fullstack y administradores de proyectos para mejorar la usabilidad.",
               "Trabajar con Git para controlar la versión de los proyectos.",
@@ -197,19 +197,19 @@
             "title": "Capital",
             "position": "Desarrollador Frontend",
             "summary": [
-              "Crear aplicaciones utilizando Pug, SCSS, jQuery en un entorno de PHP con GruntJS.",
+              "Crear aplicaciones con Pug, SCSS, jQuery en un entorno de PHP con GruntJS.",
               "Optimizar aplicaciones para máxima velocidad.",
-              "Crear esquema y flujo de usuarios con Adobe Illustrator.",
+              "Crear esquemas y flujo de usuarios con Adobe Illustrator.",
               "Colaborar con los desarrolladores backend, diseñadores y administradores de proyectos para mejorar la usabilidad.",
-              "Animar banners publicitarios para sitios web usando Adobe Flash.",
-              "Crear gráficos en movimiento para las redes sociales usando Adobe Flash."
+              "Animar banners publicitarios para sitios web con Adobe Flash.",
+              "Crear gráficos en movimiento para las redes sociales con Adobe Flash."
             ]
           },
           "avante": {
             "title": "Avante Marketing",
             "position": "Diseñador Web",
             "summary": [
-              "Diseñar y crear aplicaciones utilizando HTML, CSS, jQuery en un entorno de PHP.",
+              "Diseñar y crear aplicaciones con HTML, CSS, jQuery en un entorno de PHP.",
               "Optimizar aplicaciones para máxima velocidad.",
               "Diseñar gráficos para redes sociales con Adobe Illustrator, Adobe Photoshop y Adobe Indesign."
             ]
