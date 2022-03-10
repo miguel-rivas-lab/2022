@@ -113,16 +113,6 @@
               @click="switchLanguage('es')"
               :active="$i18n.locale === 'es'"
             />
-            <!-- <btn
-              color="gold-tips"
-              size="md"
-              mode="transparent"
-              title="Switch to esperanto"
-              v-nano-tooltip.right="'Esperanto'"
-              text="EO"
-              @click="switchLanguage('eo')"
-              :active="$i18n.locale === 'eo'"
-            />
             <btn
               color="gold-tips"
               size="md"
@@ -132,7 +122,7 @@
               text="PT"
               @click="switchLanguage('pt')"
               :active="$i18n.locale === 'pt'"
-            /> -->
+            />
             <hr>
             <btn
               color="gold-tips"

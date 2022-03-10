@@ -1,5 +1,455 @@
 {
-  "toggleTheme": "Toggle Theme",
-  "githubOrg": "Github Organization",
-  "position": "Frontend Developer"
+  "toggleTheme": "Alternar Tema",
+  "githubOrg": "Organização do Github",
+  "position": "Desenvolvedor Frontend",
+  "enum": {
+    "projectsType": {
+      "userFlow": "Fluxo do Usuário",
+      "wireFrame": "Esquema",
+      "app": "Aplicativo",
+      "prototype": "Protótipo",
+      "landingPage": "Página de Destino",
+      "motionGraphics": "Motion Graphics",
+      "animation3D": "Animação 3D",
+      "document": "Documentação",
+      "module": "Módulo",
+      "socialMedia": "Redes Sociais",
+      "graphicDesign": "Design Gráfico"
+    }
+  },
+  "stargaze": {
+    "navTitle": "Observador de Estrelas",
+    "panel": {
+      "controller": {
+        "legend": "Controles de cena",
+        "hue": "Matiz"
+      }
+    },
+    "workarea": {
+      "footer": "Desenvolvido com&nbsp;<strong><a href='https://vuejs.org/'>Vue.js&nbsp;</a></strong>"
+    }
+  },
+  "projects": {
+    "navTitle": "Projetos",
+    "section": {
+      "list": {
+        "title": "Lista",
+        "panel": {
+          "filter": {
+            "legend": "Filtros",
+            "all": "Tudo",
+            "companies": "Empresas",
+            "projects": "Projetos Pessoais",
+            "experiments": "Experimentos",
+            "homework": "Tarefas"
+          }
+        }
+      },
+      "statistics": {
+        "title": "Estatísticas",
+        "workarea": {
+          "yearlyAverage": "Projetos por ano",
+          "skillsUsed": "Habilidades Usadas",
+          "database": "Base de Dados",
+          "table": {
+            "name": "Nome",
+            "type": "Tipo",
+            "date": "Data",
+            "client": "Cliente"
+          }
+        }
+      }
+    }
+  },
+  "galleries": {
+    "navTitle": "Galerias",
+    "section": {
+      "images": {
+        "title": "Imagens",
+        "panel": {
+          "controller": {
+            "legend": "Controladores de Animação",
+            "rotationDelay": "Atraso de Rotação"
+          }
+        }
+      },
+      "videos": {
+        "title": "Vídeos"
+      }
+    }
+  },
+  "ui": {
+    "navTitle": "Interface de Portfólio",
+    "section": {
+      "gridBuilder": {
+        "title": "Construtor de Grade",
+        "workarea": {
+          "html": "Obter Código HTML",
+          "pug": "Obter Código PUG",
+          "haml": "Obter Código HAML"
+        },
+        "panel": {
+          "addCTA": "Adicionar Coluna",
+          "rowStyle": {
+            "legend": "Estilo de Linha",
+            "group": "Grupo",
+            "vertical": "Vertical",
+            "integrated": "Integrado",
+            "spacing": "Espaçamento (Rem)",
+            "breakpoint": "Ponto de Interrupção"
+          },
+          "columnStyle": {
+            "absoluteWidth": "Largura Absoluta",
+            "width": "Largura",
+            "widthSubtraction": "Subtração de Largura",
+            "absoluteHeight": "Altura Absoluta",
+            "height": "Altura",
+            "columnStyle": "Estilo da Coluna",
+            "removeCTA": "Remover Coluna"
+          }
+        }
+      },
+      "gridGallery": {
+        "title": "Galería de Grades",
+        "workarea": {
+          "fractions": "Frações",
+          "percents": "Porcentagens",
+          "percentsAlert": "O valor final de uma porcentagem será uma fração.",
+          "absolutes": "Absolutos",
+          "absolutesAlert": "Valores maiores que 300px serão adicionados como um atributo de estilo ao invés de uma classe.",
+          "formulas": "Fórmulas",
+          "formulasAlert": "A multiplicação só é permitida para valores de subtração.",
+          "heightFractions": "Altura: Frações (% / VH)",
+          "heightFractionsAlert": "1/2 refere-se a um tamanho relativo baseado no contêiner, enquanto 1/2vh refere-se a um tamanho relativo baseado na altura da tela.",
+          "heightPercents": "Altura: Porcentagens (% / VH)",
+          "heightPercentsAlert": "100% refere-se a um tamanho relativo baseado no contêiner, enquanto 100%vh refere-se a um tamanho relativo baseado na altura da tela.",
+          "heightAbsolute": "Altura: Absolutos",
+          "heightAbsoluteAlert": "Valores maiores que 300px serão adicionados como um atributo de estilo ao invés de uma classe."
+        }
+      },
+      "colors": {
+        "title": "Cores",
+        "panel": {
+          "buttons": {
+            "legend": "Botões"
+          }
+        }
+      },
+      "icons": {
+        "title": "Ícones"
+      }
+    }
+  },
+  "canvas": {
+    "navTitle": "Tela",
+    "section": {
+      "map": {
+        "title": "Mapa",
+        "panel": {
+          "locations": {
+            "legend": "Localizações"
+          }
+        },
+        "modal": {
+          "removeCTA": "Fechar Modal",
+          "jellyfish": {
+            "title": "Jellyfish",
+            "position": "Desenvolvedor Frontend",
+            "summary": [
+              "Crear aplicaciones usando HTML, SCSS y jQuery en un entorno de PHP con Grunt.",
+              "Optimizar aplicaciones para máxima velocidad.",
+              "Trabajar con Git para controlar la versión de los proyectos."
+            ]
+          },
+          "enovational": {
+            "title": "Enovational",
+            "position": "Desenvolvedor Frontend",
+            "summary": [
+              "Crear aplicaciones gubernamentales usando HTML/Slim, SCSS, Bootstrap, jQuery/Vue.js en un entorno de Ruby on Rails con Webpack.",
+              "Optimizar las aplicaciones para obtener la máxima velocidad de compresión de imágenes y reemplazo de código repetido.",
+              "Asegúrar que las aplicaciones sigan las convenciones y ampliarlas de acuerdo con la complejidad del proyecto.",
+              "Colaborar con diseñadores de UI/UX, desarrolladores Fullstack, gerentes de proyecto, evaluadores de control de calidad y analistas comerciales para mejorar la usabilidad.",
+              "Trabajar con Git para controlar la versión de los proyectos.",
+              "Trabajar con Agile."
+            ]
+          },
+          "plantTherapy": {
+            "title": "Plant Therapy",
+            "position": "Web Designer",
+            "summary": [
+              "Crear prototipos y páginas de aterrizaje con Pug, SCSS, jQuery y Miva.",
+              "Mantener y optimizar el sitio web.",
+              "Crear wireframes y flujo de usuarios con Adobe Illustrator."
+            ]
+          },
+          "pixel": {
+            "title": "Pixel Perfect Tree",
+            "position": "Desenvolvedor Frontend",
+            "summary": [
+              "Diseñar y desarrollar aplicaciones utilizando Haml, SCSS, Bootstrap, jQuery/React en un entorno de Ruby on Rails con Webpack.",
+              "Mantener y optimizar aplicaciones.",
+              "Colaborar con los desarrolladores fullstack y administradores de proyectos para mejorar la usabilidad.",
+              "Trabajar con Git para controlar la versión de los proyectos.",
+              "Trabajar con Agile."
+            ]
+          },
+          "capital": {
+            "title": "Capital",
+            "position": "Desenvolvedor Frontend",
+            "summary": [
+              "Crear aplicaciones utilizando Pug, SCSS, jQuery en un entorno de PHP con GruntJS.",
+              "Optimizar aplicaciones para máxima velocidad.",
+              "Crear esquema y flujo de usuarios con Adobe Illustrator.",
+              "Colaborar con los desarrolladores backend, diseñadores y administradores de proyectos para mejorar la usabilidad.",
+              "Animar banners publicitarios para sitios web usando Adobe Flash.",
+              "Crear gráficos en movimiento para las redes sociales usando Adobe Flash."
+            ]
+          },
+          "avante": {
+            "title": "Avante Marketing",
+            "position": "Web Designer",
+            "summary": [
+              "Diseñar y crear aplicaciones utilizando HTML, CSS, jQuery en un entorno de PHP.",
+              "Optimizar aplicaciones para máxima velocidad.",
+              "Diseñar gráficos para redes sociales con Adobe Illustrator, Adobe Photoshop y Adobe Indesign."
+            ]
+          },
+          "social": {
+            "title": "Social Network",
+            "position": "Web Designer",
+            "summary": [
+              "Diseñar la interfaz de las aplicaciones con Adobe Illustrator.",
+              "Diseñar gráficos para redes sociales con Adobe Illustrator, Adobe Photoshop y Adobe Indesign."
+            ]
+          },
+          "several": {
+            "title": "Studio Several",
+            "position": "Designer Gráfico",
+            "summary": [
+              "Retocar fotos con Adobe Photoshop",
+              "Diseñar anuarios con Adobe Indesign y Adobe Photoshop"
+            ]
+          },
+          "itla": {
+            "title": "ITLA",
+            "position": "Tecnólogo em Multimedia",
+            "summary": [
+              "Ilustração digital",
+              "Comunicação visual",
+              "Gráficos de bitmap",
+              "Gráficos vetoriais",
+              "Desktop Publishing",
+              "Vídeo digital",
+              "Criação de sites",
+              "Animação em Flash com Action Script",
+              "Gráficos 3D e Animação",
+              "Áudio digital",
+              "Branding"
+            ]
+          },
+          "itesa": {
+            "title": "ITESA",
+            "position": "Informática, Secundaria",
+            "summary": [
+              "HTML",
+              "CSS",
+              "Javascript",
+              "Adobe Flash",
+              "Fireworks",
+              "Adobe Dreamweaver",
+              "Pascal",
+              "C++",
+              "Visual Basic",
+              "Visual FoxPro",
+              "Bash",
+              "Linux",
+              "Microsoft Excel",
+              "Microsoft Word",
+              "Microsoft Powerpoint",
+              "ActionScript 2"
+            ]
+          }
+        }
+      },
+      "avatar": {
+        "title": "Avatar",
+        "panel": {
+          "presets": {
+            "legend": "Predefinições",
+            "90": "Anos 90",
+            "work": "Trabalho",
+            "sunday": "Domingo",
+            "pooh": "Ursinho Puff",
+            "dc": "DC",
+            "pool": "Piscina",
+            "franciscano": "Franciscano"
+          },
+          "general": {
+            "legend": "Geral",
+            "height": "Altura",
+            "porcelain": "Porcelana",
+            "honey": "Mel",
+            "caramel": "Doce",
+            "umber": "Úmero",
+            "sable": "Sable",
+            "avatar": "Avatar",
+            "hellboy": "Hellboy",
+            "bubblegum": "Chiclete",
+            "green": "Gigante Verde",
+            "skinColor": "Cor da Pele",
+            "skinColor2": "Cor da Pele Secundária"
+          },
+          "face": {
+            "legend": "Cabelo",
+            "raven": "Corvo",
+            "brunette": "Castanho",
+            "blonde": "Loira",
+            "ginger": "Ruiva",
+            "silver": "Prata",
+            "blue": "Índigo",
+            "red": "Siena Escuro",
+            "bubblegum": "Chiclete",
+            "green": "Verde",
+            "topHair": "Alternar Cabelo",
+            "sideHair": "Alternar Cabelo Lateral",
+            "beard": "Alternar Barba",
+            "hairColor": "Cor do Cabelo",
+            "hairSideColor": "Cor do Cabelo Lateral",
+            "beardColor": "Cor da Barba",
+            "lipsColor": "Cor dos lábios",
+            "happiness": "Felicidade"
+          },
+          "shirt": {
+            "legend": "Camisa",
+            "shirt": "Alternar camisa",
+            "lPockect": "Bolso Esq",
+            "rPockect": "Bolso Dir",
+            "buttons": "Alternar Botões",
+            "length": "Comprimento da camisa",
+            "sleeve": "Comprimento da manga",
+            "shirtColor": "Cor da camisa",
+            "sleeveColor": "Cor da manga",
+            "pockectsColor": "Cor dos bolsos"
+          },
+          "pants": {
+            "legend": "Calças",
+            "pants": "Alternar calças",
+            "belt": "Alternãncia de cinto",
+            "length": "Comprimento das calças",
+            "fit": "Ajustar",
+            "pantsColor": "Cor da calça",
+            "legsColor": "Cor das pernas",
+            "beltColor": "Cor do cinto"
+          },
+          "shoes": {
+            "legend": "Sapatos",
+            "shoes": "Alternar Sapatos",
+            "shoesColor": "Cor dos sapatos"
+          }
+        }
+      },
+      "pixelEditor": {
+        "title": "Editor de Pixels",
+        "panel": {
+          "general": {
+            "legend": "Geral",
+            "new": "Nova Imagem",
+            "open": "Abrir Imagem",
+            "save": "Salvar Imagem",
+            "export": "Exportar PNG"
+          },
+          "tools": {
+            "legend": "Ferramentas",
+            "lock": "Bloquear área de trabalho",
+            "dropper": "Conta-gotas",
+            "eraser": "Apagador"
+          },
+          "palette": {
+            "legend": "Paleta",
+            "more": "Mais Cores"
+          }
+        }
+      },
+      "gearBuilder": {
+        "title": "Construtor de engranagens",
+        "panel": {
+          "properties": {
+            "legend": "Propiedades da engranagem",
+            "teethAmount": "Quantidade de dentes",
+            "pitchRadius": "Altura dos Dentes",
+            "baseCircleRadius": "Raio da Coroa",
+            "axisRadius": "Raio do Cubo",
+            "sidePerforationAmount": "Número de Perfurações Laterais",
+            "sidePerforationRadius": "Raio das Perfurações Laterais",
+            "sidePerforationDistance": "Distância entre as Perfurações Laterais"
+          }
+        }
+      },
+      "colorWheel": {
+        "title": "Roda de Cores",
+        "panel": {
+          "general": {
+            "legend": "Geral",
+            "colors": "Cores"
+          }
+        }
+      }
+    }
+  },
+  "three": {
+    "navTitle": "ThreeJS",
+    "panel": {
+      "controller": {
+        "legend": "Controles de cena",
+        "rotation": "Rotação",
+        "grid": "Grade",
+        "pause": "Pausa",
+        "lines": "Linhas",
+        "open": "Abra o Livro"
+      }
+    },
+    "section": {
+      "cube": {
+        "title": "Cubo de Cores"
+      },
+      "spirit": {
+        "title": "Espírito"
+      },
+      "drakkar": {
+        "title": "Drakkar"
+      },
+      "car": {
+        "title": "Carro"
+      },
+      "xwing": {
+        "title": "X-Wing"
+      },
+      "2017": {
+        "title": "Portfólio 2017"
+      },
+      "audio": {
+        "title": "Áudio 2"
+      }
+    }
+  },
+  "unity": {
+    "navTitle": "Unity"
+  },
+  "css": {
+    "navTitle": "Modelos CSS",
+    "section": {
+      "house": {
+        "title": "Casa"
+      },
+      "window": {
+        "title": "Janela"
+      },
+      "minivan": {
+        "title": "Minivan"
+      },
+      "pills": {
+        "title": "Pílulas"
+      }
+    }
+  }
 }

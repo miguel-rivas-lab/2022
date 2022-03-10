@@ -14,8 +14,7 @@
       "document": "Documentación",
       "module": "Módulo",
       "socialMedia": "Redes Sociales",
-      "graphicDesign": "Diseño Gráfico",
-      "location": "Locación"
+      "graphicDesign": "Diseño Gráfico"
     }
   },
   "stargaze": {
@@ -27,7 +26,7 @@
       }
     },
     "workarea": {
-      "footer": "Desarrollado con&nbsp;<strong><a href='https://vuejs.org/'>Vue.js&nbsp;</a></strong><time>"
+      "footer": "Desarrollado con&nbsp;<strong><a href='https://vuejs.org/'>Vue.js&nbsp;</a></strong>"
     }
   },
   "projects": {
@@ -39,7 +38,7 @@
           "filter": {
             "legend": "Filtros",
             "all": "Todos",
-            "companies": "Compañías",
+            "companies": "Empresas",
             "projects": "Proyectos Personales",
             "experiments": "Experimentos",
             "homework": "Tarea"
@@ -148,7 +147,7 @@
         "title": "Mapa",
         "panel": {
           "locations": {
-            "legend": "Locaciones"
+            "legend": "Localizaciones"
           }
         },
         "modal": {
@@ -236,16 +235,16 @@
             "position": "Tecnólogo en Multimedia",
             "summary": [
               "Ilustración digital",
-               "Comunicación visual",
-               "Gráficos de mapa de bits",
-               "Gráficos vectoriales",
-               "Desktop Publishing",
-               "Video digital",
-               "Creación de sitios web",
-               "Animación Flash con Action Script",
-               "Gráficos 3D y Animación",
-               "Audio digital",
-               "Branding"
+              "Comunicación visual",
+              "Gráficos de mapa de bits",
+              "Gráficos vectoriales",
+              "Desktop Publishing",
+              "Video digital",
+              "Creación de sitios web",
+              "Animación Flash con Action Script",
+              "Gráficos 3D y Animación",
+              "Audio digital",
+              "Branding"
             ]
           },
           "itesa": {
@@ -277,10 +276,10 @@
         "panel": {
           "presets": {
             "legend": "Preajustes",
-            "90": "90s",
+            "90": "Años 90",
             "work": "Trabajo",
             "sunday": "Domingo",
-            "pooh": "Winnie Pooh",
+            "pooh": "Winnie de Pooh",
             "dc": "DC",
             "pool": "Piscina",
             "franciscano": "Franciscano"
@@ -302,8 +301,8 @@
           },
           "face": {
             "legend": "Cabello",
-            "raven": "Cuerevo",
-            "brunette": "Moreno",
+            "raven": "Cuervo",
+            "brunette": "Castaño",
             "blonde": "Rubio",
             "ginger": "Pelirrojo",
             "silver": "Plateado",
@@ -380,7 +379,7 @@
             "pitchRadius": "Alto de los Dientes",
             "baseCircleRadius": "Radio de la Corona",
             "axisRadius": "Radio del Cubo",
-            "sidePerforationAmount": "Numero de Perforaciones Laterales",
+            "sidePerforationAmount": "Número de Perforaciones Laterales",
             "sidePerforationRadius": "Radio de las Perforaciones Laterales",
             "sidePerforationDistance": "Distancia entre las Perforaciones Laterales"
           }
