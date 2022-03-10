@@ -16,7 +16,7 @@
           li(v-bind:key="`locationList${index}`") {{ item }}
 
   div(ref="mapContainer")
-    v-stage(:config="mapPos", @dragmove="dragging", ref="stage")
+    v-stage(:config="mapPos", @dragmove="dragging", ref="stage", @wheel="zoom")
       v-layer
         v-image(:config="map")
         template(v-for="(image, index) in img")
@@ -252,6 +252,40 @@ export default Vue.extend({
 
         this.stage.position({ x: nx, y: ny });
       }
+    },
+    zoom(event) {
+      const scale = 0.99;
+      const maxZoom = 110 / 100;
+      const minZoom = 100 / 100;
+
+      event.evt.preventDefault();
+      let oldScale = this.stage.scaleX();
+
+      let mousePointTo = {
+        x:
+          this.stage.getPointerPosition().x / oldScale -
+          this.stage.x() / oldScale,
+        y:
+          this.stage.getPointerPosition().y / oldScale -
+          this.stage.y() / oldScale,
+      };
+
+      let newScale = event.evt.deltaY > 0 ? oldScale * scale : oldScale / scale;
+
+      newScale = newScale > maxZoom ? maxZoom : newScale;
+      newScale = newScale < minZoom ? minZoom : newScale;
+
+      this.stage.scale({ x: newScale, y: newScale });
+
+      let newPos = {
+        x:
+          -(mousePointTo.x - this.stage.getPointerPosition().x / newScale) *
+          newScale,
+        y:
+          -(mousePointTo.y - this.stage.getPointerPosition().y / newScale) *
+          newScale,
+      };
+      this.stage.position(newPos);
     },
   },
 });

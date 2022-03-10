@@ -2,6 +2,6 @@ main.section-locations {
   .map {
     position: relative;
     height: 100%;
-    background-color: #305caf !important;
+    background-color: var(--map-background) !important;
   }
 }

@@ -41,6 +41,7 @@ main {
     --color-table-background: hsl(240deg 20% 80% / 0.2);
     --color-table-background-2: hsl(240deg 20% 85% / 0.2);
     --color-table-background-hover: hsl(240deg 35% 90% / 0.2);
+    --map-background: #c88396;
   }
   &.nano-dark {
     --color-title: #e69b28;
@@ -59,6 +60,7 @@ main {
     --color-table-background: hsl(240deg 5% 25% / 0.2);
     --color-table-background-2: hsl(240deg 5% 30% / 0.2);
     --color-table-background-hover: hsl(240deg 20% 35% / 0.2);
+    --map-background: #4c2faf;
   }
   --title-shadow: 0;
   --color-shadow: rgb(0 0 0 / 65%);
