@@ -41,7 +41,7 @@ export const store = new Vuex.Store({
         },
       },
       stargaze: {
-        hue: 220,
+        hue: 240,
       },
       projects3d: {
         rotationDelay: 200,

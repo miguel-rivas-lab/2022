@@ -255,7 +255,7 @@ export default Vue.extend({
     },
     zoom(event) {
       const scale = 0.99;
-      const maxZoom = 110 / 100;
+      const maxZoom = 120 / 100;
       const minZoom = 100 / 100;
 
       event.evt.preventDefault();
@@ -286,6 +286,7 @@ export default Vue.extend({
           newScale,
       };
       this.stage.position(newPos);
+      this.updateCanvas();
     },
   },
 });
