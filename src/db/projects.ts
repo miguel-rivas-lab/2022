@@ -1,7 +1,6 @@
 import { toolEnum } from "../enums/tools";
 import { typeEnum } from "../enums/types";
 import { client, clientEnum } from "../enums/clients";
-import { ProjectFirebase } from "../interfaces/project-firebase";
 import { user } from "./user";
 
 import h from "../modules/helpers";
@@ -11,9 +10,7 @@ const linkGithub = (item) => `https://github.com/${user.media.github.production}
 const linkCodepen = (item) => `https://codepen.io/${user.media.codepen.user}/pen/${item}`;
 const linkVimeo = (id) => `https://player.vimeo.com/video/${id}`;
 
-type ProjectsType = Array<ProjectFirebase>;
-
-const projects: ProjectsType = [
+const projects = [
   {
     date: "2021/12/20",
     title: "Portfolio 2022",

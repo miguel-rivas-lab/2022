@@ -17,7 +17,6 @@ scroll-area(color="royal-purple", v-else, :horizontal="false")
 import Vue from "vue";
 import Gallery from "../components/gallery.vue";
 import { client } from "../enums/clients";
-import { Project } from "../interfaces/project";
 import { allDBListVisible } from "../modules/format-db";
 
 export default Vue.extend({
@@ -39,7 +38,7 @@ export default Vue.extend({
       switch (this.selection.filterData) {
         case "projects":
           result = db.filter(
-            (item: Project) =>
+            (item) =>
               !item.clients.includes(client.miguelRivas) &&
               !item.clients.includes(client.itla) &&
               !item.clients.includes(client.itesa) &&
@@ -48,7 +47,7 @@ export default Vue.extend({
           break;
         case "experiments":
           result = db.filter(
-            (item: Project) =>
+            (item) =>
               item.clients.includes(client.miguelRivas) ||
               item.clients.includes(client.itla) ||
               item.clients.includes(client.itesa) ||
@@ -57,7 +56,7 @@ export default Vue.extend({
           break;
         case "companies":
           result = db.filter(
-            (item: Project) =>
+            (item) =>
               item.clients.includes(client.enovational) ||
               item.clients.includes(client.avante) ||
               item.clients.includes(client.jellyfish) ||
@@ -69,7 +68,7 @@ export default Vue.extend({
           break;
         case "homework":
           result = db.filter(
-            (item: Project) =>
+            (item) =>
               !item.disabled &&
               (item.clients.includes(client.itla) ||
                 item.clients.includes(client.itesa))
