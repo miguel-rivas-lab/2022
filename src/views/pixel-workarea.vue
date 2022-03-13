@@ -158,6 +158,9 @@ import Vue from "vue";
 import { mapGetters } from "vuex";
 import { allColors } from "../db/wiki-colors";
 import ctrl from "../components/pixel-controller.vue";
+import { wikiColorEnum } from "../enums/wikicolors";
+import h from "../modules/helpers";
+import goose from "../json/goose.js";
 
 export default Vue.extend({
   components: { ctrl },
@@ -221,7 +224,7 @@ export default Vue.extend({
       x: (window.innerWidth - (margin - 50) - 100 - this.gridSize * zoom) * 0.5,
       y: (window.innerHeight - this.gridSize * zoom) * 0.5,
     });
-    // this.cleanMatrix();
+    this.openGoose();
   },
   computed: {
     ...mapGetters({
@@ -238,6 +241,11 @@ export default Vue.extend({
     },
   },
   methods: {
+    openGoose() {
+      this.selection.pixelGrid = goose.map((y) =>
+        y.map((x) => allColors[wikiColorEnum[h.hexToDec(x)]])
+      );
+    },
     saveImg() {
       // // console.log(this.stage.find("#controllers")[0].attrs);
       // this.stage.find("#controllers")[0].attrs.opacity = 0;
