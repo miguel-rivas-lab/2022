@@ -6,7 +6,6 @@ import "./stylesheets/application.scss";
 import "./modules/commons";
 import "nano-grid-vue/modules/tooltip";
 // import "nano-grid-vue/modules/nano";
-import "highlight.js/styles/tomorrow-night-bright.css";
 import VueKonva from "vue-konva";
 
 //-- db
