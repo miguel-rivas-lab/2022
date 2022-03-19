@@ -10,9 +10,9 @@
             <column size="100%-35">
               <slot name="header" />
             </column>
-            <suffix size="35">
+            <column size="35">
               <btn color="persian-red" glyph="close" @click="closeModal" />
-            </suffix>
+            </column>
           </row>
         </div>
         <scroll-area color="royal-purple">
