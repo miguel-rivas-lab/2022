@@ -27,7 +27,6 @@ const projects = [
       toolEnum.scss,
       toolEnum.git,
       toolEnum.chartJS,
-      toolEnum.highlight,
       toolEnum.konva,
       toolEnum.pug,
       toolEnum.i18n,

@@ -19,6 +19,7 @@
     "luxon": "^2.3.0",
     "mr-vue-color": "file:../../app_web_module_vue-color-fork",
     "nano-grid": "file:../../app_web_module_nanogrid",
+    "nano-grid-vue": "file:../../app_web_module_nanogrid-vue",
     "three": "^0.131.3",
     "unity-webgl": "^2.0.0",
     "vue": "^2.6.11",

@@ -3,7 +3,7 @@ import {
   validateSize,
   cssSizesWidth,
   cssSizesHeight,
-} from "nano-grid/modules/columns-manager";
+} from "nano-grid/modules/columns-manager.js";
 
 export default Vue.extend({
   data: () => ({

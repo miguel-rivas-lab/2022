@@ -4,8 +4,8 @@ import router from "./modules/router";
 import { store } from "./modules/store";
 import "./stylesheets/application.scss";
 import "./modules/commons";
-import "nano-grid/modules/tooltip";
-import "nano-grid/modules/nano";
+import "nano-grid-vue/modules/tooltip";
+// import "nano-grid-vue/modules/nano";
 import "highlight.js/styles/tomorrow-night-bright.css";
 import VueKonva from "vue-konva";
 
