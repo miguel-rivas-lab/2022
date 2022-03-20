@@ -9,9 +9,7 @@ main.section-grid {
       justify-content: center;
       margin-bottom: 0;
 
-      .prefix,
-      .column,
-      .suffix {
+      .column {
         transition: all ease 500ms;
       }
 

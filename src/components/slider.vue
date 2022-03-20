@@ -12,7 +12,7 @@ row
           v-model="val",
           @change="updateValue()"
         )
-      suffix(size="40")
+      column(size="40")
         input(
           type="number",
           :min="$attrs.min",

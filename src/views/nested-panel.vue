@@ -9,7 +9,7 @@ scroll-area(color="royal-purple")
             template(v-for="(route, routeIndex) in links")
               li(v-bind:key="routeIndex")
                 row
-                  prefix(size="35")
+                  column(size="35")
                     btn(
                       tag="span",
                       mode="flat"

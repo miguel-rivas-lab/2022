@@ -1,7 +1,7 @@
 <template lang="pug">
 row.alert.fixed(:class="alert.status", v-if="alert.message !== ''")
   column(size="100%-35") {{ alert.message }}
-  suffix(size="35")
+  column(size="35")
     button.close-btn(@click="closeAlert()")
       icon(glyph="close")
 </template>

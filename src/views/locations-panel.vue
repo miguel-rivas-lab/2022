@@ -9,7 +9,7 @@ scroll-area(color="royal-purple")
             template(v-for="(location, locationIndex) in locationsDBList")
               li(v-bind:key="locationIndex")
                 row
-                  prefix(size="35")
+                  column(size="35")
                     btn(
                       @click="centerMap(location.position)",
                       color="burn-orange",

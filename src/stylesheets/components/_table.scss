@@ -57,7 +57,7 @@
       > .column {
         padding: 0.5rem 1rem;
       }
-      > .suffix {
+      > .column:last-child {
         padding-bottom: 2px;
       }
     }

@@ -7,7 +7,7 @@ scroll-area(color="royal-purple")
       row
         column(size="100%")
           row
-            prefix
+            column(size="35")
               btn(glyph="plus", color="burn-orange", @click="newImage()")
             column(size="100%-35")
               btn(
@@ -17,7 +17,7 @@ scroll-area(color="royal-purple")
               )
 
       row
-        prefix
+        column(size="35")
           btn(glyph="open", color="burn-orange", @click="openImage()")
         column(size="100%-35")
           label.btn.flat.gold-tips
@@ -32,7 +32,7 @@ scroll-area(color="royal-purple")
       row
         column(size="100%")
           row
-            prefix
+            column(size="35")
               btn(glyph="save", color="burn-orange", @click="saveJson()")
             column(size="100%-35")
               btn(
@@ -44,7 +44,7 @@ scroll-area(color="royal-purple")
       row
         column(size="100%")
           row
-            prefix
+            column(size="35")
               btn(glyph="download", color="burn-orange", @click="saveImage()")
             column(size="100%-35")
               btn(
@@ -60,7 +60,7 @@ scroll-area(color="royal-purple")
       row
         column(size="100%")
           row
-            prefix
+            column(size="35")
               btn(
                 :glyph="selection.lock ? 'lock' : 'unlock'",
                 :color="selection.lock ? 'green-pea' : 'burn-orange'",
@@ -77,7 +77,7 @@ scroll-area(color="royal-purple")
       row
         column(size="100%")
           row
-            prefix
+            column(size="35")
               btn(
                 glyph="eyedropper",
                 :color="selection.tool === 'dropper' ? 'green-pea' : 'burn-orange'",
@@ -94,7 +94,7 @@ scroll-area(color="royal-purple")
       row
         column(size="100%")
           row
-            prefix
+            column(size="35")
               btn(
                 glyph="eraser",
                 :color="selection.currentColor.spinalCase === 'empty' ? 'green-pea' : 'burn-orange'",

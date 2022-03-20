@@ -202,7 +202,7 @@ export default Vue.extend({
     index: undefined,
   },
   data: () => ({
-    styles: ["prefix", "column", "suffix"],
+    styles: ["column"],
     absoluteWidth: undefined,
     absoluteHeight: undefined,
   }),

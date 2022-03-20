@@ -250,7 +250,7 @@ main {
         background: var(--color-background-input);
       }
     }
-    > .suffix {
+    > .column:last-child {
       > input {
         padding-right: 0.25rem;
         text-align: center;

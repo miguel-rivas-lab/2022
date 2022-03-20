@@ -22,7 +22,7 @@ scroll-area(color="royal-purple")
             column(size="20%", table-element) {{ $t('projects.section.statistics.workarea.table.type') }}
             column(size="20%", table-element) {{ $t('projects.section.statistics.workarea.table.date') }}
             column(size="20-35%", table-element) {{ $t('projects.section.statistics.workarea.table.client') }}
-            suffix(size="35")
+            column(size="35")
 
         .table-body(role="rowgroup")
           template(v-for="(project, projectIndex) in projectsDBList")

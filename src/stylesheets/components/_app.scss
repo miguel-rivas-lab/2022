@@ -40,7 +40,7 @@
       height: 100%;
     }
 
-    .suffix {
+    .column:last-child {
       > .btn.flat {
         &:last-child {
           margin-bottom: 0;

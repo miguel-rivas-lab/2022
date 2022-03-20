@@ -7363,7 +7363,7 @@ nan@^2.12.1:
 "nano-grid-vue@file:../../app_web_module_nanogrid-vue":
   version "1.1.0"
   dependencies:
-    nano-grid "file:../../../../home/kero/.cache/yarn/v6/npm-nano-grid-vue-1.1.0-b0fcf25c-a19b-447f-a049-406bbd201328-1647725345032/node_modules/app_web_module_nanogrid"
+    nano-grid "file:../../../../home/kero/.cache/yarn/v6/npm-nano-grid-vue-1.1.0-9e1ed2ca-d008-4f6f-a4a2-9f15a1ead4ed-1647749300817/node_modules/app_web_module_nanogrid"
     vue "^2.6.11"
 
 "nano-grid@file:../../app_web_module_nanogrid":

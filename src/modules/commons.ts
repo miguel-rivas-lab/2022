@@ -1,9 +1,9 @@
 import Vue from 'vue';
-import NanoRow from 'nano-grid-vue/components/row.vue';
-import NanoColumn from 'nano-grid-vue/components/column.vue';
-import NanoIcon from 'nano-grid-vue/components/icon.vue';
-import NanoBtn from 'nano-grid-vue/components/btn.vue';
-import NanoScrollArea from 'nano-grid-vue/components/scroll-area.vue';
+import NanoRow from '../nano-grid/components/row.vue';
+import NanoColumn from '../nano-grid/components/column.vue';
+import NanoIcon from '../nano-grid/components/icon.vue';
+import NanoBtn from '../nano-grid/components/btn.vue';
+import NanoScrollArea from '../nano-grid/components/scroll-area.vue';
 
 import Container from '../components/container.vue';
 
