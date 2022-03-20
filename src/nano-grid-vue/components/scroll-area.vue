@@ -10,12 +10,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { colorsType } from "../types/colors";
+import { colorsType } from "../modules/types.js";
 
 export default Vue.extend({
   props: {
     color: {
-      type: String as () => colorsType,
+      type: String,
       default: "silver",
     },
     horizontal: {
@@ -28,10 +28,18 @@ export default Vue.extend({
     },
   },
   computed: {
-    itemColor(): string {
-      return this.color;
+    itemColor() {
+      if (colorsType.includes(this.color)) {
+        return this.color;
+      } else {
+        console.warn(
+          `color="${this.color}" is not a supported value on scroll-area.vue, try the following values instead:`
+        );
+        console.warn(colorsType);
+        return "silver";
+      }
     },
-    classes(): Array<string> {
+    classes() {
       return [
         this.itemColor,
         {

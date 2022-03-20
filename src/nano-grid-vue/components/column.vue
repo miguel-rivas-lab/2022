@@ -19,10 +19,6 @@ export default Vue.extend({
       type: String,
       default: "div",
     },
-    mode: {
-      type: String,
-      default: "column",
-    },
     size: undefined,
     tableElement: {
       type: Boolean,
@@ -34,16 +30,16 @@ export default Vue.extend({
     height: 0,
   }),
   computed: {
-    classes(): Array<string> {
-      return [this.mode, this.computedSize];
+    classes() {
+      return ["column", this.computedSize];
     },
-    computedSize(): string {
+    computedSize() {
       return this.size ? validateSize(this.size).class : "";
     },
-    computedStyle(): string {
+    computedStyle() {
       return this.size ? validateSize(this.size).style : "";
     },
-    role(): string {
+    role() {
       if (this.tableElement) {
         return "cell";
       } else {

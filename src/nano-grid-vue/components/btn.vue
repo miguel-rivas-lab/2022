@@ -8,7 +8,7 @@
     :title="computedLabel"
     @click.passive="$emit('click', $event)"
   >
-    <icon v-if="glyph !== ''" :glyph="glyph" :direction="direction" />
+    <icon v-if="glyph !== ''" :glyph="glyph" :direction="iconDirection" />
     <span class="caption" v-if="text">
       {{ text }}
     </span>
@@ -18,7 +18,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Icon from "./icon.vue";
-import { colorsType } from "../types/colors";
+import { colorsType, directionsType } from "../modules/types.js";
 
 export default Vue.extend({
   components: { Icon },
@@ -44,7 +44,7 @@ export default Vue.extend({
       default: undefined,
     },
     color: {
-      type: String as () => colorsType,
+      type: String,
       default: "transparent",
     },
     active: {
@@ -56,7 +56,7 @@ export default Vue.extend({
     },
     direction: {
       type: String,
-      default: "bottom",
+      default: "down",
     },
     mode: {
       type: String,
@@ -64,27 +64,46 @@ export default Vue.extend({
     },
   },
   computed: {
-    buttonType(): string {
+    buttonType() {
       return `btn ${this.mode}`;
     },
-    itemColor(): string {
-      return this.color;
+    itemColor() {
+      if (colorsType.includes(this.color)) {
+        return this.color;
+      } else {
+        console.warn(
+          `color="${this.color}" is not a supported value on btn.vue, try the following values instead:`
+        );
+        console.warn(colorsType);
+        return "transparent";
+      }
     },
-    computedTag(): string {
+    iconDirection() {
+      if (directionsType.includes(this.direction)) {
+        return this.direction;
+      } else {
+        console.warn(
+          `direction="${this.direction}" is not a supported value on btn.vue, try the following values instead:`
+        );
+        console.warn(directionsType);
+        return "down";
+      }
+    },
+    computedTag() {
       if (this.to) {
         return "router-link";
       } else {
         return this.tag;
       }
     },
-    computedLabel(): any {
+    computedLabel() {
       if (this.text) {
         return undefined;
       } else {
         return this.title;
       }
     },
-    computedClasses(): any {
+    computedClasses() {
       return [
         this.buttonType,
         this.itemColor,

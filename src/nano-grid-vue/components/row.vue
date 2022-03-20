@@ -12,9 +12,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { breakpointsType } from "../types/breakpoints";
-import { spacingType } from "../types/spacing";
 import { validateSpacing } from "nano-grid/modules/columns-manager.js";
+import { breakpointsType, spacingType } from "../modules/types.js";
 
 export default Vue.extend({
   /*
@@ -27,7 +26,7 @@ export default Vue.extend({
       default: "div",
     },
     breakpoint: {
-      type: String as () => breakpointsType,
+      type: String,
       default: "",
     },
     group: {
@@ -35,7 +34,7 @@ export default Vue.extend({
       default: false,
     },
     spacing: {
-      type: Number as () => spacingType,
+      type: [String, Number],
       default: 0,
     },
     integrated: {
@@ -56,7 +55,7 @@ export default Vue.extend({
     },
   },
   computed: {
-    classes(): Array<string> {
+    classes() {
       return [
         {
           "nano-group": this.group,
@@ -68,10 +67,29 @@ export default Vue.extend({
         this.breakpoint,
       ];
     },
-    computedSpacing(): string {
-      return validateSpacing(this.spacing);
+    computedBreackpoint() {
+      if (breakpointsType.includes(this.breakpoint)) {
+        return validateSpacing(this.breakpoint);
+      } else {
+        console.warn(
+          `breakpoint="${this.breakpoint}" is not a supported value on row.vue, try the following values instead:`
+        );
+        console.warn(breakpointsType);
+        return "";
+      }
     },
-    role(): string {
+    computedSpacing() {
+      if (spacingType.includes(+this.spacing)) {
+        return validateSpacing(this.spacing);
+      } else {
+        console.warn(
+          `spacing="${this.spacing}" is not a supported value on row.vue, try the following values instead:`
+        );
+        console.warn(spacingType);
+        return "";
+      }
+    },
+    role() {
       if (this.tableElement) {
         let result = "row";
         if (this.group) {

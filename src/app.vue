@@ -3,7 +3,6 @@
     <alert />
     <row class="nano-app">
       <panel-navigation />
-      <!-- <btn text="olis"  v-nano-tooltip.right="$t('toggleTheme')"/> -->
 
       <column
         class="panel"
