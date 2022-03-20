@@ -172,7 +172,6 @@ export default Vue.extend({
           "audio2",
         ],
       },
-      { tooltip: i18n.t('unity.navTitle'), icon: "unity", route: ["unity", "kaspar", "iqra"] },
       { tooltip: i18n.t('css.navTitle'), icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
     ],
     linkGithub,

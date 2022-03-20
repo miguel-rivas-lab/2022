@@ -11,7 +11,6 @@ import CssRouter from '../router/css';
 import ProjectsRouter from '../router/projects';
 import ThreeRouter from '../router/three';
 import GalleryRouter from '../router/gallery';
-import UnityRouter from '../router/unity';
 import UiRouter from '../router/ui';
 
 Vue.use(VueRouter);
@@ -41,7 +40,6 @@ const routes: Array<RouteConfig> = [
   ProjectsRouter,
   ThreeRouter,
   GalleryRouter,
-  UnityRouter,
   UiRouter
 ];
 
