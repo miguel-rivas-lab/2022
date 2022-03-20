@@ -1,17 +1,20 @@
-.toggle-input {
-  background-color: var(--color-table-background);
-  align-items: center;
-  transition: background-color ease-in-out 200ms;
-  &:hover {
-    background-color: var(--color-table-background-hover);
-  }
-  > .column:not(:last-child) {
-    padding: 0.5rem 1rem;
-    font-size: 9pt;
-    letter-spacing: 1pt;
-    text-transform: uppercase;
-  }
-  > .column:last-child {
-    padding: 0.5rem 0;
+.nano-row {
+  &.toggle-input {
+    background-color: var(--color-table-background);
+    align-items: center;
+    transition: background-color ease-in-out 200ms;
+    &:hover {
+      background-color: var(--color-table-background-hover);
+    }
+    > .column {
+      padding: 0.5rem 1rem;
+      font-size: 9pt;
+      letter-spacing: 1pt;
+      text-transform: uppercase;
+
+      &.controllers {
+        padding: 0 0 2px 0;
+      }
+    }
   }
 }

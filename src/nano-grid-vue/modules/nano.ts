@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { reduceFraction, roundUpNumber } from "./columns-manager";
+import { reduceFraction, roundUpNumber } from "nano-grid/modules/columns-manager.js";
 
 const nanoDirective = {
   bind: function (el, binding): void {

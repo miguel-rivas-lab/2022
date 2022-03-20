@@ -1,7 +1,7 @@
 <template>
   <t-row :breakpoint="breakpoint">
     <slot name="header"/>
-    <t-column size="35">
+    <t-column size="35" class="controllers">
       <btn
         glyph="chevron"
         :direction="showData ? 'up' : 'down'"

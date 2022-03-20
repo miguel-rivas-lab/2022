@@ -56,9 +56,10 @@
       }
       > .column {
         padding: 0.5rem 1rem;
-      }
-      > .column:last-child {
-        padding-bottom: 2px;
+        
+        &.controllers {
+          padding: 0 0 2px 0;
+        }
       }
     }
   }
