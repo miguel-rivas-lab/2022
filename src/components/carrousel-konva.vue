@@ -8,7 +8,6 @@
       <template v-for="frameIndex in frames">
         <v-image
           v-bind:key="frameIndex"
-          v-nano-tooltip.right="'olis'"
           :config="{
             image: items[frameIndex - 1].config,
             x: item.position.x,
@@ -73,7 +72,7 @@ export default Vue.extend({
         this.items[frame - 1].temp = new window.Image();
         this.items[
           frame - 1
-        ].temp.src = `3dlib/${this.currentTheme}/${this.item.name}/000${frame}.jpg`;
+        ].temp.src = `img/3dlib/${this.currentTheme}/${this.item.name}/000${frame}.jpg`;
         this.items[frame - 1].temp.onload = () => {
           this.items[frame - 1].config = this.items[frame - 1].temp;
         };

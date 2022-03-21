@@ -5,7 +5,7 @@
         <img
           v-bind:key="frameIndex"
           :class="{ active: currentFrame + 1 === frameIndex }"
-          :src="`3dlib/${item.name}/000${frameIndex}.jpg`"
+          :src="`img/3dlib/${item.name}/000${frameIndex}.jpg`"
         />
       </template>
     </button>

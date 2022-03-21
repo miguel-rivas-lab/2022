@@ -32,7 +32,7 @@ export default Vue.extend({
 
       const materials = [...Array(this.pages).keys()].map((index) => {
         return new THREE.MeshLambertMaterial({
-          map: loader.load(`${this.book}/page${index + 1}.jpg`),
+          map: loader.load(`img/${this.book}/page${index + 1}.jpg`),
         });
       });
 
