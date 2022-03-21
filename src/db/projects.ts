@@ -1572,15 +1572,13 @@ const projects = [
       clientEnum.miguelRivas,
     ],
     tools: [
-      toolEnum.pug,
+      toolEnum.svelte,
       toolEnum.scss,
-      toolEnum.jQuery,
-      toolEnum.php,
       toolEnum.git,
     ],
     links: [
       {
-        url: linkWeb("2014"),
+        url: linkWeb("2014-s"),
         text: "App",
         self: false,
       },

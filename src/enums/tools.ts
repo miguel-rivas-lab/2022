@@ -39,6 +39,7 @@ export enum toolEnum {
   as2,
   as3,
   konva,
+  svelte,
 
   rails = 250,
   php,
@@ -77,7 +78,7 @@ export enum toolEnum {
 
   cucumber = 500,
   jest,
-  
+
   firebase = 550,
   mysql,
   mongo,
@@ -93,7 +94,7 @@ export enum toolEnum {
   wordpress,
   drupal,
   joomla,
-  
+
   markdown = 750,
 
   linux = 800,
@@ -121,6 +122,7 @@ export const tool = {
   python: "Python",
   javascript: "Javascript",
   vue: "Vue",
+  svelte: "Svelte",
   angular: "Angular",
   react: "React",
   grunt: "GruntJS",
