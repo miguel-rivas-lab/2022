@@ -192,5 +192,5 @@ export const tool = {
   as3: "ActionScript 3",
   tkinter: "Tkinter",
   konva: "Konva",
-  i18n: "vue-i18n",
+  i18n: "Vue i18n",
 };
