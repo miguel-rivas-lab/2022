@@ -155,27 +155,6 @@
 
       <row>
         <column size="100%">
-          <label :for="`id-${name}-style`">{{
-            $t("ui.section.gridBuilder.panel.columnStyle.columnStyle")
-          }}</label>
-        </column>
-        <column size="100%">
-          <select
-            :id="`id-${name}-style`"
-            v-model="selection.columns[index].block"
-          >
-            <option
-              v-for="option in styles"
-              :value="option"
-              :key="option"
-              v-html="option"
-            />
-          </select>
-        </column>
-      </row>
-
-      <row>
-        <column size="100%">
           <btn
             color="persian-red"
             :text="$t('ui.section.gridBuilder.panel.columnStyle.removeCTA')"
@@ -202,7 +181,6 @@ export default Vue.extend({
     index: undefined,
   },
   data: () => ({
-    styles: ["column"],
     absoluteWidth: undefined,
     absoluteHeight: undefined,
   }),
