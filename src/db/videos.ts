@@ -114,6 +114,17 @@ export const videos = [
     ],
   },
   {
+    url: "videos/2016.mp4",
+    width: 325,
+    height: 580,
+    title: "Portfolio 2016",
+    soundtrack: { artist: "Anri", song: "Remember Summer Days" },
+    skills: [
+      tool.react,
+      tool.scss,
+    ],
+  },
+  {
     url: "videos/2014.mp4",
     width: 325,
     height: 580,

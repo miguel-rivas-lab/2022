@@ -1566,7 +1566,7 @@ const projects = [
   },
   {
     date: "2014/02/09",
-    title: "Screens Portfolio",
+    title: "Portfolio 2014",
     types: typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
@@ -1596,21 +1596,19 @@ const projects = [
   },
   {
     date: "2016/08/11",
-    title: "Spirit Portfolio",
+    title: "Portfolio 2016",
     types: typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
     ],
     tools: [
-      toolEnum.pug,
+      toolEnum.react,
       toolEnum.scss,
-      toolEnum.jQuery,
-      toolEnum.php,
       toolEnum.git,
     ],
     links: [
       {
-        url: linkWeb("2016"),
+        url: linkWeb("2016-r"),
         text: "App",
         self: false,
       },
@@ -1666,7 +1664,7 @@ const projects = [
   },
   {
     date: "2018/01/01",
-    title: "Grid Portfolio",
+    title: "Portfolio 2018",
     types: typeEnum.app,
     clients: [
       clientEnum.miguelRivas,
