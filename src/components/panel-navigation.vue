@@ -123,7 +123,7 @@
               @click="switchLanguage('pt')"
               :active="$i18n.locale === 'pt'"
             />
-            <hr>
+            <hr />
             <btn
               color="gold-tips"
               size="md"
@@ -151,17 +151,37 @@ export default Vue.extend({
   components: {},
   data: () => ({
     navigation: [
-      { tooltip: i18n.t('stargaze.navTitle'), icon: "monster", route: ["stargazer"] },
-      { tooltip: i18n.t('projects.navTitle'), icon: "duck", route: ["projects", "list", "statistics"] },
-      { tooltip: i18n.t('galleries.navTitle'), icon: "collections", route: ["gallery", "images", "videos"] },
-      { tooltip: i18n.t('ui.navTitle'), icon: "color", route: ["ui", "colors", "icons", "grid", "grid-gallery"] },
+      {
+        tooltip: i18n.t("stargaze.navTitle"),
+        icon: "monster",
+        route: ["stargazer"],
+      },
+      {
+        tooltip: i18n.t("projects.navTitle"),
+        icon: "duck",
+        route: ["projects", "list", "statistics"],
+      },
+      {
+        tooltip: i18n.t("galleries.navTitle"),
+        icon: "collections",
+        route: ["gallery", "images", "videos"],
+      },
+      {
+        tooltip: i18n.t("ui.navTitle"),
+        icon: "color",
+        route: ["ui", "colors", "icons", "grid", "grid-gallery"],
+      },
     ],
     navigationBuilder: [
       {
-        tooltip: i18n.t('canvas.navTitle'), icon: "window", route: ["canvas", "locations", "avatar", "gear", "wheel", "pixel"],
+        tooltip: i18n.t("canvas.navTitle"),
+        icon: "window",
+        route: ["canvas", "locations", "avatar", "gear", "wheel", "pixel"],
       },
       {
-        tooltip: i18n.t('three.navTitle'), icon: "move", route: [
+        tooltip: i18n.t("three.navTitle"),
+        icon: "move",
+        route: [
           "threejs",
           "cube",
           "spirit",
@@ -170,9 +190,14 @@ export default Vue.extend({
           "drakkar",
           "portfolio2017",
           "audio2",
+          "carrousel",
         ],
       },
-      { tooltip: i18n.t('css.navTitle'), icon: "css3", route: ["css", "house", "pills", "minivan", "window"] },
+      {
+        tooltip: i18n.t("css.navTitle"),
+        icon: "css3",
+        route: ["css", "house", "pills", "minivan", "window"],
+      },
     ],
     linkGithub,
     linkLinkedin,
@@ -183,9 +208,9 @@ export default Vue.extend({
     }),
   },
   methods: {
-    switchLanguage(lang){
+    switchLanguage(lang) {
       this.playSound();
-      this.$i18n.locale = lang
+      this.$i18n.locale = lang;
     },
     ...mapMutations(["toggleValue"]),
     playSound() {

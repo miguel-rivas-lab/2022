@@ -429,6 +429,9 @@
       },
       "audio": {
         "title": "Audio 2"
+      },
+      "carrousel": {
+        "title": "Carrousel"
       }
     }
   },

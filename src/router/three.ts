@@ -11,6 +11,8 @@ import FlipbookWorkareaView from '../views/flipbook-workarea.vue';
 import FlipbookPanelView from '../views/flipbook-panel.vue';
 import PlanetWorkareaView from '../views/planet-workarea.vue';
 
+import CarrouselWorkareaView from '../views/carrousel-workarea.vue';
+
 export default {
   name: 'threejs',
   path: '/threejs',
@@ -18,7 +20,7 @@ export default {
     workarea: Vue.extend({
       props: {
         defaultRoute: {
-          default: "cube"
+          default: "carrousel"
         },
       },
       extends: NestedWorkareaView,
@@ -65,6 +67,11 @@ export default {
               name: "audio2",
               icon: "book",
             },
+            {
+              text: "three.section.carrousel.title",
+              name: "carrousel",
+              icon: "",
+            },
           ])
         }
       },
@@ -72,6 +79,14 @@ export default {
     }),
   },
   children: [
+    {
+      name: 'carrousel',
+      path: '/carrousel',
+      components: {
+        workarea2: CarrouselWorkareaView,
+        panel2: ThreePanelView,
+      },
+    },
     {
       name: 'audio2',
       path: '/audio2',
