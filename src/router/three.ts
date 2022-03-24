@@ -84,7 +84,6 @@ export default {
       path: '/carrousel',
       components: {
         workarea2: CarrouselWorkareaView,
-        panel2: ThreePanelView,
       },
     },
     {
