@@ -3021,26 +3021,26 @@ const projects = [
       h.getNewID(client.enovational, "2020/05/05"),
     ],
     links: [
-      // {
-      //   url: linkWeb("formability/demo"),
-      //   text: "Demo",
-      //   self: false,
-      // },
-      // {
-      //   url: linkWeb("formability/401"),
-      //   text: "401",
-      //   self: false,
-      // },
-      // {
-      //   url: linkWeb("formability/404"),
-      //   text: "404",
-      //   self: false,
-      // },
-      // {
-      //   url: linkWeb("formability/500"),
-      //   text: "500",
-      //   self: false,
-      // },
+      {
+        url: linkWeb("formability/demo"),
+        text: "Demo",
+        self: false,
+      },
+      {
+        url: linkWeb("formability/401"),
+        text: "401",
+        self: false,
+      },
+      {
+        url: linkWeb("formability/404"),
+        text: "404",
+        self: false,
+      },
+      {
+        url: linkWeb("formability/500"),
+        text: "500",
+        self: false,
+      },
     ],
   },
   {

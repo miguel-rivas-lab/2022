@@ -3,7 +3,7 @@
     <scroll-area color="royal-purple" :horizontal="false">
       <container>
         <row vertical>
-          <column>
+          <column tag="nav">
             <template v-for="nav in navigation">
               <template v-if="!nav.route.includes($route.name)">
                 <btn

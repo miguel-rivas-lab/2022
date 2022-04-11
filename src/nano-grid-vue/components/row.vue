@@ -64,12 +64,12 @@ export default Vue.extend({
           grid: this.grid,
         },
         this.computedSpacing,
-        this.breakpoint,
+        this.computedBreakpoint,
       ];
     },
-    computedBreackpoint() {
+    computedBreakpoint() {
       if (breakpointsType.includes(this.breakpoint)) {
-        return validateSpacing(this.breakpoint);
+        return this.breakpoint;
       } else {
         console.warn(
           `breakpoint="${this.breakpoint}" is not a supported value on row.vue, try the following values instead:`
