@@ -2,7 +2,7 @@ import { tool } from "../enums/tools";
 
 export const videos = [
   {
-    url: "videos/mr-universe.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/mr-universe.mp4",
     width: 325,
     height: 580,
     title: "MR Universe",
@@ -13,7 +13,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/avatar.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/avatar.mp4",
     width: 325,
     height: 580,
     title: "Avatar Builder",
@@ -24,7 +24,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/flipbook.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/flipbook.mp4",
     width: 325,
     height: 580,
     title: "Flipbook",
@@ -36,7 +36,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/cube.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/cube.mp4",
     width: 325,
     height: 580,
     title: "Color Cube",
@@ -47,7 +47,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/bitmap.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/bitmap.mp4",
     width: 325,
     height: 580,
     title: "Bitmap Editor",
@@ -58,7 +58,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/map.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/map.mp4",
     width: 325,
     height: 580,
     title: "3D Map",
@@ -71,7 +71,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/tetravex.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/tetravex.mp4",
     width: 325,
     height: 580,
     title: "Tetravex",
@@ -83,7 +83,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/gmap.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/gmap.mp4",
     width: 325,
     height: 580,
     title: "Google Map",
@@ -95,7 +95,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/2022.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/2022.mp4",
     width: 325,
     height: 580,
     title: "Portfolio 2022",
@@ -114,7 +114,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/2016.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/2016.mp4",
     width: 325,
     height: 580,
     title: "Portfolio 2016",
@@ -125,7 +125,7 @@ export const videos = [
     ],
   },
   {
-    url: "videos/2014.mp4",
+    url: "https://miguel-rivas.github.io/zapp/videos/2014.mp4",
     width: 325,
     height: 580,
     title: "Portfolio 2014",

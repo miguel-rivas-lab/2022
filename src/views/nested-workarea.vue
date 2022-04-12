@@ -13,7 +13,7 @@ export default Vue.extend({
     },
   },
   created() {
-    if(this.$route.name !== this.defaultRoute){
+    if (this.$route.name !== this.defaultRoute) {
       this.$router.push({ name: this.defaultRoute });
     }
   },
