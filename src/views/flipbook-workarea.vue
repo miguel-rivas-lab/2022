@@ -2,7 +2,7 @@
 .three-scene(ref="threeScene")
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import * as THREE from "three";
 import ThreeScene from "../mixins/three-scene";
@@ -32,7 +32,7 @@ export default Vue.extend({
 
       const materials = [...Array(this.pages).keys()].map((index) => {
         return new THREE.MeshLambertMaterial({
-          map: loader.load(`img/${this.book}/page${index + 1}.jpg`),
+          map: loader.load(`https://miguel-rivas.github.io/zapp/books/${this.book}/page${index + 1}.jpg`),
         });
       });
 

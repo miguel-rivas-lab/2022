@@ -5,14 +5,14 @@
         <img
           v-bind:key="frameIndex"
           :class="{ active: currentFrame + 1 === frameIndex }"
-          :src="`img/3dlib/${item.name}/000${frameIndex}.jpg`"
+          :src="`https://miguel-rivas.github.io/zapp/img/3dlib/${item.name}/000${frameIndex}.jpg`"
         />
       </template>
     </button>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 
 export default Vue.extend({

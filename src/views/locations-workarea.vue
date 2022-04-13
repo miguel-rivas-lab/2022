@@ -32,7 +32,7 @@
           carrousel(v-bind:key="`mapCarrousel${index}`", :item="item")
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import { mapGetters } from "vuex";
 import Modal from "../components/modal.vue";
@@ -205,21 +205,20 @@ export default Vue.extend({
     createImgs() {
       this.currentTheme = this.theme ? "light" : "dark";
       this.map.temp = new window.Image();
-      this.map.temp.src = require(`@/img/${this.currentTheme}/map.jpg`);
+      this.map.temp.src = `https://miguel-rivas.github.io/zapp/img/3d-map/${this.currentTheme}/map.jpg`;
       this.map.temp.onload = () => {
         this.map.image = this.map.temp;
       };
 
       this.img.forEach((item) => {
         item.temp = new window.Image();
-        item.temp.src = require(`@/img/${this.currentTheme}/${item.name}.jpg`);
+        item.temp.src = `https://miguel-rivas.github.io/zapp/img/3d-map/${this.currentTheme}/${item.name}.jpg`;
         item.temp.onload = () => {
           item.image = item.temp;
         };
       });
     },
     openModal(filter) {
-      document.querySelector("aside.modal .scroll-area").scrollTo(0, 0);
       this.modal.data = locationsDBList.find(
         (item) => item.clients[0] === filter
       );

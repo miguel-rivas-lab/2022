@@ -1,6 +1,6 @@
-import { toolEnum } from "../enums/tools";
-import { typeEnum } from "../enums/types";
-import { client, clientEnum } from "../enums/clients";
+import { tool } from "../enums/tools";
+import { type } from "../enums/types";
+import { client } from "../enums/clients";
 import { user } from "./user";
 
 import h from "../modules/helpers";
@@ -12,33 +12,88 @@ const linkVimeo = (id) => `https://player.vimeo.com/video/${id}`;
 
 const projects = [
   {
-    date: "2021/12/20",
-    title: "Portfolio 2022",
-    types: typeEnum.app,
+    date: "2022/04/11",
+    title: "Portfolio 2022-04",
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.vue,
-      toolEnum.vuex,
-      toolEnum.vueRouter,
-      toolEnum.typescript,
-      toolEnum.three,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.chartJS,
-      toolEnum.konva,
-      toolEnum.pug,
-      toolEnum.i18n,
+      tool.vue,
+      tool.vuex,
+      tool.vueRouter,
+      tool.three,
+      tool.scss,
+      tool.git,
+      tool.chartJS,
+      tool.konva,
+      tool.pug,
+      tool.i18n,
+      tool.webComponents,
     ],
+    image: h.preview("2022"),
     links: [
       {
-        url: linkWeb("2022-vue"),
+        url: linkWeb("2022-04"),
         text: "App",
         self: false,
       },
       {
-        url: linkGithub("2022-vue"),
+        url: linkGithub("2022-04"),
+        text: "Github",
+        self: false,
+      },
+    ],
+    children: [
+      h.getNewID(client.itla, "2011/07/06"),
+      h.getNewID(client.itla, "2011/07/25"),
+      h.getNewID(client.miguelRivas, "2012/11/06"),
+      h.getNewID(client.miguelRivas, "2015/05/23"),
+      h.getNewID(client.miguelRivas, "2015/05/25"),
+      h.getNewID(client.miguelRivas, "2015/05/28"),
+      h.getNewID(client.miguelRivas, "2017/01/01"),
+      h.getNewID(client.miguelRivas, "2017/02/20"),
+      h.getNewID(client.miguelRivas, "2018/06/27"),
+      h.getNewID(client.miguelRivas, "2021/03/22"),
+      h.getNewID(client.miguelRivas, "2021/02/27"),
+      h.getNewID(client.miguelRivas, "2022/01/05"),
+      h.getNewID(client.miguelRivas, "2022/01/24"),
+      h.getNewID(client.miguelRivas, "2022/02/02"),
+      h.getNewID(client.miguelRivas, "2022/02/07"),
+      h.getNewID(client.miguelRivas, "2022/02/20"),
+    ],
+  },
+
+
+  {
+    date: "2021/12/20",
+    title: "Portfolio 2022",
+    image: h.preview("2022"),
+    types: type.app,
+    clients: [
+      client.miguelRivas,
+    ],
+    tools: [
+      tool.vue,
+      tool.vuex,
+      tool.vueRouter,
+      tool.typescript,
+      tool.three,
+      tool.scss,
+      tool.git,
+      tool.chartJS,
+      tool.konva,
+      tool.pug,
+      tool.i18n,
+    ],
+    links: [
+      {
+        url: linkWeb("2022"),
+        text: "App",
+        self: false,
+      },
+      {
+        url: linkGithub("2022"),
         text: "Github",
         self: false,
       },
@@ -66,39 +121,39 @@ const projects = [
   {
     date: "2022/03/04",
     title: "Grid Gallery",
-    types: typeEnum.prototype,
+    types: type.prototype,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     disabled: true,
     tools: [
-      toolEnum.vue,
-      toolEnum.vuex,
-      toolEnum.vueRouter,
-      toolEnum.typescript,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.pug,
+      tool.vue,
+      tool.vuex,
+      tool.vueRouter,
+      tool.typescript,
+      tool.scss,
+      tool.git,
+      tool.pug,
     ],
   },
 
   {
     date: "2022/02/20",
     title: "Pixel Editor",
-    types: typeEnum.prototype,
+    types: type.prototype,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     disabled: true,
     tools: [
-      toolEnum.vue,
-      toolEnum.vuex,
-      toolEnum.vueRouter,
-      toolEnum.typescript,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.konva,
-      toolEnum.pug,
+      tool.vue,
+      tool.vuex,
+      tool.vueRouter,
+      tool.typescript,
+      tool.scss,
+      tool.git,
+      tool.konva,
+      tool.pug,
     ],
   },
 
@@ -106,34 +161,34 @@ const projects = [
   {
     date: "2022/02/07",
     title: "Avatar Builder",
-    types: typeEnum.prototype,
+    types: type.prototype,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     disabled: true,
     tools: [
-      toolEnum.vue,
-      toolEnum.vuex,
-      toolEnum.vueRouter,
-      toolEnum.typescript,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.konva,
-      toolEnum.pug,
+      tool.vue,
+      tool.vuex,
+      tool.vueRouter,
+      tool.typescript,
+      tool.scss,
+      tool.git,
+      tool.konva,
+      tool.pug,
     ],
   },
 
   {
     date: "2022/02/02",
     title: "3D House",
-    types: typeEnum.prototype,
+    types: type.prototype,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.pug,
+      tool.scss,
+      tool.git,
+      tool.pug,
     ],
     disabled: true,
   },
@@ -142,26 +197,26 @@ const projects = [
   {
     date: "2022/01/24",
     title: "Map 3D",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.blender,
+      tool.blender,
     ],
   },
 
   {
     date: "2008/12/05",
     title: "Falling Code / Game",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.vb,
+      tool.vb,
     ],
     links: [
       {
@@ -174,13 +229,13 @@ const projects = [
   {
     date: "2008/11/11",
     title: "Bouncing Shapes",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.vb,
+      tool.vb,
     ],
     links: [
       {
@@ -196,13 +251,13 @@ const projects = [
   {
     date: "2008/05/16",
     title: "Analog Clock",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.vb,
+      tool.vb,
     ],
     links: [
       {
@@ -215,13 +270,13 @@ const projects = [
   {
     date: "2005/10/01",
     title: "ATM",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.pascal,
+      tool.pascal,
     ],
     links: [
       {
@@ -234,26 +289,26 @@ const projects = [
   {
     date: "2005/10/02",
     title: "Bubble Sort",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.pascal,
+      tool.pascal,
     ],
     links: [],
   },
   {
     date: "2005/10/03",
     title: "Infinite Menu",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.pascal,
+      tool.pascal,
     ],
     links: [
       {
@@ -266,13 +321,13 @@ const projects = [
   {
     date: "2005/10/04",
     title: "Fibonacci Sequence",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.pascal,
+      tool.pascal,
     ],
     links: [
       {
@@ -285,13 +340,13 @@ const projects = [
   {
     date: "2005/10/05",
     title: "Summatory / Accumulator",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.pascal,
+      tool.pascal,
     ],
     links: [
       {
@@ -304,13 +359,13 @@ const projects = [
   {
     date: "2005/09/28",
     title: "Random Number",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.pascal,
+      tool.pascal,
     ],
     links: [
       {
@@ -323,13 +378,13 @@ const projects = [
   {
     date: "2007/09/04",
     title: "Pacman Pixel Draw",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.c,
+      tool.c,
     ],
     links: [],
     children: [
@@ -339,52 +394,52 @@ const projects = [
   {
     date: "2008/05/17",
     title: "Tetravex",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.vb,
+      tool.vb,
     ],
     links: [],
   },
   {
     date: "2008/05/18",
     title: "Minesweeper",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.vb,
+      tool.vb,
     ],
     links: [],
   },
   {
     date: "2006/01/05",
     title: "Falling Code / Matrix Effect",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.itesa,
+      client.itesa,
     ],
     tools: [
-      toolEnum.vb,
+      tool.vb,
     ],
     links: [],
   },
   {
     date: "2013/12/06",
     title: "Pasteleria Del Jardin",
-    types: typeEnum.socialMedia,
+    types: type.socialMedia,
     disabled: true,
     clients: [
-      clientEnum.delJardin,
+      client.delJardin,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -397,13 +452,13 @@ const projects = [
   {
     date: "2013/06/18",
     title: "Lanza tu Promo",
-    types: typeEnum.socialMedia,
+    types: type.socialMedia,
     disabled: true,
     clients: [
-      clientEnum.highschool,
+      client.highschool,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -416,13 +471,13 @@ const projects = [
   {
     date: "2013/05/28",
     title: "Audrey Hepburn",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.photoshop,
+      tool.photoshop,
     ],
     links: [
       {
@@ -435,13 +490,13 @@ const projects = [
   {
     date: "2013/03/21",
     title: "Audio 2",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -454,13 +509,13 @@ const projects = [
   {
     date: "2012/11/26",
     title: "Beauty is a Beast",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -473,13 +528,13 @@ const projects = [
   {
     date: "2012/10/24",
     title: "Linux Grub",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.freehand,
+      tool.freehand,
     ],
     links: [
       {
@@ -492,13 +547,13 @@ const projects = [
   {
     date: "2019/07/10",
     title: "Play Sound",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.javascript,
+      tool.javascript,
     ],
     links: [
       {
@@ -510,14 +565,14 @@ const projects = [
   {
     date: "2020/08/08",
     title: "Switch",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.scss,
-      toolEnum.slim,
+      tool.scss,
+      tool.slim,
     ],
     links: [
       {
@@ -529,14 +584,14 @@ const projects = [
   {
     date: "2020/06/17",
     title: "Toggle Arrow",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.scss,
-      toolEnum.slim,
+      tool.scss,
+      tool.slim,
     ],
     links: [
       {
@@ -548,14 +603,14 @@ const projects = [
   {
     date: "2020/08/18",
     title: "Range Slider",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.scss,
-      toolEnum.slim,
+      tool.scss,
+      tool.slim,
     ],
     links: [
       {
@@ -567,13 +622,13 @@ const projects = [
   {
     date: "2011/07/17",
     title: "Madre Naturaleza",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.sk1,
+      tool.sk1,
     ],
     links: [
       {
@@ -586,13 +641,13 @@ const projects = [
   {
     date: "2011/04/24",
     title: "El Montaje",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     links: [
       {
@@ -605,13 +660,13 @@ const projects = [
   {
     date: "2011/02/22",
     title: "Transformer",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -624,13 +679,13 @@ const projects = [
   {
     date: "2009/04/27",
     title: "Flygon",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.fireworks,
+      tool.fireworks,
     ],
     links: [
       {
@@ -643,14 +698,14 @@ const projects = [
   {
     date: "2012/12/12",
     title: "Baká",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.indesign,
-      toolEnum.pencil,
+      tool.indesign,
+      tool.pencil,
     ],
     links: [
       {
@@ -668,13 +723,13 @@ const projects = [
   {
     date: "2012/06/14",
     title: "Le Machine",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.inkscape,
+      tool.inkscape,
     ],
     links: [
       {
@@ -687,16 +742,16 @@ const projects = [
   {
     date: "2012/01/16",
     title: "Stars",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.inkscape,
-      toolEnum.html,
-      toolEnum.javascript,
-      toolEnum.css,
+      tool.inkscape,
+      tool.html,
+      tool.javascript,
+      tool.css,
     ],
     links: [
       {
@@ -709,13 +764,13 @@ const projects = [
   {
     date: "2012/06/25",
     title: "Water Matters",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.indesign,
+      tool.indesign,
     ],
     links: [
       {
@@ -728,13 +783,13 @@ const projects = [
   {
     date: "2012/06/21",
     title: "Wickhop",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.inkscape,
+      tool.inkscape,
     ],
     links: [
       {
@@ -747,13 +802,13 @@ const projects = [
   {
     date: "2012/04/29",
     title: "Corel Draw",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.corelDraw,
+      tool.corelDraw,
     ],
     links: [
       {
@@ -766,13 +821,13 @@ const projects = [
   {
     date: "2011/08/03",
     title: "MP4",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     links: [
       {
@@ -785,13 +840,13 @@ const projects = [
   {
     date: "2011/04/25",
     title: "Dream",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -804,13 +859,13 @@ const projects = [
   {
     date: "2010/12/27",
     title: "Lapices de Colores",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.fireworks,
+      tool.fireworks,
     ],
     links: [
       {
@@ -823,13 +878,13 @@ const projects = [
   {
     date: "2012/07/14",
     title: "Living Walls",
-    types: typeEnum.graphicDesign,
+    types: type.graphicDesign,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.inkscape,
+      tool.inkscape,
     ],
     links: [
       {
@@ -842,14 +897,14 @@ const projects = [
   {
     date: "2012/08/23",
     title: "Tambora",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.inkscape,
-      toolEnum.indesign,
+      tool.inkscape,
+      tool.indesign,
     ],
     links: [
       {
@@ -862,13 +917,13 @@ const projects = [
   {
     date: "2012/09/20",
     title: "T-Magazine",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.scribus,
+      tool.scribus,
     ],
     links: [
       {
@@ -881,15 +936,15 @@ const projects = [
   {
     date: "2013/11/30",
     title: "AguacateKun Identidad",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.autocad,
-      toolEnum.illustrator,
-      toolEnum.indesign,
+      tool.autocad,
+      tool.illustrator,
+      tool.indesign,
     ],
     links: [
       {
@@ -902,13 +957,13 @@ const projects = [
   {
     date: "2013/01/20",
     title: "Libro de Cuentos",
-    types: typeEnum.graphicDesign,
+    types: type.graphicDesign,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.gimp,
+      tool.gimp,
     ],
     links: [
       {
@@ -926,13 +981,13 @@ const projects = [
   {
     date: "2013/12/03",
     title: "Vacaciones Navideñas",
-    types: typeEnum.socialMedia,
+    types: type.socialMedia,
     disabled: true,
     clients: [
-      clientEnum.descubria,
+      client.descubria,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -945,13 +1000,13 @@ const projects = [
   {
     date: "2013/08/03",
     title: "Social Network Facebook",
-    types: typeEnum.socialMedia,
+    types: type.socialMedia,
     disabled: true,
     clients: [
-      clientEnum.socialNetwork,
+      client.socialNetwork,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -964,13 +1019,13 @@ const projects = [
   {
     date: "2013/07/06",
     title: "Facebook App",
-    types: typeEnum.graphicDesign,
+    types: type.graphicDesign,
     disabled: true,
     clients: [
-      clientEnum.tiempoExtra,
+      client.tiempoExtra,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -983,13 +1038,13 @@ const projects = [
   {
     date: "2013/07/05",
     title: "Home Gallery Facebook",
-    types: typeEnum.socialMedia,
+    types: type.socialMedia,
     disabled: true,
     clients: [
-      clientEnum.homeGallery,
+      client.homeGallery,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -1002,13 +1057,13 @@ const projects = [
   {
     date: "2013/07/05",
     title: "SDQ Training Center Facebook",
-    types: typeEnum.socialMedia,
+    types: type.socialMedia,
     disabled: true,
     clients: [
-      clientEnum.sdq,
+      client.sdq,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -1021,14 +1076,14 @@ const projects = [
   {
     date: "2013/06/27",
     title: "Harina Blaquita Facebook",
-    types: typeEnum.socialMedia,
+    types: type.socialMedia,
     disabled: true,
     clients: [
-      clientEnum.harinaBlanquita,
+      client.harinaBlanquita,
     ],
     tools: [
-      toolEnum.illustrator,
-      toolEnum.photoshop,
+      tool.illustrator,
+      tool.photoshop,
     ],
     links: [
       {
@@ -1041,13 +1096,13 @@ const projects = [
   {
     date: "2012/12/29",
     title: "Jenny Aquino",
-    types: typeEnum.graphicDesign,
+    types: type.graphicDesign,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.inkscape,
+      tool.inkscape,
     ],
     links: [
       {
@@ -1060,13 +1115,13 @@ const projects = [
   {
     date: "2012/10/12",
     title: "Blindness Poster",
-    types: typeEnum.graphicDesign,
+    types: type.graphicDesign,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.photoshop,
+      tool.photoshop,
     ],
     links: [
       {
@@ -1079,13 +1134,13 @@ const projects = [
   {
     date: "2012/09/13",
     title: "Diseño de Productos",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.indesign,
+      tool.indesign,
     ],
     links: [
       {
@@ -1098,13 +1153,13 @@ const projects = [
   {
     date: "2012/04/16",
     title: "Raspberry Pi C",
-    types: typeEnum.graphicDesign,
+    types: type.graphicDesign,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.inkscape,
+      tool.inkscape,
     ],
     links: [
       {
@@ -1117,13 +1172,13 @@ const projects = [
   {
     date: "2012/02/28",
     title: "Maggiver",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.mangoBajito,
+      client.mangoBajito,
     ],
     tools: [
-      toolEnum.inkscape,
+      tool.inkscape,
     ],
     links: [
       {
@@ -1136,13 +1191,13 @@ const projects = [
   {
     date: "2013/12/15",
     title: "Badges",
-    types: typeEnum.graphicDesign,
+    types: type.graphicDesign,
     disabled: true,
     clients: [
-      clientEnum.cosplayDominicano,
+      client.cosplayDominicano,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     links: [
       {
@@ -1156,12 +1211,13 @@ const projects = [
   {
     date: "2012/10/26",
     title: "Print Portfolio",
-    types: typeEnum.document,
+    image: h.preview("2012"),
+    types: type.document,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.indesign,
+      tool.indesign,
     ],
     links: [
       {
@@ -1235,17 +1291,18 @@ const projects = [
   {
     date: "2015/01/03",
     title: "Mainfront",
-    types: typeEnum.app,
+    image: h.preview("mainfront"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.pug,
-      toolEnum.jQuery,
-      toolEnum.grunt,
-      toolEnum.scss,
-      toolEnum.illustrator,
-      toolEnum.git,
+      tool.pug,
+      tool.jQuery,
+      tool.grunt,
+      tool.scss,
+      tool.illustrator,
+      tool.git,
     ],
     disabled: true,
     links: [
@@ -1264,17 +1321,18 @@ const projects = [
   {
     date: "2015/04/19",
     title: "CSS Study",
-    types: typeEnum.app,
+    image: h.preview("css-study"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.angular,
-      toolEnum.sweetAlert,
-      toolEnum.illustrator,
-      toolEnum.scss,
-      toolEnum.pug,
-      toolEnum.git,
+      tool.angular,
+      tool.sweetAlert,
+      tool.illustrator,
+      tool.scss,
+      tool.pug,
+      tool.git,
     ],
     links: [
       {
@@ -1292,16 +1350,17 @@ const projects = [
   {
     date: "2021/03/24",
     title: "Hello",
-    types: typeEnum.app,
+    image: h.preview("hello"),
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.vue,
-      toolEnum.illustrator,
-      toolEnum.scss,
-      toolEnum.git,
+      tool.vue,
+      tool.illustrator,
+      tool.scss,
+      tool.git,
     ],
     links: [
       {
@@ -1344,16 +1403,17 @@ const projects = [
   {
     date: "2015/04/26",
     title: "Evolution of the Web",
-    types: typeEnum.app,
+    image: h.preview("evolution"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.stellar,
-      toolEnum.inkscape,
-      toolEnum.pug,
-      toolEnum.git,
-      toolEnum.scss,
+      tool.stellar,
+      tool.inkscape,
+      tool.pug,
+      tool.git,
+      tool.scss,
     ],
     links: [
       {
@@ -1371,15 +1431,15 @@ const projects = [
   {
     date: "2015/05/14",
     title: "Robotic Screen",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.pug,
-      toolEnum.scss,
-      toolEnum.illustrator,
+      tool.pug,
+      tool.scss,
+      tool.illustrator,
     ],
     links: [
       {
@@ -1391,41 +1451,44 @@ const projects = [
   {
     date: "2015/05/23",
     title: "Minivan",
-    types: typeEnum.prototype,
+    image: h.preview("minivan"),
+    types: type.prototype,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     disabled: true,
     tools: [
-      toolEnum.pug,
-      toolEnum.scss,
+      tool.pug,
+      tool.scss,
     ],
   },
   {
     date: "2015/05/25",
-    title: "Windows Form",
-    types: typeEnum.prototype,
+    title: "Window Form",
+    image: h.preview("window"),
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.scss,
-      toolEnum.jade,
-      toolEnum.illustrator,
+      tool.scss,
+      tool.jade,
+      tool.illustrator,
     ],
   },
   {
     date: "2015/05/28",
     title: "Gear Builder",
-    types: typeEnum.prototype,
+    image: h.preview("gear"),
+    types: type.prototype,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.canvas,
-      toolEnum.pug,
-      toolEnum.scss,
+      tool.canvas,
+      tool.pug,
+      tool.scss,
     ],
     disabled: true,
     children: [
@@ -1435,17 +1498,18 @@ const projects = [
   {
     date: "2015/12/07",
     title: "SVG 101",
-    types: typeEnum.prototype,
+    image: h.preview("svg-101"),
+    types: type.prototype,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.stellar,
-      toolEnum.snapSVG,
-      toolEnum.pug,
-      toolEnum.scss,
-      toolEnum.illustrator,
-      toolEnum.git,
+      tool.stellar,
+      tool.snapSVG,
+      tool.pug,
+      tool.scss,
+      tool.illustrator,
+      tool.git,
     ],
     links: [
       {
@@ -1463,20 +1527,21 @@ const projects = [
   {
     date: "2015/12/22",
     title: "Tetravex",
-    types: typeEnum.app,
+    image: h.preview("tetravex"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.javascript,
-      toolEnum.pug,
-      toolEnum.scss,
-      toolEnum.sizzle,
-      toolEnum.lodash,
-      toolEnum.velocity,
-      toolEnum.illustrator,
-      toolEnum.inkscape,
-      toolEnum.git,
+      tool.javascript,
+      tool.pug,
+      tool.scss,
+      tool.sizzle,
+      tool.lodash,
+      tool.velocity,
+      tool.illustrator,
+      tool.inkscape,
+      tool.git,
     ],
     links: [
       {
@@ -1494,26 +1559,27 @@ const projects = [
   {
     date: "2017/02/20",
     title: "Pills",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.slim,
-      toolEnum.scss,
+      tool.slim,
+      tool.scss,
     ],
   },
   {
     date: "2010/07/07",
     title: "French Toast",
+    image: h.preview("french-toast"),
     disabled: true,
-    types: typeEnum.motionGraphics,
+    types: type.motionGraphics,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     links: [
       {
@@ -1526,13 +1592,14 @@ const projects = [
   {
     date: "2012/07/24",
     title: "La Guerra de Vectores",
-    types: typeEnum.motionGraphics,
+    image: h.preview("vectores"),
+    types: type.motionGraphics,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     links: [
       {
@@ -1545,13 +1612,14 @@ const projects = [
   {
     date: "2016/11/21",
     title: "Wurlex",
-    types: typeEnum.animation3D,
+    image: h.preview("wurlex"),
+    types: type.animation3D,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.unity,
-      toolEnum.premiere,
+      tool.unity,
+      tool.premiere,
     ],
     links: [
       {
@@ -1566,19 +1634,20 @@ const projects = [
   },
   {
     date: "2014/02/09",
-    title: "Portfolio 2014",
-    types: typeEnum.app,
+    title: "Screens Portfolio",
+    image: h.preview("2014"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.svelte,
-      toolEnum.scss,
-      toolEnum.git,
+      tool.svelte,
+      tool.scss,
+      tool.git,
     ],
     links: [
       {
-        url: linkWeb("2014-s"),
+        url: linkWeb("2014"),
         text: "App",
         self: false,
       },
@@ -1596,19 +1665,20 @@ const projects = [
   },
   {
     date: "2016/08/11",
-    title: "Portfolio 2016",
-    types: typeEnum.app,
+    title: "Spirit Portfolio",
+    image: h.preview("2016"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.react,
-      toolEnum.scss,
-      toolEnum.git,
+      tool.react,
+      tool.sass,
+      tool.git,
     ],
     links: [
       {
-        url: linkWeb("2016-r"),
+        url: linkWeb("2016"),
         text: "App",
         self: false,
       },
@@ -1622,23 +1692,24 @@ const projects = [
   {
     date: "2021/08/12",
     title: "Portfolio 2021",
-    types: typeEnum.app,
+    image: h.preview("2021"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.vue,
-      toolEnum.vuex,
-      toolEnum.vueRouter,
-      toolEnum.typescript,
-      toolEnum.three,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.chartJS,
-      toolEnum.firebase,
-      toolEnum.highlight,
-      toolEnum.gmap,
-      toolEnum.axios,
+      tool.vue,
+      tool.vuex,
+      tool.vueRouter,
+      tool.typescript,
+      tool.three,
+      tool.scss,
+      tool.git,
+      tool.chartJS,
+      tool.firebase,
+      tool.highlight,
+      tool.gmap,
+      tool.axios,
     ],
     links: [
       {
@@ -1664,57 +1735,58 @@ const projects = [
   },
   {
     date: "2018/01/01",
-    title: "Portfolio 2018",
-    types: typeEnum.app,
+    title: "Grid Portfolio",
+    image: h.preview("2018"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.angular,
-      toolEnum.scss,
-      toolEnum.git,
+      tool.angular,
+      tool.scss,
+      tool.git,
     ],
     links: [
-      {
-        url: linkWeb("2018"),
-        text: "Home",
-        self: false,
-      },
-      {
-        url: linkWeb("2018/drlogic.html"),
-        text: "DrLogic",
-        self: false,
-      },
-      {
-        url: linkWeb("2018/apap.html"),
-        text: "Apap",
-        self: false,
-      },
-      {
-        url: linkWeb("2018/bpr.html"),
-        text: "BPR Bank",
-        self: false,
-      },
-      {
-        url: linkWeb("2018/presidente.html"),
-        text: "Presidente",
-        self: false,
-      },
-      {
-        url: linkWeb("2018/tests.html"),
-        text: "Tests",
-        self: false,
-      },
-      {
-        url: linkVimeo("260621089"),
-        text: "Video",
-        self: false,
-      },
-      {
-        url: linkGithub("2018"),
-        text: "Github",
-        self: false,
-      },
+      // {
+      //   url: linkWeb("2018"),
+      //   text: "Home",
+      //   self: false,
+      // },
+      // {
+      //   url: linkWeb("2018/drlogic.html"),
+      //   text: "DrLogic",
+      //   self: false,
+      // },
+      // {
+      //   url: linkWeb("2018/apap.html"),
+      //   text: "Apap",
+      //   self: false,
+      // },
+      // {
+      //   url: linkWeb("2018/bpr.html"),
+      //   text: "BPR Bank",
+      //   self: false,
+      // },
+      // {
+      //   url: linkWeb("2018/presidente.html"),
+      //   text: "Presidente",
+      //   self: false,
+      // },
+      // {
+      //   url: linkWeb("2018/tests.html"),
+      //   text: "Tests",
+      //   self: false,
+      // },
+      // {
+      //   url: linkVimeo("260621089"),
+      //   text: "Video",
+      //   self: false,
+      // },
+      // {
+      //   url: linkGithub("2018"),
+      //   text: "Github",
+      //   self: false,
+      // },
     ],
     children: [
       h.getNewID(client.miguelRivas, "2021/03/24"),
@@ -1723,16 +1795,17 @@ const projects = [
   {
     date: "2016/01/11",
     title: "HTML/LOVE",
-    types: typeEnum.landingPage,
+    image: h.preview("html-love"),
+    types: type.landingPage,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.haml,
-      toolEnum.scss,
-      toolEnum.illustrator,
-      toolEnum.animate,
-      toolEnum.git,
+      tool.haml,
+      tool.scss,
+      tool.illustrator,
+      tool.animate,
+      tool.git,
     ],
     links: [
       {
@@ -1750,15 +1823,16 @@ const projects = [
   {
     date: "2021/03/22",
     title: "Nano Grid",
-    types: typeEnum.module,
+    types: type.module,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.vue,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.typescript,
+      tool.vue,
+      tool.scss,
+      tool.git,
+      tool.javascript,
+      tool.gulp,
     ],
     disabled: true,
     links: [
@@ -1780,15 +1854,15 @@ const projects = [
   {
     date: "2021/09/12",
     title: "MR Kernel",
-    types: typeEnum.module,
+    types: type.module,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
 
-      toolEnum.typescript,
-      toolEnum.scss,
-      toolEnum.git,
+      tool.typescript,
+      tool.scss,
+      tool.git,
     ],
     links: [
       {
@@ -1806,59 +1880,60 @@ const projects = [
   {
     date: "2012/09/26",
     title: "Tips of Design",
-    types: typeEnum.document,
+    types: type.document,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.indesign,
+      tool.indesign,
     ],
   },
   {
     date: "2017/03/05",
     title: "Art Direction",
-    types: typeEnum.document,
+    types: type.document,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.indesign,
-      toolEnum.illustrator,
-      toolEnum.photoshop,
+      tool.indesign,
+      tool.illustrator,
+      tool.photoshop,
     ],
     disabled: true,
   },
   {
     date: "2015/05/10",
     title: "Bootstrap Prototype",
-    types: typeEnum.landingPage,
+    types: type.landingPage,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.bootstrap,
-      toolEnum.pug,
-      toolEnum.illustrator,
-      toolEnum.scss,
+      tool.bootstrap,
+      tool.pug,
+      tool.illustrator,
+      tool.scss,
     ]
   },
   {
     date: "2021/03/26",
     title: "3D Viewer",
-    types: typeEnum.app,
+    image: h.preview("2021-react"),
+    types: type.app,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.react,
-      toolEnum.redux,
-      toolEnum.three,
-      toolEnum.firebase,
-      toolEnum.scss,
-      toolEnum.typescript,
-      toolEnum.git,
+      tool.react,
+      tool.redux,
+      tool.three,
+      tool.firebase,
+      tool.scss,
+      tool.typescript,
+      tool.git,
     ],
     disabled: true,
     links: [
@@ -1884,15 +1959,15 @@ const projects = [
   {
     date: "2017/01/01",
     title: "FlatCSS",
-    types: typeEnum.module,
+    types: type.module,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.pug,
-      toolEnum.css,
-      toolEnum.git,
+      tool.pug,
+      tool.css,
+      tool.git,
     ],
     links: [
       {
@@ -1910,14 +1985,14 @@ const projects = [
   {
     date: "2020/10/04",
     title: "Fake Audience",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.kotlin,
-      toolEnum.git,
+      tool.kotlin,
+      tool.git,
     ],
     links: [
       {
@@ -1930,27 +2005,27 @@ const projects = [
   {
     date: "2021/02/27",
     title: "3D Graph Colors",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.three,
+      tool.three,
     ],
   },
   {
     date: "2020/05/09",
     title: "Animated SVG Header",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.tweenMax,
-      toolEnum.html,
-      toolEnum.scss,
+      tool.tweenMax,
+      tool.html,
+      tool.scss,
     ],
     links: [
       {
@@ -1962,14 +2037,14 @@ const projects = [
   {
     date: "2020/03/23",
     title: "Xpinner",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.svg,
-      toolEnum.scss,
+      tool.svg,
+      tool.scss,
     ],
     links: [
       {
@@ -1981,14 +2056,14 @@ const projects = [
   {
     date: "2018/06/27",
     title: "Color Wheel Creator",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.javascript,
-      toolEnum.scss,
+      tool.javascript,
+      tool.scss,
     ],
     links: [
       {
@@ -2000,14 +2075,14 @@ const projects = [
   {
     date: "2018/09/11",
     title: "Movie projector",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.svg,
-      toolEnum.scss,
+      tool.svg,
+      tool.scss,
     ],
     links: [
       {
@@ -2019,14 +2094,14 @@ const projects = [
   {
     date: "2018/05/31",
     title: "Check Animation",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.svg,
-      toolEnum.scss,
+      tool.svg,
+      tool.scss,
     ],
     links: [
       {
@@ -2038,13 +2113,13 @@ const projects = [
   {
     date: "2018/03/28",
     title: "Bounce Animation",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.canvas,
+      tool.canvas,
     ],
     links: [
       {
@@ -2056,14 +2131,14 @@ const projects = [
   {
     date: "2015/05/29",
     title: "Spinners",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.pug,
-      toolEnum.scss,
+      tool.pug,
+      tool.scss,
     ],
     links: [
       {
@@ -2075,13 +2150,14 @@ const projects = [
   {
     date: "2012/11/06",
     title: "Drakkar",
-    types: typeEnum.animation3D,
+    image: h.preview("drakkar"),
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.blender,
+      tool.blender,
     ],
     links: [
       {
@@ -2094,13 +2170,13 @@ const projects = [
   {
     date: "2011/12/05",
     title: "Reloj",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.maya,
+      tool.maya,
     ],
     links: [
       {
@@ -2113,13 +2189,13 @@ const projects = [
   {
     date: "2011/11/15",
     title: "Pencil Sharpener",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.maya,
+      tool.maya,
     ],
     links: [
       {
@@ -2132,13 +2208,13 @@ const projects = [
   {
     date: "2011/11/18",
     title: "Batteries: depth of field",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.maya,
+      tool.maya,
     ],
     links: [
       {
@@ -2151,13 +2227,13 @@ const projects = [
   {
     date: "2011/07/25",
     title: "Audi",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.maya,
+      tool.maya,
     ],
     links: [
       {
@@ -2170,13 +2246,13 @@ const projects = [
   {
     date: "2011/07/31",
     title: "Mackbook Pro",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.maya,
+      tool.maya,
     ],
     links: [
       {
@@ -2189,13 +2265,13 @@ const projects = [
   {
     date: "2011/06/22",
     title: "Backpack",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.maya,
+      tool.maya,
     ],
     links: [
       {
@@ -2208,13 +2284,14 @@ const projects = [
   {
     date: "2011/07/06",
     title: "X-wing",
-    types: typeEnum.animation3D,
+    image: h.preview("x-wing"),
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.itla,
+      client.itla,
     ],
     tools: [
-      toolEnum.maya,
+      tool.maya,
     ],
     links: [
       {
@@ -2227,17 +2304,17 @@ const projects = [
   {
     date: "2014/06/16",
     title: "Destapa el Coro",
-    types: typeEnum.app,
+    types: type.app,
     clients: [
-      clientEnum.presidente,
+      client.presidente,
     ],
     disabled: true,
     tools: [
-      toolEnum.html,
-      toolEnum.jQuery,
-      toolEnum.grunt,
-      toolEnum.css,
-      toolEnum.git,
+      tool.html,
+      tool.jQuery,
+      tool.grunt,
+      tool.css,
+      tool.git,
     ],
     links: [
       {
@@ -2256,12 +2333,12 @@ const projects = [
     date: "2015/03/30",
     title: "Pacman",
     disabled: true,
-    types: typeEnum.motionGraphics,
+    types: type.motionGraphics,
     clients: [
-      clientEnum.presidente,
+      client.presidente,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     links: [
       {
@@ -2274,12 +2351,13 @@ const projects = [
   {
     date: "2015/03/24",
     title: "BigPapi Selfie",
-    types: typeEnum.motionGraphics,
+    image: h.preview("pepsi"),
+    types: type.motionGraphics,
     clients: [
-      clientEnum.pepsi,
+      client.pepsi,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     disabled: true,
     links: [
@@ -2293,18 +2371,19 @@ const projects = [
   {
     date: "2015/04/18",
     title: "Carnaval Presidente 2015",
-    types: typeEnum.landingPage,
+    image: h.preview("carnaval-presidente"),
+    types: type.landingPage,
     disabled: true,
     clients: [
-      clientEnum.presidente,
+      client.presidente,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.jQuery,
-      toolEnum.grunt,
-      toolEnum.scss,
-      toolEnum.php,
-      toolEnum.git,
+      tool.html,
+      tool.jQuery,
+      tool.grunt,
+      tool.scss,
+      tool.php,
+      tool.git,
     ],
     links: [
       {
@@ -2327,13 +2406,14 @@ const projects = [
   {
     date: "2015/05/20",
     title: "Recarga Con RedRock",
-    types: typeEnum.motionGraphics,
+    image: h.preview("redrock"),
+    types: type.motionGraphics,
     disabled: true,
     clients: [
-      clientEnum.redRock,
+      client.redRock,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     links: [
       {
@@ -2346,17 +2426,18 @@ const projects = [
   {
     date: "2015/10/23",
     title: "Retrobrindis",
-    types: typeEnum.app,
+    image: h.preview("retro-brindis"),
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.presidente,
+      client.presidente,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.css,
-      toolEnum.jQuery,
-      toolEnum.php,
-      toolEnum.git,
+      tool.html,
+      tool.css,
+      tool.jQuery,
+      tool.php,
+      tool.git,
     ],
     links: [
       {
@@ -2374,15 +2455,16 @@ const projects = [
   {
     date: "2015/11/12",
     title: "Mineriza a tu Familia",
-    types: typeEnum.app,
+    image: h.preview("apap"),
+    types: type.app,
     clients: [
-      clientEnum.apap,
+      client.apap,
     ],
     tools: [
-      toolEnum.pug,
-      toolEnum.jQuery,
-      toolEnum.css,
-      toolEnum.git,
+      tool.pug,
+      tool.jQuery,
+      tool.css,
+      tool.git,
     ],
     links: [
       {
@@ -2403,13 +2485,13 @@ const projects = [
   {
     date: "2017/04/04",
     title: "Promo",
-    types: typeEnum.motionGraphics,
+    types: type.motionGraphics,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.afterEffects,
-      toolEnum.premiere,
+      tool.afterEffects,
+      tool.premiere,
     ],
     links: [
       {
@@ -2423,16 +2505,16 @@ const projects = [
   {
     date: "2015/12/16",
     title: "Verano Presidente 2015",
-    types: typeEnum.prototype,
+    types: type.prototype,
     disabled: true,
     clients: [
-      clientEnum.presidente,
+      client.presidente,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.jQuery,
-      toolEnum.css,
-      toolEnum.git,
+      tool.html,
+      tool.jQuery,
+      tool.css,
+      tool.git,
     ],
     links: [
       {
@@ -2455,17 +2537,18 @@ const projects = [
   {
     date: "2016/02/22",
     title: "Website",
-    types: typeEnum.app,
+    image: h.preview("drlogic"),
+    types: type.app,
     clients: [
-      clientEnum.drLogic,
+      client.drLogic,
     ],
     tools: [
-      toolEnum.haml,
-      toolEnum.scss,
-      toolEnum.jQuery,
-      toolEnum.bootstrap,
-      toolEnum.rails,
-      toolEnum.git,
+      tool.haml,
+      tool.scss,
+      tool.jQuery,
+      tool.bootstrap,
+      tool.rails,
+      tool.git,
     ],
     links: [
       {
@@ -2507,12 +2590,12 @@ const projects = [
   {
     date: "2017/03/06",
     title: "Promo",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     links: [
       {
@@ -2526,28 +2609,29 @@ const projects = [
   {
     date: "2016/03/08",
     title: "Terms and Conditions",
-    types: typeEnum.document,
+    types: type.document,
     clients: [
-      clientEnum.drLogic,
+      client.drLogic,
     ],
     tools: [
-      toolEnum.indesign,
+      tool.indesign,
     ],
     disabled: true,
   },
   {
     date: "2016/06/16",
     title: "Server Prompt",
-    types: typeEnum.prototype,
+    image: h.preview("pixel-404"),
+    types: type.prototype,
     clients: [
-      clientEnum.pixelPerfectTree,
+      client.pixelPerfectTree,
     ],
     tools: [
-      toolEnum.haml,
-      toolEnum.scss,
-      toolEnum.illustrator,
-      toolEnum.rails,
-      toolEnum.git,
+      tool.haml,
+      tool.scss,
+      tool.illustrator,
+      tool.rails,
+      tool.git,
     ],
     disabled: true,
     links: [
@@ -2571,16 +2655,17 @@ const projects = [
   {
     date: "2016/06/30",
     title: "Animated Header",
-    types: typeEnum.prototype,
+    image: h.preview("voxel"),
+    types: type.prototype,
     clients: [
-      clientEnum.voxel,
+      client.voxel,
     ],
     tools: [
-      toolEnum.haml,
-      toolEnum.scss,
-      toolEnum.photoshop,
-      toolEnum.rails,
-      toolEnum.git,
+      tool.haml,
+      tool.scss,
+      tool.photoshop,
+      tool.rails,
+      tool.git,
     ],
     disabled: true,
     links: [
@@ -2599,12 +2684,13 @@ const projects = [
   {
     date: "2015/05/27",
     title: "Orange Reel",
-    types: typeEnum.motionGraphics,
+    image: h.preview("orange"),
+    types: type.motionGraphics,
     clients: [
-      clientEnum.orange,
+      client.orange,
     ],
     tools: [
-      toolEnum.premiere,
+      tool.premiere,
     ],
     links: [
       {
@@ -2624,76 +2710,76 @@ const projects = [
   {
     date: "2015/03/22",
     title: "Essentials",
-    types: typeEnum.motionGraphics,
+    types: type.motionGraphics,
     clients: [
-      clientEnum.orange,
+      client.orange,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     disabled: true,
   },
   {
     date: "2015/03/24",
     title: "Selfie",
-    types: typeEnum.motionGraphics,
+    types: type.motionGraphics,
     clients: [
-      clientEnum.orange,
+      client.orange,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     disabled: true,
   },
   {
     date: "2015/04/24",
     title: "Café",
-    types: typeEnum.motionGraphics,
+    types: type.motionGraphics,
     clients: [
-      clientEnum.orange,
+      client.orange,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     disabled: true,
   },
   {
     date: "2015/05/22",
     title: "Día de las Madres",
-    types: typeEnum.motionGraphics,
+    types: type.motionGraphics,
     clients: [
-      clientEnum.orange,
+      client.orange,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     disabled: true,
   },
   {
     date: "2015/03/31",
     title: "Snorkeling",
-    types: typeEnum.motionGraphics,
+    types: type.motionGraphics,
     clients: [
-      clientEnum.orange,
+      client.orange,
     ],
     tools: [
-      toolEnum.flash,
+      tool.flash,
     ],
     disabled: true,
   },
   {
     date: "2014/01/14",
     title: "Descubria Website",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.descubria,
+      client.descubria,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.css,
-      toolEnum.jQuery,
-      toolEnum.git,
+      tool.html,
+      tool.css,
+      tool.jQuery,
+      tool.git,
     ],
     links: [
       {
@@ -2711,15 +2797,15 @@ const projects = [
   {
     date: "2014/08/06",
     title: "Server Prompt",
-    types: typeEnum.prototype,
+    types: type.prototype,
     clients: [
-      clientEnum.capitalDBG,
+      client.capitalDBG,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.css,
-      toolEnum.illustrator,
-      toolEnum.git,
+      tool.html,
+      tool.css,
+      tool.illustrator,
+      tool.git,
     ],
     disabled: true,
     links: [
@@ -2738,17 +2824,17 @@ const projects = [
   {
     date: "2015/10/28",
     title: "Test",
-    types: typeEnum.landingPage,
+    types: type.landingPage,
     disabled: true,
     clients: [
-      clientEnum.pixelPerfectTree,
+      client.pixelPerfectTree,
     ],
     tools: [
-      toolEnum.pug,
-      toolEnum.scss,
-      toolEnum.jQuery,
-      toolEnum.illustrator,
-      toolEnum.git,
+      tool.pug,
+      tool.scss,
+      tool.jQuery,
+      tool.illustrator,
+      tool.git,
     ],
     links: [
       {
@@ -2765,32 +2851,33 @@ const projects = [
   },
   {
     clients: [
-      clientEnum.presidente,
+      client.presidente,
     ],
     title: "Destapa el Coro: User Flow",
     date: "2014/06/02",
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
-    types: typeEnum.userFlow,
+    types: type.userFlow,
     disabled: true,
   },
   {
     date: "2020/05/05",
     title: "Popkern",
-    types: typeEnum.module,
+    image: h.preview("popkern"),
+    types: type.module,
     clients: [
-      clientEnum.enovational,
+      client.enovational,
     ],
     tools: [
-      toolEnum.vue,
-      toolEnum.vueRouter,
-      toolEnum.rails,
-      toolEnum.slim,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.three,
-      toolEnum.tweenMax,
+      tool.vue,
+      tool.vueRouter,
+      tool.rails,
+      tool.slim,
+      tool.scss,
+      tool.git,
+      tool.three,
+      tool.tweenMax,
     ],
     children: [
       h.getNewID(client.miguelRivas, "2020/03/23"),
@@ -2803,86 +2890,86 @@ const projects = [
   {
     date: "2017/09/20",
     title: "Lemon Deal",
-    types: typeEnum.landingPage,
+    types: type.landingPage,
     clients: [
-      clientEnum.plantTherapy,
+      client.plantTherapy,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.miva,
-      toolEnum.css,
-      toolEnum.jQuery,
-      toolEnum.illustrator,
+      tool.html,
+      tool.miva,
+      tool.css,
+      tool.jQuery,
+      tool.illustrator,
     ],
     disabled: true,
   },
   {
     date: "2017/12/01",
     title: "25 Days of Christmas",
-    types: typeEnum.landingPage,
+    types: type.landingPage,
     clients: [
-      clientEnum.plantTherapy,
+      client.plantTherapy,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.miva,
-      toolEnum.css,
-      toolEnum.jQuery,
-      toolEnum.illustrator,
+      tool.html,
+      tool.miva,
+      tool.css,
+      tool.jQuery,
+      tool.illustrator,
     ],
     disabled: true,
   },
   {
     date: "2015/08/03",
     title: "SIP",
-    types: typeEnum.app,
+    types: type.app,
     clients: [
-      clientEnum.capitalDBG,
+      client.capitalDBG,
     ],
     tools: [
-      toolEnum.pug,
-      toolEnum.scss,
-      toolEnum.jQuery,
+      tool.pug,
+      tool.scss,
+      tool.jQuery,
     ],
     disabled: true,
   },
   {
     date: "2014/10/18",
     title: "Presidente Photo Assignmet",
-    types: typeEnum.app,
+    types: type.app,
     clients: [
-      clientEnum.presidente,
+      client.presidente,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.jQuery,
-      toolEnum.grunt,
-      toolEnum.php,
-      toolEnum.scss,
+      tool.html,
+      tool.jQuery,
+      tool.grunt,
+      tool.php,
+      tool.scss,
     ],
     disabled: true,
   },
   {
     date: "2014/11/05",
     title: "Pronosticos: Wireframe",
-    types: typeEnum.wireFrame,
+    types: type.wireFrame,
     clients: [
-      clientEnum.presidente,
+      client.presidente,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     disabled: true,
   },
   {
     date: "2016/01/29",
     title: "Shop.pr",
-    types: typeEnum.document,
+    types: type.document,
     clients: [
-      clientEnum.pixelPerfectTree,
+      client.pixelPerfectTree,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ],
     disabled: true,
   },
@@ -2890,57 +2977,57 @@ const projects = [
     date: "2017/08/04",
     title: "Chakras",
     disabled: true,
-    types: typeEnum.wireFrame,
+    types: type.wireFrame,
     clients: [
-      clientEnum.plantTherapy,
+      client.plantTherapy,
     ],
     tools: [
-      toolEnum.illustrator,
+      tool.illustrator,
     ]
   },
   {
     date: "2016/02/18",
     title: "BPR Bank",
-    types: typeEnum.app,
+    types: type.app,
     clients: [
-      clientEnum.bprBank,
+      client.bprBank,
     ],
     tools: [
-      toolEnum.haml,
-      toolEnum.scss,
-      toolEnum.jQuery,
-      toolEnum.bootstrap,
-      toolEnum.rails,
-      toolEnum.git,
+      tool.haml,
+      tool.scss,
+      tool.jQuery,
+      tool.bootstrap,
+      tool.rails,
+      tool.git,
     ],
     disabled: true,
   },
   {
     date: "2016/06/24",
     title: "Social Media Posts",
-    types: typeEnum.socialMedia,
+    types: type.socialMedia,
     disabled: true,
     clients: [
-      clientEnum.voxel,
+      client.voxel,
     ],
     tools: [
-      toolEnum.photoshop,
-      toolEnum.illustrator,
+      tool.photoshop,
+      tool.illustrator,
     ]
   },
   {
     date: "2019/01/01",
     title: "MSEC Financial Disclosures Portal",
-    types: typeEnum.app,
+    types: type.app,
     clients: [
-      clientEnum.enovational,
+      client.enovational,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.rails,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.bootstrap,
+      tool.html,
+      tool.rails,
+      tool.scss,
+      tool.git,
+      tool.bootstrap,
     ],
     disabled: true,
     links: [
@@ -2956,16 +3043,16 @@ const projects = [
   {
     date: "2018/05/01",
     title: "MDA Vetboard Portal",
-    types: typeEnum.app,
+    types: type.app,
     clients: [
-      clientEnum.enovational,
+      client.enovational,
     ],
     tools: [
-      toolEnum.html,
-      toolEnum.rails,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.bootstrap,
+      tool.html,
+      tool.rails,
+      tool.scss,
+      tool.git,
+      tool.bootstrap,
     ],
     disabled: true,
     links: [
@@ -2981,17 +3068,18 @@ const projects = [
   {
     date: "2018/06/25",
     title: "Maryland Onestop",
-    types: typeEnum.app,
+    image: h.preview("onestop"),
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.enovational,
+      client.enovational,
     ],
     tools: [
-      toolEnum.vue,
-      toolEnum.rails,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.bootstrap,
+      tool.vue,
+      tool.rails,
+      tool.scss,
+      tool.git,
+      tool.bootstrap,
     ],
     children: [
       h.getNewID(client.enovational, "2020/05/05"),
@@ -3000,19 +3088,20 @@ const projects = [
   {
     date: "2018/09/04",
     title: "Formability",
-    types: typeEnum.app,
+    image: h.preview("formability"),
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.enovational,
+      client.enovational,
     ],
     tools: [
-      toolEnum.vue,
-      toolEnum.vueRouter,
-      toolEnum.vuex,
-      toolEnum.rails,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.bootstrap,
+      tool.vue,
+      tool.vueRouter,
+      tool.vuex,
+      tool.rails,
+      tool.scss,
+      tool.git,
+      tool.bootstrap,
     ],
     children: [
       h.getNewID(client.miguelRivas, "2018/05/31"),
@@ -3021,56 +3110,56 @@ const projects = [
       h.getNewID(client.enovational, "2020/05/05"),
     ],
     links: [
-      {
-        url: linkWeb("formability/demo"),
-        text: "Demo",
-        self: false,
-      },
-      {
-        url: linkWeb("formability/401"),
-        text: "401",
-        self: false,
-      },
-      {
-        url: linkWeb("formability/404"),
-        text: "404",
-        self: false,
-      },
-      {
-        url: linkWeb("formability/500"),
-        text: "500",
-        self: false,
-      },
+      // {
+      //   url: linkWeb("formability/demo"),
+      //   text: "Demo",
+      //   self: false,
+      // },
+      // {
+      //   url: linkWeb("formability/401"),
+      //   text: "401",
+      //   self: false,
+      // },
+      // {
+      //   url: linkWeb("formability/404"),
+      //   text: "404",
+      //   self: false,
+      // },
+      // {
+      //   url: linkWeb("formability/500"),
+      //   text: "500",
+      //   self: false,
+      // },
     ],
   },
   {
     date: "2021/06/21",
     title: "Connections Academy",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.jellyfish,
+      client.jellyfish,
     ],
     tools: [
-      toolEnum.php,
-      toolEnum.wordpress,
-      toolEnum.html,
-      toolEnum.scss,
-      toolEnum.git,
-      toolEnum.grunt,
+      tool.php,
+      tool.wordpress,
+      tool.html,
+      tool.scss,
+      tool.git,
+      tool.grunt,
     ]
   },
   {
     date: "2021/11/08",
     title: "Bitmap Creator",
-    types: typeEnum.app,
+    types: type.app,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.python,
-      toolEnum.tkinter,
+      tool.python,
+      tool.tkinter,
     ],
     links: [
       {
@@ -3088,13 +3177,13 @@ const projects = [
   {
     date: "2021/11/14",
     title: "Spirit 3D",
-    types: typeEnum.animation3D,
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.blender,
+      tool.blender,
     ],
     links: [
       {
@@ -3112,52 +3201,56 @@ const projects = [
   {
     date: "2021/12/21",
     title: "Kaspar Island",
-    types: typeEnum.animation3D,
+    image: h.preview("kaspar"),
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.blender,
+      tool.blender,
     ],
     links: [],
   },
   {
     date: "2021/12/30",
     title: "Iqra Island",
-    types: typeEnum.animation3D,
+    image: h.preview("iqra"),
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.blender,
+      tool.blender,
     ],
     links: [],
   },
   {
     date: "2021/12/10",
     title: "Goose",
-    types: typeEnum.animation3D,
+    image: h.preview("goose"),
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.blender,
+      tool.blender,
     ],
     links: [],
   },
   {
     date: "2022/01/05",
     title: "MR Universe",
-    types: typeEnum.animation3D,
+    image: h.preview("mr-universe"),
+    types: type.animation3D,
     disabled: true,
     clients: [
-      clientEnum.miguelRivas,
+      client.miguelRivas,
     ],
     tools: [
-      toolEnum.unity,
+      tool.unity,
     ],
     children: [
       h.getNewID(client.miguelRivas, "2021/11/14"),

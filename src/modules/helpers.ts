@@ -4,7 +4,7 @@ import { icons } from "../db/icons";
 const initialDate = { years: 1990, months: 5, days: 5, hours: 13, };
 
 const helpers = {
-  dateToNumber(date: string): number {
+  dateToNumber(date) {
     return parseInt(date.split("/").join(""));
   },
   turingDate(date) {
@@ -15,17 +15,17 @@ const helpers = {
     const newDate = DateTime.now().minus(initialDate);
     return `J${newDate.year} M${newDate.month < 10 ? `0${newDate.month}` : newDate.month} T${newDate.day < 10 ? `0${newDate.day}` : newDate.day}`;
   },
-  getID(client: string, date: string): string {
+  getID(client, date) {
     client = client.replace(/[\s./]/g, "").toLowerCase();
     date = date.replace(/\//g, "");
     return `${client}_${date}`;
   },
-  getNewID(client: string, date: string): string {
+  getNewID(client, date) {
     client = client.replace(/[\s./]/g, "").toLowerCase();
     date = date.replace(/\//g, "");
     return `${date}_${client}`;
   },
-  spinalCase(label: string) {
+  spinalCase(label) {
     return label
       .replace(/[!,.*+?^${(|[\\})\]:]/g, '')
       .replace(/&/g, 'and')
@@ -33,14 +33,14 @@ const helpers = {
       .replace(/[ ]{1,}/g, "-")
       .toLowerCase();
   },
-  pascalCase(label: string) {
+  pascalCase(label) {
     return label
       .replace(/[!,.*+?^${(|[\\})\]:]/g, '')
       .replace(/&/g, 'and')
       .trim()
       .replace(/[ ]{1,}/g, "");
   },
-  titleCase(label: string) {
+  titleCase(label) {
     return label
       .replace(/_/g, " ")
       .replace(/(?:^\w|[A-Z]|\b\w)/g, word => {
@@ -57,6 +57,9 @@ const helpers = {
   },
   decToHex(number) {
     return (number).toString(16);
+  },
+  preview(image){
+    return `https://miguel-rivas.github.io/zapp/img/preview/wide/${image}.jpg`
   },
   rad: Math.PI / 180,
   deg: 180 / Math.PI,
